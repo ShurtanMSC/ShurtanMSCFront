@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Admin from './pages/Admin'
 import MainPage from './pages/MainPage'
 import Shurtan from './pages/Shurtan'
-//
+
 const App = () => {
     return (
         <div>
