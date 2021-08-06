@@ -150,9 +150,11 @@ export const ThirdBox = styled.div`
 export const Table = styled.table`
     width:100%;
     border: 0px solid #F4B790;
-    border-collapse: ;
     overflow-y: scroll;
     display: block;
+    &::-webkit-scrollbar{
+    width: 0;
+}
 `
 export const TableScroll = styled.table`
     border-collapse: collapse;
@@ -240,16 +242,160 @@ export const MapBox = styled.div`
     } */
 `
 export const HeadImg = styled.img`
-    width:100px;
-    height: 100px;
+    width:120px;
+    height: 120px;
     position: absolute;
     z-index: 3;
-    top:265px;
-    right:100px;
+    top:305px;
+    right:115px;
     transition: 1.5s ease;
     cursor: pointer;
     &:hover{
         transform: scale(1.2, 1.2);
         z-index:2;
     }
+`
+export const HeadOneImg = styled.img`
+    width:60px;
+    height: 60px;
+    position: absolute;
+    z-index: 3;
+    top:275px;
+    right:250px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2, 1.2);
+        z-index:2;
+    }
+`
+export const HeadTwoImg = styled.img`
+    width:60px;
+    height: 60px;
+    position: absolute;
+    z-index: 3;
+    top:250px;
+    right:300px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2, 1.2);
+        z-index:2;
+    }
+`
+export const HeadThreeImg = styled.img`
+    width:120px;
+    position: absolute;
+    z-index: 3;
+    top:220px;
+    right:350px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2, 1.2);
+        z-index:2;
+    }
+`
+export const HeadFourImg = styled.img`
+    width:120px;
+    position: absolute;
+    z-index: 3;
+    top:130px;
+    right:190px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2, 1.2);
+        z-index:2;
+    }
+`
+export const NeftImg = styled.img`
+    width:80px;
+    position: absolute;
+    z-index: 3;
+    top:90px;
+    right:-15px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.2, 1.2);
+        z-index:2;
+    }
+`
+export const CloudImg = styled.img`
+    width:420px;
+    position: absolute;
+    z-index: 4;
+    top:10px;
+    right:200px;
+    transition: 1.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.1, 1.1);
+        z-index:2;
+    }
+`
+
+// Shurtan
+
+export const ShurtanFirstBox = styled.div`
+
+`
+export const ShurtanSecondBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`
+// ShurtanMap
+export const ShurtanMapContainer = styled.div`
+    width:100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`
+export const ShurtanMapImg = styled.img`
+    height: 770px;
+`
+export const H1shurtan = styled.h1`
+    width: 80%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #363636;
+`
+export const Status = styled.div`
+    width:80%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+`
+export const H4 = styled.h4`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+`
+export const Circle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items:center;
+`
+export const CircleImg = styled.img`
+    margin-right: 5px;
+`
+export const Pcircle = styled.p`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000000;
 `

@@ -4,6 +4,7 @@ import { ContainerFluid, H1, P, NavbarCard, HumanImg, DateP, OclockP, DateAndOcl
 import LogoOne from '../image/Navbar/logo-uzliti.png'
 import LogoTwo from '../image/Navbar/logo-uzbekneftigaz.png'
 import Human from '../image/Navbar/Vector.png'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
     
@@ -21,7 +22,7 @@ const Navbar = () => {
         <ContainerFluidNavbar>
                 <LeftCorner></LeftCorner>
                 <img src={LogoOne} alt="logo" />
-                <H1>Информационно-аналитическая система оперативного анализа эксплуатации Шуртанской группы месторождений</H1>
+                <Link to="/mainPage" style={{boxShadow:'none'}}> <H1>Информационно-аналитическая система оперативного анализа эксплуатации Шуртанской группы месторождений</H1> </Link>
                 <img style={{zIndex:'2'}} src={LogoTwo} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
@@ -35,11 +36,13 @@ const Navbar = () => {
                 </DateAndOclock>
                 
                 <RightCorner>
-                    <Burger>
-                        <BtnBurger></BtnBurger>
-                        <BtnBurger></BtnBurger>
-                        <BtnBurger></BtnBurger>
-                    </Burger>
+                    <Link to='/' style={{boxShadow:'none'}}>
+                        <Burger>
+                            <BtnBurger></BtnBurger>
+                            <BtnBurger></BtnBurger>
+                            <BtnBurger></BtnBurger>
+                        </Burger>
+                    </Link> 
                 </RightCorner>
         </ContainerFluidNavbar>
     )
