@@ -385,13 +385,13 @@ const TdFirstPresure = styled(TdFirst)`
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
 `
-const ThSideIcon = styled(Th)`
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-`
-const FontAwesomeIconSide = styled(FontAwesomeIcon)`
-    cursor: pointer;
-    min-height:80px;
-`
+// const ThSideIcon = styled(Th)`
+//     display:flex;
+//     justify-content:space-between;
+//     align-items:center;
+// `
+// const FontAwesomeIconSide = styled(FontAwesomeIcon)`
+//     cursor: pointer;
+//     min-height:80px;
+// `
 export default Pressure

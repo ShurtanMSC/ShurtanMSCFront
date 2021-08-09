@@ -9,7 +9,7 @@ const WellStock = () => {
         <TableWellStock>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наимено-<br/>вание</Th>
-                <Th colSpan="5" style={{position:'relative', position:'sticky', top:'0'}}> Фонд скважин <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'23px'}}>В работе</Th>

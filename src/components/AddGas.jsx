@@ -9,7 +9,7 @@ const AddGas = () => {
         <TableAddGas>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
-                <Th colSpan="3" style={{position:'relative', position:'sticky', top:'0'}}>Добыча газа, млн.м3 <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, млн.м3 <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'23px'}}>Часовая</Th>
