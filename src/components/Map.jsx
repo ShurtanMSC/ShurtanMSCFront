@@ -6,7 +6,6 @@ import HeadOne from '../image/MainPage/headOne.png'
 import HeadThree from '../image/MainPage/headThree.png'
 import Neft from '../image/MainPage/neft.png'
 import Cloud from '../image/MainPage/cloud.png'
-import styled from 'styled-components'
 import { MainPageImg, MapBox, HeadImg, HeadOneImg,  HeadTwoImg, HeadThreeImg, HeadFourImg, NeftImg, CloudImg} from '../styled'
 
 const Map = () => {

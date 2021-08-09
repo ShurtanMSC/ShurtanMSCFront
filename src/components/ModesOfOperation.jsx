@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
+import { Table, Tr, Th, TdFirst, Td } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
@@ -92,9 +92,5 @@ const ModesOfOperation = () => {
 const TableModeOfOperation = styled(Table)`
     width:1040px;
     height:186px;
-`
-const ThShurtan = styled(Th)`
-    background: #FF914B;
-    color: #FFFFFF;
 `
 export default ModesOfOperation

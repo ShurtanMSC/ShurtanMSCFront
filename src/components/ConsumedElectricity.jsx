@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableScroll, Tr, Th, TdFirst, Td, TdTotal, TdTotalCount } from '../styled'
+import { Table, Tr, Th, TdFirst, Td, TdTotal, TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'

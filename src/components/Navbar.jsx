@@ -145,6 +145,7 @@ const LinkNav = styled(Link)`
     &:hover p{
         color:rgba(0,161,220, 0.8);
         transition: 0.5s ease;
+    }
     p{
         font-family: Montserrat;
         font-style: normal;
