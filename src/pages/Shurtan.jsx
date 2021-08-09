@@ -1,29 +1,41 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { ContainerFluid, ShurtanSecondBox } from '../styled'
+import { ContainerFluid, ShurtanBoxOne, ShurtanBoxTwo, ShurtanBoxThree, Window } from '../styled'
 import styled from 'styled-components'
 import ShurtanMap from '../components/Shurtan/ShurtanMap'
+import Pressure from '../components/Shurtan/Pressure'
+import BtnSearch from '../components/Shurtan/BtnSearch'
+import Grafic from '../components/Shurtan/Grafic'
 
 const Shurtan = () => {
     return (
-        <div>
+        <Window>
             <Navbar/>
             <ContainerFluidShurtan>
-                <div></div>
-                <ShurtanSecondBox>
+                <ShurtanBoxOne>
+                    <Pressure/>
+                    <BtnSearch/>
+                </ShurtanBoxOne>
+                <ShurtanBoxTwo>
                     <ShurtanMap/>
-                </ShurtanSecondBox>
-                <div></div>
+                </ShurtanBoxTwo>
+                <ShurtanBoxThree>
+                    <Grafic/>
+                </ShurtanBoxThree>
             </ContainerFluidShurtan>
-        </div>
+        </Window>
     )
 }
 
 const ContainerFluidShurtan = styled(ContainerFluid)`
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-gap: 5px;
-    padding: 5px;
-    align-items: flex-start;
+    width:100%;
+    min-height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px;
+    @media(max-width:1900px){
+        flex-direction: column;
+    }
 ` 
 export default Shurtan

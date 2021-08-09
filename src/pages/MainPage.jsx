@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import AddGas from '../components/AddGas'
 import styled from 'styled-components'
-import { ContainerFluid, ThirdBox, FirstBox, SecondBox } from '../styled'
+import { ContainerFluid, ThirdBox, FirstBox, SecondBox, Window, ThirdBoxLittleSize, FirstBoxOut } from '../styled'
 import AddAnalize from '../components/AddAnalize'
 import TechnologicalModes from '../components/TechnologicalModes'
 import ConsumedElectricity from '../components/ConsumedElectricity'
@@ -14,14 +14,21 @@ import Map from '../components/Map'
 
 const MainPage = () => {
     return (
-        <div>
+        <Window>
             <Navbar/>
             <ContainerFluidMainPage>
-                <FirstBox>
-                    <AddGas/>
-                    <GasBalance/>
-                    <WellStock/>
-                </FirstBox>
+                <FirstBoxOut>
+                    <FirstBox>
+                        <AddGas/>
+                        <GasBalance/>
+                        <WellStock/>
+                    </FirstBox>
+                    <ThirdBoxLittleSize>
+                        <TechnologicalModes/>
+                        <ConsumedElectricity/>
+                        <NumberOfStaff/>
+                    </ThirdBoxLittleSize>
+                </FirstBoxOut>
                 <SecondBox>
                     <AddAnalize/>
                     <Map/>
@@ -32,17 +39,20 @@ const MainPage = () => {
                     <ConsumedElectricity/>
                     <NumberOfStaff/>
                 </ThirdBox>
-                
             </ContainerFluidMainPage>
-        </div>
+        </Window>
     )
 }
 
 const ContainerFluidMainPage = styled(ContainerFluid)`
-    display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr;
-    grid-gap: 5px;
-    padding: 5px;
-    align-items:flex-start;
+    width:100%;
+    height:95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+    @media(max-width:1900px){
+        flex-direction: column;
+    }
 `
 export default MainPage

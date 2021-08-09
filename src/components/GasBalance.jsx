@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const GasBalance = () => {
     return (
-        <div>
+        <ContainerFluidGasBAlanced>
             <ContainerGasBalanced>
                 <BoxGasBalanced>
                     <PGasBalanced>В ремонте</PGasBalanced>
@@ -56,9 +56,17 @@ const GasBalance = () => {
                 <Button>Текущие эксплуатационные затраты</Button>
                 <Button>Баланс газа</Button>
             </BtnDiv>
-        </div>
+        </ContainerFluidGasBAlanced>
     )
 }
+const ContainerFluidGasBAlanced = styled.div`
+    width:380px;
+    height:160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+`
 const ContainerGasBalanced = styled.div`
     background: #C3E7FA;
     height:110px;
