@@ -9,7 +9,7 @@ const NumberOfStaff = () => {
         <TableNumberOfStaff>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'relative', position:'sticky', top:'0', width:'100%'}}>Количество персонала <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit}/> </Th>
+                <Th colSpan="4" style={{position:'sticky', top:'0', width:'100%'}}>Количество персонала <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit}/> </Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'23px'}}>В работе</Th>

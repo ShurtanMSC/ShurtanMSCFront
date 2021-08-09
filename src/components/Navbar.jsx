@@ -40,13 +40,11 @@ const Navbar = () => {
                     <OclockP> {hours} : {minutes} : {seconds} </OclockP>
                 </DateAndOclock>
                 <RightCorner>
-                    
-                        <Burger  onClick={()=>setOpen(!open)}>
-                            <BtnBurger></BtnBurger> 
-                            <BtnBurger></BtnBurger>
-                            <BtnBurger></BtnBurger>
-                        </Burger>
-                    
+                    <Burger  onClick={()=>setOpen(!open)}>
+                        <BtnBurger></BtnBurger> 
+                        <BtnBurger></BtnBurger>
+                        <BtnBurger></BtnBurger>
+                    </Burger>
                 </RightCorner>
             </ContainerFluidNavbar>
             <CloseDiv open={open}>
@@ -130,9 +128,6 @@ const CloseDiv = styled.div`
     justify-content: center;
     align-items: center;
     display: ${({open}) => (open ? "block" : "none")};
-`
-const Pnav = styled.p`
-    
 `
 const LinkNav = styled(Link)`
     width:100%;

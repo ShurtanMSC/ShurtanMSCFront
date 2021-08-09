@@ -9,7 +9,7 @@ const TechnologicalModes = () => {
         <TableTechnologicalModel>
             <Tr>
                 <Th rowSpan="3" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'relative', position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th colSpan="4" style={{position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
             </Tr>
             <Tr>
                 <Th colSpan="4" style={{position:'sticky', top:'38px'}}>2-х часовой режим, кгс/см2</Th>

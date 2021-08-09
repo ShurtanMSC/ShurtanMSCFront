@@ -1,17 +1,11 @@
-import React, {createContext, useState, useEffect} from 'react'
+import React, {createContext} from 'react'
 
 const AppContext = createContext()
 
 const AppProvider = ({children}) => {
 
-    const [array, setArray] = useState([])
-
-    useEffect(() => {
-    
-    }, [])
-    
     return (
-        <AppContext.Provider value={{array}}>
+        <AppContext.Provider>
             {children}
         </AppContext.Provider>
     )
