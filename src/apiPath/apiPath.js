@@ -1,7 +1,7 @@
 export const apiPath={
     // Users
     addUser:'user/add',
-    editUser:'user/edit/',
+    editUser:'user/edit',
     deleteUser:'user/delete/',
     allUsers:'user/all',
     byIdUser:'user/',
@@ -21,7 +21,7 @@ export const apiPath={
     byIdUppg:'uppg/',
 
     // Collection Point
-    addCollection:'colection/add',
+    addCollection:'collection/add',
     editCollection:'collection/edit',
     deleteCollection:'collection/delete/',
     allCollections:'collection/all',
