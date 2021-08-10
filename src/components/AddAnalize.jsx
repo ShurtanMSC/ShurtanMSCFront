@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 const AddAnalize = () => {
 
