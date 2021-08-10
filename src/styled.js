@@ -174,7 +174,7 @@ export const FirstBox = styled.div`
     min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @media(max-width:1900px){
         width:100%;
@@ -190,7 +190,7 @@ export const SecondBox = styled.div`
     min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin:0 5px;
     @media(max-width:1900px){
@@ -203,7 +203,7 @@ export const ThirdBox = styled.div`
     min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @media(max-width:1900px){
         display:none;
@@ -218,7 +218,7 @@ export const ThirdBoxLittleSize = styled.div`
         min-height: 91vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         width:100%;
         margin-bottom:5px;
@@ -314,7 +314,7 @@ export const MapBox = styled.div`
     background: #fff;
     transition: 2s ease;
     z-index: 2;
-    margin:2px;
+    margin:0 2px 2px 2px;
     /* &:hover{
         transform: scale(1.3, 1.3);
         z-index:2;

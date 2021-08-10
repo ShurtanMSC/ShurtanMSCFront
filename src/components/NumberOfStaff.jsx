@@ -177,6 +177,6 @@ const NumberOfStaff = () => {
 
 const TableNumberOfStaff = styled(Table)`
     width:455px;
-    height:271px;
+    height:297px;
 `
 export default NumberOfStaff

@@ -33,7 +33,7 @@ const MainPage = () => {
                     <AddAnalize/>
                     <Map/>
                     <ModesOfOperation/>
-                </SecondBox>
+                </SecondBox>                
                 <ThirdBox>
                     <TechnologicalModes/>
                     <ConsumedElectricity/>
@@ -49,7 +49,7 @@ const ContainerFluidMainPage = styled(ContainerFluid)`
     height:95%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding:5px;
     @media(max-width:1900px){
         flex-direction: column;

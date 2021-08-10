@@ -153,7 +153,7 @@ const AddGas = () => {
 }
 const TableAddGas = styled(Table)`
     width:380px;
-    height:330px;
+    height:416px;
     margin-bottom: 5px;
 `
 

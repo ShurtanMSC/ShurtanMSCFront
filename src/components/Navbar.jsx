@@ -36,7 +36,7 @@ const Navbar = () => {
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
                 <DateAndOclock>
-                    <DateP>09 август 2021</DateP>
+                    <DateP>10 август 2021</DateP>
                     <OclockP> {hours} : {minutes} : {seconds} </OclockP>
                 </DateAndOclock>
                 <RightCorner>
@@ -48,7 +48,8 @@ const Navbar = () => {
                 </RightCorner>
             </ContainerFluidNavbar>
             <CloseDiv open={open}>
-                <LinkNav to='/' style={{boxShadow:'none'}}>      <p>Выйти из системы <FontAwesomeIcon style={{marginLeft:'5px'}} icon={faSignOutAlt}/> </p>
+                <LinkNav to='/' style={{boxShadow:'none'}}>
+                    <p>Выйти из системы <FontAwesomeIcon style={{marginLeft:'5px'}} icon={faSignOutAlt}/> </p>
                 </LinkNav>
             </CloseDiv>
         </ConatainerFluidNavbarOut>

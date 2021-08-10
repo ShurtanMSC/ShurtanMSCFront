@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 const AddAnalize = () => {
+
+    const [openTable, setOpenTable] = useState(false)
+
     return (
-        <TableAddAnalize>
+        <TableAddAnalize openTable={openTable}>
             <Tr>
-                <Th rowSpan="4">Наименование месторождений</Th>
-                <Th colSpan="10" style={{position:'relative'}} >Анализ добычи <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th rowSpan="4" style={{position:'relative'}}>
+                    Наименование месторождений
+                    <BtnMore onClick={()=>setOpenTable(!openTable)}>
+                        <FontAwesomeIcon icon={ faChevronDown } />
+                    </BtnMore>
+                </Th>
+                <Th colSpan="10" style={{position:'relative'}} >
+                    Анализ добычи 
+                    <FontAwesomeIcon style={{position:'absolute', 
+                                            right:'5px', 
+                                            top:'3px', 
+                                            cursor:'pointer'}}
+                                     icon={faEdit} /> 
+                </Th>
             </Tr>
             <Tr>
                 <Th colSpan="4">За текущий месяц</Th>
@@ -300,9 +315,24 @@ const AddAnalize = () => {
 
 const TableAddAnalize = styled(Table)`
     width:1040px;
-    height:125px;
+    height:${({openTable}) => (openTable ? "100%" : "125px") };
+    margin-bottom: 5px;
 `
 const TdREd = styled(Td)`
     color:red;
 `
+const BtnMore = styled.button`
+    position:absolute;
+    top:70px;
+    left:10px;
+    border:2px solid #555;
+    border-radius: 4px;
+    background: transparent;
+    padding: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`
+
 export default AddAnalize

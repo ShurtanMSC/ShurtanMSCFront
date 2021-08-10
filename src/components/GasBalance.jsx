@@ -65,7 +65,7 @@ const ContainerFluidGasBAlanced = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    margin-bottom: 5px;
 `
 const ContainerGasBalanced = styled.div`
     background: #C3E7FA;

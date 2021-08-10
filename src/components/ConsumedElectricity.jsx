@@ -178,6 +178,7 @@ const ConsumedElectricity = () => {
 
 const TableConsumedElectricity = styled(Table)`
     width:455px;
-    height: 271px;
+    height: 309px;
+    margin-bottom: 5px;
 `
 export default ConsumedElectricity
