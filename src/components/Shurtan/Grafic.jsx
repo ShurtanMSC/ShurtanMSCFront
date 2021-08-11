@@ -14,7 +14,7 @@ const Grafic = () => {
             <TableGrafic openShurtan={openShurtan}>
                 <Tr>
                     <Th style={{position:'relative'}}>Параметры пласта 
-                    <FontAwesomeIcon  onClick={() => setOpenShurtan(!openShurtan)} style={{position:'absolute', right:'10px', top:'4px', cursor:'pointer'}} icon={faChevronDown}/> </Th>
+                    <FontAwesomeIconRotate openShurtan={openShurtan} onClick={() => setOpenShurtan(!openShurtan)} style={{position:'absolute', right:'10px', top:'4px', cursor:'pointer'}} icon={faChevronDown}/> </Th>
                     <Th>Значение</Th>
                 </Tr>
                 <Tr>
@@ -65,5 +65,7 @@ const TableGrafic = styled(Table)`
     width:410px;
     height: ${({openShurtan}) => (openShurtan ? "100%" : "25px")};
 `
-
+const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
+    transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")}
+`
 export default Grafic

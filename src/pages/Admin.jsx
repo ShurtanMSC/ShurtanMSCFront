@@ -57,6 +57,9 @@ const Admin = () => {
 const ContainerAdmin = styled(Container)`
     background : url(${ImgAdmin}) no-repeat center center/cover;
     justify-content: flex-end;
+    @media(max-width:996px){
+        background:none;
+    }
 `
 const Login = styled.form`
     width:55%;
@@ -69,6 +72,10 @@ const Login = styled.form`
     background: #fff;
     padding: 3% 2%;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 13% 100%);
+    @media(max-width:996px){
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
 `
 const DivImg = styled.div`
     width: 250px;

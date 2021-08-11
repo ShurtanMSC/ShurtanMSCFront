@@ -48,10 +48,13 @@ export const Input = styled.input`
         border:1px solid #3393DB;
         box-shadow: 0 0 2px 2px #3392db6c; 
     }
+    @media(max-width:400px){
+        width:120%;
+    }
 `
 export const Button = styled.button`
     width: 100%;
-    padding:0.75rem 1.5rem;
+    padding:0.5rem 1.5rem;
     outline: none;
     background: #00A0DC;
     border-radius: 5px;
@@ -65,6 +68,9 @@ export const Button = styled.button`
     color: #FFFFFF;
     &:focus{
         box-shadow: 0 0 2px 2px #3392db6c;
+    }
+    @media(max-width:400px){
+        width:120%;
     }
 `
 
@@ -279,6 +285,7 @@ export const Td = styled.td`
     font-size: 16px;
     text-align: center;
     color: #363636;
+    box-shadow: 0 0 1.5px #aaa;
 `
 export const TdTotal = styled.td`
     border: 1px solid #F4B790;
@@ -320,7 +327,7 @@ export const MapBox = styled.div`
     width: 100%;
     height: 100%;
     position: relative;
-    background: #E5E5E5;
+    background: #fff;
     transition: 2s ease;
     z-index: 2;
     margin:10px 2px 2px 2px;

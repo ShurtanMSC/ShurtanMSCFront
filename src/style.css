@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #E5E5E5;
+    background-color: #fff;
 }
 a{
     text-decoration: none;
@@ -23,5 +23,74 @@ a:focus{
     width: 0;
 }
 
-
-
+/* Map */
+#cloud{
+    transition: 0.5s ease;
+}
+#cloud:hover{
+    transform: scale(1.02, 1.02);
+}
+#shkgx{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#shkgx:hover{
+    width: 10%;
+    height: 8%;
+}
+#headBranch{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#headBranch:hover{
+    width: 12%;
+    height: 17%;
+}
+#dks{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#dks:hover{
+    width: 5.5%;
+    height: 8%;
+}
+#dks2{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#dks2:hover{
+    width: 5.3%;
+    height: 7.7%;
+}
+#tp{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#tp:hover{
+    width: 9%;
+    height: 9%;
+}
+#gns{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#gns:hover{
+    width: 8%;
+    height: 8%;
+}
+#neft{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#neft:hover{
+    width: 7.5%;
+    height: 11.5%;
+}
+#gasPit{
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#gasPit:hover{
+    width: 5%;
+    height: 11%;
+}

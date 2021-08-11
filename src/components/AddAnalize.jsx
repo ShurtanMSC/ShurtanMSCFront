@@ -15,8 +15,8 @@ const AddAnalize = () => {
                     style={{position:'sticky', 
                             top:'0'}}>
                     Наименование месторождений
-                    <BtnMore onClick={()=>setOpenTable(!openTable)}>
-                        <FontAwesomeIcon icon={ faChevronDown } />
+                    <BtnMore onClick={()=>setOpenTable(!openTable)} >
+                        <FontAwesomeIconRotate openTable={openTable} icon={ faChevronDown } />
                     </BtnMore>
                 </Th>
                 <Th colSpan="10" style={{position:'sticky', 
@@ -320,9 +320,13 @@ const TableAddAnalize = styled(Table)`
     width:1040px;
     height:${({openTable}) => (openTable ? "100%" : "125px") };
     margin-bottom: 5px;
+    @media(max-width:1050px){
+        width:996px;
+    }
 `
 const TdREd = styled(Td)`
     color:red;
+    box-shadow: 0 0 1.5px #aaa;
 `
 const BtnMore = styled.button`
     position:absolute;
@@ -337,5 +341,9 @@ const BtnMore = styled.button`
     align-items: center;
     cursor: pointer;
 `
+const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
+    transform: ${({openTable}) => (openTable ? "rotate(180deg)" : "")};
+`
+
 
 export default AddAnalize

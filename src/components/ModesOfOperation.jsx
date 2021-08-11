@@ -92,5 +92,9 @@ const ModesOfOperation = () => {
 const TableModeOfOperation = styled(Table)`
     width:1040px;
     height:186px;
+    @media(max-width:1050px){
+        width: 996px;
+        height:200px;
+    }
 `
 export default ModesOfOperation
