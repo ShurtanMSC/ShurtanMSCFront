@@ -2,10 +2,11 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { BtnDiv, BtnSerach, Select, Table, Tr, Th, TdFirst, Td } from '../../styled'
+import styled from 'styled-components'
 
 const BtnSearch = () => {
     return (
-        <div>
+        <SearchDiv>
             <BtnDiv>
                 <Select name="text" id="tecxt">
                     <option value="text">УППГ-1</option>
@@ -71,9 +72,11 @@ const BtnSearch = () => {
                     <Td colSpan="4">15</Td>
                 </Tr>
             </Table>
-        </div>
+        </SearchDiv>
         
     )
 }
-
+const SearchDiv = styled.div`
+    width: 400px;
+`
 export default BtnSearch

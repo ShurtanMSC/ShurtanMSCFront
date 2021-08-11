@@ -181,6 +181,9 @@ export const FirstBox = styled.div`
         margin-bottom:5px;
         margin-right: 5px;
     }
+    @media(min-height:1090px){
+        min-height:60vh;
+    }
 `
 export const FirstBoxOut = styled.div`
     display:flex;
@@ -197,6 +200,9 @@ export const SecondBox = styled.div`
         width:100%;
         margin-bottom:5px;
     }
+    @media(min-height:1090px){
+        min-height:60vh;
+    }
 `
 export const ThirdBox = styled.div`
     /* width:24%; */
@@ -209,6 +215,9 @@ export const ThirdBox = styled.div`
         display:none;
         width:100%;
         margin-bottom:5px;
+    }
+    @media(min-height:1090px){
+        min-height:60vh;
     }
 `
 export const ThirdBoxLittleSize = styled.div`
@@ -223,6 +232,9 @@ export const ThirdBoxLittleSize = styled.div`
         width:100%;
         margin-bottom:5px;
     }
+    @media(min-height:1090px){
+        min-height:60vh;
+    }
 `
 // AddGas
 export const Table = styled.table`
@@ -233,11 +245,6 @@ export const Table = styled.table`
     &::-webkit-scrollbar{
     width: 0;
 }
-`
-export const TableScroll = styled.table`
-    border-collapse: collapse;
-    overflow-y: scroll;
-    display: block;
 `
 export const Tr = styled.tr`
     border: 1px solid #F4B790;
@@ -308,118 +315,27 @@ export const MainPageImg = styled.img`
     height: 100%;
 `
 export const MapBox = styled.div`
-    width:1030px;
-    height:535px;
+    /* width:1030px;
+    height:535px; */
+    width: 100%;
+    height: 100%;
     position: relative;
-    background: #fff;
+    background: #E5E5E5;
     transition: 2s ease;
     z-index: 2;
-    margin:0 2px 2px 2px;
+    margin:10px 2px 2px 2px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     /* &:hover{
         transform: scale(1.3, 1.3);
         z-index:2;
         box-shadow: 0 4px 8px #999;
     } */
 `
-export const HeadImg = styled.img`
-    width:120px;
-    height: 120px;
-    position: absolute;
-    z-index: 3;
-    top:305px;
-    right:115px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const HeadOneImg = styled.img`
-    width:60px;
-    height: 60px;
-    position: absolute;
-    z-index: 3;
-    top:275px;
-    right:250px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const HeadTwoImg = styled.img`
-    width:60px;
-    height: 60px;
-    position: absolute;
-    z-index: 3;
-    top:250px;
-    right:300px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const HeadThreeImg = styled.img`
-    width:120px;
-    position: absolute;
-    z-index: 3;
-    top:220px;
-    right:350px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const HeadFourImg = styled.img`
-    width:120px;
-    position: absolute;
-    z-index: 3;
-    top:130px;
-    right:190px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const NeftImg = styled.img`
-    width:80px;
-    position: absolute;
-    z-index: 3;
-    top:90px;
-    right:-15px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.2, 1.2);
-        z-index:2;
-    }
-`
-export const CloudImg = styled.img`
-    width:420px;
-    position: absolute;
-    z-index: 4;
-    top:10px;
-    right:200px;
-    transition: 1.5s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.1, 1.1);
-        z-index:2;
-    }
-`
 
 // Shurtan
-
 export const ShurtanBoxOne = styled.div`
-    width:20%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -431,7 +347,6 @@ export const ShurtanBoxOne = styled.div`
     }
 `
 export const ShurtanBoxTwo = styled.div`
-    width:55%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -443,7 +358,6 @@ export const ShurtanBoxTwo = styled.div`
     }
 `
 export const ShurtanBoxThree = styled.div`
-    width:20%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -457,7 +371,8 @@ export const ShurtanBoxThree = styled.div`
 
 // BtnSearch
 export const BtnDiv = styled.div`
-    margin:1% 0;
+    margin:5px 0;
+    padding:0 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -497,14 +412,16 @@ export const Select = styled.select`
 // ShurtanMap
 export const ShurtanMapContainer = styled.div`
     width:100%;
-    min-height: 90vh;
+    min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 `
 export const ShurtanMapImg = styled.img`
-    height: 770px;
+    width: 100%;
+    height: 100%;
+    background: #E5E5E5;
 `
 export const H1shurtan = styled.h1`
     font-family: Montserrat;
@@ -518,6 +435,10 @@ export const Status = styled.div`
     display: flex;
     justify-content: space-between;
     align-items:center;
+    padding: 0 10px;
+    @media(max-width:1900px){
+        max-width:1080px;
+    }
 `
 export const H4 = styled.h4`
     font-family: Montserrat;
@@ -544,4 +465,14 @@ export const Pcircle = styled.p`
     display: flex;
     align-items: center;
     color: #000000;
+`
+// Grafic
+export const H2 = styled.h2`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #363636;
+    padding: 5px;
 `

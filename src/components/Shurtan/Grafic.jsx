@@ -1,13 +1,20 @@
-import React from 'react'
-import { Table, Tr, Th, TdFirst, Td } from '../../styled'
+import React, { useState } from 'react'
+import { Table, Tr, Th, TdFirst, Td, H2 } from '../../styled'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 const Grafic = () => {
+
+    const [openShurtan, setOpenShurtan] = useState(false);
+
     return (
         <div>
-            <h2>Месторожедние Шуртан</h2>
-            <Table>
+            <H2>Месторожедние Шуртан</H2>
+            <TableGrafic openShurtan={openShurtan}>
                 <Tr>
-                    <Th>Параметры пласта</Th>
+                    <Th style={{position:'relative'}}>Параметры пласта 
+                    <FontAwesomeIcon  onClick={() => setOpenShurtan(!openShurtan)} style={{position:'absolute', right:'10px', top:'4px', cursor:'pointer'}} icon={faChevronDown}/> </Th>
                     <Th>Значение</Th>
                 </Tr>
                 <Tr>
@@ -50,9 +57,13 @@ const Grafic = () => {
                     <TdFirst>Коэффициент сверхсжимаемости газа в начале разработки Zн</TdFirst>
                     <Td>19200</Td>
                 </Tr>
-            </Table>
+            </TableGrafic>
         </div>
     )
 }
+const TableGrafic = styled(Table)`
+    width:410px;
+    height: ${({openShurtan}) => (openShurtan ? "100%" : "25px")};
+`
 
 export default Grafic

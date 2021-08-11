@@ -34,7 +34,7 @@ const MainPage = () => {
                     <Map/>
                     <ModesOfOperation/>
                 </SecondBox>                
-                <ThirdBox>
+                <ThirdBox>  
                     <TechnologicalModes/>
                     <ConsumedElectricity/>
                     <NumberOfStaff/>
@@ -53,6 +53,7 @@ const ContainerFluidMainPage = styled(ContainerFluid)`
     padding:5px;
     @media(max-width:1900px){
         flex-direction: column;
+        align-items: center;
     }
 `
 export default MainPage

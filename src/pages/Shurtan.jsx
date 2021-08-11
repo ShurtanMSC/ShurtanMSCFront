@@ -6,6 +6,8 @@ import ShurtanMap from '../components/Shurtan/ShurtanMap'
 import Pressure from '../components/Shurtan/Pressure'
 import BtnSearch from '../components/Shurtan/BtnSearch'
 import Grafic from '../components/Shurtan/Grafic'
+import Mining from '../components/Shurtan/Mining'
+import Forecast from '../components/Shurtan/Forecast'
 
 const Shurtan = () => {
     return (
@@ -21,6 +23,8 @@ const Shurtan = () => {
                 </ShurtanBoxTwo>
                 <ShurtanBoxThree>
                     <Grafic/>
+                    <Forecast/>                 
+                    <Mining/>
                 </ShurtanBoxThree>
             </ContainerFluidShurtan>
         </Window>
@@ -29,10 +33,10 @@ const Shurtan = () => {
 
 const ContainerFluidShurtan = styled(ContainerFluid)`
     width:100%;
-    min-height:100%;
+    min-height:95%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     padding:5px;
     @media(max-width:1900px){
         flex-direction: column;

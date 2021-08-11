@@ -11,13 +11,16 @@ const AddAnalize = () => {
     return (
         <TableAddAnalize openTable={openTable}>
             <Tr>
-                <Th rowSpan="4" style={{position:'relative'}}>
+                <Th rowSpan="4" 
+                    style={{position:'sticky', 
+                            top:'0'}}>
                     Наименование месторождений
                     <BtnMore onClick={()=>setOpenTable(!openTable)}>
                         <FontAwesomeIcon icon={ faChevronDown } />
                     </BtnMore>
                 </Th>
-                <Th colSpan="10" style={{position:'relative'}} >
+                <Th colSpan="10" style={{position:'sticky', 
+                                        top:'0'}} >
                     Анализ добычи 
                     <FontAwesomeIcon style={{position:'absolute', 
                                             right:'5px', 
@@ -27,23 +30,23 @@ const AddAnalize = () => {
                 </Th>
             </Tr>
             <Tr>
-                <Th colSpan="4">За текущий месяц</Th>
-                <Th colSpan="5">С начала года </Th>
+                <Th colSpan="4" style={{position:'sticky', top:'22px'}} >За текущий месяц</Th>
+                <Th colSpan="5" style={{position:'sticky', top:'22px'}} >С начала года </Th>
             </Tr>
             <Tr>
-                <Th rowSpan="2">План добычи тыс.м3</Th>
-                <Th rowSpan="2">Факт. добыча тыс.м3 </Th>
-                <Th rowSpan="2">% выполнения</Th>
-                <Th>Отставание</Th>
-                <Th rowSpan="2">План добычи тыс.м3</Th>
-                <Th rowSpan="2">Факт. добыча тыс.м3</Th>
-                <Th rowSpan="2">За аналог. период прошлого года</Th>
-                <Th rowSpan="2">% выполнение </Th>
-                <Th>Отставание</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м3</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м3 </Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >% выполнения</Th>
+                <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м3</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м3</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >За аналог. период прошлого года</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >% выполнение </Th>
+                <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
             </Tr>
             <Tr>
-                <Th>Перевыполнение</Th>
-                <Th>Перевыполнение</Th>
+                <Th style={{position:'sticky', top:'69px'}} >Перевыполнение</Th>
+                <Th style={{position:'sticky', top:'69px'}} >Перевыполнение</Th>
             </Tr>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
@@ -324,7 +327,7 @@ const TdREd = styled(Td)`
 const BtnMore = styled.button`
     position:absolute;
     top:70px;
-    left:10px;
+    left:58px;
     border:2px solid #555;
     border-radius: 4px;
     background: transparent;
