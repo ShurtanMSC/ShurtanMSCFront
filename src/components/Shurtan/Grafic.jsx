@@ -12,11 +12,22 @@ const Grafic = () => {
         <div>
             <H2>Месторожедние Шуртан</H2>
             <TableGrafic openShurtan={openShurtan}>
+                <thead>
                 <Tr>
-                    <Th style={{position:'relative'}}>Параметры пласта 
-                    <FontAwesomeIconRotate openShurtan={openShurtan} onClick={() => setOpenShurtan(!openShurtan)} style={{position:'absolute', right:'10px', top:'4px', cursor:'pointer'}} icon={faChevronDown}/> </Th>
+                    <Th style={{position:'relative', padding:'8px 0'}}>Параметры пласта 
+                    <FontAwesomeIconRotate openShurtan={openShurtan} 
+                        onClick={() => setOpenShurtan(!openShurtan)} 
+                        style={{
+                            position:'absolute', 
+                            right:'10px', 
+                            top:'9px', 
+                            cursor:'pointer'}} 
+                            icon={faChevronDown}/> 
+                    </Th>
                     <Th>Значение</Th>
                 </Tr>
+                </thead>
+                <tbody>
                 <Tr>
                     <TdFirst>Коэффицент фильтрационного сопротивления - a</TdFirst>
                     <Td>19200</Td>
@@ -57,15 +68,16 @@ const Grafic = () => {
                     <TdFirst>Коэффициент сверхсжимаемости газа в начале разработки Zн</TdFirst>
                     <Td>19200</Td>
                 </Tr>
+                </tbody>
             </TableGrafic>
         </div>
     )
 }
 const TableGrafic = styled(Table)`
     width:410px;
-    height: ${({openShurtan}) => (openShurtan ? "100%" : "25px")};
+    height: ${({openShurtan}) => (openShurtan ? "100%" : "35px")};
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
-    transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")}
+    transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")};
 `
 export default Grafic

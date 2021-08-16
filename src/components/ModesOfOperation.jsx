@@ -1,15 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Table, Tr, Th, TdFirst, Td } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import ModesOfOperationModal from './ModesOfOperationModal'
 
 const ModesOfOperation = () => {
+    const [showModesOperationModal, setShowModesOperationModal] = useState(false);
+
+    const openModal = () => {
+        setShowModesOperationModal(prev => !prev)
+    }
+
     return (
+        <>
         <TableModeOfOperation>
+            <thead>
             <Tr>
                 <Th rowSpan="3">Наименование обьектов, агрегатов и марка ГТД</Th>
-                <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer', zIndex:"1"}} icon={faEdit} /> </Th>
+                <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС 
+                    <FontAwesomeIcon style={{
+                                        position:'absolute', 
+                                        right:'5px', 
+                                        top:'3px', 
+                                        cursor:'pointer', 
+                                        zIndex:"1"}} 
+                                        icon={faEdit}
+                                        onClick={openModal} /> 
+                </Th>
             </Tr>
             <Tr>
                 <Th colSpan="3">Давление газа, кгс/см²</Th>
@@ -36,6 +54,8 @@ const ModesOfOperation = () => {
                 <Th>мото/час</Th>
                 <Th>мото/час</Th>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirst>ДКС-2 КМПО</TdFirst>
                 <Td>8,06</Td>
@@ -84,8 +104,10 @@ const ModesOfOperation = () => {
                 <Td>8,06</Td>
                 <Td>8,06</Td>
             </Tr>
-            
+            </tbody>    
         </TableModeOfOperation>
+        <ModesOfOperationModal showModesOperationModal={showModesOperationModal} setShowModesOperationModal={setShowModesOperationModal}/>
+        </>
     )
 }
 

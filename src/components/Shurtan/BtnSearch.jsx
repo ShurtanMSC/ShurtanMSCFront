@@ -16,6 +16,7 @@ const BtnSearch = () => {
                 <BtnSerach> БД УППГ </BtnSerach>
             </BtnDiv>
             <Table>
+                <thead>
                 <Tr>
                     <Th>Наименование</Th>
                     <Th>2-х часовая</Th>
@@ -23,6 +24,8 @@ const BtnSearch = () => {
                     <Th>За тек. месяц</Th>
                     <Th>С нач. года</Th>
                 </Tr>
+                </thead>
+                <tbody>
                 <Tr>
                     <TdFirst>Проектная производительность <br/> м3/год</TdFirst>
                     <Td>15</Td>
@@ -71,6 +74,7 @@ const BtnSearch = () => {
                     <TdFirst>Выходная температура, *С</TdFirst>
                     <Td colSpan="4">15</Td>
                 </Tr>
+                </tbody>
             </Table>
         </SearchDiv>
         

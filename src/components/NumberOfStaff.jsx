@@ -1,15 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Table, Tr, Th, TdFirst, Td, TdTotal, TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import NumberOfStaffModal from './NumberOfStaffModal'
 
 const NumberOfStaff = () => {
+    const [showNumberOfStaffModal, setShowNumberOfStaffModal] = useState(false);
+
+    const openModal = () => {
+        setShowNumberOfStaffModal(prev => !prev)
+    };
+
     return (
+        <>
         <TableNumberOfStaff>
+            <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'sticky', top:'0', width:'100%'}}>Количество персонала <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit}/> </Th>
+                <Th colSpan="4" style={{position:'sticky', top:'0', width:'100%'}}>Количество персонала 
+                    <FontAwesomeIcon style={{
+                                        position:'absolute', 
+                                        right:'5px', 
+                                        top:'3px', 
+                                        cursor:'pointer'}} 
+                                        icon={faEdit}
+                                        onClick={openModal}/> 
+                </Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'23px'}}>В работе</Th>
@@ -17,6 +34,8 @@ const NumberOfStaff = () => {
                 <Th style={{position:'sticky', top:'23px'}}>На больничном</Th>
                 <Th style={{position:'sticky', top:'23px'}}>Б/С</Th>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
                 <Td>15</Td>
@@ -164,6 +183,8 @@ const NumberOfStaff = () => {
                 <Td>40</Td>
                 <Td>12</Td>    
             </Tr>
+            </tbody>
+            <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
                 <TdTotalCount>15</TdTotalCount>
@@ -171,7 +192,10 @@ const NumberOfStaff = () => {
                 <TdTotalCount>40</TdTotalCount>
                 <TdTotalCount>12</TdTotalCount>    
             </Tr>
+            </tfoot>
         </TableNumberOfStaff>
+        <NumberOfStaffModal showNumberOfStaffModal={showNumberOfStaffModal} setShowNumberOfStaffModal={setShowNumberOfStaffModal}/>
+        </>
     )
 }
 

@@ -7,6 +7,7 @@ import { faEdit, faChevronDown, faChevronRight } from '@fortawesome/free-solid-s
 const Pressure = () => {
     return (
         <TablePresure>
+            <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
                 <Th colSpan="3" style={{position:'sticky', top:'0'}}>Давление, кгс/см2</Th>
@@ -19,6 +20,8 @@ const Pressure = () => {
                 <Th style={{position:'sticky', top:'38px'}}>РУ</Th>
                 <Th style={{position:'sticky', top:'38px'}}>РПЛ</Th>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit}/> СП-1 <FontAwesomeIconPresure icon={faChevronDown}/>
@@ -359,6 +362,8 @@ const Pressure = () => {
                 <Td>8000</Td>
                 <Td colSpan="2">9000</Td>
             </Tr>
+            </tbody>
+            <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
                 <TdTotalCount>500</TdTotalCount>
@@ -367,6 +372,7 @@ const Pressure = () => {
                 <TdTotalCount>8000</TdTotalCount>
                 <TdTotalCount colSpan="2">9000</TdTotalCount>
             </Tr>
+            </tfoot>
         </TablePresure>
     )
 }

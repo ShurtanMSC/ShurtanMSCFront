@@ -1,15 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import TechnologicalModesModal from './TechnologicalModesModal'
 
 const TechnologicalModes = () => {
+    const [showTechnologicalModesModal, setShowTechnologicalModesModal] = useState(false);
+
+    const openModal = () => {
+        setShowTechnologicalModesModal(prev => !prev)
+    };
+
     return (
+        <>
         <TableTechnologicalModel>
+            <thead>
             <Tr>
                 <Th rowSpan="3" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th colSpan="4" style={{position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений 
+                    <FontAwesomeIcon style={{
+                                        position:'absolute', 
+                                        right:'5px', 
+                                        top:'3px', 
+                                        cursor:'pointer'}} 
+                                        icon={faEdit}
+                                        onClick={openModal} /> 
+                </Th>
             </Tr>
             <Tr>
                 <Th colSpan="4" style={{position:'sticky', top:'38px'}}>2-х часовой режим, кгс/см2</Th>
@@ -20,6 +37,8 @@ const TechnologicalModes = () => {
                 <Th style={{position:'sticky', top:'60px'}}>Давление на БВН</Th>
                 <Th style={{position:'sticky', top:'60px'}}>Давление на входе в ГТС/ДКС</Th>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
                 <Td>15</Td>
@@ -167,6 +186,8 @@ const TechnologicalModes = () => {
                 <Td>40</Td>
                 <Td>12</Td>    
             </Tr>
+            </tbody>
+            <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
                 <TdTotalCount>15</TdTotalCount>
@@ -174,8 +195,10 @@ const TechnologicalModes = () => {
                 <TdTotalCount>40</TdTotalCount>
                 <TdTotalCount>12</TdTotalCount>    
             </Tr>
-
+            </tfoot>
         </TableTechnologicalModel>
+        <TechnologicalModesModal showTechnologicalModesModal={showTechnologicalModesModal} setShowTechnologicalModesModal={setShowTechnologicalModesModal}/>
+        </>
     )
 }
 

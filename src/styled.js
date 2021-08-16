@@ -176,7 +176,6 @@ export const BtnBurger = styled.div`
 `
 // MainPage
 export const FirstBox = styled.div`
-    /* width:20%; */
     min-height: 91vh;
     display: flex;
     flex-direction: column;
@@ -195,7 +194,6 @@ export const FirstBoxOut = styled.div`
     display:flex;
 `
 export const SecondBox = styled.div`
-    /* width:55%; */
     min-height: 91vh;
     display: flex;
     flex-direction: column;
@@ -211,7 +209,6 @@ export const SecondBox = styled.div`
     }
 `
 export const ThirdBox = styled.div`
-    /* width:24%; */
     min-height: 91vh;
     display: flex;
     flex-direction: column;
@@ -374,6 +371,117 @@ export const ShurtanBoxThree = styled.div`
         width:100%;
         margin-bottom:5px;
     }
+`
+// MainPageModal
+export const ModalContainerFluid = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #36363690;
+    z-index:11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+export const ModalContainer = styled.div`
+    width: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 3%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    z-index: 11;
+`
+export const SaveBtnModal = styled.button`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #00A0DC;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border:1px solid #3393DB;
+    padding: 5px 15px;
+    letter-spacing:0.5px;
+    cursor: pointer;
+    &:focus{
+        border:1px solid #3393DB;
+        box-shadow: 0 0 2px 2px #3392db6c;
+    }
+`
+export const CloseBtnModal = styled.button`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FF914B;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border:1px solid #FF914B;
+    padding: 5px 15px;
+    letter-spacing:0.5px;
+    cursor: pointer;
+    margin-left: 10px;
+    &:focus{
+        border:1px solid #FF914B;
+        box-shadow: 0 0 2px 2px rgba(255, 144, 75, 0.5);
+    }
+`
+export const InputModal = styled.input`
+    border: none;
+    outline: none;
+    background: #FAFAFA;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #363636;
+    &:focus{
+        border:0px solid #3393DB;
+        box-shadow: 0 0 2px 2px #3392db6c; 
+    }
+`
+export const H2Div = styled.div`
+    width: 100%;
+    text-align: start;
+    margin-bottom: 2%;
+`
+export const SaveDiv = styled.div`
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2px;
+`
+export const PModal = styled.p`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14x;
+    text-align: center;
+    color: #363636;
+`
+export const SpanModal = styled.span`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #363636;
 `
 
 // BtnSearch

@@ -1,15 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Table, Tr, Th, TdFirst, Td, TdTotal, TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import WellStockModal from './WellStockModal'
 
 const WellStock = () => {
+    const [showWellStockModal, setShowWellStockModal] = useState(false);
+
+    const openModal = () => {
+        setShowWellStockModal(prev => !prev);
+    }
+
     return (
+        <>
         <TableWellStock>
+            <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наимено-<br/>вание</Th>
-                <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин <FontAwesomeIcon style={{position:'absolute', right:'5px', top:'3px', cursor:'pointer'}} icon={faEdit} /> </Th>
+                <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин 
+                <FontAwesomeIcon style={{
+                                    position:'absolute', 
+                                    right:'5px', 
+                                    top:'3px', 
+                                    cursor:'pointer'}} 
+                                    icon={faEdit} 
+                                    onClick={openModal}/> 
+                </Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'23px'}}>В работе</Th>
@@ -18,9 +35,8 @@ const WellStock = () => {
                 <Th style={{position:'sticky', top:'23px'}}>В консер-<br/>вации</Th>
                 <Th style={{position:'sticky', top:'23px'}}>В ликви-<br/>дации</Th>
             </Tr>
-        
-
-        
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
                 <Td>167</Td>
@@ -189,9 +205,8 @@ const WellStock = () => {
                 <Td>7</Td>
                 <Td>7</Td>
             </Tr>
-        
-
-        
+            </tbody>
+            <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
                 <TdTotalCount>167</TdTotalCount>
@@ -200,7 +215,10 @@ const WellStock = () => {
                 <TdTotalCount>7</TdTotalCount>
                 <TdTotalCount>7</TdTotalCount>
             </Tr>
+            </tfoot>
         </TableWellStock>
+        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal}/>
+        </>
     )
 }
 const TableWellStock = styled(Table)`

@@ -7,7 +7,7 @@ import Pressure from '../components/Shurtan/Pressure'
 import BtnSearch from '../components/Shurtan/BtnSearch'
 import Grafic from '../components/Shurtan/Grafic'
 import Mining from '../components/Shurtan/Mining'
-import Forecast from '../components/Shurtan/Forecast'
+import TableGrafic from '../components/Shurtan/TableGrafic/TableGrafic'
 
 const Shurtan = () => {
     return (
@@ -23,7 +23,7 @@ const Shurtan = () => {
                 </ShurtanBoxTwo>
                 <ShurtanBoxThree>
                     <Grafic/>
-                    <Forecast/>                 
+                    <TableGrafic/>                 
                     <Mining/>
                 </ShurtanBoxThree>
             </ContainerFluidShurtan>

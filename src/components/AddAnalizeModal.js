@@ -2,28 +2,28 @@ import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
-const AddGasModal = ({showAddGassModal, setShowAddGassModal}) => {
+const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
         config: {
             duration: 250
         },
-        opacity: showAddGassModal ? 1 : 0,
-        transform: showAddGassModal ? `translateY(0%)` : `translateY(-100%)`
+        opacity: showAddAnalizeModal ? 1 : 0,
+        transform: showAddAnalizeModal ? `translateY(0%)` : `translateY(-100%)`
     });
 
     const closeModal = e => {
         if(modalRef.current === e.target) {
-            setShowAddGassModal(false);
+            setShowAddAnalizeModal(false);
         }
     };
 
     const keyPress = useCallback (e => {
-        if(e.key === 'Escape' && showAddGassModal){
-            setShowAddGassModal(false)
+        if(e.key === 'Escape' && showAddAnalizeModal){
+            setShowAddAnalizeModal(false)
         }
-    }, [setShowAddGassModal, showAddGassModal])
+    }, [setShowAddAnalizeModal, showAddAnalizeModal])
 
     useEffect(() => {
         document.addEventListener('keydown', keyPress);
@@ -32,10 +32,10 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal}) => {
 
     return (
         <>
-        { showAddGassModal ? (
+        { showAddAnalizeModal ? (
             <ModalContainerFluid ref={modalRef} onClick={closeModal}>
             <animated.div style={{animation}}>
-            <ModalContainer showAddGassModal={showAddGassModal}>
+            <ModalContainer showAddAnalizeModal={showAddAnalizeModal}>
                 <H2Div>
                     <H2>Добыча газа, млн.м3</H2>
                 </H2Div>
@@ -185,7 +185,7 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal}) => {
                         <SaveBtnModal>Сохранит</SaveBtnModal>
                         <CloseBtnModal 
                             aria-label='Close modal' 
-                            onClick={()=> setShowAddGassModal(prev => !prev)}>Закрыт
+                            onClick={()=> setShowAddAnalizeModal(prev => !prev)}>Закрыт
                         </CloseBtnModal>
                     </div>
                 </SaveDiv>
@@ -197,4 +197,4 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal}) => {
     );
 };
 
-export default AddGasModal
+export default AddAnalizeModal

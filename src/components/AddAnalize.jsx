@@ -3,20 +3,37 @@ import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import AddAnalizeModal from './AddAnalizeModal'
+import CountUp from 'react-countup'
 
 const AddAnalize = () => {
 
-    const [openTable, setOpenTable] = useState(false)
+    const [openTable, setOpenTable] = useState(false);
+    const [turnIcon, setTurnIcon] = useState(false);
+    const [showAddAnalizeModal, setShowAddAnalizeModal] = useState(false);
+
+    const openMore = () => {
+        setOpenTable(!openTable);
+        setTurnIcon(!turnIcon);
+    }
+
+    const openModal = () => {
+        setShowAddAnalizeModal(prev => !prev)
+    }
 
     return (
+        <>
         <TableAddAnalize openTable={openTable}>
+            <thead>
             <Tr>
                 <Th rowSpan="4" 
                     style={{position:'sticky', 
                             top:'0'}}>
                     Наименование месторождений
-                    <BtnMore onClick={()=>setOpenTable(!openTable)} >
-                        <FontAwesomeIconRotate openTable={openTable} icon={ faChevronDown } />
+                    <BtnMore onClick={openMore} >
+                        <FontAwesomeIconRotate turnIcon={turnIcon} 
+                                                icon={ faChevronDown } 
+                                                />
                     </BtnMore>
                 </Th>
                 <Th colSpan="10" style={{position:'sticky', 
@@ -26,7 +43,8 @@ const AddAnalize = () => {
                                             right:'5px', 
                                             top:'3px', 
                                             cursor:'pointer'}}
-                                     icon={faEdit} /> 
+                                            icon={faEdit} 
+                                            onClick={openModal}/> 
                 </Th>
             </Tr>
             <Tr>
@@ -48,271 +66,278 @@ const AddAnalize = () => {
                 <Th style={{position:'sticky', top:'69px'}} >Перевыполнение</Th>
                 <Th style={{position:'sticky', top:'69px'}} >Перевыполнение</Th>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Южная Тандырча</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Бузахур</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Восточный Бузахур</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Тарнасой</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Ойдин</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Номозбой</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Ёрмок</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Туртсари</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Северный Шуртан</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Гармистон</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Совлигор</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Яккасарай</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Мезон</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Феруза</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Тошли</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Зафар</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Коратепа</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Ширкент</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Рубойи</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
             <Tr>
                 <TdFirst>Янги Коратепа</TdFirst>
-                <Td>5000</Td>
-                <Td>4500</Td>
-                <TdREd>90</TdREd>
-                <TdREd>-500</TdREd>
-                <Td>60000</Td>
-                <Td>59000</Td>
-                <Td>70000</Td>
-                <TdREd>98</TdREd>
-                <TdREd>-1000</TdREd>
+                <Td> <CountUp end={5000} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={4}/> </Td>
+                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                <Td> <CountUp end={60000} duration={6}/> </Td>
+                <Td> <CountUp end={59000} duration={6}/> </Td>
+                <Td> <CountUp end={70000} duration={7}/> </Td>
+                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
             </Tr>
+            </tbody>
+            <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>8000</TdTotalCount>
-                <TdTotalCount>9000</TdTotalCount>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>8000</TdTotalCount>
-                <TdTotalCount>9000</TdTotalCount>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>8000</TdTotalCount>
-                <TdTotalCount>9000</TdTotalCount>
+                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={9000} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
             </Tr>
+            </tfoot>
         </TableAddAnalize>
+        <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal}/>
+        </>
     )
 }
 
@@ -342,7 +367,7 @@ const BtnMore = styled.button`
     cursor: pointer;
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
-    transform: ${({openTable}) => (openTable ? "rotate(180deg)" : "")};
+    transform: ${({turnIcon}) => (turnIcon ? "rotate(180deg)" : "0deg")};
 `
 
 
