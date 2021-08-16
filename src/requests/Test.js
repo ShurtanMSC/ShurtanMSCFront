@@ -4,11 +4,13 @@ import SuperAdminRequests from "./SuperAdminRequests";
 function Test(props) {
     function testRequests() {
         let data = {
-            id: 9992,
-            name: "Feruza"
+            gasCompositionId: 17,
+            miningSystemId: 1,
+            molarFraction: 99,
+            id:16
         }
 
-        SuperAdminRequests.getMiningSystem(92225)
+        SuperAdminRequests.deleteMiningSystemGasComposition(16)
             .then(res =>
                 console.log(res)
             ).catch(error =>

@@ -1,4 +1,4 @@
-import {TOKEN} from "./constants";
+import {TOKEN} from "./constant";
 
 export const configHeader=({headers:{
         'Authorization':localStorage.getItem(TOKEN),
