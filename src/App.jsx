@@ -7,22 +7,22 @@ import Test from "./requests/Test";
 
 const App = () => {
     return (
-        // <div>
-        //     <Switch>
-        //         <Route exact path="/">
-        //             <Admin/>
-        //         </Route>
-        //        <Route exact path="/mainPage">
-        //             <MainPage/>
-        //        </Route>
-        //        <Route exact path="/shurtan">
-        //            <Shurtan/>
-        //        </Route>
-        //    </Switch>
-        // </div>
         <div>
-            <Test/>
+            <Switch>
+                <Route exact path="/">
+                    <Admin/>
+                </Route>
+               <Route exact path="/mainPage">
+                    <MainPage/>
+               </Route>
+               <Route exact path="/shurtan">
+                   <Shurtan/>
+               </Route>
+           </Switch>
         </div>
+        // <div>
+        //     <Test/>
+        // </div>
     )
 }
 

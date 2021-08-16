@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import WellStockModal from './WellStockModal'
+import CountUp from 'react-countup'
 
 const WellStock = () => {
     const [showWellStockModal, setShowWellStockModal] = useState(false);
@@ -39,181 +40,181 @@ const WellStock = () => {
             <tbody>
             <Tr>
                 <TdFirst>Шуртан</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>    
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>    
             </Tr>
             <Tr>
                 <TdFirst>Южная Тандырча</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Бузахур</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Восточный Бузахур</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Тарнасой</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Ойдин</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Номозбой</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Ёрмок</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Туртсари</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Северный Шуртан</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Гармистон</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Совлигор</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Яккасарай</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Мезон</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Феруза</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Тошли</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Зафар</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Коратепа</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Ширкент</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Рубойи</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>Янги Коратепа</TdFirst>
-                <Td>167</Td>
-                <Td>22</Td>
-                <Td>5</Td>
-                <Td>7</Td>
-                <Td>7</Td>
+                <Td> <CountUp end={167} duration={5}/> </Td>
+                <Td> <CountUp end={22} duration={5}/> </Td>
+                <Td> <CountUp end={5} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
+                <Td> <CountUp end={7} duration={5}/> </Td>
             </Tr>
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount>167</TdTotalCount>
-                <TdTotalCount>22</TdTotalCount>
-                <TdTotalCount>5</TdTotalCount>
-                <TdTotalCount>7</TdTotalCount>
-                <TdTotalCount>7</TdTotalCount>
+                <TdTotalCount> <CountUp end={167} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={20} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={5} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={7} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={7} duration={5}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableWellStock>

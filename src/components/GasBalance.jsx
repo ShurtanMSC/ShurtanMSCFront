@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import CountUp from 'react-countup'
+import { motion } from "framer-motion"
 
 const GasBalance = () => {
     return (
@@ -13,7 +15,7 @@ const GasBalance = () => {
                             <CircleOne cx="30" cy="30" r="30"></CircleOne>
                         </Svg>
                         <Number>
-                            <h4>82<span>%</span></h4>
+                            <h4> <CountUp end={82} duration={5}/> <span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -25,7 +27,7 @@ const GasBalance = () => {
                             <CircleTwo cx="30" cy="30" r="30"></CircleTwo>
                         </Svg>
                         <Number>
-                            <h4>59<span>%</span></h4>
+                            <h4> <CountUp end={59} duration={5}/> <span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -37,18 +39,18 @@ const GasBalance = () => {
                             <CircleThree cx="30" cy="30" r="30"></CircleThree>
                         </Svg>
                         <Number>
-                            <h4>68<span>%</span></h4>
+                            <h4> <CountUp end={69} duration={5}/> <span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
                 <Card>
                     <CardGasBalanced>
                         <P>Часовая <br/> Добыча:</P>
-                        <PNumber>500 <Span>тыс.м³</Span></PNumber>
+                        <PNumber> <CountUp end={500} duration={5}/> <Span>тыс.м³</Span></PNumber>
                     </CardGasBalanced>
                     <CardGasBalanced>
                         <P>Средний <br/> Дебит:</P>
-                        <PNumber>5000<Span>тыс.м³</Span></PNumber>
+                        <PNumber> <CountUp end={5000} duration={5}/> <Span>тыс.м³</Span></PNumber>
                     </CardGasBalanced>
                 </Card>
             </ContainerGasBalanced>
@@ -150,8 +152,17 @@ const CircleOne =styled.circle`
         stroke:#FAFAFA;
     }
     &:nth-child(2){
-        stroke-dashoffset:calc( 189 - ( 189 * 82 ) / 100);
+        stroke-dashoffset: calc( 189 - ( 189 * 82 ) / 100);
         stroke:#FF914B;
+        animation: html 5s;
+        @keyframes html{
+            0%{
+                stroke-dashoffset: 270%;
+            }
+            100%{
+                stroke-dashoffset: calc( 189 - ( 189 * 82 ) / 100)"%";
+            }
+        }
     }
 `
 const CircleTwo =styled.circle`
@@ -169,6 +180,15 @@ const CircleTwo =styled.circle`
     &:nth-child(2){
         stroke-dashoffset:calc( 189 - ( 189 * 59 ) / 100);
         stroke:#FF914B;
+        animation: css 5s;
+        @keyframes css{
+            0%{
+                stroke-dashoffset: 270%;
+            }
+            100%{
+                stroke-dashoffset: calc( 189 - ( 189 * 59 ) / 100)"%";
+            }
+        }
     }
 `
 const CircleThree =styled.circle`
@@ -186,6 +206,15 @@ const CircleThree =styled.circle`
     &:nth-child(2){
         stroke-dashoffset:calc( 189 - ( 189 * 68 ) / 100);
         stroke:#FF914B;
+        animation: js 5s;
+        @keyframes js{
+            0%{
+                stroke-dashoffset: 270%;
+            }
+            100%{
+                stroke-dashoffset: calc( 189 - ( 189 * 68 ) / 100)"%";
+            }
+        }
     }
 `
 const Number = styled.div`

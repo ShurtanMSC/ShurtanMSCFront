@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ModesOfOperationModal from './ModesOfOperationModal'
+import CountUp from 'react-countup'
 
 const ModesOfOperation = () => {
     const [showModesOperationModal, setShowModesOperationModal] = useState(false);
@@ -58,51 +59,51 @@ const ModesOfOperation = () => {
             <tbody>
             <Tr>
                 <TdFirst>ДКС-2 КМПО</TdFirst>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>ДКС-2 Батеман</TdFirst>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>ДКС-Сев.Нишан</TdFirst>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
-                <Td>8,06</Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={8.6} duration={5}/> </Td>
             </Tr>
             </tbody>    
         </TableModeOfOperation>
