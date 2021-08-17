@@ -40,6 +40,7 @@ const ContainerFluidShurtan = styled(ContainerFluid)`
     padding:5px;
     @media(max-width:1900px){
         flex-direction: column;
+        align-items: center;
     }
 ` 
 export default Shurtan

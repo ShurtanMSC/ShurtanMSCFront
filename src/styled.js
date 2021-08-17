@@ -323,7 +323,6 @@ export const MapBox = styled.div`
     height:535px; */
     width: 100%;
     height: 100%;
-    position: relative;
     background: #fff;
     transition: 2s ease;
     z-index: 2;
@@ -340,36 +339,45 @@ export const MapBox = styled.div`
 
 // Shurtan
 export const ShurtanBoxOne = styled.div`
-    min-height: 100%;
+    min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @media(max-width:1900px){
         width:100%;
         margin-bottom:5px;
+    }
+    @media(min-height:1090px){
+        min-height:60vh;
     }
 `
 export const ShurtanBoxTwo = styled.div`
-    min-height: 100%;
+    min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @media(max-width:1900px){
         width:100%;
         margin-bottom:5px;
     }
+    @media(min-height:1090px){
+        min-height:60vh;
+    }
 `
 export const ShurtanBoxThree = styled.div`
-    min-height: 100%;
+    min-height: 91vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @media(max-width:1900px){
         width:100%;
         margin-bottom:5px;
+    }
+    @media(min-height:1090px){
+        min-height:60vh;
     }
 `
 // MainPageModal
@@ -382,7 +390,7 @@ export const ModalContainerFluid = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: #36363690;
+    background: rgba(0, 0, 0, 0.5);
     z-index:11;
     display: flex;
     justify-content: center;
@@ -526,17 +534,22 @@ export const Select = styled.select`
 
 // ShurtanMap
 export const ShurtanMapContainer = styled.div`
-    width:100%;
-    min-height: 91vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    @media(min-height:1090px){
+        min-height:60vh;
+    }
 `
 export const ShurtanMapImg = styled.img`
     width: 100%;
     height: 100%;
     background: #E5E5E5;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `
 export const H1shurtan = styled.h1`
     font-family: Montserrat;
@@ -590,4 +603,90 @@ export const H2 = styled.h2`
     text-align: center;
     color: #363636;
     padding: 5px;
+`
+// ShurtanModal
+export const ModalDivShurtan = styled.div`
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4%;
+`
+export const TableModalShurtan = styled.table`
+    height: 80%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+`
+export const TdModalShurtanFirst = styled.td`
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #363636;
+    width: 206px;
+    height: 40px;
+`
+export const TdModalShurtan = styled.td`
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #363636;
+    width: 149px;
+    height: 40px;
+`
+export const TdModalShurtanColor = styled.td`
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #158FFF;
+`
+export const TdModalShurtanData = styled.td`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #363636;
+    width: 206px;
+    height: 40px;
+`
+export const ButtonModalShurtan = styled.button`
+    background: #00A0DC;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+    &:focus{
+        border:1px solid #3393DB;
+        box-shadow: 0 0 2px 2px #3392db6c; 
+    }
 `

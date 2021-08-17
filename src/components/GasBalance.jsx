@@ -1,9 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import CountUp from 'react-countup'
+import CurrentOperatingCostsModal from './CurrentOperatingCostsModal'
+import GasBalanceModal from './GasBalanceModal'
 
 const GasBalance = () => {
+    const [showCurrentOperatingCosts, setShowCurrentOperatingCosts] = useState(false);
+    const [showGasBalanceModal, setShowGasBalanceModal] = useState(false);
+
+    const openModal = () => {
+        setShowCurrentOperatingCosts(prev => !prev);
+    }
+
+    const showModal = () => {
+        setShowGasBalanceModal(prev => !prev);
+    }
+
     return (
+        <>
         <ContainerFluidGasBAlanced>
             <ContainerGasBalanced>
                 <BoxGasBalanced>
@@ -54,10 +68,14 @@ const GasBalance = () => {
                 </Card>
             </ContainerGasBalanced>
             <BtnDiv>
-                <Button>Текущие эксплуатационные затраты</Button>
-                <Button>Баланс газа</Button>
+                <Button onClick={openModal}>Текущие эксплуатационные затраты</Button>
+                <Button onClick={showModal}>Баланс газа</Button>
             </BtnDiv>
         </ContainerFluidGasBAlanced>
+        <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts}/>
+        <GasBalanceModal showGasBalanceModal={showGasBalanceModal} setShowGasBalanceModal={setShowGasBalanceModal}/>
+
+        </>
     )
 }
 const ContainerFluidGasBAlanced = styled.div`

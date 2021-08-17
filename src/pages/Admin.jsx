@@ -44,8 +44,8 @@ const Admin = () => {
                     </DivImg>
                     <div>
                         <Form >
-                            <Input type="text" name="name" placeholder="Логин" value={name} onChange={handlerName} required/>
-                            <Input type="password" name="password" placeholder="Пароль" value={password} onChange={handlerPassword} required/>
+                            <Input type="text" name="name" required placeholder="Логин" value={name} onChange={handlerName} />
+                            <Input type="password" name="password" required placeholder="Пароль" value={password} onChange={handlerPassword} />
                             <Button type="submit" onClick={(e)=>handlerChange(e)}> <Link to="/mainPage"> Войти в систему </Link> </Button>
                         </Form>
                     </div>

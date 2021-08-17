@@ -28,7 +28,7 @@ a:focus{
     transition: 0.5s ease;
 }
 #cloud:hover{
-    transform: scale(1.02, 1.02);
+    transform: scale(1.01, 1.01);
 }
 #shkgx{
     transition: 0.5s ease;
@@ -93,4 +93,19 @@ a:focus{
 #gasPit:hover{
     width: 5%;
     height: 11%;
+}
+
+/* ShurtanMap */
+.backdrop{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 11;
+}
+.modal{
+    max-width: 390px;
+    margin: 0 auto;
 }

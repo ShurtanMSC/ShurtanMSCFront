@@ -51,13 +51,13 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal}) => {
                     <tbody>
                         <Tr>
                             <TdFirst>Шуртан</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value="500" disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value="8000" disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value="9000" disabled/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Южная Тандирча</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required /> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
