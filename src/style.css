@@ -109,3 +109,19 @@ a:focus{
     max-width: 390px;
     margin: 0 auto;
 }
+.wells, .wellsPoint, .wellsPoint129{
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.wells:hover{
+    width: 2%;
+    height: 3%;
+}
+.wellsPoint:hover{
+    width:6%;
+    height:6%;
+}
+.wellsPoint129:hover{
+    width:6%;
+    height:7%;
+}

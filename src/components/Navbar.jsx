@@ -36,7 +36,7 @@ const Navbar = () => {
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
                 <DateAndOclock>
-                    <DateP>11 август 2021</DateP>
+                    <DateP>18 август 2021</DateP>
                     <OclockP> {hours} : {minutes} : {seconds} </OclockP>
                 </DateAndOclock>
                 <RightCorner>
