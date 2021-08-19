@@ -397,7 +397,7 @@ export const ModalContainerFluid = styled.div`
     align-items: center;
 `
 export const ModalContainer = styled.div`
-    width: 680px;
+    max-width: 1380px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -448,6 +448,7 @@ export const CloseBtnModal = styled.button`
     }
 `
 export const InputModal = styled.input`
+    width: 100%;  
     border: none;
     outline: none;
     background: #FAFAFA;
@@ -490,6 +491,14 @@ export const SpanModal = styled.span`
     font-size: 16px;
     text-align: center;
     color: #363636;
+`
+export const DivDataModal = styled.div`
+  max-width: 300px;
+  margin-right: auto;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content:center;
+  align-items:flex-start;
 `
 
 // BtnSearch
@@ -689,4 +698,20 @@ export const ButtonModalShurtan = styled.button`
         border:1px solid #3393DB;
         box-shadow: 0 0 2px 2px #3392db6c; 
     }
+`
+export const SelectModal = styled.select`
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #FAFAFA;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #363636;
+    &:focus{
+        border:0px solid #3393DB;
+        box-shadow: 0 0 2px 2px #3392db6c;
+    }  
 `

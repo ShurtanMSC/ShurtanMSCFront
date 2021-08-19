@@ -37,20 +37,24 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
             <animated.div style={{animation}}>
             <ModalContainer showWellStockModal={showWellStockModal}>
                 <H2Div>
-                    <H2>Добыча газа, млн.м3</H2>
+                    <H2>Состояние скважин по месторождениям</H2>
                 </H2Div>
                 <Table>
                     <thead>
                         <Tr>
                             <Th style={{padding:'1rem'}}>Наименование</Th>
-                            <Th>2-х часовая</Th>
-                            <Th>С начала суток</Th>
-                            <Th>За текущий месяц</Th>
+                            <Th>В работе</Th>
+                            <Th>В простое</Th>
+                            <Th>В ремонте</Th>
+                            <Th>В консервации</Th>
+                            <Th>В ликвидации</Th>
                         </Tr>
                     </thead>
                     <tbody>
                         <Tr>
                             <TdFirst>Шуртан</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -60,9 +64,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Бузахур</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -72,9 +80,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Тарнасой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -84,9 +96,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Номозбой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -96,9 +112,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Туртсари</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -108,9 +128,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Гармистон</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -120,9 +144,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Яккасарай</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -132,9 +160,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Феруза</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -144,9 +176,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Зафар</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -156,9 +192,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Ширкент</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -168,9 +208,13 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Янги Коратепа</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>

@@ -37,20 +37,22 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
             <animated.div style={{animation}}>
             <ModalContainer showConsumedElectricity={showConsumedElectricity}>
                 <H2Div>
-                    <H2>Добыча газа, млн.м3</H2>
+                    <H2>Потребляемая электроэнергия, кв/ч</H2>
                 </H2Div>
                 <Table>
                     <thead>
                         <Tr>
                             <Th style={{padding:'1rem'}}>Наименование</Th>
-                            <Th>2-х часовая</Th>
-                            <Th>С начала суток</Th>
-                            <Th>За текущий месяц</Th>
+                            <Th>Часовая</Th>
+                            <Th>Сутки</Th>
+                            <Th>С начало месяца</Th>
+                            <Th>С начало года</Th>
                         </Tr>
                     </thead>
                     <tbody>
                         <Tr>
                             <TdFirst>Шуртан</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -60,9 +62,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Бузахур</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -72,9 +76,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Тарнасой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -84,9 +90,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Номозбой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -96,9 +104,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Туртсари</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -108,9 +118,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Гармистон</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -120,9 +132,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Яккасарай</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -132,9 +146,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Феруза</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -144,9 +160,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Зафар</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -156,9 +174,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Ширкент</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -168,9 +188,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Янги Коратепа</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>

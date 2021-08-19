@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useCallback} from 'react';
+    import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
@@ -37,20 +37,28 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
             <animated.div style={{animation}}>
             <ModalContainer showAddAnalizeModal={showAddAnalizeModal}>
                 <H2Div>
-                    <H2>Добыча газа, млн.м3</H2>
+                    <H2>Анализ добычи</H2>
                 </H2Div>
                 <Table>
                     <thead>
                         <Tr>
-                            <Th style={{padding:'1rem'}}>Наименование</Th>
-                            <Th>2-х часовая</Th>
-                            <Th>С начала суток</Th>
-                            <Th>За текущий месяц</Th>
+                            <Th rowSpan="2" style={{padding:'1rem'}}>Наименование</Th>
+                            <Th colSpan="2">За текущий месяц</Th>
+                            <Th colSpan="3">С начала года</Th>
+                        </Tr>
+                        <Tr>
+                            <Th>План добычи тыс.м3</Th>
+                            <Th>Факт добыча тыс.м3</Th>
+                            <Th>План добычи тыс.м3</Th>
+                            <Th>Факт добыча тыс.м3</Th>
+                            <Th>За аналог. период прошлого года</Th>
                         </Tr>
                     </thead>
                     <tbody>
                         <Tr>
                             <TdFirst>Шуртан</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -60,9 +68,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Бузахур</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -72,9 +84,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Тарнасой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -84,9 +100,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Номозбой</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -96,9 +116,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Туртсари</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -108,9 +132,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Гармистон</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -120,9 +148,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Яккасарай</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -132,9 +164,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Феруза</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -144,9 +180,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Зафар</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -156,9 +196,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Ширкент</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
@@ -168,9 +212,13 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal}) => {
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>Янги Коратепа</TdFirst>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>
                             <Td> <InputModal type="number"  name="name" required/> </Td>

@@ -109,6 +109,14 @@ a:focus{
     max-width: 390px;
     margin: 0 auto;
 }
+.modalSP{
+    max-width: 990px;
+    margin: 0 auto;
+}
+.modalGrafic{
+    max-width: 390px;
+    margin: 0 auto;
+}
 .wells, .wellsPoint, .wellsPoint129{
     cursor: pointer;
     transition: 0.5s ease;

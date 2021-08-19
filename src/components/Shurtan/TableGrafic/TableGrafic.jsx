@@ -5,19 +5,29 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import ForecastTwo from './ForecastTwo'
+import TableGraficModal from "./TableGraficModal";
 
 const TableGrafic = () => {
+    const [openGrafic, setOpenGrafic] = useState(false);
+    const [showTableGraficModal, setShowTableGraficModal] = useState(false);
 
-    const [openGrafic, setOpenGrafic] = useState(false)
+    const openModal = () => {
+        setShowTableGraficModal(prev => !prev);
+    }
 
     return (
+        <>
+            <TableGraficModal showTableGraficModal={showTableGraficModal}
+                              setShowTableGraficModal={setShowTableGraficModal}/>
         <TableGraficContainer>
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
                 <WidthDiv>
                     <LeftDiv openGrafic={openGrafic} onClick={()=>setOpenGrafic(!openGrafic)}> <FontAwesomeIcon icon={faChevronLeft} /> </LeftDiv>
                     <EditDiv>
-                        <SelectDiv> <FontAwesomeIcon style={{cursor:'pointer'}} icon={faEdit} /> <P> Отбор конденсата тыс.т </P> </SelectDiv>
+                        <SelectDiv>
+                            <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} />
+                            <P> Отбор газа млн.м³ </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
                                 <YellowDiv></YellowDiv>
@@ -33,7 +43,9 @@ const TableGrafic = () => {
                 <Forecast/>
                 <WidthDiv>
                     <EditDiv>
-                        <SelectDiv> <FontAwesomeIcon style={{cursor:'pointer'}} icon={faEdit} /> <P> Отбор конденсата тыс.т </P> </SelectDiv>
+                        <SelectDiv>
+                            <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} />
+                            <P> Отбор конденсата тыс.т </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
                                 <YellowDiv></YellowDiv>
@@ -49,7 +61,7 @@ const TableGrafic = () => {
                 <ForecastTwo/>
             </TableGraficDiv>
         </TableGraficContainer>
-        
+        </>
     )
 }
 const TableGraficContainer = styled.div`
