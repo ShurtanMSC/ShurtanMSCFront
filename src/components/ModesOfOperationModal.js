@@ -16,7 +16,7 @@ import {
     ModalContainer,
     SaveBtnModal,
     CloseBtnModal,
-    InputDataModal, DivDataModal
+    DivDataModal
 } from '../styled'
 import  styled from 'styled-components'
 

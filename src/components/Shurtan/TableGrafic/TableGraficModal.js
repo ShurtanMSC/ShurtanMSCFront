@@ -2,9 +2,8 @@ import React, { useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
-    H2, H2Div, Table, Tr, Th, TdFirst, Td, InputModal, SaveDiv, PModal, SpanModal, SaveBtnModal, CloseBtnModal, SelectModal
+    H2, H2Div, Table, Tr, Th, TdFirst, Td, InputModal, SaveDiv, SaveBtnModal, CloseBtnModal,
 } from '../../../styled'
-import styled from 'styled-components'
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -146,13 +145,5 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal}) => {
         </AnimatePresence>
     )
 }
-const TableUp = styled(Table)`
-  margin-bottom: 2%;
-`
-const ThUp = styled(Th)`
-  width: 30%;
-`
-const TdUp = styled(Td)`
-  width: 30%;
-`
+
 export default TableGraficModal
