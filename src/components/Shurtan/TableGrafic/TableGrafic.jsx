@@ -23,7 +23,9 @@ const TableGrafic = () => {
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
                 <WidthDiv>
-                    <LeftDiv openGrafic={openGrafic} onClick={()=>setOpenGrafic(!openGrafic)}> <FontAwesomeIcon icon={faChevronLeft} /> </LeftDiv>
+                    <LeftDiv openGrafic={openGrafic} onClick={()=>setOpenGrafic(!openGrafic)}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </LeftDiv>
                     <EditDiv>
                         <SelectDiv>
                             <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} />
@@ -82,6 +84,7 @@ const TableGraficDiv = styled.div`
     background-color: #fff;
     box-shadow: 0 0 2px #666;
     overflow: hidden;
+    transition:0.2s;
 `
 const WidthDiv = styled.div`
     display: flex;

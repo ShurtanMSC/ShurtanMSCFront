@@ -75,7 +75,8 @@ const Grafic = () => {
 }
 const TableGrafic = styled(Table)`
     width:410px;
-    height: ${({openShurtan}) => (openShurtan ? "100%" : "35px")};
+    transition:0.2s;
+    height: ${({openShurtan}) => (openShurtan ? "290px" : "35px")};
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
     transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")};

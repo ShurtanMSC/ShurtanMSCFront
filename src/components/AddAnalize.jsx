@@ -343,8 +343,11 @@ const AddAnalize = () => {
 
 const TableAddAnalize = styled(Table)`
     width:1040px;
-    height:${({openTable}) => (openTable ? "100%" : "125px") };
+    transition:0.2s;  
+    height:${({openTable}) => (openTable ? "610px" : "125px")};
     margin-bottom: 5px;
+    transition:0.5s;
+    overflow-y: auto;
     @media(max-width:1050px){
         width:996px;
     }

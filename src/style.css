@@ -106,7 +106,7 @@ a:focus{
     z-index: 11;
 }
 .modal{
-    max-width: 390px;
+    max-width: 430px;
     margin: 0 auto;
 }
 .modalSP{
@@ -114,7 +114,7 @@ a:focus{
     margin: 0 auto;
 }
 .modalGrafic{
-    max-width: 390px;
+    max-width: 560px;
     margin: 0 auto;
 }
 .wells, .wellsPoint, .wellsPoint129{

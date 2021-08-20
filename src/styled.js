@@ -623,10 +623,10 @@ export const ModalDivShurtan = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4%;
+    padding: 5%;
 `
 export const TableModalShurtan = styled.table`
-    height: 80%;
+    max-height: 900px;
     display:flex;
     justify-content:center;
     align-items: center;

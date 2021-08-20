@@ -9,7 +9,7 @@ import CircleYellow from '../../image/Shurtan/circleYellow.png'
 import Modal from './Wells/Modal'
 import CollectionPointModal from './Wells/CollectionPointModal'
 
-const ShurtanMap = () => {
+const  ShurtanMap = () => {
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 

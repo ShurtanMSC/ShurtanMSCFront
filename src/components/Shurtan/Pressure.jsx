@@ -7,42 +7,147 @@ import PressureModal from "./PressureModal";
 
 const Pressure = () => {
     const [ showPressureModal, setShowPressureModal ] = useState(false);
+    const [ showPressureTable, setShowPressureTable ] = useState(false);
+    const [ showMore, setShowMore ] = useState(false);
 
     const openPressureModal = () => {
         setShowPressureModal(prev => !prev);
     };
 
     return (
-        <>
+        <PressureContainer>
             <PressureModal showPressureModal={showPressureModal}
-                              setShowPressureModal={setShowPressureModal}/>
-            <TablePresure>
+                           setShowPressureModal={setShowPressureModal}/>
+            <TablePresure showPressureTable={showPressureTable}>
             <thead>
             <Tr>
-                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Наименование</Th>
                 <Th colSpan="3" style={{position:'sticky', top:'0'}}>Давление, кгс/см2</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Расход, тыс м³/ч</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Темрература </Th>
-                <Th rowSpan='2' style={{position:'sticky', top:'0'}}><FontAwesomeIconPresure icon={faChevronRight}/></Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Расход, тыс м³/ч</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Темрера- <br/>тура </Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В работе</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В простое</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В ремонте</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В консервации</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В ликвидации</Th>
+                <RightTh rowSpan="2" onClick={() => setShowPressureTable(!showPressureTable)}>
+                    <FontAwesomeIconPresure icon={faChevronRight} showPressureTable={showPressureTable}/>
+                </RightTh>
             </Tr>
             <Tr>
-                <Th style={{position:'sticky', top:'38px'}}>РСП</Th>
-                <Th style={{position:'sticky', top:'38px'}}>РУ</Th>
-                <Th style={{position:'sticky', top:'38px'}}>РПЛ</Th>
+                <Th style={{position:'sticky', top:'22px', padding:'5px 10px'}}>РСП</Th>
+                <Th style={{position:'sticky', top:'22px', padding:'5px 10px'}}>РУ</Th>
+                <Th style={{position:'sticky', top:'22px', padding:'5px 10px'}}>РПЛ</Th>
             </Tr>
             </thead>
             <tbody>
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-1
-                    <FontAwesomeIconPresure icon={faChevronDown}/>
+                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMore(!showMore)} showMore={showMore}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>154</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>155</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>157</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>158</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>169</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>309</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
+            <TrNone showMore={showMore}>
+                <TdFirstPresure>312</TdFirstPresure>
+                <Td>14</Td>
+                <Td>17.06</Td>
+                <Td>37.22</Td>
+                <Td>0</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+            </TrNone>
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-2
@@ -52,7 +157,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -63,7 +173,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -74,7 +189,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -85,7 +205,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -96,7 +221,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -107,7 +237,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -118,7 +253,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -129,7 +269,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -140,7 +285,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -151,7 +301,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -162,7 +317,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -173,7 +333,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -184,7 +349,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -195,7 +365,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -206,7 +381,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -217,7 +397,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -228,7 +413,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -239,7 +429,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -250,7 +445,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             <Tr>
                 <TdFirstPresure>
@@ -261,7 +461,12 @@ const Pressure = () => {
                 <Td>500</Td>
                 <Td>500</Td>
                 <Td>8000</Td>
-                <Td colSpan="2">9000</Td>
+                <Td>9000</Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
+                <Td></Td>
             </Tr>
             </tbody>
             <tfoot>
@@ -271,17 +476,32 @@ const Pressure = () => {
                 <TdTotalCount>500</TdTotalCount>
                 <TdTotalCount>500</TdTotalCount>
                 <TdTotalCount>8000</TdTotalCount>
-                <TdTotalCount colSpan="2">9000</TdTotalCount>
+                <TdTotalCount>9000</TdTotalCount>
+                <TdTotalCount>5</TdTotalCount>
+                <TdTotalCount>3</TdTotalCount>
+                <TdTotalCount>4</TdTotalCount>
+                <TdTotalCount>6</TdTotalCount>
+                <TdTotalCount>0</TdTotalCount>
             </Tr>
             </tfoot>
         </TablePresure>
-        </>
+        </PressureContainer>
     )
 }
-
+const PressureContainer = styled.div`
+    width: 400px;
+    height:590px;  
+    position:relative;
+`
 const TablePresure = styled(Table)`
-    width:400px;
-    height:610px;
+    width:${({showPressureTable}) => (showPressureTable ? "800px" : "400px")};
+    height:590px;
+    overflow:hidden;
+    transition:0.2s;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
 `
 const TdFirstPresure = styled(TdFirst)`
     display: flex;
@@ -290,12 +510,23 @@ const TdFirstPresure = styled(TdFirst)`
 `
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
+    transform: ${({showPressureTable}) => (showPressureTable ? "rotate(180deg)" : "")};
+  transform: ${({showMore}) => (showMore ? "rotate(180deg)" : "")};
 `
-// const ThSideIcon = styled(Th)`
-//     display:flex;
-//     justify-content:space-between;
-//     align-items:center;
-// `
+const RightTh = styled(Th)`
+  border: none;
+  background-color: #FF914B;
+  padding: 5px;
+  color:#fff;
+  position: sticky;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+`
+const TrNone = styled(Tr)`
+  display: ${({showMore}) => ( showMore ? "" : "none")};
+  transition: 0.2s;
+`
 // const FontAwesomeIconSide = styled(FontAwesomeIcon)`
 //     cursor: pointer;
 //     min-height:80px;
