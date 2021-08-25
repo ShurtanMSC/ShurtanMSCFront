@@ -80,5 +80,6 @@ const TableGrafic = styled(Table)`
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
     transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")};
+    transition: 0.5s;
 `
 export default Grafic

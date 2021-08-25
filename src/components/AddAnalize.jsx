@@ -371,6 +371,7 @@ const BtnMore = styled.button`
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
     transform: ${({turnIcon}) => (turnIcon ? "rotate(180deg)" : "0deg")};
+    transition: 0.5s;
 `
 
 

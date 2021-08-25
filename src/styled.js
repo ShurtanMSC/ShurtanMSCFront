@@ -174,6 +174,258 @@ export const BtnBurger = styled.div`
         height:2px;
     }
 `
+export const H2Navigation = styled.h2`
+      width: 100%;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      text-align: center;
+      font-size: 18px;
+      color: #363636;
+      padding: 0.7rem 0;
+      transition: 0.2s ease-in;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      &:hover{
+        color: #00A0DC;
+      }
+`
+// NavbarModal
+export const AddGasNavbarModalDiv = styled.div`
+    background: #fff;
+    padding:7%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+`
+export const NavbarModalH2 = styled.h2`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  color: #363636;
+`
+export const NavbarModalP =styled.p`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #363636;
+  padding:5px;
+`
+export const NavbarModalInput = styled.input`
+  width:100%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  outline: none;
+  border: none;
+  padding:0.5rem;
+`
+export const CurrentMonthDiv = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin: 10px 0 30px 0;
+`
+export const AddFactDiv = styled.div`
+  margin-left: 10px;
+`
+export const DataP = styled.p`
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  padding:8px 0;
+`
+export const ButtonDiv = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin: 30px 0 10px 0;
+`
+export const ButtonNavbarCancel = styled.button`
+  width:100%;
+  background: #FF914B;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  outline: none;
+  border:none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 8px 0;
+  cursor: pointer;
+  &:focus{
+    box-shadow: 0 0 4px 4px #FF914B50;
+  }
+`
+export const ButtonNavbarSave = styled.button`
+  width:100%;
+  background: #00A0DC;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  outline: none;
+  border:none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 8px 0;
+  margin-left:10px;
+  cursor: pointer;
+  &:focus{
+    box-shadow: 0 0 4px 4px #00A0DC50;
+  }
+`
+export const GeneralDiv = styled.div`
+  margin-top: 30px;
+`
+export const DateInputDiv = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+`
+export const DateInputNavbar = styled.input`
+  width:180px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  outline: none;
+  border: none;
+  padding:0.5rem;
+  &:last-child{
+    margin-left: 10px;
+  }
+`
+export const ParametersDiv = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+`
+export const ParametersCard = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 5px 0;
+`
+export const ParametersP = styled.p`
+  width:350px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: start;
+  color: #363636;
+  padding:8px;
+`
+export const ParametersInput = styled.input`
+  width: 170px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  outline: none;
+  border: none;
+  margin-left:5px;
+  padding: 5px;
+`
+export const LabelNavTitle = styled.label`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: #363636;
+`
+export const SelectNavTitle = styled.select`
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  outline:none;
+  border: none;
+  padding:5px 15px;
+  margin-left: 15px;
+  appearance: none;
+`
+export  const LabelNav = styled.label`
+  width:220px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+  color: #363636;
+  outline:none;
+  border: none;
+  padding:6px;
+`
+export const SelectNav = styled.select`
+  width: 170px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #363636;
+  outline:none;
+  border: none;
+  padding:5px 0 5px 10px;
+  margin-left: 5px;
+  appearance: none;
+`
+
 // MainPage
 export const FirstBox = styled.div`
     min-height: 91vh;

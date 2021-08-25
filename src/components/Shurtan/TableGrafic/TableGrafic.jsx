@@ -23,8 +23,8 @@ const TableGrafic = () => {
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
                 <WidthDiv>
-                    <LeftDiv openGrafic={openGrafic} onClick={()=>setOpenGrafic(!openGrafic)}>
-                        <FontAwesomeIcon icon={faChevronLeft} />
+                    <LeftDiv onClick={()=>setOpenGrafic(!openGrafic)}>
+                        <FontAwesomeIconTableGrafic icon={faChevronLeft} openGrafic={openGrafic} />
                     </LeftDiv>
                     <EditDiv>
                         <SelectDiv>
@@ -98,7 +98,10 @@ const LeftDiv = styled.div`
     padding: 2px;
     color:#fff;
     cursor:pointer;
+`
+const FontAwesomeIconTableGrafic = styled(FontAwesomeIcon)`
     transform: ${({openGrafic})=> (openGrafic ? "rotate(180deg)" : "")};
+    transition: 0.5s;  
 `
 const EditDiv = styled.div`
     width:100%;
