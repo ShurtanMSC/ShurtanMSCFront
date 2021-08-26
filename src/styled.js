@@ -747,7 +747,7 @@ export const SpanModal = styled.span`
 export const DivDataModal = styled.div`
   max-width: 300px;
   margin-right: auto;
-  margin-bottom: 2%;
+  margin-bottom: 5px;
   display: flex;
   justify-content:center;
   align-items:flex-start;
