@@ -1,24 +1,29 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ContainerFluid, Container, Img, Input, Button } from '../styled'
 import ImgAdmin from '../image/login-image.jpg'
 import ImgLogin from '../image/login-logo.png'
 import axios from 'axios'
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
+import {TOKEN} from "../utills/constant";
 
 const Admin = () => {
 
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
 
-    const handlerChange = e => {
+    const handlerChange = (e) => {
         e.preventDefault()
         axios.post('https://shurtan.herokuapp.com/api/auth/login', 
         {
             username: name,
             password: password,
         }
-        ).then(res=>console.log(res)
+        ).then(function (response) {
+            localStorage.setItem(TOKEN,response.data.token);
+            console.log(localStorage.getItem(TOKEN));
+            console.log(getRoleNameFromJWT());
+            }
         ).catch(error=>{
             console.log(error)
             alert('Неверный логин или пароль')
@@ -27,11 +32,11 @@ const Admin = () => {
         setPassword('')
     }
 
-    const handlerName = e => {
+    const handlerName = (e) => {
         setName(e.target.value)
     }
     
-    const handlerPassword = e => {
+    const handlerPassword = (e) => {
         setPassword(e.target.value)
     }
     
@@ -43,10 +48,10 @@ const Admin = () => {
                         <Img src={ImgLogin} alt="photoLogin" />
                     </DivImg>
                     <div>
-                        <Form >
+                        <Form onSubmit={handlerChange}>
                             <Input type="text" name="name" required placeholder="Логин" value={name} onChange={handlerName} />
                             <Input type="password" name="password" required placeholder="Пароль" value={password} onChange={handlerPassword} />
-                            <Button type="submit" onClick={(e)=>handlerChange(e)}> <Link to="/mainPage"> Войти в систему </Link> </Button>
+                            <Button type="submit"> Войти в систему </Button>
                         </Form>
                     </div>
                 </Login>
