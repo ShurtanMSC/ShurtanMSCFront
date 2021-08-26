@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+// import {Link} from 'react-router-dom'
 import { ContainerFluid, Container, Img, Input, Button } from '../styled'
 import ImgAdmin from '../image/login-image.jpg'
 import ImgLogin from '../image/login-logo.png'
@@ -23,6 +24,7 @@ const Admin = () => {
             localStorage.setItem(TOKEN,response.data.token);
             console.log(localStorage.getItem(TOKEN));
             console.log(getRoleNameFromJWT());
+            window.location.href="/mainPage"
             }
         ).catch(error=>{
             console.log(error)
@@ -66,7 +68,7 @@ const ContainerAdmin = styled(Container)`
         background:none;
     }
 `
-const Login = styled.form`
+const Login = styled.div`
     width:55%;
     min-height: 100vh;
     display: flex;
@@ -87,7 +89,7 @@ const DivImg = styled.div`
     height: 100%;
     margin-bottom: 50px;
 `
-const Form = styled.div`
+const Form = styled.form`
     width:100%;
     display: flex;
     flex-direction: column;
