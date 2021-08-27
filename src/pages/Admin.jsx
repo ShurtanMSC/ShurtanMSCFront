@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-// import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import { ContainerFluid, Container, Img, Input, Button } from '../styled'
 import ImgAdmin from '../image/login-image.jpg'
 import ImgLogin from '../image/login-logo.png'
@@ -12,19 +12,20 @@ const Admin = () => {
 
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const history = useHistory();
 
-    const handlerChange = (e) => {
-        e.preventDefault()
-        axios.post('https://shurtan.herokuapp.com/api/auth/login', 
+    const handlerChange = e => {
+        e.preventDefault();
+        axios.post('https://shurtan.herokuapp.com/api/auth/login',
         {
             username: name,
             password: password,
         }
-        ).then(function (response) {
-            localStorage.setItem(TOKEN,response.data.token);
+        ).then(res => {
+            localStorage.setItem(TOKEN,res.data.token);
             console.log(localStorage.getItem(TOKEN));
             console.log(getRoleNameFromJWT());
-            window.location.href="/mainPage"
+            history.push("/mainPage");
             }
         ).catch(error=>{
             console.log(error)
@@ -53,7 +54,7 @@ const Admin = () => {
                         <Form onSubmit={handlerChange}>
                             <Input type="text" name="name" required placeholder="Логин" value={name} onChange={handlerName} />
                             <Input type="password" name="password" required placeholder="Пароль" value={password} onChange={handlerPassword} />
-                            <Button type="submit"> Войти в систему </Button>
+                            <Button>Войти в систему </Button>
                         </Form>
                     </div>
                 </Login>
