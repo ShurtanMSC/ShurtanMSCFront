@@ -9,10 +9,15 @@ import TableGraficModal from "./TableGraficModal";
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
+    const [turnIcon, setTurnIcon] = useState(false);
     const [showTableGraficModal, setShowTableGraficModal] = useState(false);
 
     const openModal = () => {
         setShowTableGraficModal(prev => !prev);
+    }
+    const openGraficMore = () => {
+        setOpenGrafic(!openGrafic);
+        setTurnIcon(!turnIcon);
     }
 
     return (
@@ -23,8 +28,8 @@ const TableGrafic = () => {
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
                 <WidthDiv>
-                    <LeftDiv onClick={()=>setOpenGrafic(!openGrafic)}>
-                        <FontAwesomeIconTableGrafic icon={faChevronLeft} openGrafic={openGrafic} />
+                    <LeftDiv onClick={openGraficMore}>
+                        <FontAwesomeIconTableGrafic rotation={turnIcon ? 180 : 0} icon={faChevronLeft} />
                     </LeftDiv>
                     <EditDiv>
                         <SelectDiv>
@@ -100,7 +105,6 @@ const LeftDiv = styled.div`
     cursor:pointer;
 `
 const FontAwesomeIconTableGrafic = styled(FontAwesomeIcon)`
-    transform: ${({openGrafic})=> (openGrafic ? "rotate(180deg)" : "")};
     transition: 0.5s;  
 `
 const EditDiv = styled.div`

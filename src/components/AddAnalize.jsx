@@ -31,9 +31,9 @@ const AddAnalize = () => {
                             top:'0'}}>
                     Наименование месторождений
                     <BtnMore onClick={openMore} >
-                        <FontAwesomeIconRotate turnIcon={turnIcon} 
-                                                icon={ faChevronDown } 
-                                                />
+                        <FontAwesomeIconRotate rotation={turnIcon ? 180 : 0}
+                                               icon={faChevronDown}
+                        />
                     </BtnMore>
                 </Th>
                 <Th colSpan="10" style={{position:'sticky', 
@@ -370,7 +370,6 @@ const BtnMore = styled.button`
     cursor: pointer;
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
-    transform: ${({turnIcon}) => (turnIcon ? "rotate(180deg)" : "0deg")};
     transition: 0.5s;
 `
 

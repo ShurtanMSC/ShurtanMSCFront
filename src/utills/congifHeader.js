@@ -1,6 +1,6 @@
 import {TOKEN} from "./constant";
 
 export const configHeader=({headers:{
-        'Authorization':localStorage.getItem(TOKEN),
+        'Authorization':"Bearer "+localStorage.getItem(TOKEN),
         'Access-Control-Allow-Origin': '*'
     }})

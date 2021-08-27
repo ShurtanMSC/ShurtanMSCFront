@@ -5,18 +5,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureModal from "./PressureModal";
 
-const Pressure = () => {
+const   Pressure = () => {
     const [ showPressureModal, setShowPressureModal ] = useState(false);
     const [ showPressureTable, setShowPressureTable ] = useState(false);
+    const [ turnIcon, setTurnIcon ] = useState(false);
     const [ showMore, setShowMore ] = useState(false);
+    const [ turnMore, setTurnMore ] = useState(false);
     const [ showMoreSP2, setShowMoreSP2 ] = useState(false);
+    const [ turnMoreSP2, setTurnMoreSP2 ] = useState(false);
     const [ showMoreSP3, setShowMoreSP3 ] = useState(false);
+    const [ turnSP3, setTurnSP3 ] = useState(false);
     const [ showMoreSP4, setShowMoreSP4 ] = useState(false);
+    const [ turnSP4, setTurnSP4 ] = useState(false);
     const [ showMoreBT5, setShowMoreBT5 ] = useState(false);
+    const [ turnBT5, setTurnBT5 ] = useState(false);
     const [ showMoreSP6, setShowMoreSP6 ] = useState(false);
+    const [ turnSP6, setTurnSP6 ] = useState(false);
     const [ showMoreSP9, setShowMoreSP9 ] = useState(false);
+    const [ turnSP9, setTurnSP9 ] = useState(false);
     const [ showMoreSP10, setShowMoreSP10 ] = useState(false);
+    const [ turnSP10, setTurnSP10 ] = useState(false);
     const [ showMoreSP12, setShowMoreSP12 ] = useState(false);
+    const [ turnSP12, setTurnSP12 ] = useState(false);
     const [ showMoreSP14, setShowMoreSP14 ] = useState(false);
     const [ showMoreSP15, setShowMoreSP15 ] = useState(false);
     const [ showMoreBT16, setShowMoreBT16 ] = useState(false);
@@ -33,6 +43,46 @@ const Pressure = () => {
     const openPressureModal = () => {
         setShowPressureModal(prev => !prev);
     };
+    const openMoreTable = () => {
+        setShowPressureTable(!showPressureTable);
+        setTurnIcon(!turnIcon);
+    }
+    const openShowMoreTable = () => {
+        setShowMore(!showMore);
+        setTurnMore(!turnMore);
+    }
+    const openSP2 = () => {
+        setShowMoreSP2(!showMoreSP2);
+        setTurnMoreSP2(!turnMoreSP2);
+    }
+    const openSP3 = () => {
+        setShowMoreSP3(!showMoreSP3);
+        setTurnSP3(!turnSP3);
+    }
+    const openSP4 = () => {
+        setShowMoreSP4(!showMoreSP4);
+        setTurnSP4(!turnSP4);
+    }
+    const openBT5 = () => {
+        setShowMoreBT5(!showMoreBT5);
+        setTurnBT5(!turnBT5);
+    }
+    const openSP6 = () => {
+        setShowMoreSP6(!showMoreSP6);
+        setTurnSP6(!turnSP6);
+    }
+    const openSP9 = () => {
+        setShowMoreSP9(!showMoreSP9);
+        setTurnSP9(!turnSP9);
+    }
+    const openSP10 = () => {
+        setShowMoreSP10(!showMoreSP10);
+        setTurnSP10(!turnSP10);
+    }
+    const openSP12 = () => {
+        setShowMoreSP12(!showMoreSP12);
+        setTurnSP12(!turnSP12);
+    }
 
     return (
         <PressureContainer>
@@ -50,8 +100,8 @@ const Pressure = () => {
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В ремонте</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В консервации</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В ликвидации</Th>
-                <RightTh rowSpan="2" onClick={() => setShowPressureTable(!showPressureTable)}>
-                    <FontAwesomeIconPresure icon={faChevronRight} showPressureTable={showPressureTable}/>
+                <RightTh rowSpan="2" onClick={openMoreTable}>
+                    <FontAwesomeIconPresure rotation={turnIcon ? 180 : 0} icon={faChevronRight} />
                 </RightTh>
             </Tr>
             <Tr>
@@ -64,7 +114,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-1
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMore(!showMore)} showMore={showMore}/>
+                    <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -171,7 +221,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-2
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP2(!showMoreSP2)} showMoreSP2={showMoreSP2}/>
+                    <FontAwesomeIconPresure rotation={ turnMoreSP2 ? 180 : 0} icon={faChevronDown} onClick={openSP2}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -278,7 +328,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-3
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP3(!showMoreSP3)} showMoreSP3={showMoreSP3}/>
+                    <FontAwesomeIconPresure rotation={ turnSP3 ? 180 : 0} icon={faChevronDown} onClick={openSP3} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -385,7 +435,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-4
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP4(!showMoreSP4)} showMoreSP4={showMoreSP4}/>
+                    <FontAwesomeIconPresure rotation={turnSP4 ? 180 : 0} icon={faChevronDown} onClick={openSP4} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -466,7 +516,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-5
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT5(!showMoreBT5)} showMoreBT5={showMoreBT5}/>
+                    <FontAwesomeIconPresure rotation={turnBT5 ? 180 : 0} icon={faChevronDown} onClick={openBT5} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -586,7 +636,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-6
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP6(!showMoreSP6)} showMoreSP6={showMoreSP6}/>
+                    <FontAwesomeIconPresure rotation={turnSP6 ? 180 : 0} icon={faChevronDown} onClick={openSP6} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -758,7 +808,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-9
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP9(!showMoreSP9)} showMoreSP9={showMoreSP9}/>
+                    <FontAwesomeIconPresure rotation={ turnSP9 ? 180 : 0} icon={faChevronDown} onClick={openSP9}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -982,7 +1032,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-10
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP10(!showMoreSP10)} showMoreSP10={showMoreSP10}/>
+                    <FontAwesomeIconPresure rotation={ turnSP10 ? 180 : 0} icon={faChevronDown} onClick={openSP10}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1089,7 +1139,7 @@ const Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-12
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP12(!showMoreSP12)} showMoreSP12={showMoreSP12}/>
+                    <FontAwesomeIconPresure rotation={ turnSP12 ? 180 : 0} icon={faChevronDown} onClick={openSP12} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2454,28 +2504,6 @@ const TdFirstPresure = styled(TdFirst)`
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
     transition:0.5s;
-    transform: ${({showPressureTable}) => (showPressureTable ? "rotate(180deg)" : "")};
-    transform: ${({showMore}) => (showMore ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP2}) => (showMoreSP2 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP3}) => (showMoreSP3 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP4}) => (showMoreSP4 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreBT5}) => (showMoreBT5 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP6}) => (showMoreSP6 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP9}) => (showMoreSP9 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP10}) => (showMoreSP10 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP12}) => (showMoreSP12 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP14}) => (showMoreSP14 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP15}) => (showMoreSP15 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreBT16}) => (showMoreBT16 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreBT17}) => (showMoreBT17 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreBT19}) => (showMoreBT19 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP20}) => (showMoreSP20 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreBT21}) => (showMoreBT21 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP22}) => (showMoreSP22 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP24}) => (showMoreSP24 ? "rotate(180deg)" : "")};
-    transform: ${({showMoreSP26}) => (showMoreSP26 ? "rotate(180deg)" : "")};
-  transform: ${({showMoreBT30}) => (showMoreBT30 ? "rotate(180deg)" : "")};
-  transform: ${({showMoreBT34}) => (showMoreBT34 ? "rotate(180deg)" : "")};
 `
 const RightTh = styled(Th)`
   border: none;

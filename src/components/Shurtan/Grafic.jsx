@@ -7,6 +7,12 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 const Grafic = () => {
 
     const [openShurtan, setOpenShurtan] = useState(false);
+    const [turnIcon, setTurnIcon] = useState(false);
+
+    const openMore = () => {
+        setOpenShurtan(!openShurtan);
+        setTurnIcon(!turnIcon);
+    }
 
     return (
         <div>
@@ -15,13 +21,14 @@ const Grafic = () => {
                 <thead>
                 <Tr>
                     <Th style={{position:'relative', padding:'8px 0'}}>Параметры пласта 
-                    <FontAwesomeIconRotate openShurtan={openShurtan} 
-                        onClick={() => setOpenShurtan(!openShurtan)} 
+                    <FontAwesomeIconRotate
+                        onClick={openMore}
                         style={{
                             position:'absolute', 
                             right:'10px', 
                             top:'9px', 
-                            cursor:'pointer'}} 
+                            cursor:'pointer'}}
+                            rotation={turnIcon ? 180 : 0}
                             icon={faChevronDown}/> 
                     </Th>
                     <Th>Значение</Th>
@@ -79,7 +86,6 @@ const TableGrafic = styled(Table)`
     height: ${({openShurtan}) => (openShurtan ? "290px" : "35px")};
 `
 const FontAwesomeIconRotate = styled(FontAwesomeIcon)`
-    transform:${({openShurtan}) => (openShurtan ? "rotate(180deg)" : "")};
     transition: 0.5s;
 `
 export default Grafic

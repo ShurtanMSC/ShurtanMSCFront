@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { ContainerFluid, H1, P, NavbarCard, HumanImg, DateP, OclockP, DateAndOclock, Burger, BtnBurger, H2Navigation } from '../styled'
 import LogoOne from '../image/Navbar/logo-uzliti.png'
@@ -15,10 +15,13 @@ import TechnologicalRegime from './Shurtan/NavbarModal/TechnologicalRegime'
 import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
+import axios from "axios";
+import {TOKEN} from "../utills/constant";
 
 const Navbar = () => {
     
     const [hours, setHours] = useState('0');
+    const [name, setName] = useState('');
     const [minutes, setMinutes] = useState('0');
     const [seconds, setSeconds] = useState('0');
 
@@ -64,7 +67,20 @@ const Navbar = () => {
     const openRegistrationWell = () => {
         setShowRegistrationWell(prev => !prev);
     }
-
+    useEffect(()=>{
+        axios.get('https://shurtan.herokuapp.com/api/auth/me', {
+                headers:{
+                    authorization: 'Bearer ' +localStorage.getItem(TOKEN)
+                }
+        })
+            .then(res=>{
+            console.log(res)
+            setName(res.data.object.fio)
+        })
+            .catch(error=>{
+            console.log(error)
+            })
+    }, [])
     return (
         <ConatainerFluidNavbarOut>
             <ContainerFluidNavbar>
@@ -76,7 +92,7 @@ const Navbar = () => {
                 <img style={{marginRight:'1%'}} src={LogoTwo} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
-                    <P>Сиситемный <br/> администратор</P>
+                    <P>{name}</P>
                 </NavbarCard>
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>

@@ -22,7 +22,7 @@ class SuperAdminRequests {
                 response = res.data
             }).catch(res => {
                 console.log(res)
-                response = res
+                response = res.response.data
             })
         return response
     }
