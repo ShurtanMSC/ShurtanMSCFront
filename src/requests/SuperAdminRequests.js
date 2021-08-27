@@ -1,6 +1,6 @@
 import {
     BASE_URL_ADMIN,
-    BASE_URL_COLLECTION,
+    BASE_URL_COLLECTION, BASE_URL_FORECAST_GAS,
     BASE_URL_GASCOMPOSITION,
     BASE_URL_MINING,
     BASE_URL_UPPG,
@@ -14,11 +14,24 @@ const {apiPath} = require("../apiPath/apiPath");
 class SuperAdminRequests {
 
 
+    //Me
+    static async me() {
+        let response="";
+        await axios.get('https://shurtan.herokuapp.com/api/auth/me', configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(res => {
+                console.log(res)
+                response = res
+            })
+        return response
+    }
+
     /**
      ************************************************ Users operations *******************************************************************************************
      **/
     static async addUser(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_ADMIN + apiPath.addUser, data, configHeader)
             .then(res => {
                 response = res.data
@@ -30,7 +43,7 @@ class SuperAdminRequests {
     }
 
     static async editUser(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_ADMIN + apiPath.editUser, data, configHeader)
             .then(res => {
                 response = res.data
@@ -41,7 +54,7 @@ class SuperAdminRequests {
     }
 
     static async deleteUser(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_ADMIN + apiPath.deleteUser + id, configHeader)
             .then(res => {
                 response = res.data
@@ -52,7 +65,7 @@ class SuperAdminRequests {
     }
 
     static async allUser() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.allUsers, configHeader)
             .then(res => {
                 response = res.data
@@ -63,7 +76,7 @@ class SuperAdminRequests {
     }
 
     static async getUser(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.byIdUser + id, configHeader)
             .then(res => {
                 response = res.data
@@ -78,7 +91,7 @@ class SuperAdminRequests {
      ******************************************** Mining system operations ****************************************************************************************
      **/
     static async addMiningSystem(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_ADMIN + apiPath.addMining, data, configHeader)
             .then(res => {
                 response = res.data
@@ -89,7 +102,7 @@ class SuperAdminRequests {
     }
 
     static async editMiningSystem(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_ADMIN + apiPath.editMining, data, configHeader)
             .then(res => {
                 response = res.data
@@ -100,7 +113,7 @@ class SuperAdminRequests {
     }
 
     static async deleteMiningSystem(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_ADMIN + apiPath.deleteMining + id, configHeader)
             .then(res => {
                 response = res.data
@@ -111,7 +124,7 @@ class SuperAdminRequests {
     }
 
     static async allMiningSystem() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.allMinings, configHeader)
             .then(res => {
                 response = res.data
@@ -122,7 +135,7 @@ class SuperAdminRequests {
     }
 
     static async getMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.byIdMining + id, configHeader)
             .then(res => {
                 response = res.data
@@ -137,7 +150,7 @@ class SuperAdminRequests {
      ************************************************* Uppg operations *********************************************************************************************
      **/
     static async addUppg(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_ADMIN + apiPath.addUppg, data, configHeader)
             .then(res => {
                 response = res.data
@@ -148,7 +161,7 @@ class SuperAdminRequests {
     }
 
     static async editUppg(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_ADMIN + apiPath.editUppg, data, configHeader)
             .then(res => {
                 response = res.data
@@ -159,7 +172,7 @@ class SuperAdminRequests {
     }
 
     static async deleteUppg(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_ADMIN + apiPath.deleteUppg + id, configHeader)
             .then(res => {
                 response = res.data
@@ -170,7 +183,7 @@ class SuperAdminRequests {
     }
 
     static async allUppg() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.allUppgs, configHeader)
             .then(res => {
                 response = res.data
@@ -181,7 +194,7 @@ class SuperAdminRequests {
     }
 
     static async getUppg(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.byIdUppg + id, configHeader)
             .then(res => {
                 response = res.data
@@ -196,7 +209,7 @@ class SuperAdminRequests {
      ******************************************** Collection Point operations ***************************************************************************************
      **/
     static async addCollectionPoint(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_ADMIN + apiPath.addCollection, data, configHeader)
             .then(res => {
                 response = res.data
@@ -207,7 +220,7 @@ class SuperAdminRequests {
     }
 
     static async editCollectionPoint(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_ADMIN + apiPath.editCollection, data, configHeader)
             .then(res => {
                 response = res.data
@@ -218,7 +231,7 @@ class SuperAdminRequests {
     }
 
     static async deleteCollectionPoint(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_ADMIN + apiPath.deleteCollection + id, configHeader)
             .then(res => {
                 response = res.data
@@ -229,7 +242,7 @@ class SuperAdminRequests {
     }
 
     static async allCollectionPoint() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.allCollections, configHeader)
             .then(res => {
                 response = res.data
@@ -240,7 +253,7 @@ class SuperAdminRequests {
     }
 
     static async getCollectionPoint(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.byIdCollection + id, configHeader)
             .then(res => {
                 response = res.data
@@ -255,7 +268,7 @@ class SuperAdminRequests {
      ************************************************** Well operations **********************************************************************************************
      **/
     static async addWell(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_ADMIN + apiPath.addWell, data, configHeader)
             .then(res => {
                 response = res.data
@@ -266,7 +279,7 @@ class SuperAdminRequests {
     }
 
     static async editWell(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_ADMIN + apiPath.editWell, data, configHeader)
             .then(res => {
                 response = res.data
@@ -277,7 +290,7 @@ class SuperAdminRequests {
     }
 
     static async deleteWell(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_ADMIN + apiPath.deleteWell + id, configHeader)
             .then(res => {
                 response = res.data
@@ -288,7 +301,7 @@ class SuperAdminRequests {
     }
 
     static async allWell() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.allWells, configHeader)
             .then(res => {
                 response = res.data
@@ -299,7 +312,7 @@ class SuperAdminRequests {
     }
 
     static async getWell(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_ADMIN + apiPath.byIdWell + id, configHeader)
             .then(res => {
                 response = res.data
@@ -314,7 +327,7 @@ class SuperAdminRequests {
      ************************************************** Well action **********************************************************************************************
      **/
     static async allWells() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getAllWells, configHeader)
             .then(res => {
                 response = res.data
@@ -325,7 +338,7 @@ class SuperAdminRequests {
     }
 
     static async getAllActionByUppg(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getAllActionByUppg + id, configHeader)
             .then(res => {
                 response = res.data
@@ -336,7 +349,7 @@ class SuperAdminRequests {
     }
 
     static async wellsWithAction() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.wellsWithAction, configHeader)
             .then(res => {
                 response = res.data
@@ -347,7 +360,7 @@ class SuperAdminRequests {
     }
 
     static async wellsWithActionByCollectionPoint(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.wellsWithActionByCollectionPoint + id, configHeader)
             .then(res => {
                 response = res.data
@@ -358,7 +371,7 @@ class SuperAdminRequests {
     }
 
     static async wellsByCollectionPoint(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.wellsByCollectionPoint + id, configHeader)
             .then(res => {
                 response = res.data
@@ -369,7 +382,7 @@ class SuperAdminRequests {
     }
 
     static async getAllByMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getAllByMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -380,7 +393,7 @@ class SuperAdminRequests {
     }
 
     static async getCountByInWork(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getCountByInWork, configHeader)
             .then(res => {
                 response = res.data
@@ -391,7 +404,7 @@ class SuperAdminRequests {
     }
 
     static async addAction(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_WELL + apiPath.addAction, data, configHeader)
             .then(res => {
                 response = res.data
@@ -402,7 +415,7 @@ class SuperAdminRequests {
     }
 
     static async getOneWithAction(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getOneWithAction + id, configHeader)
             .then(res => {
                 response = res.data
@@ -413,7 +426,7 @@ class SuperAdminRequests {
     }
 
     static async getOneWell(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_WELL + apiPath.getOneWell + id, configHeader)
             .then(res => {
                 response = res.data
@@ -429,7 +442,7 @@ class SuperAdminRequests {
      **/
 
     static async allUppgs() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.getAllUppgs, configHeader)
             .then(res => {
                 response = res.data
@@ -440,7 +453,7 @@ class SuperAdminRequests {
     }
 
     static async uppgsWithAction() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.uppgsWithAction, configHeader)
             .then(res => {
                 response = res.data
@@ -451,7 +464,7 @@ class SuperAdminRequests {
     }
 
     static async uppgsWithActionByMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.uppgsWithActionByMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -462,7 +475,7 @@ class SuperAdminRequests {
     }
 
     static async uppgsByMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.uppgsByMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -473,7 +486,7 @@ class SuperAdminRequests {
     }
 
     static async getOneUppg(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.getOneUppg + id, configHeader)
             .then(res => {
                 response = res.data
@@ -484,7 +497,7 @@ class SuperAdminRequests {
     }
 
     static async getOneUppgWithAction(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_UPPG + apiPath.getOneUppgWithAction + id, configHeader)
             .then(res => {
                 response = res.data
@@ -495,7 +508,7 @@ class SuperAdminRequests {
     }
 
     static async addActionUppg(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_UPPG + apiPath.addActionUppg, data, configHeader)
             .then(res => {
                 response = res.data
@@ -511,7 +524,7 @@ class SuperAdminRequests {
      **/
 
     static async allCollectionPoints() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.allCollectionPoints, configHeader)
             .then(res => {
                 response = res.data
@@ -522,7 +535,7 @@ class SuperAdminRequests {
     }
 
     static async collectionsWithActionByMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.collectionsWithActionByMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -533,7 +546,7 @@ class SuperAdminRequests {
     }
 
     static async allCollectionsWithAction(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.allCollectionsWithAction, configHeader)
             .then(res => {
                 response = res.data
@@ -544,7 +557,7 @@ class SuperAdminRequests {
     }
 
     static async collectionsByMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.collectionsByMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -555,7 +568,7 @@ class SuperAdminRequests {
     }
 
     static async collectionsByUppg(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.collectionsByUppg + id, configHeader)
             .then(res => {
                 response = res.data
@@ -566,7 +579,7 @@ class SuperAdminRequests {
     }
 
     static async oneCollectionWithAction(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.oneCollectionWithAction + id, configHeader)
             .then(res => {
                 response = res.data
@@ -577,7 +590,7 @@ class SuperAdminRequests {
     }
 
     static async addActionCollection(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_COLLECTION + apiPath.addActionCollection, data, configHeader)
             .then(res => {
                 response = res.data
@@ -588,7 +601,7 @@ class SuperAdminRequests {
     }
 
     static async getOneCollection(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_COLLECTION + apiPath.getOneCollection + id, configHeader)
             .then(res => {
                 response = res.data
@@ -604,7 +617,7 @@ class SuperAdminRequests {
      **/
 
     static async allMiningSystems() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_MINING + apiPath.allMiningSystems, configHeader)
             .then(res => {
                 response = res.data
@@ -615,7 +628,7 @@ class SuperAdminRequests {
     }
 
     static async allMiningSystemsWithAction() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_MINING + apiPath.allMiningSystemsWithAction, configHeader)
             .then(res => {
                 response = res.data
@@ -626,7 +639,7 @@ class SuperAdminRequests {
     }
 
     static async oneMiningSystemWithAction(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_MINING + apiPath.oneMiningSystemWithAction + id, configHeader)
             .then(res => {
                 response = res.data
@@ -637,7 +650,7 @@ class SuperAdminRequests {
     }
 
     static async getOneMiningSystem(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_MINING + apiPath.getMiningSystem + id, configHeader)
             .then(res => {
                 response = res.data
@@ -653,7 +666,7 @@ class SuperAdminRequests {
      **/
 
     static async saveGasComposition(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_GASCOMPOSITION + apiPath.saveGasComposition, data, configHeader)
             .then(res => {
                 response = res.data
@@ -664,7 +677,7 @@ class SuperAdminRequests {
     }
 
     static async allGasComposition() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_GASCOMPOSITION + apiPath.allGasComposition, configHeader)
             .then(res => {
                 response = res.data
@@ -675,7 +688,7 @@ class SuperAdminRequests {
     }
 
     static async editGasComposition(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_GASCOMPOSITION + apiPath.editGasComposition, data, configHeader)
             .then(res => {
                 response = res.data
@@ -686,7 +699,7 @@ class SuperAdminRequests {
     }
 
     static async getGasCompositionById(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_GASCOMPOSITION + apiPath.getGasCompositionById + id, configHeader)
             .then(res => {
                 response = res.data
@@ -697,7 +710,7 @@ class SuperAdminRequests {
     }
 
     static async deleteGasComposition(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_GASCOMPOSITION + apiPath.deleteGasComposition + id, configHeader)
             .then(res => {
                 response = res.data
@@ -708,7 +721,7 @@ class SuperAdminRequests {
     }
 
     static async saveMiningSystemGasComposition(data) {
-        let response;
+        let response="";
         await axios.post(BASE_URL_GASCOMPOSITION + apiPath.saveMiningSystemGasComposition, data, configHeader)
             .then(res => {
                 response = res.data
@@ -719,7 +732,7 @@ class SuperAdminRequests {
     }
 
     static async allMiningSystemGasComposition() {
-        let response;
+        let response="";
         await axios.get(BASE_URL_GASCOMPOSITION + apiPath.allMiningSystemGasComposition, configHeader)
             .then(res => {
                 response = res.data
@@ -730,7 +743,7 @@ class SuperAdminRequests {
     }
 
     static async editMiningSystemGasComposition(data) {
-        let response;
+        let response="";
         await axios.put(BASE_URL_GASCOMPOSITION + apiPath.editMiningSystemGasComposition, data, configHeader)
             .then(res => {
                 response = res.data
@@ -741,7 +754,7 @@ class SuperAdminRequests {
     }
 
     static async getMiningSystemGasComposition(id) {
-        let response;
+        let response="";
         await axios.get(BASE_URL_GASCOMPOSITION + apiPath.getMiningSystemGasComposition+id, configHeader)
             .then(res => {
                 response = res.data
@@ -752,7 +765,7 @@ class SuperAdminRequests {
     }
 
     static async deleteMiningSystemGasComposition(id) {
-        let response;
+        let response="";
         await axios.delete(BASE_URL_GASCOMPOSITION + apiPath.deleteMiningSystemGasComposition+id, configHeader)
             .then(res => {
                 response = res.data
@@ -762,6 +775,31 @@ class SuperAdminRequests {
         return response
     }
 
+
+    /**
+     ************************************************** Forecast **********************************************************************************************
+     **/
+
+    static async addGasForecast(data) {
+        let response="";
+        await axios.post(BASE_URL_FORECAST_GAS + apiPath.deleteMiningSystemGasComposition+apiPath.add, data, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+
+
+
 }
+
+
+
+
+
+
 
 export default SuperAdminRequests;
