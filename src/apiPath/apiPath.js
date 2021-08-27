@@ -1,6 +1,12 @@
 export const apiPath = {
 
 
+    /** CRUD **/
+
+    add:"add",
+    edit:"edit",
+    all:"all",
+
                                 /**     super-admin-controller    **/
     // Users
     addUser: 'user/add',
