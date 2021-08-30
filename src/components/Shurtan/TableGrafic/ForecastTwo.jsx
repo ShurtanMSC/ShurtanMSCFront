@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
- 
+import styled from 'styled-components'
+
 const data = [
   {
     name: 'Январь',
@@ -78,7 +79,7 @@ const data = [
 
 const ForecastTwo = () => {
       return (
-        <ResponsiveContainer width="100%" height="280px" aspect={1.3}>
+        <ResponsiveContainerChange width="210%" height="280px" aspect={2.8}>
               <BarChart
                   width={500}
                   height={300}
@@ -112,8 +113,12 @@ const ForecastTwo = () => {
                   <Bar dataKey="2020г" fill="#FF914B" />
                   <Bar dataKey="2021г" fill="#00A0DC" />
               </BarChart>
-          </ResponsiveContainer>
+          </ResponsiveContainerChange>
         );
   }
-
+const ResponsiveContainerChange = styled(ResponsiveContainer)`
+  @media(min-width:400px){
+    with:100%;
+  }
+`
   export default ForecastTwo
