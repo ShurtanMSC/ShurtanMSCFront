@@ -46,8 +46,10 @@ const TableGrafic = () => {
                             </YearBox>
                         </YearDiv>
                     </EditDiv>
-                </WidthDiv>    
-                <Forecast/>
+                </WidthDiv>
+                <GraficDiv>
+                    <Forecast/>
+                </GraficDiv>
                 <WidthDiv>
                     <EditDiv>
                         <SelectDiv>
@@ -64,8 +66,10 @@ const TableGrafic = () => {
                             </YearBox>
                         </YearDiv>
                     </EditDiv>
-                </WidthDiv>    
-                <ForecastTwo/>
+                </WidthDiv>
+                <GraficDiv>
+                    <ForecastTwo/>
+                </GraficDiv>
             </TableGraficDiv>
         </TableGraficContainer>
         </>
@@ -167,5 +171,12 @@ const YearP = styled.p`
     font-size: 12px;
     color: #000000;
     margin-left: 5px;
+`
+const GraficDiv = styled.div`
+  width:400px;
+  height:320px;
+  @media(min-width:401px){
+    width:850px;
+  }
 `
 export default TableGrafic

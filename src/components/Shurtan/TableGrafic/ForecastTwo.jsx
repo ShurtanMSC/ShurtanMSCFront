@@ -79,7 +79,7 @@ const data = [
 
 const ForecastTwo = () => {
       return (
-        <ResponsiveContainerChange width="210%" height="280px" aspect={2.8}>
+        <ResponsiveContainerChange width="100%" height="280px" aspect={2.8}>
               <BarChart
                   width={500}
                   height={300}
@@ -117,8 +117,8 @@ const ForecastTwo = () => {
         );
   }
 const ResponsiveContainerChange = styled(ResponsiveContainer)`
-  @media(min-width:400px){
-    with:100%;
-  }
+  //@media(min-width:401px){
+  //  width:100%;
+  //}
 `
   export default ForecastTwo
