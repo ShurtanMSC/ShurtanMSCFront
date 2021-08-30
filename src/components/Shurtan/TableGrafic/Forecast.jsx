@@ -78,7 +78,7 @@ const data = [
 
 const Forecast = () => {
       return (
-        <ResponsiveContainer width="210%" height="320px" aspect={2.8}>
+        <ResponsiveContainer width="100%" height="320px" aspect={1.3}>
               <BarChart
                   width={500}
                   height={300}

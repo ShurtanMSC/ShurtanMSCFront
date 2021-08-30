@@ -374,8 +374,8 @@ const GasBalanceModal = ({showGasBalanceModal, setShowGasBalanceModal}) => {
                     <div>
                         <H2DivChange>
                             <Form>
-                                <Label for="uppgNumber">Состав газа на выходе УППГ:</Label>
-                                <Select for="uppgNumber" id="uppgNumber">
+                                <Label htmlFor="uppgNumber">Состав газа на выходе УППГ:</Label>
+                                <Select htmlFor="uppgNumber" id="uppgNumber">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                 </Select>

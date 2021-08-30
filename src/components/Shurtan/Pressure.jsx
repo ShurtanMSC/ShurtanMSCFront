@@ -28,17 +28,29 @@ const   Pressure = () => {
     const [ showMoreSP12, setShowMoreSP12 ] = useState(false);
     const [ turnSP12, setTurnSP12 ] = useState(false);
     const [ showMoreSP14, setShowMoreSP14 ] = useState(false);
+    const [ turnSP14, setTurnSP14 ] = useState(false);
     const [ showMoreSP15, setShowMoreSP15 ] = useState(false);
+    const [ turnSP15, setTurnSP15 ] = useState(false);
     const [ showMoreBT16, setShowMoreBT16 ] = useState(false);
+    const [ turnBT16, setTurnBT16 ] = useState(false);
     const [ showMoreBT17, setShowMoreBT17 ] = useState(false);
+    const [ turnBT17, setTurnBT17 ] = useState(false);
     const [ showMoreBT19, setShowMoreBT19 ] = useState(false);
+    const [ turnBT19, setTurnBT19 ] = useState(false);
     const [ showMoreSP20, setShowMoreSP20 ] = useState(false);
+    const [ turnSP20, setTurnSP20 ] = useState(false);
     const [ showMoreBT21, setShowMoreBT21 ] = useState(false);
+    const [ turnBT21, setTurnBT21 ] = useState(false);
     const [ showMoreSP22, setShowMoreSP22 ] = useState(false);
+    const [ turnSP22, setTurnSP22 ] = useState(false);
     const [ showMoreSP24, setShowMoreSP24 ] = useState(false);
+    const [ turnSP24, setTurnSP24] = useState(false);
     const [ showMoreSP26, setShowMoreSP26 ] = useState(false);
+    const [ turnSP26, setTurnSP26 ] = useState(false);
     const [ showMoreBT30, setShowMoreBT30 ] = useState(false);
+    const [ turnBT30, setTurnBT30 ] = useState(false);
     const [ showMoreBT34, setShowMoreBT34 ] = useState(false);
+    const [ turnBT34, setTurnBT34 ] = useState(false);
 
     const openPressureModal = () => {
         setShowPressureModal(prev => !prev);
@@ -82,6 +94,54 @@ const   Pressure = () => {
     const openSP12 = () => {
         setShowMoreSP12(!showMoreSP12);
         setTurnSP12(!turnSP12);
+    }
+    const openS14 = () => {
+        setShowMoreSP14(!showMoreSP14);
+        setTurnSP14(!turnSP14);
+    }
+    const openSP15 = () => {
+        setShowMoreSP15(!showMoreSP15);
+        setTurnSP15(!turnSP15);
+    }
+    const openBT16 = () => {
+        setShowMoreBT16(!showMoreBT16);
+        setTurnBT16(!turnBT16);
+    }
+    const openBT17 = () => {
+        setShowMoreBT17(!showMoreBT17);
+        setTurnBT17(!turnBT17);
+    }
+    const openBT19 = () => {
+        setShowMoreBT19(!showMoreBT19);
+        setTurnBT19(!turnBT19);
+    }
+    const openSP20 = () => {
+        setShowMoreSP20(!showMoreSP20);
+        setTurnSP20(!turnSP20);
+    }
+    const openBT21 = () => {
+        setShowMoreBT21(!showMoreBT21);
+        setTurnBT21(!turnBT21);
+    }
+    const openSP22 = () => {
+        setShowMoreSP22(!showMoreSP22);
+        setTurnSP22(!turnSP22);
+    }
+    const openSP24 = () => {
+        setShowMoreSP24(!showMoreSP24);
+        setTurnSP24(!turnSP24);
+    }
+    const openSP26 = () => {
+        setShowMoreSP26(!showMoreSP26);
+        setTurnSP26(!turnSP26);
+    }
+    const openBT30 = () => {
+        setShowMoreBT30(!showMoreBT30);
+        setTurnBT30(!turnBT30);
+    }
+    const openBT34 = () => {
+        setShowMoreBT34(!showMoreBT34);
+        setTurnBT34(!turnBT34);
     }
 
     return (
@@ -1298,7 +1358,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-14
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP14(!showMoreSP14)} showMoreSP14={showMoreSP14}/>
+                    <FontAwesomeIconPresure rotation={ turnSP14 ? 180 : 0 } icon={faChevronDown} onClick={openS14} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1392,7 +1452,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-15
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP15(!showMoreSP15)} showMoreSP15={showMoreSP15}/>
+                    <FontAwesomeIconPresure rotation={turnSP15 ? 180 : 0} icon={faChevronDown} onClick={openSP15}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1499,7 +1559,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-16
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT16(!showMoreBT16)} showMoreBT16={showMoreBT16}/>
+                    <FontAwesomeIconPresure rotation={ turnBT16 ? 180 : 0} icon={faChevronDown} onClick={openBT16}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1580,7 +1640,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-17
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT17(!showMoreBT17)} showMoreBT17={showMoreBT17}/>
+                    <FontAwesomeIconPresure rotation={turnBT17 ? 180 : 0} icon={faChevronDown} onClick={openBT17} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1622,7 +1682,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-19
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT19(!showMoreBT19)} showMoreBT19={showMoreBT19}/>
+                    <FontAwesomeIconPresure rotation={turnBT19 ? 180 : 0} icon={faChevronDown} onClick={openBT19} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1742,7 +1802,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-20
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP20(!showMoreSP20)} showMoreSP20={showMoreSP20}/>
+                    <FontAwesomeIconPresure rotation={turnSP20 ? 180 : 0} icon={faChevronDown} onClick={openSP20} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -1953,7 +2013,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-21
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT21(!showMoreBT21)} showMoreBT21={showMoreBT21}/>
+                    <FontAwesomeIconPresure rotation={ turnBT21 ? 180 : 0} icon={faChevronDown} onClick={openBT21}/>
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2021,7 +2081,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-22
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP22(!showMoreSP22)} showMoreSP22={showMoreSP22}/>
+                    <FontAwesomeIconPresure rotation={turnSP22 ? 180 : 0} icon={faChevronDown} onClick={openSP22} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2128,7 +2188,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-24
-                    <FontAwesomeIconPresure  icon={faChevronDown} onClick={() => setShowMoreSP24(!showMoreSP24)} showMoreSP24={showMoreSP24}/>
+                    <FontAwesomeIconPresure rotation={turnSP24 ? 180 : 0} icon={faChevronDown} onClick={openSP24} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2196,7 +2256,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> СП-26
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreSP26(!showMoreSP26)} showMoreSP26={showMoreSP26}/>
+                    <FontAwesomeIconPresure rotation={turnSP26 ? 180 : 0} icon={faChevronDown} onClick={openSP26} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2303,7 +2363,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-30
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT30(!showMoreBT30)} showMoreBT30={showMoreBT30}/>
+                    <FontAwesomeIconPresure rotation={turnBT30 ? 180 : 0} icon={faChevronDown} onClick={openBT30} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>
@@ -2397,7 +2457,7 @@ const   Pressure = () => {
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> BT-34
-                    <FontAwesomeIconPresure icon={faChevronDown} onClick={() => setShowMoreBT34(!showMoreBT34)} showMoreBT34={showMoreBT34}/>
+                    <FontAwesomeIconPresure rotation={turnBT34 ? 180 : 0} icon={faChevronDown} onClick={openBT34} />
                 </TdFirstPresure>
                 <Td>500</Td>
                 <Td>500</Td>

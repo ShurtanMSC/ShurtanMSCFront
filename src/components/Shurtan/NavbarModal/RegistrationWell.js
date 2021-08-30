@@ -72,11 +72,11 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                             <form>
                                 <ParametersDiv>
                                     <ParametersCard>
-                                        <LabelNav for="well">Номер скважину</LabelNav>
+                                        <LabelNav htmlFor="well">Номер скважину</LabelNav>
                                         <ParametersInput type="number" name="well" id="well"/>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <LabelNav for="uppg">УППГ</LabelNav>
+                                        <LabelNav htmlFor="uppg">УППГ</LabelNav>
                                         <SelectNav name="uppg" id="uppg">
                                             <option value="">--Выберите--</option>
                                             <option value="1">1</option>
@@ -84,7 +84,7 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <LabelNav for="sp">СП</LabelNav>
+                                        <LabelNav htmlFor="sp">СП</LabelNav>
                                         <SelectNav name="sp" id="sp">
                                             <option value="">--Выберите--</option>
                                             <option value="sp-1">СП-1</option>
@@ -123,7 +123,7 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                         <ParametersInputChange type="date" name="date"/>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <LabelNav for="category">Категория</LabelNav>
+                                        <LabelNav htmlFor="category">Категория</LabelNav>
                                         <SelectNav name="category" id="category">
                                             <option value="">--Выберите--</option>
                                             <option value="mining">Добывающая</option>
@@ -133,7 +133,7 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <LabelNav for="state">Состояние</LabelNav>
+                                        <LabelNav htmlFor="state">Состояние</LabelNav>
                                         <SelectNav name="state" id="state">
                                             <option value="">--Выберите--</option>
                                             <option value="working">в работе</option>

@@ -34,8 +34,8 @@ const BtnSearch = () => {
             </BtnDiv>
             <SearcherSK openUppg={openUppg}>
                 <Form>
-                    <LabelChange for="searcher">Введите номер скважины:</LabelChange>
-                    <SelectChange  for='searcher' id="searcher">
+                    <LabelChange htmlFor="searcher">Введите номер скважины:</LabelChange>
+                    <SelectChange  htmlFor='searcher' id="searcher">
                         <option value=""> --Поиск скважины-- </option>
                         <option value="1">1</option>
                         <option value="2">2</option>
