@@ -17,6 +17,8 @@ import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
 import axios from "axios";
 import {TOKEN} from "../utills/constant";
+import { useHistory } from 'react-router-dom'
+import SuperAdminRequests from "../requests/SuperAdminRequests";
 
 const Navbar = () => {
     
@@ -36,6 +38,8 @@ const Navbar = () => {
     const [showProduction, setShowProduction] = useState(false);
     const [showWellOperation, setShowWellOperation] = useState(false);
     const [showRegistrationWell, setShowRegistrationWell] = useState(false);
+
+    const history = useHistory();
     
     setInterval(() => {
         setHours(new Date().getHours())
@@ -68,19 +72,32 @@ const Navbar = () => {
         setShowRegistrationWell(prev => !prev);
     }
     useEffect(()=>{
-        axios.get('https://shurtan.herokuapp.com/api/auth/me', {
-                headers:{
-                    authorization: 'Bearer ' +localStorage.getItem(TOKEN)
-                }
-        })
-            .then(res=>{
-            console.log(res)
-            setName(res.data.object.fio)
-        })
-            .catch(error=>{
-            console.log(error)
+        SuperAdminRequests.me()
+            .then(function (data) {
+                console.log(data)
+                setName(data.object.fio)
             })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+        // axios.get('https://shurtan.herokuapp.com/api/auth/me', {
+        //         headers:{
+        //             authorization: 'Bearer ' +localStorage.getItem(TOKEN)
+        //         }
+        // })
+        //     .then(res=>{
+        //     console.log(res)
+        //     setName(res.data.object.fio)
+        // })
+        //     .catch(error=>{
+        //     console.log(error)
+        //     })
     }, [])
+    const logOut = () => {
+        localStorage.clear();
+        history.push("/");
+    }
     return (
         <ConatainerFluidNavbarOut>
             <ContainerFluidNavbar>
@@ -149,7 +166,7 @@ const Navbar = () => {
                     <H2Navigation>Чунагар</H2Navigation>
                     <H2Navigation>Зафар</H2Navigation>
                 </Menu>
-                <LinkNav to='/' style={{boxShadow:'none'}}>
+                <LinkNav onClick={logOut} style={{boxShadow:'none'}}>
                     <p>Выйти из системы <FontAwesomeIcon style={{marginLeft:'5px'}} icon={faSignOutAlt}/> </p>
                 </LinkNav>
             </CloseDiv>
@@ -273,7 +290,7 @@ const ShurtanNavigation = styled.div`
     background: #fff;
     padding: 0 1rem;
 `
-const LinkNav = styled(Link)`
+const LinkNav = styled.h2`
     width:100%;
     height:250px;
     display: flex;
@@ -281,6 +298,7 @@ const LinkNav = styled(Link)`
     align-items: center;
     color: #363636;
     transition: 0.5s ease-in;
+    cursor:pointer;
     &:hover p{
         color:rgba(0,161,220, 0.8);
         transition: 0.5s ease;

@@ -104,6 +104,7 @@ export const P = styled.p`
     color: #363636;
     cursor: pointer;
     z-index:2;
+    text-transform: capitalize;
     @media(max-width:1090px){
         font-size:10px;
     }

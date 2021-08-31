@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import { ContainerFluid, Container, Img, Input, Button } from '../styled'
 import ImgAdmin from '../image/login-image.jpg'
-import ImgLogin from '../image/login-logo.png'
+import ImgLogin from '../image/logo.png'
 import axios from 'axios'
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 import {TOKEN} from "../utills/constant";
