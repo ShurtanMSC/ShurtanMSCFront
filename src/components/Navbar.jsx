@@ -15,10 +15,9 @@ import TechnologicalRegime from './Shurtan/NavbarModal/TechnologicalRegime'
 import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
-// import axios from "axios";
-// import {TOKEN} from "../utills/constant";
+import axios from "axios";
+import {TOKEN} from "../utills/constant";
 import { useHistory } from 'react-router-dom'
-import SuperAdminRequests from "../requests/SuperAdminRequests";
 
 const Navbar = () => {
     
@@ -72,27 +71,18 @@ const Navbar = () => {
         setShowRegistrationWell(prev => !prev);
     }
     useEffect(()=>{
-        SuperAdminRequests.me()
-            .then(function (data) {
-                console.log(data)
-                setName(data.object.fio)
+        axios.get('https://shurtan.herokuapp.com/api/auth/me', {
+                headers:{
+                    authorization: 'Bearer ' +localStorage.getItem(TOKEN)
+                }
+        })
+            .then(res=>{
+            console.log(res)
+            setName(res.data.object.fio)
+        })
+            .catch(error=>{
+            console.log(error)
             })
-            .catch(function (error) {
-                console.log(error)
-            })
-
-        // axios.get('https://shurtan.herokuapp.com/api/auth/me', {
-        //         headers:{
-        //             authorization: 'Bearer ' +localStorage.getItem(TOKEN)
-        //         }
-        // })
-        //     .then(res=>{
-        //     console.log(res)
-        //     setName(res.data.object.fio)
-        // })
-        //     .catch(error=>{
-        //     console.log(error)
-        //     })
     }, [])
     const logOut = () => {
         localStorage.clear();
