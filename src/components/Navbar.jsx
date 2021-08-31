@@ -15,8 +15,8 @@ import TechnologicalRegime from './Shurtan/NavbarModal/TechnologicalRegime'
 import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
-import axios from "axios";
-import {TOKEN} from "../utills/constant";
+// import axios from "axios";
+// import {TOKEN} from "../utills/constant";
 import { useHistory } from 'react-router-dom'
 import SuperAdminRequests from "../requests/SuperAdminRequests";
 
