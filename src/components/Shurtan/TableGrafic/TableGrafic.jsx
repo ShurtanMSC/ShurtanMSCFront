@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Forecast from './Forecast'
 import { H2 } from '../../../styled'
 import styled from 'styled-components'
@@ -6,24 +6,91 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import ForecastTwo from './ForecastTwo'
 import TableGraficModal from "./TableGraficModal";
+import TableGraficModalTwo from "./TableGraficModalTwo";
+import axios from "axios";
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
     const [turnIcon, setTurnIcon] = useState(false);
     const [showTableGraficModal, setShowTableGraficModal] = useState(false);
+    const [showTableGraficModalTwo, setShowTableGraficModalTwo] = useState(false);
 
     const openModal = () => {
         setShowTableGraficModal(prev => !prev);
+    }
+    const openModalTwo = () => {
+        setShowTableGraficModalTwo(prev => !prev);
     }
     const openGraficMore = () => {
         setOpenGrafic(!openGrafic);
         setTurnIcon(!turnIcon);
     }
 
+    // get Api
+
+    const [ firstLastYear, setFirstLastYear ] = useState([]);
+    const [ firstThisYear, setFirstThisYear ] = useState([]);
+    const [ secondLastYear, setSecondLastYear ] = useState([]);
+    const [ secondThisYear, setSecondThisYear ] = useState([]);
+    const [ thirdLastYear, setThirdLastYear ] = useState([]);
+    const [ thirdThisYear, setThirdThisYear ] = useState([]);
+    const [ fourthLastYear, setFourthLastYear ] = useState([]);
+    const [ fourthThisYear, setFourthThisYear ] = useState([]);
+    const [ fifthLastYear, setFifthLastYear ] = useState([]);
+    const [ fifthThisYear, setFifthThisYear ] = useState([]);
+    const [ sixthLastYear, setSixthLastYear ] = useState([]);
+    const [ sixthThisYear, setSixthThisYear ] = useState([]);
+    const [ seventhLastYear, setSeventhLastYear ] = useState([]);
+    const [ seventhThisYear, setSeventhThisYear ] = useState([]);
+    const [ eighthLastYear, setEighthLastYear ] = useState([]);
+    const [ eighthThisYear, setEighthThisYear ] = useState([]);
+    const [ ninthLastYear, setNinthLastYear ] = useState([]);
+    const [ ninthThisYear, setNinthThisYear ] = useState([]);
+    const [ tenthLastYear, setTenthLastYear ] = useState([]);
+    const [ tenthThisYear, setTenthThisYear ] = useState([]);
+    const [ eleventhLastYear, setEleventhLastYear ] = useState([]);
+    const [ eleventhThisYear, setEleventhThisYear ] = useState([]);
+    const [ twelfthLastYear, setTwelfthLastYear ] = useState([]);
+    const [ twelfthThisYear, setTwelfthThisYear ] = useState([]);
+
+    useEffect(()=> {
+        axios.get('https://shurtan.herokuapp.com/api/forecast/gas/all/mining_system/' + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
+            .then(res => {
+                console.log(res.data.object);
+                setFirstLastYear(res.data.object[0].amount);
+                setFirstThisYear(res.data.object[12].amount);
+                setSecondLastYear(res.data.object[1].amount);
+                setSecondThisYear(res.data.object[13].amount);
+                setThirdLastYear(res.data.object[2].amount);
+                setThirdThisYear(res.data.object[14].amount);
+                setFourthLastYear(res.data.object[3].amount);
+                setFourthThisYear(res.data.object[15].amount);
+                setFifthLastYear(res.data.object[4].amount);
+                setFifthThisYear(res.data.object[16].amount);
+                setSixthLastYear(res.data.object[5].amount);
+                setSixthThisYear(res.data.object[17].amount);
+                setSeventhLastYear(res.data.object[6].amount);
+                setSeventhThisYear(res.data.object[18].amount);
+                setEighthLastYear(res.data.object[7].amount);
+                setEighthThisYear(res.data.object[19].amount);
+                setNinthLastYear(res.data.object[8].amount);
+                setNinthThisYear(res.data.object[20].amount);
+                setTenthLastYear(res.data.object[9].amount);
+                setTenthThisYear(res.data.object[21].amount);
+                setEleventhLastYear(res.data.object[10].amount);
+                setEleventhThisYear(res.data.object[22].amount);
+                setTwelfthLastYear(res.data.object[11].amount);
+                setTwelfthThisYear(res.data.object[23].amount);
+            });
+    }, [])
+
     return (
         <>
             <TableGraficModal showTableGraficModal={showTableGraficModal}
-                              setShowTableGraficModal={setShowTableGraficModal}/>
+                              setShowTableGraficModal={setShowTableGraficModal}
+                              firstLastYear={firstLastYear} />
+            <TableGraficModalTwo showTableGraficModalTwo={showTableGraficModalTwo}
+                                 setShowTableGraficModalTwo={setShowTableGraficModalTwo}/>
         <TableGraficContainer>
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
@@ -38,31 +105,55 @@ const TableGrafic = () => {
                         <YearDiv>
                             <YearBox>
                                 <YellowDiv></YellowDiv>
-                                <YearP>2020 года</YearP>
+                                <YearP>{new Date().getFullYear()-1} года</YearP>
                             </YearBox>
                             <YearBox>
                                 <BlueDiv></BlueDiv>
-                                <YearP>2021 года</YearP>
+                                <YearP>{new Date().getFullYear()} года</YearP>
                             </YearBox>
                         </YearDiv>
                     </EditDiv>
                 </WidthDiv>
                 <GraficDiv>
-                    <Forecast/>
+                    <Forecast firstLastYear={firstLastYear}
+                              firstThisYear={firstThisYear}
+                              secondLastYear={secondLastYear}
+                              secondThisYear={secondThisYear}
+                              thirdLastYear={thirdLastYear}
+                              thirdThisYear={thirdThisYear}
+                              fourthLastYear={fourthLastYear}
+                              fourthThisYear={fourthThisYear}
+                              fifthLastYear={fifthLastYear}
+                              fifthThisYear={fifthThisYear}
+                              sixthLastYear={sixthLastYear}
+                              sixthThisYear={sixthThisYear}
+                              seventhLastYear={seventhLastYear}
+                              seventhThisYear={seventhThisYear}
+                              eighthLastYear={eighthLastYear}
+                              eighthThisYear={eighthThisYear}
+                              ninthLastYear={ninthLastYear}
+                              ninthThisYear={ninthThisYear}
+                              tenthLastYear={tenthLastYear}
+                              tenthThisYear={tenthThisYear}
+                              eleventhLastYear={eleventhLastYear}
+                              eleventhThisYear={eleventhThisYear}
+                              twelfthLastYear={twelfthLastYear}
+                              twelfthThisYear={twelfthThisYear}
+                    />
                 </GraficDiv>
                 <WidthDiv>
                     <EditDiv>
                         <SelectDiv>
-                            <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} />
+                            <FontAwesomeIcon onClick={openModalTwo} style={{cursor:'pointer'}} icon={faEdit} />
                             <P> Отбор конденсата тыс.т </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
                                 <YellowDiv></YellowDiv>
-                                <YearP>2020 года</YearP>
+                                <YearP>{new Date().getFullYear()-1} года</YearP>
                             </YearBox>
                             <YearBox>
                                 <BlueDiv></BlueDiv>
-                                <YearP>2021 года</YearP>
+                                <YearP>{new Date().getFullYear()} года</YearP>
                             </YearBox>
                         </YearDiv>
                     </EditDiv>

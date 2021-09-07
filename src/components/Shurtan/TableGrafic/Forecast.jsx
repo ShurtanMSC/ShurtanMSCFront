@@ -1,82 +1,85 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const data = [
-  {
-    name: 'Январь',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2400,
-  },
-  {
-    name: 'Февраль',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2210,
-  },
-  {
-    name: 'Март',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2290,
-  },
-  {
-    name: 'Апрель',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2000,
-  },
-  {
-    name: 'Май',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2181,
-  },
-  {
-    name: 'Июнь',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2500,
-  },
-  {
-    name: 'Июль',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-  {
-    name: 'Август',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-  {
-    name: 'Сентябрь',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-  {
-    name: 'Октябрь',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-  {
-    name: 'Ноябрь',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-  {
-    name: 'Декабр',
-    '2020г': 535,
-    '2021г': 585,
-    amt: 2100,
-  },
-];
+const Forecast = ({firstLastYear, firstThisYear, secondLastYear, secondThisYear, thirdLastYear, thirdThisYear, fourthLastYear, fourthThisYear, fifthLastYear, fifthThisYear, sixthLastYear, sixthThisYear, seventhLastYear, seventhThisYear, eighthLastYear, eighthThisYear, ninthLastYear, ninthThisYear, tenthLastYear, tenthThisYear, eleventhLastYear, eleventhThisYear, twelfthLastYear, twelfthThisYear }) => {
 
-const Forecast = () => {
+
+
+    const data = [
+        {
+            name: 'Январь',
+            'в прошлом году': firstLastYear,
+            'этот год': firstThisYear,
+            amt: 2400,
+        },
+        {
+            name: 'Февраль',
+            'в прошлом году': secondLastYear,
+            'этот год': secondThisYear,
+            amt: 2210,
+        },
+        {
+            name: 'Март',
+            'в прошлом году': thirdLastYear,
+            'этот год': thirdThisYear,
+            amt: 2290,
+        },
+        {
+            name: 'Апрель',
+            'в прошлом году': fourthLastYear,
+            'этот год': fourthThisYear,
+            amt: 2000,
+        },
+        {
+            name: 'Май',
+            'в прошлом году': fifthLastYear,
+            'этот год': fifthThisYear,
+            amt: 2181,
+        },
+        {
+            name: 'Июнь',
+            'в прошлом году': sixthLastYear,
+            'этот год': sixthThisYear,
+            amt: 2500,
+        },
+        {
+            name: 'Июль',
+            'в прошлом году': seventhLastYear,
+            'этот год': seventhThisYear,
+            amt: 2100,
+        },
+        {
+            name: 'Август',
+            'в прошлом году': eighthLastYear,
+            'этот год': eighthThisYear,
+            amt: 2100,
+        },
+        {
+            name: 'Сентябрь',
+            'в прошлом году': ninthLastYear,
+            'этот год': ninthThisYear,
+            amt: 2100,
+        },
+        {
+            name: 'Октябрь',
+            'в прошлом году': tenthLastYear,
+            'этот год': tenthThisYear,
+            amt: 2100,
+        },
+        {
+            name: 'Ноябрь',
+            'в прошлом году': eleventhLastYear,
+            'этот год': eleventhThisYear,
+            amt: 2100,
+        },
+        {
+            name: 'Декабр',
+            'в прошлом году': twelfthLastYear,
+            'этот год': twelfthThisYear,
+            amt: 2100,
+        },
+    ];
+
       return (
         <ResponsiveContainer width="100%" height="320px" aspect={2.8}>
               <BarChart
@@ -109,8 +112,8 @@ const Forecast = () => {
                               fontStyle:'normal', 
                               fontWeight:'bold', 
                               color:'#363636'}}/>
-                  <Bar dataKey="2020г" fill="#FF914B" />
-                  <Bar dataKey="2021г" fill="#00A0DC" />
+                  <Bar dataKey="в прошлом году" fill="#FF914B" />
+                  <Bar dataKey="этот год" fill="#00A0DC" />
               </BarChart>
           </ResponsiveContainer>
         );
