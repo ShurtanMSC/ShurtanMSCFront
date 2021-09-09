@@ -24,7 +24,19 @@ const modalGrafic = {
     }
 }
 
-const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, firstLastYear}) => {
+const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,
+                              firstLastYear, firstThisYear,
+                              secondLastYear, secondThisYear,
+                              thirdLastYear, thirdThisYear,
+                              fourthLastYear, fourthThisYear,
+                              fifthLastYear, fifthThisYear,
+                              sixthLastYear, sixthThisYear,
+                              seventhLastYear, seventhThisYear,
+                              eighthLastYear, eighthThisYear,
+                              ninthLastYear, ninthThisYear,
+                              tenthLastYear, tenthThisYear,
+                              eleventhLastYear, eleventhThisYear,
+                              twelfthLastYear, twelfthThisYear}) => {
     // Edit
     const [ lastYear01, setLastYear01 ] = useState('');
     const [ thisYear01, setThisYear01 ] = useState('');
@@ -52,7 +64,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, firstL
     const [ thisYear12, setThisYear12 ] = useState('');
 
     const handlerLastYear01 = e => {
-        setLastYear01(e.target.value);
+        setLastYear01(lastYear01.length === 0 ? (e.target.value) : firstLastYear);
     }
     const handlerThisYear01 = e => {
         setThisYear01(e.target.value);
@@ -271,6 +283,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, firstL
                 "year": 2021,
             },
         ];
+        console.log(data);
         axios.post('https://shurtan.herokuapp.com/api/forecast/gas/add/all',
             data,configHeader
             ).then(res => {
@@ -327,63 +340,63 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, firstL
                                 <tbody>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year01">Январь</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year01" onChange={handlerLastYear01} value={lastYear01} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year01" onChange={handlerThisYear01} value={thisYear01} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year01" onChange={(e) => handlerLastYear01(e)} defaultValue={firstLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year01" onChange={(e) => handlerThisYear01(e)} defaultValue={firstThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year02">Февраль</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year02" onChange={handlerLastYear02} value={lastYear02} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year02" onChange={handlerThisYear02} value={thisYear02} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year02" onChange={(e) => handlerLastYear02(e)} defaultValue={secondLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year02" onChange={(e) => handlerThisYear02(e)} defaultValue={secondThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year03">Март</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year03" onChange={handlerLastYear03} value={lastYear03} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year03" onChange={handlerThisYear03} value={thisYear03} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year03" onChange={(e) => handlerLastYear03(e)} defaultValue={thirdLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year03" onChange={(e) => handlerThisYear03(e)} defaultValue={thirdThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year04">Апрель</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year04" onChange={handlerLastYear04} value={lastYear04} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year04" onChange={handlerThisYear04} value={thisYear04} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year04" onChange={(e) => handlerLastYear04(e)} defaultValue={fourthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year04" onChange={(e) => handlerThisYear04(e)} defaultValue={fourthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year05">Май</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year05" onChange={handlerLastYear05} value={lastYear05} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year05" onChange={handlerThisYear05} value={thisYear05} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year05" onChange={(e) => handlerLastYear05(e)} defaultValue={fifthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year05" onChange={(e) => handlerThisYear05(e)} defaultValue={fifthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year06"></label> Июнь</TdFirst>
-                                    <Td> <InputModal type="number"  name="Year06" onChange={handlerLastYear06} value={lastYear06} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year06" onChange={handlerThisYear06} value={thisYear06} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year06" onChange={(e) => handlerLastYear06(e)} defaultValue={sixthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year06" onChange={(e) => handlerThisYear06(e)} defaultValue={sixthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year07">Июль</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year07" onChange={handlerLastYear07} value={lastYear07} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year07" onChange={handlerThisYear07} value={thisYear07} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year07" onChange={(e) => handlerLastYear07(e)} defaultValue={seventhLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year07" onChange={(e) => handlerThisYear07(e)} defaultValue={seventhThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year08">Август</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year08" onChange={handlerLastYear08} value={lastYear08} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year08" onChange={handlerThisYear08} value={thisYear08} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year08" onChange={(e) => handlerLastYear08(e)} defaultValue={eighthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year08" onChange={(e) => handlerThisYear08(e)} defaultValue={eighthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year09">Сентябрь</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year09" onChange={handlerLastYear09} value={lastYear09} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year09" onChange={handlerThisYear09} value={thisYear09} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year09" onChange={(e) => handlerLastYear09(e)} defaultValue={ninthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year09" onChange={(e) => handlerThisYear09(e)} defaultValue={ninthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year10">Октябрь</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year10" onChange={handlerLastYear10} value={lastYear10} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year10" onChange={handlerThisYear10} value={thisYear10} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year10" onChange={(e) => handlerLastYear10(e)} defaultValue={tenthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year10" onChange={(e) => handlerThisYear10(e)} defaultValue={tenthThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year11">Ноябрь</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year11" onChange={handlerLastYear11} value={lastYear11} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year11" onChange={handlerThisYear11} value={thisYear11} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year11" onChange={(e) => handlerLastYear11(e)} defaultValue={eleventhLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year11" onChange={(e) => handlerThisYear11(e)} defaultValue={eleventhThisYear} required /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirst> <label htmlFor="Year12">Декабрь</label> </TdFirst>
-                                    <Td> <InputModal type="number"  name="Year12" onChange={handlerLastYear12} value={lastYear12} required /> </Td>
-                                    <Td> <InputModal type="number"  name="Year12" onChange={handlerThisYear12} value={thisYear12} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year12" onChange={(e) => handlerLastYear12(e)} defaultValue={twelfthLastYear} required /> </Td>
+                                    <Td> <InputModal type="number"  name="Year12" onChange={(e) => handlerThisYear12(e)} defaultValue={twelfthThisYear} required /> </Td>
                                 </Tr>
                                 </tbody>
                             </Table>

@@ -28,59 +28,60 @@ const TableGrafic = () => {
 
     // get Api
 
-    const [ firstLastYear, setFirstLastYear ] = useState([]);
-    const [ firstThisYear, setFirstThisYear ] = useState([]);
-    const [ secondLastYear, setSecondLastYear ] = useState([]);
-    const [ secondThisYear, setSecondThisYear ] = useState([]);
-    const [ thirdLastYear, setThirdLastYear ] = useState([]);
-    const [ thirdThisYear, setThirdThisYear ] = useState([]);
-    const [ fourthLastYear, setFourthLastYear ] = useState([]);
-    const [ fourthThisYear, setFourthThisYear ] = useState([]);
-    const [ fifthLastYear, setFifthLastYear ] = useState([]);
-    const [ fifthThisYear, setFifthThisYear ] = useState([]);
-    const [ sixthLastYear, setSixthLastYear ] = useState([]);
-    const [ sixthThisYear, setSixthThisYear ] = useState([]);
-    const [ seventhLastYear, setSeventhLastYear ] = useState([]);
-    const [ seventhThisYear, setSeventhThisYear ] = useState([]);
-    const [ eighthLastYear, setEighthLastYear ] = useState([]);
-    const [ eighthThisYear, setEighthThisYear ] = useState([]);
-    const [ ninthLastYear, setNinthLastYear ] = useState([]);
-    const [ ninthThisYear, setNinthThisYear ] = useState([]);
-    const [ tenthLastYear, setTenthLastYear ] = useState([]);
-    const [ tenthThisYear, setTenthThisYear ] = useState([]);
-    const [ eleventhLastYear, setEleventhLastYear ] = useState([]);
-    const [ eleventhThisYear, setEleventhThisYear ] = useState([]);
-    const [ twelfthLastYear, setTwelfthLastYear ] = useState([]);
-    const [ twelfthThisYear, setTwelfthThisYear ] = useState([]);
+    const [ firstLastYear, setFirstLastYear ] = useState(0);
+    const [ firstThisYear, setFirstThisYear ] = useState(0);
+    const [ secondLastYear, setSecondLastYear ] = useState(0);
+    const [ secondThisYear, setSecondThisYear ] = useState(0);
+    const [ thirdLastYear, setThirdLastYear ] = useState(0);
+    const [ thirdThisYear, setThirdThisYear ] = useState(0);
+    const [ fourthLastYear, setFourthLastYear ] = useState(0);
+    const [ fourthThisYear, setFourthThisYear ] = useState(0);
+    const [ fifthLastYear, setFifthLastYear ] = useState(0);
+    const [ fifthThisYear, setFifthThisYear ] = useState(0);
+    const [ sixthLastYear, setSixthLastYear ] = useState(0);
+    const [ sixthThisYear, setSixthThisYear ] = useState(0);
+    const [ seventhLastYear, setSeventhLastYear ] = useState(0);
+    const [ seventhThisYear, setSeventhThisYear ] = useState(0);
+    const [ eighthLastYear, setEighthLastYear ] = useState(0);
+    const [ eighthThisYear, setEighthThisYear ] = useState(0);
+    const [ ninthLastYear, setNinthLastYear ] = useState(0);
+    const [ ninthThisYear, setNinthThisYear ] = useState(0);
+    const [ tenthLastYear, setTenthLastYear ] = useState(0);
+    const [ tenthThisYear, setTenthThisYear ] = useState(0);
+    const [ eleventhLastYear, setEleventhLastYear ] = useState(0);
+    const [ eleventhThisYear, setEleventhThisYear ] = useState(0);
+    const [ twelfthLastYear, setTwelfthLastYear ] = useState(0);
+    const [ twelfthThisYear, setTwelfthThisYear ] = useState(0);
 
     useEffect(()=> {
         axios.get('https://shurtan.herokuapp.com/api/forecast/gas/all/mining_system/' + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
             .then(res => {
-                console.log(res.data.object);
-                setFirstLastYear(res.data.object[0].amount);
-                setFirstThisYear(res.data.object[12].amount);
-                setSecondLastYear(res.data.object[1].amount);
-                setSecondThisYear(res.data.object[13].amount);
-                setThirdLastYear(res.data.object[2].amount);
-                setThirdThisYear(res.data.object[14].amount);
-                setFourthLastYear(res.data.object[3].amount);
-                setFourthThisYear(res.data.object[15].amount);
-                setFifthLastYear(res.data.object[4].amount);
-                setFifthThisYear(res.data.object[16].amount);
-                setSixthLastYear(res.data.object[5].amount);
-                setSixthThisYear(res.data.object[17].amount);
-                setSeventhLastYear(res.data.object[6].amount);
-                setSeventhThisYear(res.data.object[18].amount);
-                setEighthLastYear(res.data.object[7].amount);
-                setEighthThisYear(res.data.object[19].amount);
-                setNinthLastYear(res.data.object[8].amount);
-                setNinthThisYear(res.data.object[20].amount);
-                setTenthLastYear(res.data.object[9].amount);
-                setTenthThisYear(res.data.object[21].amount);
-                setEleventhLastYear(res.data.object[10].amount);
-                setEleventhThisYear(res.data.object[22].amount);
-                setTwelfthLastYear(res.data.object[11].amount);
-                setTwelfthThisYear(res.data.object[23].amount);
+                if(res.data.object.length !== 0){
+                    setFirstLastYear(res.data.object[0].amount);
+                    setFirstThisYear(res.data.object[12].amount);
+                    setSecondLastYear(res.data.object[1].amount);
+                    setSecondThisYear(res.data.object[13].amount);
+                    setThirdLastYear(res.data.object[2].amount);
+                    setThirdThisYear(res.data.object[14].amount);
+                    setFourthLastYear(res.data.object[3].amount);
+                    setFourthThisYear(res.data.object[15].amount);
+                    setFifthLastYear(res.data.object[4].amount);
+                    setFifthThisYear(res.data.object[16].amount);
+                    setSixthLastYear(res.data.object[5].amount);
+                    setSixthThisYear(res.data.object[17].amount);
+                    setSeventhLastYear(res.data.object[6].amount);
+                    setSeventhThisYear(res.data.object[18].amount);
+                    setEighthLastYear(res.data.object[7].amount);
+                    setEighthThisYear(res.data.object[19].amount);
+                    setNinthLastYear(res.data.object[8].amount);
+                    setNinthThisYear(res.data.object[20].amount);
+                    setTenthLastYear(res.data.object[9].amount);
+                    setTenthThisYear(res.data.object[21].amount);
+                    setEleventhLastYear(res.data.object[10].amount);
+                    setEleventhThisYear(res.data.object[22].amount);
+                    setTwelfthLastYear(res.data.object[11].amount);
+                    setTwelfthThisYear(res.data.object[23].amount);
+                }
             });
     }, [])
 
@@ -88,7 +89,19 @@ const TableGrafic = () => {
         <>
             <TableGraficModal showTableGraficModal={showTableGraficModal}
                               setShowTableGraficModal={setShowTableGraficModal}
-                              firstLastYear={firstLastYear} />
+                              firstLastYear={firstLastYear} firstThisYear={firstThisYear}
+                              secondLastYear={secondLastYear} secondThisYear={secondThisYear}
+                              thirdLastYear={thirdLastYear} thirdThisYear={thirdThisYear}
+                              fourthLastYear={fourthLastYear} fourthThisYear={fourthThisYear}
+                              fifthLastYear={fifthLastYear} fifthThisYear={fifthThisYear}
+                              sixthLastYear={sixthLastYear} sixthThisYear={sixthThisYear}
+                              seventhLastYear={seventhLastYear} seventhThisYear={seventhThisYear}
+                              eighthLastYear={eighthLastYear} eighthThisYear={eighthThisYear}
+                              ninthLastYear={ninthLastYear} ninthThisYear={ninthThisYear}
+                              tenthLastYear={tenthLastYear} tenthThisYear={tenthThisYear}
+                              eleventhLastYear={eleventhLastYear} eleventhThisYear={eleventhThisYear}
+                              twelfthLastYear={twelfthLastYear} twelfthThisYear={twelfthThisYear}
+            />
             <TableGraficModalTwo showTableGraficModalTwo={showTableGraficModalTwo}
                                  setShowTableGraficModalTwo={setShowTableGraficModalTwo}/>
         <TableGraficContainer>

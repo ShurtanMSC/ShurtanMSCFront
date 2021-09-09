@@ -165,17 +165,20 @@ const Navbar = () => {
     )
 }
 const ConatainerFluidNavbarOut = styled.div`
-    position: sticky;  
-    position: -webkit-sticky;
-    top: 0px;
     width:100%; 
     z-index: 5;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
 `
 const ContainerFluidNavbar = styled(ContainerFluid)`
     height: 2%;
     justify-content: space-between;
     background-color: #C3E7FA;
     position: relative;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
 `
 const LeftCorner = styled.div`
     background: rgba(0, 161, 220, 0.3);
