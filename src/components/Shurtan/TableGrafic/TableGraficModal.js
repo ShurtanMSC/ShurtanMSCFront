@@ -116,11 +116,6 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                     console.log("Post data "+res.data);
                     setData(res.data.object)
                     data=res.data.object
-                    axios.get('https://shurtan.herokuapp.com/api/forecast/gas/all/mining_system/' + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
-                        .then(function (response) {
-                            console.log(response)
-                        })
-
                     // setData(data)
                 }).catch(err => {console.log(err);});
 
