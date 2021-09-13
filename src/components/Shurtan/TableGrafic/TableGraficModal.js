@@ -116,7 +116,6 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                     console.log("Post data "+res.data);
                     setData(res.data.object)
                     data=res.data.object
-                    // setData(data)
                 }).catch(err => {console.log(err);});
 
                 setShowTableGraficModal(false);
