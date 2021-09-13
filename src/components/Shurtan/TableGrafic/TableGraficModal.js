@@ -73,21 +73,6 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
             year:""
         }
             for (let i = 1; i <= 12; i++) {
-                if (data.length!==24
-                    &&
-                    (document.getElementById("l"+i).value<=0
-                        ||
-                        document.getElementById("l"+i).value.length===0
-                        ||
-                        document.getElementById("t"+i).value<=0
-                        ||
-                        document.getElementById("t"+i).value.length===0))
-                {
-                    alert("Formani to'g'ri to'ldiring!")
-                    setShowTableGraficModal(true);
-                    break
-                }
-                else {
                     postData.push(m={
                         amount:document.getElementById("l"+i).value,
                         mining_system_id:1,
@@ -100,7 +85,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                         month:findMonth(i),
                         year:2021
                     })
-                }
+
 
             }
             if (postData.length===24){
@@ -175,12 +160,21 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                                             <Td> <InputModal min="1" id={"t"+number} type="number" defaultValue={data[number*2-1].amount}  name={"Year"+number} required /> </Td>
                                         </Tr>
                                     )
-                                    :""}
+                                    :
+                                    count.map(number=>
+                                        <Tr>
+                                            <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(findMonth(number))}</label> </TdFirst>
+                                            <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year"+number} required /> </Td>
+                                            <Td> <InputModal min="1" id={"t"+number} type="number" name={"Year"+number} required /> </Td>
+                                        </Tr>
+                                    )
+
+                                }
                                 </tbody>
                             </Table>
                             <SaveDiv>
                                 <div style={{marginLeft:'auto'}}>
-                                    {data.length===24? <SaveBtnModal>Сохранит
+                                    {data.length!=null? <SaveBtnModal>Сохранит
                                     </SaveBtnModal>:""}
                                     <CloseBtnModal
                                         onClick={()=> setShowTableGraficModal(prev => !prev)}>Закрыт
