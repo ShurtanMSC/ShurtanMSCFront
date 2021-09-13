@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useCallback, useState} from 'react'
+import React, {useRef, useEffect, useCallback} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
@@ -39,6 +39,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
             case "OCTOBER": return "Октябрь"
             case "NOVEMBER": return "Ноябрь"
             case "DECEMBER": return "Декабр"
+            default:return ""
         }
     }
     const count=[1,2,3,4,5,6,7,8,9,10,11,12]
@@ -60,26 +61,21 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
             case 10: return "OCTOBER"
             case 11: return "NOVEMBER"
             case 12: return "DECEMBER"
+            default:return ""
         }
     }
-    const handlerSubmit = e => {
+    const handlerSubmit = useCallback((e) => {
         e.preventDefault()
         const postData=[
         ];
-        let m={
-            amount:"",
-            mining_system_id:"",
-            month:"",
-            year:""
-        }
             for (let i = 1; i <= 12; i++) {
-                    postData.push(m={
+                    postData.push({
                         amount:document.getElementById("l"+i).value,
                         mining_system_id:1,
                         month:findMonth(i),
                         year:2020
                     })
-                    postData.push(m={
+                    postData.push({
                         amount:document.getElementById("t"+i).value,
                         mining_system_id:1,
                         month:findMonth(i),
@@ -89,23 +85,22 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
 
             }
             if (postData.length===24){
-                postData.map(m=>{
-                    console.log("AMOUNT = "+m.amount);
-                    console.log("MONTH = "+m.month);
-                    console.log("YEAR = "+m.year);
-                })
-
+                document.getElementById('save').disabled=true;
                 axios.post('https://shurtan.herokuapp.com/api/forecast/gas/add/all',
                     postData,configHeader
                 ).then(res => {
                     console.log("Post data "+res.data);
                     setData(res.data.object)
-                    data=res.data.object
-                }).catch(err => {console.log(err);});
+                    setShowTableGraficModal(false);
+                    // data=res.data.object
+                }).catch(err => {console.log(err);
+                    setShowTableGraficModal(false);
+                });
 
-                setShowTableGraficModal(false);
+
             }
-    }
+
+    },[setData,setShowTableGraficModal])
     //Modal
     const modalRef = useRef();
 
@@ -168,13 +163,12 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                                             <Td> <InputModal min="1" id={"t"+number} type="number" name={"Year"+number} required /> </Td>
                                         </Tr>
                                     )
-
                                 }
                                 </tbody>
                             </Table>
                             <SaveDiv>
                                 <div style={{marginLeft:'auto'}}>
-                                    {data.length!=null? <SaveBtnModal>Сохранит
+                                    {data.length!=null? <SaveBtnModal id={"save"}>Сохранит
                                     </SaveBtnModal>:""}
                                     <CloseBtnModal
                                         onClick={()=> setShowTableGraficModal(prev => !prev)}>Закрыт

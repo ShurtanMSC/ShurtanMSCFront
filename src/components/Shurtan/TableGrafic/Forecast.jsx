@@ -18,13 +18,12 @@ const  findMonth=(month)=>{
         case "OCTOBER": return "Октябрь"
         case "NOVEMBER": return "Ноябрь"
         case "DECEMBER": return "Декабр"
+        default:return ""
     }
 }
 const Forecast = ({ data }) => {
 
     useEffect(()=> {
-        console.log(data)
-
     },[])
 
     const myData =[]
@@ -39,8 +38,6 @@ const Forecast = ({ data }) => {
             })
             i++;
         }
-        myData.map(m=>{
-            console.log(m)})
     }
 
 
