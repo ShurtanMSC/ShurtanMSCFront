@@ -176,7 +176,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                                 {data.length===24?
                                     count.map(number=>
                                         <Tr>
-                                            <TdFirst> <label htmlFor={"Year"+number}>Январь{findMonthName(data[number*2-2].month)}</label> </TdFirst>
+                                            <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(data[number*2-2].month)}</label> </TdFirst>
                                             <Td> <InputModal min="1" id={"l"+number} type="number" defaultValue={data[number*2-2].amount} name={"Year"+number} required /> </Td>
                                             <Td> <InputModal min="1" id={"t"+number} type="number" defaultValue={data[number*2-1].amount}  name={"Year"+number} required /> </Td>
                                         </Tr>
