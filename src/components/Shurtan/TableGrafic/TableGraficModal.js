@@ -24,7 +24,7 @@ const modalGrafic = {
     }
 }
 
-const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,
+const TableGraficModal = ({   showTableGraficModal, setShowTableGraficModal,
                               firstLastYear, firstThisYear,
                               secondLastYear, secondThisYear,
                               thirdLastYear, thirdThisYear,
@@ -64,7 +64,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,
     const [ thisYear12, setThisYear12 ] = useState('');
 
     const handlerLastYear01 = e => {
-        setLastYear01(lastYear01.length === 0 ? (e.target.value) : firstLastYear);
+        setLastYear01(e.target.value);
     }
     const handlerThisYear01 = e => {
         setThisYear01(e.target.value);
@@ -139,145 +139,145 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,
         e.preventDefault();
         let data=[
             {
-                "amount": lastYear01,
+                "amount": lastYear01.length === 0 ? firstLastYear : lastYear01,
                 "mining_system_id": 1,
                 "month": 'JANUARY',
                 "year": 2020,
             },
             {
-                "amount": thisYear01,
+                "amount": thisYear01.length === 0 ? firstThisYear : thisYear01,
                 "mining_system_id": 1,
                 "month": 'JANUARY',
                 "year": 2021,
             },
             {
-                "amount": lastYear02,
+                "amount": lastYear02.length === 0 ? secondLastYear : lastYear02,
                 "mining_system_id": 1,
                 "month": 'FEBRUARY',
                 "year": 2020,
             },
             {
-                "amount": thisYear02,
+                "amount": thisYear02.length === 0 ? secondThisYear : thisYear02,
                 "mining_system_id": 1,
                 "month": 'FEBRUARY',
                 "year": 2021,
             },
             {
-                "amount": lastYear03,
+                "amount": lastYear03.length === 0 ? thirdLastYear : lastYear03,
                 "mining_system_id": 1,
                 "month": 'MARCH',
                 "year": 2020,
             },
             {
-                "amount": thisYear03,
+                "amount": thisYear03.length === 0 ? thirdThisYear : thisYear03,
                 "mining_system_id": 1,
                 "month": 'MARCH',
                 "year": 2021,
             },
             {
-                "amount": lastYear04,
+                "amount": lastYear04.length === 0 ? fourthLastYear : lastYear04,
                 "mining_system_id": 1,
                 "month": 'APRIL',
                 "year": 2020,
             },
             {
-                "amount": thisYear04,
+                "amount": thisYear04.length === 0 ? fourthThisYear : thisYear04,
                 "mining_system_id": 1,
                 "month": 'APRIL',
                 "year": 2021,
             },
             {
-                "amount": lastYear05,
+                "amount": lastYear05.length === 0 ? fifthLastYear : lastYear05,
                 "mining_system_id": 1,
                 "month": 'MAY',
                 "year": 2020,
             },
             {
-                "amount": thisYear05,
+                "amount": thisYear05.length === 0 ? fifthThisYear : thisYear05,
                 "mining_system_id": 1,
                 "month": 'MAY',
                 "year": 2021,
             },
             {
-                "amount": lastYear06,
+                "amount": lastYear06.length === 0 ? sixthLastYear : lastYear06,
                 "mining_system_id": 1,
                 "month": 'JUNE',
                 "year": 2020,
             },
             {
-                "amount": thisYear06,
+                "amount": thisYear06.length === 0 ? sixthThisYear : thisYear06,
                 "mining_system_id": 1,
                 "month": 'JUNE',
                 "year": 2021,
             },
             {
-                "amount": lastYear07,
+                "amount": lastYear07.length === 0 ? seventhLastYear : lastYear07,
                 "mining_system_id": 1,
                 "month": 'JULY',
                 "year": 2020,
             },
             {
-                "amount": thisYear07,
+                "amount": thisYear07.length === 0 ? seventhThisYear : thisYear07,
                 "mining_system_id": 1,
                 "month": 'JULY',
                 "year": 2021,
             },
             {
-                "amount": lastYear08,
+                "amount": lastYear08.length === 0 ? eighthLastYear : lastYear08,
                 "mining_system_id": 1,
                 "month": 'AUGUST',
                 "year": 2020,
             },
             {
-                "amount": thisYear08,
+                "amount": thisYear08.length === 0 ? eighthThisYear : thisYear08,
                 "mining_system_id": 1,
                 "month": 'AUGUST',
                 "year": 2021,
             },
             {
-                "amount": lastYear09,
+                "amount": lastYear09.length === 0 ? ninthLastYear : lastYear09,
                 "mining_system_id": 1,
                 "month": 'SEPTEMBER',
                 "year": 2020,
             },
             {
-                "amount": thisYear09,
+                "amount": thisYear09.length === 0 ? ninthThisYear : thisYear09,
                 "mining_system_id": 1,
                 "month": 'SEPTEMBER',
                 "year": 2021,
             },
             {
-                "amount": lastYear10,
+                "amount": lastYear10.length === 0 ? tenthLastYear : lastYear10,
                 "mining_system_id": 1,
                 "month": 'OCTOBER',
                 "year": 2020,
             },
             {
-                "amount": thisYear10,
+                "amount": thisYear10.length === 0 ? tenthThisYear : thisYear10,
                 "mining_system_id": 1,
                 "month": 'OCTOBER',
                 "year": 2021,
             },
             {
-                "amount": lastYear11,
+                "amount": lastYear11.length === 0 ? eleventhLastYear : lastYear11,
                 "mining_system_id": 1,
                 "month": 'NOVEMBER',
                 "year": 2020,
             },
             {
-                "amount": thisYear11,
+                "amount": thisYear11.length === 0 ? eleventhThisYear : thisYear11,
                 "mining_system_id": 1,
                 "month": 'NOVEMBER',
                 "year": 2021,
             },
             {
-                "amount": lastYear12,
+                "amount": lastYear12.length === 0 ? twelfthLastYear : lastYear12,
                 "mining_system_id": 1,
                 "month": 'DECEMBER',
                 "year": 2020,
             },
             {
-                "amount": thisYear12,
+                "amount": thisYear12.length === 0 ? twelfthThisYear : thisYear12,
                 "mining_system_id": 1,
                 "month": 'DECEMBER',
                 "year": 2021,

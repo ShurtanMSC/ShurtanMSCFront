@@ -56,30 +56,31 @@ const TableGrafic = () => {
     useEffect(()=> {
         axios.get('https://shurtan.herokuapp.com/api/forecast/gas/all/mining_system/' + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
             .then(res => {
+                console.log(res.data.object)
                 if(res.data.object.length !== 0){
                     setFirstLastYear(res.data.object[0].amount);
-                    setFirstThisYear(res.data.object[12].amount);
-                    setSecondLastYear(res.data.object[1].amount);
-                    setSecondThisYear(res.data.object[13].amount);
-                    setThirdLastYear(res.data.object[2].amount);
-                    setThirdThisYear(res.data.object[14].amount);
-                    setFourthLastYear(res.data.object[3].amount);
-                    setFourthThisYear(res.data.object[15].amount);
-                    setFifthLastYear(res.data.object[4].amount);
-                    setFifthThisYear(res.data.object[16].amount);
-                    setSixthLastYear(res.data.object[5].amount);
-                    setSixthThisYear(res.data.object[17].amount);
-                    setSeventhLastYear(res.data.object[6].amount);
-                    setSeventhThisYear(res.data.object[18].amount);
-                    setEighthLastYear(res.data.object[7].amount);
-                    setEighthThisYear(res.data.object[19].amount);
-                    setNinthLastYear(res.data.object[8].amount);
-                    setNinthThisYear(res.data.object[20].amount);
-                    setTenthLastYear(res.data.object[9].amount);
-                    setTenthThisYear(res.data.object[21].amount);
-                    setEleventhLastYear(res.data.object[10].amount);
-                    setEleventhThisYear(res.data.object[22].amount);
-                    setTwelfthLastYear(res.data.object[11].amount);
+                    setFirstThisYear(res.data.object[1].amount);
+                    setSecondLastYear(res.data.object[2].amount);
+                    setSecondThisYear(res.data.object[3].amount);
+                    setThirdLastYear(res.data.object[4].amount);
+                    setThirdThisYear(res.data.object[5].amount);
+                    setFourthLastYear(res.data.object[6].amount);
+                    setFourthThisYear(res.data.object[7].amount);
+                    setFifthLastYear(res.data.object[8].amount);
+                    setFifthThisYear(res.data.object[9].amount);
+                    setSixthLastYear(res.data.object[10].amount);
+                    setSixthThisYear(res.data.object[11].amount);
+                    setSeventhLastYear(res.data.object[12].amount);
+                    setSeventhThisYear(res.data.object[13].amount);
+                    setEighthLastYear(res.data.object[14].amount);
+                    setEighthThisYear(res.data.object[15].amount);
+                    setNinthLastYear(res.data.object[16].amount);
+                    setNinthThisYear(res.data.object[17].amount);
+                    setTenthLastYear(res.data.object[18].amount);
+                    setTenthThisYear(res.data.object[19].amount);
+                    setEleventhLastYear(res.data.object[20].amount);
+                    setEleventhThisYear(res.data.object[21].amount);
+                    setTwelfthLastYear(res.data.object[22].amount);
                     setTwelfthThisYear(res.data.object[23].amount);
                 }
             });
