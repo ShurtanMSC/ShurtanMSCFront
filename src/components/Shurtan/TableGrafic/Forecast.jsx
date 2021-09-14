@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const  findMonth=(month)=>{
@@ -23,13 +23,9 @@ const  findMonth=(month)=>{
 }
 const Forecast = ({ data }) => {
 
-    useEffect(()=> {
-    },[])
-
     const myData =[]
     if (data){
         for (let i = 0; i < data.length; i++) {
-            console.log(findMonth(data[i].month))
             myData.push({
                 name:findMonth(data[i].month),
                 'в прошлом году':data[i].amount,

@@ -8,6 +8,8 @@ import ForecastTwo from './ForecastTwo'
 import TableGraficModal from "./TableGraficModal";
 import TableGraficModalTwo from "./TableGraficModalTwo";
 import axios from "axios";
+import {BASE_URL_FORECAST_GAS} from "../../../utills/constant"
+import {BASE_URL_FORECAST_CONDENSATE} from "../../../utills/constant"
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
@@ -15,6 +17,7 @@ const TableGrafic = () => {
     const [showTableGraficModal, setShowTableGraficModal] = useState(false);
     const [showTableGraficModalTwo, setShowTableGraficModalTwo] = useState(false);
     const [data,setData] = useState([]);
+    const [dataCond, setDataCond] = useState([]);
 
     const openModal = () => {
         setShowTableGraficModal(prev => !prev);
@@ -28,20 +31,28 @@ const TableGrafic = () => {
     }
     // get Api
     useEffect(()=> {
-        axios.get('https://shurtan.herokuapp.com/api/forecast/gas/all/mining_system/' + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
+        axios.get(BASE_URL_FORECAST_GAS + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
             .then(res => {
                 if(res.data.object.length !== 0){
                     setData(res.data.object);
-                    console.log(res.data.object);
                 }
             });
+        axios.get(BASE_URL_FORECAST_CONDENSATE + 1 + '/' + ((new Date().getFullYear()) - 1 ) + '/' + new Date().getFullYear())
+        .then(res => {
+            if(res.data.object.length !== 0){
+                setDataCond(res.data.object);
+            }
+        })
     }, [])
 
     return (
         <>
-            <TableGraficModal showTableGraficModal={showTableGraficModal} setShowTableGraficModal={setShowTableGraficModal} setData={setData} data={data}/>
+            <TableGraficModal showTableGraficModal={showTableGraficModal}
+                              setShowTableGraficModal={setShowTableGraficModal}
+                              setData={setData} data={data}/>
             <TableGraficModalTwo showTableGraficModalTwo={showTableGraficModalTwo}
-                                 setShowTableGraficModalTwo={setShowTableGraficModalTwo}/>
+                                 setShowTableGraficModalTwo={setShowTableGraficModalTwo}
+                                 setDataCond={setDataCond} dataCond={dataCond}/>
         <TableGraficContainer>
             <TableGraficDiv openGrafic={openGrafic}>
                 <H2>Оперативный прогноз добычи</H2>
@@ -86,7 +97,7 @@ const TableGrafic = () => {
                     </EditDiv>
                 </WidthDiv>
                 <GraficDiv>
-                    <ForecastTwo/>
+                    <ForecastTwo dataCond={dataCond}/>
                 </GraficDiv>
             </TableGraficDiv>
         </TableGraficContainer>

@@ -6,6 +6,7 @@ import {
 } from '../../../styled';
 import axios from 'axios';
 import {configHeader} from "../../../utills/congifHeader";
+
 const backdrop = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 }
@@ -66,8 +67,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
     }
     const handlerSubmit = useCallback((e) => {
         e.preventDefault()
-        const postData=[
-        ];
+        const postData=[];
             for (let i = 1; i <= 12; i++) {
                     postData.push({
                         amount:document.getElementById("l"+i).value,
@@ -89,18 +89,13 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                 axios.post('https://shurtan.herokuapp.com/api/forecast/gas/add/all',
                     postData,configHeader
                 ).then(res => {
-                    console.log("Post data "+res.data);
                     setData(res.data.object)
-                    setShowTableGraficModal(false);
-                    // data=res.data.object
                 }).catch(err => {console.log(err);
-                    setShowTableGraficModal(false);
                 });
-
-
             }
-
+        setShowTableGraficModal(prev => !prev);
     },[setData,setShowTableGraficModal])
+
     //Modal
     const modalRef = useRef();
 
@@ -149,7 +144,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                                 <tbody>
                                 {data.length===24?
                                     count.map(number=>
-                                        <Tr>
+                                        <Tr key={number}>
                                             <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(data[number*2-2].month)}</label> </TdFirst>
                                             <Td> <InputModal min="1" id={"l"+number} type="number" defaultValue={data[number*2-2].amount} name={"Year"+number} required /> </Td>
                                             <Td> <InputModal min="1" id={"t"+number} type="number" defaultValue={data[number*2-1].amount}  name={"Year"+number} required /> </Td>
@@ -157,7 +152,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                                     )
                                     :
                                     count.map(number=>
-                                        <Tr>
+                                        <Tr key={number}>
                                             <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(findMonth(number))}</label> </TdFirst>
                                             <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year"+number} required /> </Td>
                                             <Td> <InputModal min="1" id={"t"+number} type="number" name={"Year"+number} required /> </Td>
@@ -168,8 +163,8 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal, setDat
                             </Table>
                             <SaveDiv>
                                 <div style={{marginLeft:'auto'}}>
-                                    {data.length!=null? <SaveBtnModal id={"save"}>Сохранит
-                                    </SaveBtnModal>:""}
+                                    <SaveBtnModal id={"save"}>Сохранит
+                                    </SaveBtnModal>
                                     <CloseBtnModal
                                         onClick={()=> setShowTableGraficModal(prev => !prev)}>Закрыт
                                     </CloseBtnModal>
