@@ -297,7 +297,7 @@ export const ButtonNavbarSave = styled.button`
   text-align: center;
   color: #FFFFFF;
   padding: 8px 0;
-  margin-left:10px;
+  margin-right:10px;
   cursor: pointer;
   &:focus{
     box-shadow: 0 0 4px 4px #00A0DC50;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {useSelector} from "react-redux";
 
 const  findMonth=(month)=>{
     if (!month) {
@@ -21,15 +22,18 @@ const  findMonth=(month)=>{
         default:return ""
     }
 }
-const Forecast = ({ data }) => {
+const Forecast = (
+    // { data }
+) => {
+    const grafic = useSelector((state) => state.allGrafics.grafic);
 
     const myData =[]
-    if (data){
-        for (let i = 0; i < data.length; i++) {
+    if (grafic){
+        for (let i = 0; i < grafic.length; i++) {
             myData.push({
-                name:findMonth(data[i].month),
-                'в прошлом году':data[i].amount,
-                'этот год':data[i+1].amount,
+                name:findMonth(grafic[i].month),
+                'в прошлом году':grafic[i].amount,
+                'этот год':grafic[i+1].amount,
                 amt:2400
             })
             i++;
