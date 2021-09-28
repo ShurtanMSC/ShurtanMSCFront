@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, {useRef, useEffect, useCallback, useState} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, ButtonModalShurtan } from '../../../styled'
+import axios from "axios";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -39,6 +40,18 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
         return() => document.removeEventListener('keydown', keyPress);
     }, [keyPress]);
 
+    // GET API
+    const [pressureApi, setPressureApi] = useState([]);
+    useEffect( () => {
+        axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
+            .then(res => {setPressureApi(res.data.object)
+            })
+            .catch(err => {console.log(err)
+            })
+    }, [])
+
+    const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
+
     return (
         <AnimatePresence>
             { showCollectionPointModal && (
@@ -54,30 +67,33 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                     >
                         <ModalDivShurtan>
                             <TableModalShurtan>
-                                <tbody>
-                                <tr>
-                                    <TdModalShurtanFirst>БВН:</TdModalShurtanFirst>
-                                    <TdModalShurtan>{idPoint}</TdModalShurtan>
-                                </tr>
-                                <tr>
-                                    <TdModalShurtanFirst>Рсп, кгс/см²:</TdModalShurtanFirst>
-                                    <TdModalShurtan>14.53</TdModalShurtan>
-                                </tr>
-                                <tr>
-                                    <TdModalShurtanFirst>Расход, м³/ч:</TdModalShurtanFirst>
-                                    <TdModalShurtan>85.65</TdModalShurtan>
-                                </tr>
-                                <tr>
-                                    <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>
-                                    <TdModalShurtan>58.00</TdModalShurtan>
-                                </tr>
-                                <tr>
-                                    <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
-                                </tr>
-                                <tr>
-                                    <TdModalShurtan colSpan="2">2021-06-17 14:49:22</TdModalShurtan>
-                                </tr>
-                                </tbody>
+                                {filtered.map(el =>
+                                    <tbody key={el}>
+                                    <tr>
+                                        <TdModalShurtanFirst>БВН:</TdModalShurtanFirst>
+                                        <TdModalShurtan>{idPoint}</TdModalShurtan>
+                                    </tr>
+                                    <tr>
+                                        <TdModalShurtanFirst>Рсп, кгс/см²:</TdModalShurtanFirst>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.pressure : ""}</TdModalShurtan>
+                                    </tr>
+                                    <tr>
+                                        <TdModalShurtanFirst>Расход, м³/ч:</TdModalShurtanFirst>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.expand : ""}</TdModalShurtan>
+                                    </tr>
+                                    <tr>
+                                        <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.temperature : ""}</TdModalShurtan>
+                                    </tr>
+                                    <tr>
+                                        <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
+                                    </tr>
+                                    <tr>
+                                        <TdModalShurtan colSpan="2">2021-06-17 14:49:22</TdModalShurtan>
+                                    </tr>
+                                    </tbody>
+                                )}
+
                             </TableModalShurtan>
                             <ButtonModalShurtan onClick={() => setShowCollectionPointModal(prev => !prev)}>OK</ButtonModalShurtan>
                         </ModalDivShurtan>

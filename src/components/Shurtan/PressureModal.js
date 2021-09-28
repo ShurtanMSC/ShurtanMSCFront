@@ -1,10 +1,12 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, {useRef, useEffect, useCallback, useState} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
     H2, H2Div, Table, Tr, Th, TdFirst, Td, InputModal, SaveDiv, PModal, SpanModal, SaveBtnModal, CloseBtnModal, SelectModal
 } from '../../styled'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import axios from "axios";
+import {configHeader} from "../../utills/congifHeader";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -23,7 +25,7 @@ const modalSP = {
     }
 }
 
-const PressureModal = ({showPressureModal, setShowPressureModal}) => {
+const PressureModal = ({showPressureModal, setShowPressureModal, id, setPressureApi,sp}) => {
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -43,6 +45,36 @@ const PressureModal = ({showPressureModal, setShowPressureModal}) => {
         return() => document.removeEventListener('keydown', keyPress);
     }, [keyPress]);
 
+    // API
+    const handlerSubmit = e => {
+        e.preventDefault();
+        axios.post('https://shurtan.herokuapp.com/api/collection_point/manually/add/action',
+            {
+                collectionPointId: sp.objectDto.id,
+                pressure: rsp,
+                temperature: temp,
+            }, configHeader)
+            .then(res => {
+                if (res.status===201)
+                axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
+                    .then(res1 => {setPressureApi(res1.data.object)
+                    })
+                    .catch(err => {console.log(err)
+                    })
+                })
+            .catch(err => {console.log(err)
+            })
+        setShowPressureModal(prev => !prev)
+    }
+    const [ rsp, setRsp ] = useState('');
+    const [ temp, setTemp ] = useState('');
+    const handlerRsp = e => {
+        setRsp(e.target.value);
+    }
+    const handlerTemp = e => {
+        setTemp(e.target.value);
+    }
+
     return (
         <AnimatePresence>
             { showPressureModal && (
@@ -57,8 +89,9 @@ const PressureModal = ({showPressureModal, setShowPressureModal}) => {
                                 variants={modalSP}
                     >
                         <ModalDivShurtan>
+                            <form onSubmit={handlerSubmit}>
                             <H2Div>
-                                <H2>Показатели скважин СП-1</H2>
+                                <H2>Показатели скважин {id}</H2>
                             </H2Div>
                             <TableUp>
                                 <thead>
@@ -71,10 +104,10 @@ const PressureModal = ({showPressureModal, setShowPressureModal}) => {
                                 </thead>
                                 <tbody>
                                     <Tr>
-                                        <TdFirst>СП-1</TdFirst>
-                                        <TdUp> <InputModal type="text"  name="name" /> </TdUp>
-                                        <TdUp> <InputModal type="text"  name="name" disabled/> </TdUp>
-                                        <TdUp> <InputModal type="text"  name="name" /> </TdUp>
+                                        <TdFirst>{id}</TdFirst>
+                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? sp.objectActionDto.pressure : ""} onChange={handlerRsp} required/> </TdUp>
+                                        <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? sp.objectActionDto.expand : ""} disabled/></TdUp>
+                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? sp.objectActionDto.temperature : ""} onChange={handlerTemp} required/> </TdUp>
                                     </Tr>
                                 </tbody>
                             </TableUp>
@@ -223,6 +256,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal}) => {
                                     </CloseBtnModal>
                                 </div>
                             </SaveDiv>
+                            </form>
                         </ModalDivShurtan>
                     </motion.div>
                 </motion.div>

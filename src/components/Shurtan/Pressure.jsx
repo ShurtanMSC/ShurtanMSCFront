@@ -12,6 +12,8 @@ const   Pressure = () => {
     const [ turnIcon, setTurnIcon ] = useState(false);
     // const [ showMore, setShowMore ] = useState(false);
     const [ turnMore, setTurnMore ] = useState(false);
+    const [ id, setId ] = useState('');
+    const [ currentSP, setCurrentSP ] = useState({});
     // const [ showMoreSP2, setShowMoreSP2 ] = useState(false);
     // const [ turnMoreSP2, setTurnMoreSP2 ] = useState(false);
     // const [ showMoreSP3, setShowMoreSP3 ] = useState(false);/
@@ -53,8 +55,10 @@ const   Pressure = () => {
     // const [ showMoreBT34, setShowMoreBT34 ] = useState(false);
     // const [ turnBT34, setTurnBT34 ] = useState(false);
 
-    const openPressureModal = () => {
+    const openPressureModal = (SPid, sp) => {
         setShowPressureModal(prev => !prev);
+        setId(SPid);
+        setCurrentSP(sp)
     };
     const openMoreTable = () => {
         setShowPressureTable(!showPressureTable);
@@ -149,14 +153,20 @@ const   Pressure = () => {
     useEffect( () => {
         axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
             .then(res => {setPressureApi(res.data.object)
-            } )
+            })
+            .catch(err => {console.log(err)
+            })
     }, [])
-    console.log(pressureApi);
+    // console.log(pressureApi);
 
     return (
         <PressureContainer>
             <PressureModal showPressureModal={showPressureModal}
-                           setShowPressureModal={setShowPressureModal}/>
+                           setShowPressureModal={setShowPressureModal}
+                           id={id}
+                           setPressureApi={setPressureApi}
+                           sp={currentSP}
+            />
             <TablePresure showPressureTable={showPressureTable}>
             <thead>
             <Tr>
@@ -184,14 +194,14 @@ const   Pressure = () => {
 
                 <Tr key={el.objectDto.name}>
                     <TdFirstPresure>
-                        <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> {el.objectDto.name}
+                        <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
                         <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
                     </TdFirstPresure>
-                    <Td>500</Td>
+                    <Td>{el.objectActionDto !== null ? el.objectActionDto.pressure : ""}</Td>
                     <Td>500</Td>
                     <Td>500</Td>
                     <Td>8000</Td>
-                    <Td>9000</Td>
+                    <Td>{el.objectActionDto !== null ? el.objectActionDto.temperature : ""}</Td>
                     <Td>0</Td>
                     <Td>0</Td>
                     <Td>0</Td>
