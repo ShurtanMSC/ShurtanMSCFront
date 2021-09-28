@@ -5,16 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureModal from "./PressureModal";
 import axios from 'axios';
-// import {useDispatch, useSelector} from "react-redux";
-// import {setPressure} from "../../redux/actions/graficActions"
 
 const   Pressure = () => {
     const [ showPressureModal, setShowPressureModal ] = useState(false);
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
-    const [ showMore, setShowMore ] = useState(false);
-    const [ turnMore, setTurnMore ] = useState([]);
-    const [ grade, setGrade ] = useState(0);
+    // const [ showMore, setShowMore ] = useState(false);
+    const [ turnMore, setTurnMore ] = useState(false);
     // const [ showMoreSP2, setShowMoreSP2 ] = useState(false);
     // const [ turnMoreSP2, setTurnMoreSP2 ] = useState(false);
     // const [ showMoreSP3, setShowMoreSP3 ] = useState(false);
@@ -63,23 +60,9 @@ const   Pressure = () => {
         setShowPressureTable(!showPressureTable);
         setTurnIcon(!turnIcon);
     }
-    const openShowMoreTable = (id) => {
-        // setShowMore(!showMore);
-        // let v=document.getElementById(id+'btn');
-        // if(id===v) setTurnMore(!turnMore);
-        // console.log(id)
-        // console.log(v.rotation)
-        // console.log(v)
-        // if (v.rotation===0) v.rotation=180
-        // else v.rotation=0;
-        // setGrade(0)
-        console.log(turnMore[1]+" lalallalallalal")
-        console.log(id)
-        // console.log(turnMore[id+'btn'])
-        let array=turnMore;
-        array[id]=!array[id];
-        setTurnMore(array)
-     }
+    const openShowMoreTable = () => {
+        setTurnMore(!turnMore)
+    }
     // const openSP2 = () => {
     //     setShowMoreSP2(!showMoreSP2);
     //     setTurnMoreSP2(!turnMoreSP2);
@@ -162,23 +145,10 @@ const   Pressure = () => {
     // }
 
     // get Api
-    // const pressure = useSelector( (state) => state);
-    // const dispatch = useDispatch();
     const [pressureApi, setPressureApi] = useState([]);
     useEffect( () => {
         axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
-            .then(res => {
-                let data=res.data.object;
-                setPressureApi(res.data.object)
-                let turnMore1=[]
-                data.map(d=>{
-                    turnMore1.push(false)
-                })
-                setTurnMore(turnMore1)
-                // console.log(turnMore+"aaaaaaaa")
-                data.map(d=>{
-                    console.log(turnMore[d.objectDto.id])
-                })
+            .then(res => {setPressureApi(res.data.object)
             } )
     }, [])
     console.log(pressureApi);
@@ -210,12 +180,12 @@ const   Pressure = () => {
             </Tr>
             </thead>
             <tbody>
-            {pressureApi.map((el,index) =>
+            {pressureApi.map((el) =>
 
-                <Tr id={el.objectDto.id+'sp'} key={el.objectDto.name}>
+                <Tr key={el.objectDto.name}>
                     <TdFirstPresure>
                         <FontAwesomeIconPresure icon={faEdit} onClick={openPressureModal}/> {el.objectDto.name}
-                        <FontAwesomeIconPresure id={el.objectDto.id} rotation={turnMore[index] ? 180 : 0} icon={faChevronDown} onClick={()=>openShowMoreTable(el.objectDto.id)} />
+                        <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
                     </TdFirstPresure>
                     <Td>500</Td>
                     <Td>500</Td>
@@ -2617,10 +2587,10 @@ const RightTh = styled(Th)`
   right: 0;
   cursor: pointer;
 `
-const TrNone = styled(Tr)`
-  display: ${({showMore}) => ( showMore ? "" : "none")};
-  transition: 0.2s;
-`
+// const TrNone = styled(Tr)`
+//   display: ${({showMore}) => ( showMore ? "" : "none")};
+//   transition: 0.2s;
+// `
 // const TrNoneSP2 = styled(Tr)`
 //   display: ${({showMoreSP2}) => ( showMoreSP2 ? "" : "none")};
 //   transition: 0.2s;

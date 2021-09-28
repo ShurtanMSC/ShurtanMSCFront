@@ -115,7 +115,8 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
         }
         console.log(data)
         axios.post('https://shurtan.herokuapp.com/api/well/add', data)
-            .then(res => {console.log(res)})
+            .then(res => {console.log(res)});
+        setShowRegistrationWell(prev => !prev);
     }
 
     useEffect(()=>{

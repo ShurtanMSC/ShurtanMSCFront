@@ -10,16 +10,14 @@ import TableGraficModalTwo from "./TableGraficModalTwo";
 import axios from "axios";
 import {BASE_URL_FORECAST_GAS} from "../../../utills/constant"
 import {BASE_URL_FORECAST_CONDENSATE} from "../../../utills/constant"
-import { useSelector, useDispatch } from 'react-redux'
-import { setGrafic, setGraficTwo } from "../../../redux/actions/graficActions";
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
     const [turnIcon, setTurnIcon] = useState(false);
     const [showTableGraficModal, setShowTableGraficModal] = useState(false);
     const [showTableGraficModalTwo, setShowTableGraficModalTwo] = useState(false);
-    // const [data,setData] = useState([]);
-    // const [dataCond, setDataCond] = useState([]);
+    const [data,setData] = useState([]);
+    const [dataCond, setDataCond] = useState([]);
 
     const openModal = () => {
         setShowTableGraficModal(prev => !prev);
@@ -32,37 +30,30 @@ const TableGrafic = () => {
         setTurnIcon(!turnIcon);
     }
     // get Api
-    const grafic = useSelector((state) => state);
-    const graficTwo = useSelector((state) => state);
-    const dispatch = useDispatch();
-
     useEffect(()=> {
         axios.get(BASE_URL_FORECAST_GAS + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
             .then(res => {
                 if(res.data.object.length !== 0){
-                    dispatch(setGrafic(res.data.object));
+                    setData(res.data.object);
                 }
             });
         axios.get(BASE_URL_FORECAST_CONDENSATE + 1 + '/' + ((new Date().getFullYear()) - 1 ) + '/' + new Date().getFullYear())
         .then(res => {
             if(res.data.object.length !== 0){
-                dispatch(setGraficTwo(res.data.object));
+                setDataCond(res.data.object);
             }
         })
     }, [])
-
-    console.log("Grafic:", grafic );
-    console.log("GraficTwo", graficTwo );
 
     return (
         <>
             <TableGraficModal showTableGraficModal={showTableGraficModal}
                               setShowTableGraficModal={setShowTableGraficModal}
-                              // setData={setData} data={data}
+                              setData={setData} data={data}
             />
             <TableGraficModalTwo showTableGraficModalTwo={showTableGraficModalTwo}
                                  setShowTableGraficModalTwo={setShowTableGraficModalTwo}
-                                 // setDataCond={setDataCond} dataCond={dataCond}
+                                 setDataCond={setDataCond} dataCond={dataCond}
             />
         <TableGraficContainer>
             <TableGraficDiv openGrafic={openGrafic}>
@@ -89,7 +80,7 @@ const TableGrafic = () => {
                 </WidthDiv>
                 <GraficDiv>
                     <Forecast
-                        // data={data}
+                        data={data}
                     />
                 </GraficDiv>
                 <WidthDiv>
@@ -111,7 +102,7 @@ const TableGrafic = () => {
                 </WidthDiv>
                 <GraficDiv>
                     <ForecastTwo
-                        // dataCond={dataCond}
+                        dataCond={dataCond}
                     />
                 </GraficDiv>
             </TableGraficDiv>

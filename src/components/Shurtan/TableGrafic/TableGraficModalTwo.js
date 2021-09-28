@@ -6,8 +6,6 @@ import {
 } from '../../../styled';
 import axios from 'axios';
 import {configHeader} from "../../../utills/congifHeader";
-import {useSelector, useDispatch} from "react-redux";
-import {setGraficTwo} from "../../../redux/actions/graficActions";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -26,11 +24,7 @@ const modalGrafic = {
     }
 }
 
-const TableGraficModalTwo = ({showTableGraficModalTwo, setShowTableGraficModalTwo,
-                                 // setDataCond, dataCond
-}) => {
-    const graficTwo = useSelector((state) => state.GraficTwo.graficTwo);
-    const dispatch = useDispatch();
+const TableGraficModalTwo = ({showTableGraficModalTwo, setShowTableGraficModalTwo,setDataCond, dataCond}) => {
 
     const findMonthName = (month) => {
         if(!month) {
@@ -96,13 +90,12 @@ const TableGraficModalTwo = ({showTableGraficModalTwo, setShowTableGraficModalTw
                 axios.post('https://shurtan.herokuapp.com/api/forecast/condensate/add/all',
                     postData,configHeader
                 ).then(res => {
-                    // setDataCond(res.data.object);
-                    dispatch(setGraficTwo(res.data.object));
+                    setDataCond(res.data.object);
                 }).catch(err => {console.log(err);
                 });
             }
         setShowTableGraficModalTwo(prev => !prev);
-    }, [setGraficTwo, setShowTableGraficModalTwo]);
+    }, [setDataCond, setShowTableGraficModalTwo]);
 
     //Modal
     const modalRef = useRef();
@@ -151,12 +144,12 @@ const TableGraficModalTwo = ({showTableGraficModalTwo, setShowTableGraficModalTw
                                     </Tr>
                                     </thead>
                                     <tbody>
-                                    {graficTwo.length === 24?
+                                    {dataCond.length === 24?
                                         count.map(number =>
                                             <Tr key={number}>
-                                                <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(graficTwo[number*2-2].month)}</label> </TdFirst>
-                                                <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year"+number} defaultValue={graficTwo[number*2-2].amount} required /> </Td>
-                                                <Td> <InputModal min="1" id={"t"+number} type="number"  name={"Year" + number} defaultValue={graficTwo[number*2-1].amount} required /> </Td>
+                                                <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(dataCond[number*2-2].month)}</label> </TdFirst>
+                                                <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year"+number} defaultValue={dataCond[number*2-2].amount} required /> </Td>
+                                                <Td> <InputModal min="1" id={"t"+number} type="number"  name={"Year" + number} defaultValue={dataCond[number*2-1].amount} required /> </Td>
                                             </Tr>
                                         )
                                         :
