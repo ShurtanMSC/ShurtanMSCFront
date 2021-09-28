@@ -14,7 +14,7 @@ const   Pressure = () => {
     const [ turnMore, setTurnMore ] = useState(false);
     // const [ showMoreSP2, setShowMoreSP2 ] = useState(false);
     // const [ turnMoreSP2, setTurnMoreSP2 ] = useState(false);
-    // const [ showMoreSP3, setShowMoreSP3 ] = useState(false);
+    // const [ showMoreSP3, setShowMoreSP3 ] = useState(false);/
     // const [ turnSP3, setTurnSP3 ] = useState(false);
     // const [ showMoreSP4, setShowMoreSP4 ] = useState(false);
     // const [ turnSP4, setTurnSP4 ] = useState(false);
