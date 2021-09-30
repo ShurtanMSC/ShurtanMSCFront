@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react';
+import {AppContext} from "../context";
 import styled from 'styled-components'
 import { ContainerFluid, H1, P, NavbarCard, HumanImg, DateP, OclockP, DateAndOclock, Burger, BtnBurger, H2Navigation } from '../styled'
 import LogoOne from '../image/Navbar/logo-uzliti.png'
@@ -20,7 +21,8 @@ import {TOKEN} from "../utills/constant";
 import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
-    
+    const {openRegistrationWell, openWellOperation} = useContext(AppContext);
+
     const [hours, setHours] = useState('0');
     const [name, setName] = useState('');
     const [minutes, setMinutes] = useState('0');
@@ -35,8 +37,8 @@ const Navbar = () => {
     const [showParameters, setShowParameters] = useState(false);
     const [showTechnological, setShowTechnological] = useState(false);
     const [showProduction, setShowProduction] = useState(false);
-    const [showWellOperation, setShowWellOperation] = useState(false);
-    const [showRegistrationWell, setShowRegistrationWell] = useState(false);
+
+
 
     const history = useHistory();
     
@@ -64,12 +66,8 @@ const Navbar = () => {
     const openProduction = () => {
         setShowProduction(prev => !prev);
     }
-    const openWellOperation = () => {
-        setShowWellOperation(prev => !prev);
-    }
-    const openRegistrationWell = () => {
-        setShowRegistrationWell(prev => !prev);
-    }
+
+
     useEffect(()=>{
         axios.get('https://shurtan.herokuapp.com/api/auth/me', {
                 headers:{
@@ -139,11 +137,9 @@ const Navbar = () => {
                             <TechnologicalRegime showTechnological={showTechnological}
                                                  setShowTechnological={setShowTechnological}/>
                         <H2Navigation onClick={openWellOperation}>Показатели эксплуатации скважин</H2Navigation>
-                            <WellOperation showWellOperation={showWellOperation}
-                                           setShowWellOperation={setShowWellOperation}/>
+                            <WellOperation />
                         <H2Navigation onClick={openRegistrationWell}>Регистрация новой скважины</H2Navigation>
-                            <RegistrationWell showRegistrationWell={showRegistrationWell}
-                                              setShowRegistrationWell={setShowRegistrationWell}/>
+                            <RegistrationWell />
                     </ShurtanNavigation>
                     <H2Navigation>Южная Тандырча</H2Navigation>
                     <H2Navigation>Бузахур</H2Navigation>

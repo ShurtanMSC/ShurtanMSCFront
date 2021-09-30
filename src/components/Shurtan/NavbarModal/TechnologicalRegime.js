@@ -82,8 +82,8 @@ const TechnologicalRegime = ({showTechnological, setShowTechnological}) => {
                                     <DataP>2021-06-17 14:49:22</DataP>
                                 </div>
                                 <ButtonDiv>
-                                    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>
                             <form>
@@ -95,8 +95,8 @@ const TechnologicalRegime = ({showTechnological, setShowTechnological}) => {
                                     </DateInputDiv>
                                 </GeneralDiv>
                                 <ButtonDiv>
-                                    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>
                         </AddGasNavbarModalDiv>

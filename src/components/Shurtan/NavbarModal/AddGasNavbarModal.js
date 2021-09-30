@@ -87,8 +87,8 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                 <DataP>2021-06-17 14:49:22</DataP>
                             </div>
                             <ButtonDiv>
-                                <ButtonNavbarCancel onClick={() => setShowModal(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                <ButtonNavbarCancel onClick={() => setShowModal(prev => !prev)}>Назад</ButtonNavbarCancel>
                             </ButtonDiv>
                             </form>
                         </AddGasNavbarModalDiv>

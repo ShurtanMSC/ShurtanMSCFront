@@ -81,8 +81,8 @@ const ElectricityConsumptionNavbarModal = ({showElectricity, setShowElectricity}
                                     <DataP>2021-06-17 14:49:22</DataP>
                                 </div>
                                 <ButtonDiv>
-                                    <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>
                             <form>
@@ -94,8 +94,8 @@ const ElectricityConsumptionNavbarModal = ({showElectricity, setShowElectricity}
                                     </DateInputDiv>
                                 </GeneralDiv>
                                 <ButtonDiv>
-                                    <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>
                         </AddGasNavbarModalDiv>

@@ -102,8 +102,8 @@ const ReservoirParameters = ({showParameters, setShowParameters}) => {
                                     <DataP>2021-06-17 14:49:22</DataP>
                                 </div>
                                 <ButtonDiv>
-                                    <ButtonNavbarCancel onClick={() => setShowParameters(prev => !prev)}>Назад</ButtonNavbarCancel>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowParameters(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>
                         </AddGasNavbarModalDiv>

@@ -1,4 +1,5 @@
-import React, {useRef, useEffect, useCallback, useState} from 'react'
+import React, {useRef, useEffect, useCallback, useContext} from 'react';
+import {AppContext} from "../../../context";
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     AddGasNavbarModalDiv,
@@ -16,7 +17,6 @@ import {
     AddFactDiv, CurrentMonthDiv
 } from '../../../styled'
 import styled from 'styled-components'
-import axios from 'axios';
 
 // Modal animation
 const backdrop = {
@@ -36,94 +36,24 @@ const modal = {
     }
 }
 
-const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
-    // Edit
-    const [numberWell, setNumberWell] = useState('');
-    const [uppg, setUppg] = useState('');
-    const [point, setPoint] = useState('');
-    const [horizon, setHorizon] = useState('');
-    const [comDate, setComDate] = useState('');
-    const [drillDate, setDrillDate] = useState('');
-    const [category, setCategory] = useState('');
-    const [state, setState] = useState('');
-    const [interval, setInterval] = useState('');
-    const [altitude, setAltitude] = useState('');
-    const [depth, setDepth] = useState('');
-    const [coordX, setCoordX] = useState('');
-    const [coordY, setCoordY] = useState('');
-    // Get apiUppg
-    const [getUppg, setGetUppg] = useState([]);
-    // Get apiPoint
-    const [getPoint, setGetPoint] = useState([]);
-
-    const handlerNumberWell = e => {
-        setNumberWell(e.target.value);
-    }
-    const handlerUppg = e => {
-        setUppg(e.target.value);
-        if(e.target.value.length > 0)
-        axios.get('https://shurtan.herokuapp.com/api/collection_point/all/uppg/' + e.target.value)
-            .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)});
-    }
-    const handlerPoint = e => {
-        setPoint(e.target.value);
-    }
-    const handlerHorizon = e => {
-        setHorizon(e.target.value);
-    }
-    const handlerComDate = e => {
-        setComDate(e.target.value);
-    }
-    const handlerDrillDate = e => {
-        setDrillDate(e.target.value);
-    }
-    const handlerCategory = e => {
-        setCategory(e.target.value);
-    }
-    const handlerState = e => {
-        setState(e.target.value);
-    }
-    const handlerInterval = e => {
-        setInterval(e.target.value);
-    }
-    const handlerAltitude = e => {
-        setAltitude(e.target.value);
-    }
-    const handlerDepth = e => {
-        setDepth(e.target.value);
-    }
-    const hadlerCoordX = e => {
-        setCoordX(e.target.value);
-    }
-    const hadlerCoordY = e => {
-        setCoordY(e.target.value);
-    }
-
-    const handlerSubmit = e => {
-        e.preventDefault();
-        let data={
-            altitude: altitude,
-            category: category,
-            collectionPointId: point,
-            commissioningDate: comDate,
-            depth: depth,
-            drillingStartDate: drillDate,
-            horizon: horizon,
-            number: numberWell,
-            x: coordX,
-            y: coordY
-        }
-        console.log(data)
-        axios.post('https://shurtan.herokuapp.com/api/well/add', data)
-            .then(res => {console.log(res)});
-        setShowRegistrationWell(prev => !prev);
-    }
-
-    useEffect(()=>{
-        // Get apiUppg
-        axios.get('https://shurtan.herokuapp.com/api/uppg/all/mining_system/' + 1)
-            .then(res=>{setGetUppg(res.data.object); console.log(res.data.object)});
-    }, []);
+const RegistrationWell = () => {
+    const {
+        numberWell, handlerNumberWell,
+        uppg, handlerUppg,
+        point, handlerPoint, getPoint,
+        horizon, handlerHorizon,
+        comDate, handlerComDate,
+        drillDate, handlerDrillDate,
+        category, handlerCategory,
+        state, handlerState,
+        interval, handlerInterval,
+        altitude, handlerAltitude,
+        depth, handlerDepth,
+        coordX, hadlerCoordX,
+        coordY, hadlerCoordY,
+        getUppg, handlerSubmit,
+        showRegistrationWell, setShowRegistrationWell,
+    } = useContext(AppContext);
 
     // Modal animation
     const modalRef = useRef();
@@ -163,11 +93,11 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                 <ParametersDiv>
                                     <ParametersCard>
                                         <LabelNav htmlFor="well">Номер скважину</LabelNav>
-                                        <ParametersInput type="number" name="well" id="well" value={numberWell} onChange={handlerNumberWell}/>
+                                        <ParametersInput type="number" name="well" id="well" value={numberWell} onChange={handlerNumberWell} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="uppg">УППГ</LabelNav>
-                                        <SelectNav name="uppg" id="uppg" value={uppg} onChange={handlerUppg}>
+                                        <SelectNav name="uppg" id="uppg" value={uppg} onChange={handlerUppg} required>
                                             <option value="">--Выберите--</option>
                                             {getUppg.map((el, u) =>
                                                 <option key={u} value={el.id}>{el.name}</option>
@@ -176,7 +106,7 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="sp">СП</LabelNav>
-                                        <SelectNav name="sp" id="sp" value={point} onChange={handlerPoint}>
+                                        <SelectNav name="sp" id="sp" value={point} onChange={handlerPoint} required>
                                             <option value="">--Выберите--</option>
                                             {getPoint.map((el, p) =>
                                                 <option key={p} value={el.id}>{el.name}</option>
@@ -185,19 +115,19 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Горизонт</ParametersPChange>
-                                        <ParametersInputChange type="text" name="text" value={horizon} onChange={handlerHorizon}/>
+                                        <ParametersInputChange type="text" name="text" value={horizon} onChange={handlerHorizon} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Дата ввода в эксплуатацию</ParametersPChange>
-                                        <ParametersInputChange type="date" name="date" value={comDate} onChange={handlerComDate}/>
+                                        <ParametersInputChange type="date" name="date" value={comDate} onChange={handlerComDate} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Дата начала бурения</ParametersPChange>
-                                        <ParametersInputChange type="date" name="date" value={drillDate} onChange={handlerDrillDate}/>
+                                        <ParametersInputChange type="date" name="date" value={drillDate} onChange={handlerDrillDate} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="category">Категория</LabelNav>
-                                        <SelectNav name="category" id="category" value={category} onChange={handlerCategory}>
+                                        <SelectNav name="category" id="category" value={category} onChange={handlerCategory} required>
                                             <option value="">--Выберите--</option>
                                             <option value="MINING">Добывающая</option>
                                             <option value="DISCHARGE">Нагнетательная</option>
@@ -207,7 +137,7 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="state">Состояние</LabelNav>
-                                        <SelectNav name="state" id="state" value={state} onChange={handlerState}>
+                                        <SelectNav name="state" id="state" value={state} onChange={handlerState} required>
                                             <option value="">--Выберите--</option>
                                             <option value="IN_WORK">в работе</option>
                                             <option value="IN_IDLE">в простое</option>
@@ -218,25 +148,25 @@ const RegistrationWell = ({showRegistrationWell, setShowRegistrationWell}) => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Интервал перфарации</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number" value={interval} onChange={handlerInterval}/>
+                                        <ParametersInputChange type="number" name="number" value={interval} onChange={handlerInterval} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Альтитуда, м</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number" value={altitude} onChange={handlerAltitude}/>
+                                        <ParametersInputChange type="number" name="number" value={altitude} onChange={handlerAltitude} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Глубина, м</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number" value={depth} onChange={handlerDepth}/>
+                                        <ParametersInputChange type="number" name="number" value={depth} onChange={handlerDepth} required/>
                                     </ParametersCard>
                                 </ParametersDiv>
                                 <CurrentMonthDivChange>
                                     <div>
                                         <NavbarModalP>Координаты</NavbarModalP>
-                                        <NavbarModalInputChange type="number" name="number" placeholder="X=" value={coordX} onChange={hadlerCoordX}/>
+                                        <NavbarModalInputChange type="number" name="number" placeholder="X=" value={coordX} onChange={hadlerCoordX} required/>
                                     </div>
                                     <AddFactDiv>
                                         <NavbarModalP>Координаты</NavbarModalP>
-                                        <NavbarModalInputChange type="number" name="number" placeholder="Y=" value={coordY} onChange={hadlerCoordY}/>
+                                        <NavbarModalInputChange type="number" name="number" placeholder="Y=" value={coordY} onChange={hadlerCoordY} required/>
                                     </AddFactDiv>
                                 </CurrentMonthDivChange>
                                 <ButtonDivChange>
