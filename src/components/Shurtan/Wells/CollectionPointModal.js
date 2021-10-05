@@ -1,7 +1,7 @@
-import React, {useRef, useEffect, useCallback, useState} from 'react'
+import React, {useRef, useEffect, useCallback, useContext} from 'react';
+import {AppContext} from '../../../context'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, ButtonModalShurtan } from '../../../styled'
-import axios from "axios";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -21,6 +21,8 @@ const modal = {
 }
 
 const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointModal, idPoint}) => {
+    const {pressureApi} = useContext(AppContext);
+
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -39,16 +41,6 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
         document.addEventListener('keydown', keyPress);
         return() => document.removeEventListener('keydown', keyPress);
     }, [keyPress]);
-
-    // GET API
-    const [pressureApi, setPressureApi] = useState([]);
-    useEffect( () => {
-        axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
-            .then(res => {setPressureApi(res.data.object)
-            })
-            .catch(err => {console.log(err)
-            })
-    }, [])
 
     const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
 
@@ -75,7 +67,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Рсп, кгс/см²:</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.pressure : ""}</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.pressure*10)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Расход, м³/ч:</TdModalShurtanFirst>
@@ -83,7 +75,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.temperature : ""}</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.temperature*10)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>

@@ -1,4 +1,4 @@
-export const BASE_URL='https://shurtan.herokuapp.com'
+export const BASE_URL='https://shurtanback.herokuapp.com'
 export const BASE_URL_ADMIN = BASE_URL + '/api/admin/'
 export const BASE_URL_WELL = BASE_URL + '/api/well/'
 export const BASE_URL_UPPG = BASE_URL + '/api/uppg/'

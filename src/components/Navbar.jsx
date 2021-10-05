@@ -17,8 +17,8 @@ import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
 import axios from "axios";
-import {TOKEN} from "../utills/constant";
-import { useHistory } from 'react-router-dom'
+import {TOKEN, BASE_URL} from "../utills/constant";
+import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
     const {openRegistrationWell, openWellOperation} = useContext(AppContext);
@@ -69,7 +69,7 @@ const Navbar = () => {
 
 
     useEffect(()=>{
-        axios.get('https://shurtan.herokuapp.com/api/auth/me', {
+        axios.get(BASE_URL + '/api/auth/me', {
                 headers:{
                     authorization: 'Bearer ' +localStorage.getItem(TOKEN)
                 }

@@ -1,4 +1,5 @@
-import React, {useRef, useEffect, useCallback, useState} from 'react'
+import React, {useRef, useEffect, useCallback, useState, useContext} from 'react';
+import {AppContext} from '../../context'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
@@ -7,6 +8,8 @@ import {
 import styled from 'styled-components';
 import axios from "axios";
 import {configHeader} from "../../utills/congifHeader";
+import {BASE_URL} from "../../utills/constant"
+
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -25,7 +28,9 @@ const modalSP = {
     }
 }
 
-const PressureModal = ({showPressureModal, setShowPressureModal, id, setPressureApi,sp}) => {
+const PressureModal = ({showPressureModal, setShowPressureModal, id, sp}) => {
+    const {setPressureApi} = useContext(AppContext);
+
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -48,7 +53,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, setPressure
     // API
     const handlerSubmit = e => {
         e.preventDefault();
-        axios.post('https://shurtan.herokuapp.com/api/collection_point/manually/add/action',
+        axios.post(BASE_URL + '/api/collection_point/manually/add/action',
             {
                 collectionPointId: sp.objectDto.id,
                 pressure: rsp,
@@ -56,11 +61,9 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, setPressure
             }, configHeader)
             .then(res => {
                 if (res.status===201)
-                axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
-                    .then(res1 => {setPressureApi(res1.data.object)
-                    })
-                    .catch(err => {console.log(err)
-                    })
+                    axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1)
+                        .then(res1 => {setPressureApi(res1.data.object) })
+                        .catch(err => {console.log(err) })
                 })
             .catch(err => {console.log(err)
             })
@@ -105,9 +108,9 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, setPressure
                                 <tbody>
                                     <Tr>
                                         <TdFirst>{id}</TdFirst>
-                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? sp.objectActionDto.pressure : ""} onChange={handlerRsp} required/> </TdUp>
+                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
                                         <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? sp.objectActionDto.expand : ""} disabled/></TdUp>
-                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? sp.objectActionDto.temperature : ""} onChange={handlerTemp} required/> </TdUp>
+                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
                                     </Tr>
                                 </tbody>
                             </TableUp>

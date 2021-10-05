@@ -6,6 +6,7 @@ import {
 } from '../../../styled';
 import axios from 'axios';
 import {configHeader} from "../../../utills/congifHeader";
+import {BASE_URL} from "../../../utills/constant"
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -87,7 +88,7 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,setData
             }
             if (postData.length===24){
                 document.getElementById('save').disabled=true;
-                axios.post('https://shurtan.herokuapp.com/api/forecast/gas/add/all',
+                axios.post(BASE_URL + '/api/forecast/gas/add/all',
                     postData,configHeader
                 ).then(res => {
                     setData(res.data.object)

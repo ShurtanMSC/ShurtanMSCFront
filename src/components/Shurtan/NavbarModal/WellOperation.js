@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback, useContext } from 'react';
+import React, { useRef, useEffect, useCallback, useContext} from 'react';
 import {AppContext} from "../../../context";
 import { motion, AnimatePresence } from 'framer-motion'
 import { AddGasNavbarModalDiv, NavbarModalP,
@@ -26,7 +26,9 @@ const modal = {
     }
 }
 
+
 const WellOperation = () => {
+
     const {
         uppg, handlerUppg,
         point, handlerPoint, getPoint,
@@ -90,7 +92,7 @@ const WellOperation = () => {
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <LabelNav htmlFor="well">Выберите скважину</LabelNav>
+                                       <LabelNav htmlFor="well">Выберите скважину</LabelNav>
                                         <SelectNav name="well" id="well" value={numberWell} onChange={handlerNumberWell}>
                                             <option value="">--Выберите--</option>
                                             {well.map((el, w) =>
@@ -100,35 +102,35 @@ const WellOperation = () => {
                                     </ParametersCard>
                                     <ParametersCard>
                                             <ParametersPChange>Горизонт</ParametersPChange>
-                                            <ParametersInputChange defaultValue='' type="text" name="text"/>
+                                            <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.horizon : '' } type="text" name="text"/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Дата ввода в эксплуатацию</ParametersPChange>
-                                        <ParametersInputChange type="date" name="date"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.commissioningDate.slice(0, 10) : ''} type="date" name="date"/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Дата начала бурения</ParametersPChange>
-                                        <ParametersInputChange type="date" name="date"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.drillingStartDate.slice(0, 10) : ''} type="date" name="date"/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="category">Категория</LabelNav>
                                         <SelectNav name="category" id="category">
                                             <option value="">--Выберите--</option>
-                                            <option value="mining">Добывающая</option>
-                                            <option value="discharge">Нагнетательная</option>
-                                            <option value="exploration">Разведочная</option>
-                                            <option value="piezometric">Пьезометрическая</option>
+                                            <option value="MINING" selected={selectWell !== null ? (selectWell.objectDto.category==="MINING") : false}>Добывающая</option>
+                                            <option value="DISCHARGE" selected={selectWell !== null ? (selectWell.objectDto.category==="DISCHARGE") : false}>Нагнетательная</option>
+                                            <option value="EXPLORATION" selected={selectWell !== null ? (selectWell.objectDto.category==="EXPLORATION") : false}>Разведочная</option>
+                                            <option value="PIEZOMETRIC" selected={selectWell !== null ? (selectWell.objectDto.category==="PIEZOMETRIC") : false}>Пьезометрическая</option>
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="state">Состояние</LabelNav>
                                         <SelectNav name="state" id="state">
                                             <option value="">--Выберите--</option>
-                                            <option value="working">в работе</option>
-                                            <option value="idling">в простое</option>
-                                            <option value="repairing">в ремонте</option>
-                                            <option value="conservation">в консервации</option>
-                                            <option value="liquidation">в ликвидации</option>
+                                            <option value="IN_WORK" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_WORK") : false}>в работе</option>
+                                            <option value="IN_IDLE" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_IDLE") : false}>в простое</option>
+                                            <option value="IN_REPAIR" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_REPAIR") : false}>в ремонте</option>
+                                            <option value="IN_CONSERVATION" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_CONSERVATION") : false}>в консервации</option>
+                                            <option value="IN_LIQUIDATION" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_LIQUIDATION") : false}>в ликвидации</option>
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
@@ -136,16 +138,20 @@ const WellOperation = () => {
                                         <ParametersInputChange type="date" name="date"/>
                                     </ParametersCard>
                                     <ParametersCard>
-                                        <ParametersPChange>Интервал перфарации</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number"/>
+                                        <ParametersPChange>Интервал перфарации мин</ParametersPChange>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.perforation_min : ''} type="number" name="number"/>
+                                    </ParametersCard>
+                                    <ParametersCard>
+                                        <ParametersPChange>Интервал перфарации мах</ParametersPChange>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.perforation_max : ''} type="number" name="number"/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Устьевое давление Ру, кгс/см²</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.pressure : ''} type="number" name="number"/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Температура на устье, °С</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.temperature : ''} type="number" name="number"/>
                                     </ParametersCard>
                                 </ParametersDiv>
                                 <div>

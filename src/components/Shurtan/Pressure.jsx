@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react';
+import {AppContext} from '../../context';
 import { Table, Tr, Th, Td, TdFirst, TdTotalCount, TdTotal } from '../../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureModal from "./PressureModal";
-import axios from 'axios';
 
 const   Pressure = () => {
+    const {pressureApi} = useContext(AppContext);
+
     const [ showPressureModal, setShowPressureModal ] = useState(false);
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
@@ -148,23 +150,11 @@ const   Pressure = () => {
     //     setTurnBT34(!turnBT34);
     // }
 
-    // get Api
-    const [pressureApi, setPressureApi] = useState([]);
-    useEffect( () => {
-        axios.get('https://shurtan.herokuapp.com/api/collection_point/all/action/mining_system/' + 1)
-            .then(res => {setPressureApi(res.data.object)
-            })
-            .catch(err => {console.log(err)
-            })
-    }, [])
-    // console.log(pressureApi);
-
     return (
         <PressureContainer>
             <PressureModal showPressureModal={showPressureModal}
                            setShowPressureModal={setShowPressureModal}
                            id={id}
-                           setPressureApi={setPressureApi}
                            sp={currentSP}
             />
             <TablePresure showPressureTable={showPressureTable}>
@@ -191,17 +181,16 @@ const   Pressure = () => {
             </thead>
             <tbody>
             {pressureApi.map((el) =>
-
                 <Tr key={el.objectDto.name}>
                     <TdFirstPresure>
                         <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
                         <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
                     </TdFirstPresure>
-                    <Td>{el.objectActionDto !== null ? el.objectActionDto.pressure : ""}</Td>
-                    <Td>500</Td>
-                    <Td>500</Td>
-                    <Td>8000</Td>
-                    <Td>{el.objectActionDto !== null ? el.objectActionDto.temperature : ""}</Td>
+                    <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
+                    <Td>50</Td>
+                    <Td>50</Td>
+                    <Td>800</Td>
+                    <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
                     <Td>0</Td>
                     <Td>0</Td>
                     <Td>0</Td>

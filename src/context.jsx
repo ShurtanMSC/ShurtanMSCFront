@@ -1,5 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
+import {BASE_URL} from "./utills/constant";
 
 const AppContext = createContext();
 
@@ -22,30 +23,36 @@ const AppProvider = ({children}) => {
     const [getUppg, setGetUppg] = useState([]);
     // WELL_OPERATION
     const [well, setWell] = useState([]);
-    const [selectWell, setSelectWell] = useState([]);
+    const [selectWell, setSelectWell] = useState(null);
     // NAVBAR_SHOW_MODAL_REGISTRATION_WELL
     const [showRegistrationWell, setShowRegistrationWell] = useState(false);
     // NAVBAR_SHOW_MODAL_WELL_OPERATION
     const [showWellOperation, setShowWellOperation] = useState(false);
+    // PRESSURE_GET_API
+    const [pressureApi, setPressureApi] = useState([]);
 
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
         if(e.target.value.length > 0)
-            axios.get('https://shurtan.herokuapp.com/api/well/one/action/' + e.target.value)
+            axios.get(BASE_URL + '/api/well/one/action/' + e.target.value)
                 .then(res => {setSelectWell(res.data.object); console.log(res.data.object);})
+                .catch(err => {console.log(err)})
     }
+
     const handlerUppg = e => {
         setUppg(e.target.value);
         if(e.target.value.length > 0)
-            axios.get('https://shurtan.herokuapp.com/api/collection_point/all/uppg/' + e.target.value)
-                .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)});
+            axios.get(BASE_URL + '/api/collection_point/all/uppg/' + e.target.value)
+                .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)})
     }
     const handlerPoint = e => {
         setPoint(e.target.value);
         if(e.target.value.length > 0)
-            axios.get('https://shurtan.herokuapp.com/api/well/all/collection_point/' + e.target.value)
-                .then(res =>{setWell(res.data.object); console.log(res.data.object)});
+            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value)
+                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)})
     }
     const handlerHorizon = e => {
         setHorizon(e.target.value);
@@ -92,8 +99,9 @@ const AppProvider = ({children}) => {
             y: coordY
         }
         console.log(data)
-        axios.post('https://shurtan.herokuapp.com/api/well/add', data)
-            .then(res => {console.log(res)});
+        axios.post(BASE_URL + '/api/well/add', data)
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err)});
         setShowRegistrationWell(prev => !prev);
         setNumberWell('');
         setUppg('');
@@ -111,8 +119,9 @@ const AppProvider = ({children}) => {
     }
     useEffect(()=>{
         // Get apiUppg
-        axios.get('https://shurtan.herokuapp.com/api/uppg/all/mining_system/' + 1)
-            .then(res=>{setGetUppg(res.data.object); console.log(res.data.object)});
+        axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1)
+            .then(res => {setGetUppg(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)});
     }, []);
 
     // WELL_OPERATION
@@ -143,6 +152,13 @@ const AppProvider = ({children}) => {
         setShowWellOperation(prev => !prev);
     }
 
+    // PRESSURE_GET_API
+    setTimeout(() => {
+        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1)
+            .then(res => {setPressureApi(res.data.object) })
+            .catch(err => {console.log(err) })
+    }, 11000);
+
     const value={
         numberWell, handlerNumberWell,
         uppg, handlerUppg,
@@ -162,6 +178,7 @@ const AppProvider = ({children}) => {
         selectWell,
         showRegistrationWell, setShowRegistrationWell, openRegistrationWell,
         showWellOperation, setShowWellOperation, openWellOperation,
+        pressureApi, setPressureApi
     }
     return (
         <AppContext.Provider value={value}>
