@@ -14,7 +14,7 @@ const   Pressure = () => {
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
     // const [ showMore, setShowMore ] = useState(false);
-    const [ turnMore, setTurnMore ] = useState(false);
+
     const [ id, setId ] = useState('');
     const [ currentSP, setCurrentSP ] = useState({});
     // const [ showMoreSP2, setShowMoreSP2 ] = useState(false);
@@ -67,9 +67,7 @@ const   Pressure = () => {
         setShowPressureTable(!showPressureTable);
         setTurnIcon(!turnIcon);
     }
-    const openShowMoreTable = () => {
-        setTurnMore(!turnMore)
-    }
+
     // const openSP2 = () => {
     //     setShowMoreSP2(!showMoreSP2);
     //     setTurnMoreSP2(!turnMoreSP2);
@@ -182,11 +180,7 @@ const   Pressure = () => {
             </thead>
             {/*<tbody>*/}
             {pressureApi.map((el) =>
-                    <PressureTable el={el}
-                                   openPressureModal={openPressureModal}
-                                   turnMore={turnMore}
-                                   openShowMoreTable={openShowMoreTable}
-                                   />
+                    <PressureTable el={el} openPressureModal={openPressureModal} key={el.objectDto.name} />
                 // <Tr key={el.objectDto.name}>
                 //     <TdFirstPresure>
                 //         <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}

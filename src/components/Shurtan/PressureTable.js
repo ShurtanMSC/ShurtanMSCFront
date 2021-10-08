@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Tr, Td, TdFirst } from '../../styled';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-const PressureTable = ({el, openPressureModal, turnMore, openShowMoreTable}) => {
+const PressureTable = ({el, openPressureModal}) => {
+    const [ turnMore, setTurnMore ] = useState(false);
+    const openShowMoreTable = () => {
+        setTurnMore(!turnMore)
+    }
     return(
         <tbody>
-            <Tr key={el.objectDto.name}>
+            <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
                     <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
