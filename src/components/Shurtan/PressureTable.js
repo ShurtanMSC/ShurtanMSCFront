@@ -1,13 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {AppContext} from '../../context'
 import { Tr, Td, TdFirst } from '../../styled';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
+
 const PressureTable = ({el, openPressureModal}) => {
+    const {takeWell, well} = useContext(AppContext);
     const [ turnMore, setTurnMore ] = useState(false);
+    const [ showMore, setShowMore ] = useState(false);
     const openShowMoreTable = () => {
-        setTurnMore(!turnMore)
+        setTurnMore(!turnMore);
+        setShowMore(!showMore);
+    takeWell();
     }
     return(
         <tbody>
@@ -27,6 +33,21 @@ const PressureTable = ({el, openPressureModal}) => {
                 <Td>0</Td>
                 <Td>0</Td>
             </Tr>
+            {well.map(el =>
+                <TrNone showMore={showMore}>
+                    <TdFirstPresure>{el.objectDto.number}</TdFirstPresure>
+                    <Td>14</Td>
+                    <Td>17.06</Td>
+                    <Td>37.22</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                    <Td>0</Td>
+                </TrNone>
+            )}
         </tbody>
     )
 }
@@ -38,5 +59,9 @@ const TdFirstPresure = styled(TdFirst)`
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
     transition:0.5s;
+`
+const TrNone = styled(Tr)`
+    display: ${({showMore}) => ( showMore ? "" : "none")};
+    transition: 0.2s;
 `
 export default PressureTable

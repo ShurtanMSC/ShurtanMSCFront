@@ -46,7 +46,7 @@ const AppProvider = ({children}) => {
         setNumberWell(e.target.value);
 
     }
-    const takeUppg = (e) => {
+    const takeSp = (e) => {
         if(e.target.value.length > 0)
             axios.get(BASE_URL + '/api/collection_point/all/uppg/' + e.target.value, configHeader)
                 .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)})
@@ -54,7 +54,7 @@ const AppProvider = ({children}) => {
     }
     const handlerUppg = e => {
         setUppg(e.target.value);
-        takeUppg(e);
+        takeSp(e);
     }
     const handlerPoint = e => {
         setPoint(e.target.value);
@@ -122,6 +122,12 @@ const AppProvider = ({children}) => {
         setCoordX('');
         setCoordY('');
     }
+    const takeWell = (e) => {
+        if(e.target.value.length > 0)
+            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
+                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)})
+    }
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
@@ -132,14 +138,15 @@ const AppProvider = ({children}) => {
     // WELL_OPERATION
     const handlerUppgOperation = e => {
         setUppgOper(e.target.value);
-        takeUppg(e);
+        takeSp(e);
     }
     const handlerPointOperation = e => {
         setPointOper(e.target.value);
-        if(e.target.value.length > 0)
-            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
-                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
-                .catch(err => {console.log(err)})
+        takeWell(e);
+        // if(e.target.value.length > 0)
+        //     axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
+        //         .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+        //         .catch(err => {console.log(err)})
     }
     const handlerWellNumberOperation = e => {
         setNumberWellOper(e.target.value);
@@ -249,6 +256,7 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
+        takeWell,
     }
     return (
         <AppContext.Provider value={value}>
