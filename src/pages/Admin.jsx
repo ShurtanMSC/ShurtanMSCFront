@@ -7,6 +7,7 @@ import ImgLogin from '../image/logo.png'
 import axios from 'axios'   
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 import {TOKEN} from "../utills/constant";
+import {configHeader} from '../utills/congifHeader'
 
 const Admin = () => {
 
@@ -20,7 +21,7 @@ const Admin = () => {
         {
             username: name,
             password: password,
-        }
+        }, configHeader
         ).then(res => {
             localStorage.setItem(TOKEN,res.data.token);
             console.log(localStorage.getItem(TOKEN));

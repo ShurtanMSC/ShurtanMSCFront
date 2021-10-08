@@ -61,7 +61,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp}) => {
             }, configHeader)
             .then(res => {
                 if (res.status===201)
-                    axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1)
+                    axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
                         .then(res1 => {setPressureApi(res1.data.object) })
                         .catch(err => {console.log(err) })
                 })

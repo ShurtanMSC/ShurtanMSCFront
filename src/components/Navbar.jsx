@@ -17,7 +17,8 @@ import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
 import axios from "axios";
-import {TOKEN, BASE_URL} from "../utills/constant";
+import {BASE_URL} from "../utills/constant";
+import {configHeader} from '../utills/congifHeader';
 import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
@@ -69,11 +70,7 @@ const Navbar = () => {
 
 
     useEffect(()=>{
-        axios.get(BASE_URL + '/api/auth/me', {
-                headers:{
-                    authorization: 'Bearer ' +localStorage.getItem(TOKEN)
-                }
-        })
+        axios.get(BASE_URL + '/api/auth/me', configHeader)
             .then(res=>{
             console.log(res)
             setName(res.data.object.fio)

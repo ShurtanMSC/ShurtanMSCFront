@@ -7,7 +7,7 @@ import { AddGasNavbarModalDiv, NavbarModalP,
     ParametersP, ParametersDiv, ParametersCard, ParametersInput,
     // SelectNavTitle,
     LabelNav, SelectNav } from '../../../styled'
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -30,12 +30,19 @@ const modal = {
 const WellOperation = () => {
 
     const {
-        uppg, handlerUppg,
-        point, handlerPoint, getPoint,
+        getPoint,
         well, selectWell,
-        numberWell, handlerNumberWell,
         getUppg, handlerWellOperation,
         showWellOperation, setShowWellOperation,
+        horizonOper, handlerHorizonOperation,
+        uppgOper, handlerUppgOperation,
+        pointOper, handlerPointOperation,
+        numberWellOper, handlerWellNumberOperation,
+        changeDate, handlerChangeDate,
+        state, handlerState,
+        handlerCategory,
+        handlerComDate, handlerDrillDate,
+        handlerTemp, handlerPerMax, handlerPerMin, handlerPressure,perMin,perMax,pressure, temp,
     } = useContext(AppContext);
 
     const modalRef = useRef();
@@ -75,7 +82,7 @@ const WellOperation = () => {
                                 <ParametersDiv>
                                     <ParametersCard>
                                         <LabelNav htmlFor="uppg">УППГ</LabelNav>
-                                        <SelectNav name="uppg" id="uppg" value={uppg} onChange={handlerUppg}>
+                                        <SelectNav name="uppg" id="uppg" value={uppgOper} onChange={handlerUppgOperation} required>
                                             <option value="">--Выберите--</option>
                                             {getUppg.map((el, u) =>
                                                 <option key={u} value={el.id}>{el.name}</option>
@@ -84,7 +91,7 @@ const WellOperation = () => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="sp">СП</LabelNav>
-                                        <SelectNav name="sp" id="sp" value={point} onChange={handlerPoint} required>
+                                        <SelectNav name="sp" id="sp" value={pointOper} onChange={handlerPointOperation} required>
                                             <option value="">--Выберите--</option>
                                             {getPoint.map((el, p) =>
                                                 <option key={p} value={el.id}>{el.name}</option>
@@ -93,7 +100,7 @@ const WellOperation = () => {
                                     </ParametersCard>
                                     <ParametersCard>
                                        <LabelNav htmlFor="well">Выберите скважину</LabelNav>
-                                        <SelectNav name="well" id="well" value={numberWell} onChange={handlerNumberWell}>
+                                        <SelectNav name="well" id="well" value={numberWellOper} onChange={handlerWellNumberOperation} required>
                                             <option value="">--Выберите--</option>
                                             {well.map((el, w) =>
                                                 <option key={w} value={el.id}>{el.number}</option>
@@ -102,56 +109,66 @@ const WellOperation = () => {
                                     </ParametersCard>
                                     <ParametersCard>
                                             <ParametersPChange>Горизонт</ParametersPChange>
-                                            <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.horizon : '' } type="text" name="text"/>
+                                            <ParametersInputChange defaultValue={horizonOper}
+                                                                   onChange={handlerHorizonOperation} type="text" name="text" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Дата ввода в эксплуатацию</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.commissioningDate.slice(0, 10) : ''} type="date" name="date"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.commissioningDate.slice(0, 10) : ''}
+                                                               onChange={handlerComDate} type="date" name="date" required/>
                                     </ParametersCard>
+
                                     <ParametersCard>
                                         <ParametersPChange>Дата начала бурения</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.drillingStartDate.slice(0, 10) : ''} type="date" name="date"/>
+                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectDto.drillingStartDate.slice(0, 10) : ''}
+                                                               onChange={handlerDrillDate} type="date" name="date" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="category">Категория</LabelNav>
-                                        <SelectNav name="category" id="category">
+                                        <SelectNav defaultValue={selectWell !== null ? selectWell.objectDto.category : false}
+                                                   onChange={handlerCategory} name="category" id="category" required>
+
                                             <option value="">--Выберите--</option>
-                                            <option value="MINING" selected={selectWell !== null ? (selectWell.objectDto.category==="MINING") : false}>Добывающая</option>
-                                            <option value="DISCHARGE" selected={selectWell !== null ? (selectWell.objectDto.category==="DISCHARGE") : false}>Нагнетательная</option>
-                                            <option value="EXPLORATION" selected={selectWell !== null ? (selectWell.objectDto.category==="EXPLORATION") : false}>Разведочная</option>
-                                            <option value="PIEZOMETRIC" selected={selectWell !== null ? (selectWell.objectDto.category==="PIEZOMETRIC") : false}>Пьезометрическая</option>
+                                            <option value="MINING" /*selected={selectWell !== null ? (selectWell.objectDto.category==="MINING") : false}*/>Добывающая</option>
+                                            <option value="DISCHARGE" /*selected={selectWell !== null ? (selectWell.objectDto.category==="DISCHARGE") : false}*/>Нагнетательная</option>
+                                            <option value="EXPLORATION" /*selected={selectWell !== null ? (selectWell.objectDto.category==="EXPLORATION") : false}*/>Разведочная</option>
+                                            <option value="PIEZOMETRIC" /*selected={selectWell !== null ? (selectWell.objectDto.category==="PIEZOMETRIC") : false}*/>Пьезометрическая</option>
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <LabelNav htmlFor="state">Состояние</LabelNav>
-                                        <SelectNav name="state" id="state">
+                                        <SelectNav defaultValue={state} onChange={handlerState} name="state" id="state" required>
                                             <option value="">--Выберите--</option>
-                                            <option value="IN_WORK" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_WORK") : false}>в работе</option>
-                                            <option value="IN_IDLE" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_IDLE") : false}>в простое</option>
-                                            <option value="IN_REPAIR" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_REPAIR") : false}>в ремонте</option>
-                                            <option value="IN_CONSERVATION" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_CONSERVATION") : false}>в консервации</option>
-                                            <option value="IN_LIQUIDATION" selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_LIQUIDATION") : false}>в ликвидации</option>
+                                            <option value="IN_WORK" /*selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_WORK") : false}*/>в работе</option>
+                                            <option value="IN_IDLE" /*selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_IDLE") : false}*/>в простое</option>
+                                            <option value="IN_REPAIR" /*selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_REPAIR") : false}*/>в ремонте</option>
+                                            <option value="IN_CONSERVATION" /*selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_CONSERVATION") : false}*/>в консервации</option>
+                                            <option value="IN_LIQUIDATION" /*selected={selectWell !== null ? (selectWell.objectActionDto.status==="IN_LIQUIDATION") : false}*/>в ликвидации</option>
                                         </SelectNav>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Изменение состояния</ParametersPChange>
-                                        <ParametersInputChange type="date" name="date"/>
+                                        <ParametersInputChange defaultValue={changeDate} onChange={handlerChangeDate} type="date" name="date" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Интервал перфарации мин</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.perforation_min : ''} type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={perMin}
+                                                               onChange={handlerPerMin} type="number" name="number" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Интервал перфарации мах</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.perforation_max : ''} type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={perMax}
+                                                               onChange={handlerPerMax} type="number" name="number" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Устьевое давление Ру, кгс/см²</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.pressure : ''} type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={/*selectWell !== null ? selectWell.objectActionDto.pressure : ''*/pressure}
+                                                               onChange={handlerPressure} type="number" name="number" required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Температура на устье, °С</ParametersPChange>
-                                        <ParametersInputChange defaultValue={selectWell !== null ? selectWell.objectActionDto.temperature : ''} type="number" name="number"/>
+                                        <ParametersInputChange defaultValue={/*selectWell !== null ? selectWell.objectActionDto.temperature : ''*/temp}
+                                                               onChange={handlerTemp} type="number" name="number" required/>
                                     </ParametersCard>
                                 </ParametersDiv>
                                 <div>

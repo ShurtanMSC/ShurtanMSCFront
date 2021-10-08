@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import {AppContext} from '../../context';
-import { Table, Tr, Th, Td, TdFirst, TdTotalCount, TdTotal } from '../../styled'
+import { Table, Tr, Th, TdTotalCount, TdTotal } from '../../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureModal from "./PressureModal";
+import PressureTable from './PressureTable'
 
 const   Pressure = () => {
     const {pressureApi} = useContext(AppContext);
@@ -179,24 +180,29 @@ const   Pressure = () => {
                 <Th style={{position:'sticky', top:'22px', padding:'5px 10px'}}>РПЛ</Th>
             </Tr>
             </thead>
-            <tbody>
+            {/*<tbody>*/}
             {pressureApi.map((el) =>
-                <Tr key={el.objectDto.name}>
-                    <TdFirstPresure>
-                        <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
-                        <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
-                    </TdFirstPresure>
-                    <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
-                    <Td>50</Td>
-                    <Td>50</Td>
-                    <Td>800</Td>
-                    <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
-                    <Td>0</Td>
-                    <Td>0</Td>
-                    <Td>0</Td>
-                    <Td>0</Td>
-                    <Td>0</Td>
-                </Tr>
+                    <PressureTable el={el}
+                                   openPressureModal={openPressureModal}
+                                   turnMore={turnMore}
+                                   openShowMoreTable={openShowMoreTable}
+                                   />
+                // <Tr key={el.objectDto.name}>
+                //     <TdFirstPresure>
+                //         <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
+                //         <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
+                //     </TdFirstPresure>
+                //     <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
+                //     <Td>50</Td>
+                //     <Td>50</Td>
+                //     <Td>800</Td>
+                //     <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
+                //     <Td>0</Td>
+                //     <Td>0</Td>
+                //     <Td>0</Td>
+                //     <Td>0</Td>
+                //     <Td>0</Td>
+                // </Tr>
             )}
             {/*<TrNone showMore={showMore}>*/}
             {/*    <TdFirstPresure>154</TdFirstPresure>*/}
@@ -2533,7 +2539,7 @@ const   Pressure = () => {
             {/*    <Td>0</Td>*/}
             {/*    <Td>0</Td>*/}
             {/*</TrNoneBT34>*/}
-            </tbody>
+            {/*</tbody>*/}
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
@@ -2567,11 +2573,11 @@ const TablePresure = styled(Table)`
     top: 0;
     left: 0;
 `
-const TdFirstPresure = styled(TdFirst)`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-`
+// const TdFirstPresure = styled(TdFirst)`
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// `
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
     transition:0.5s;

@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {BASE_URL} from "./utills/constant";
+import {configHeader} from './utills/congifHeader'
 
 const AppContext = createContext();
 
@@ -24,6 +25,15 @@ const AppProvider = ({children}) => {
     // WELL_OPERATION
     const [well, setWell] = useState([]);
     const [selectWell, setSelectWell] = useState(null);
+    const [uppgOper, setUppgOper] = useState('');
+    const [pointOper, setPointOper] = useState('');
+    const [numberWellOper, setNumberWellOper] = useState('');
+    const [horizonOper, setHorizonOper] = useState('');
+    const [changeDate, setChangeDate] = useState('');
+    const [temp, setTemp] = useState('');
+    const [perMax, setPerMax] = useState('');
+    const [perMin, setPerMin] = useState('');
+    const [pressure, setPressure] = useState('');
     // NAVBAR_SHOW_MODAL_REGISTRATION_WELL
     const [showRegistrationWell, setShowRegistrationWell] = useState(false);
     // NAVBAR_SHOW_MODAL_WELL_OPERATION
@@ -34,25 +44,20 @@ const AppProvider = ({children}) => {
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
-        if(e.target.value.length > 0)
-            axios.get(BASE_URL + '/api/well/one/action/' + e.target.value)
-                .then(res => {setSelectWell(res.data.object); console.log(res.data.object);})
-                .catch(err => {console.log(err)})
-    }
 
-    const handlerUppg = e => {
-        setUppg(e.target.value);
+    }
+    const takeUppg = (e) => {
         if(e.target.value.length > 0)
-            axios.get(BASE_URL + '/api/collection_point/all/uppg/' + e.target.value)
+            axios.get(BASE_URL + '/api/collection_point/all/uppg/' + e.target.value, configHeader)
                 .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)})
                 .catch(err => {console.log(err)})
     }
+    const handlerUppg = e => {
+        setUppg(e.target.value);
+        takeUppg(e);
+    }
     const handlerPoint = e => {
         setPoint(e.target.value);
-        if(e.target.value.length > 0)
-            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value)
-                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
-                .catch(err => {console.log(err)})
     }
     const handlerHorizon = e => {
         setHorizon(e.target.value);
@@ -99,7 +104,7 @@ const AppProvider = ({children}) => {
             y: coordY
         }
         console.log(data)
-        axios.post(BASE_URL + '/api/well/add', data)
+        axios.post(BASE_URL + '/api/well/add', data, configHeader)
             .then(res => {console.log(res)})
             .catch(err => {console.log(err)});
         setShowRegistrationWell(prev => !prev);
@@ -111,7 +116,7 @@ const AppProvider = ({children}) => {
         setDrillDate('');
         setCategory('');
         setState('');
-        // setInterval('');
+        setInterval('');
         setAltitude('');
         setDepth('');
         setCoordX('');
@@ -119,28 +124,87 @@ const AppProvider = ({children}) => {
     }
     useEffect(()=>{
         // Get apiUppg
-        axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1)
+        axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
             .then(res => {setGetUppg(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)});
     }, []);
 
     // WELL_OPERATION
+    const handlerUppgOperation = e => {
+        setUppgOper(e.target.value);
+        takeUppg(e);
+    }
+    const handlerPointOperation = e => {
+        setPointOper(e.target.value);
+        if(e.target.value.length > 0)
+            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
+                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)})
+    }
+    const handlerWellNumberOperation = e => {
+        setNumberWellOper(e.target.value);
+        if(e.target.value.length > 0)
+            axios.get(BASE_URL + '/api/well/one/action/' + e.target.value, configHeader)
+                .then(res => {
+                    setSelectWell(res.data.object);
+                    setPerMax(res.data.object.objectActionDto.perforation_max);
+                    setPerMin(res.data.object.objectActionDto.perforation_min);
+                    setTemp(res.data.object.objectActionDto.temperature);
+                    setPressure(res.data.object.objectActionDto.pressure);
+                    // setHorizonOper(res.data.object.objectDto.horizon)
+                    console.log(res.data.object);})
+                .catch(err => {console.log(err)})
+    }
+    const handlerHorizonOperation = e => {
+        setHorizonOper(e.target.value);
+    }
+    const handlerChangeDate = e => {
+        setChangeDate(e.target.value);
+    }
+    const handlerTemp = e => {
+        setTemp(e.target.value);
+    }
+    const handlerPerMin = e => {
+        setPerMin(e.target.value);
+    }
+    const handlerPerMax = e => {
+        setPerMax(e.target.value);
+    }
+    const handlerPressure = e => {
+        setPressure(e.target.value);
+    }
     const handlerWellOperation = e => {
         e.preventDefault();
-        // let dataWell = {
-        //     date: "string",
-        //     expend: 0,
-        //     perforation_max: 0,
-        //     perforation_min: 0,
-        //     pressure: 0,
-        //     rpl: 0,
-        //     status: "IN_WORK",
-        //     temperature: 0,
-        //     wellId: 0
-        // }
-        setNumberWell('');
-        setUppg('');
-        setPoint('');
+        let dataWell = {
+            date: changeDate,
+            expend: 0,
+            perforation_min: perMin,
+            perforation_max: perMax,
+            pressure: pressure,
+            rpl: 0,
+            status: state,
+            temperature: temp,
+            wellId: numberWellOper,
+            // horizon: horizon,
+        }
+        axios.post(BASE_URL + '/api/well/manually/add/action', dataWell, configHeader)
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err)})
+        console.log(dataWell)
+        setShowWellOperation(prev => !prev);
+        setNumberWellOper('');
+        setUppgOper('');
+        setPointOper('');
+        setHorizonOper('');
+        setComDate('');
+        setDrillDate('');
+        setCategory('');
+        setState('');
+        setChangeDate('');
+        setPerMax('');
+        setPerMin('');
+        setPressure('');
+        setTemp('');
     }
 
     // NAVBAR_SHOW_MODAL_REGISTRATION_WELL
@@ -154,7 +218,7 @@ const AppProvider = ({children}) => {
 
     // PRESSURE_GET_API
     setTimeout(() => {
-        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1)
+        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {setPressureApi(res.data.object) })
             .catch(err => {console.log(err) })
     }, 11000);
@@ -178,7 +242,13 @@ const AppProvider = ({children}) => {
         selectWell,
         showRegistrationWell, setShowRegistrationWell, openRegistrationWell,
         showWellOperation, setShowWellOperation, openWellOperation,
-        pressureApi, setPressureApi
+        pressureApi, setPressureApi,
+        uppgOper, handlerUppgOperation,
+        pointOper, handlerPointOperation,
+        numberWellOper, handlerWellNumberOperation,
+        horizonOper, handlerHorizonOperation,
+        changeDate, handlerChangeDate,
+        handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
     }
     return (
         <AppContext.Provider value={value}>

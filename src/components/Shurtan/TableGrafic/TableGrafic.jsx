@@ -10,6 +10,7 @@ import TableGraficModalTwo from "./TableGraficModalTwo";
 import axios from "axios";
 import {BASE_URL_FORECAST_GAS} from "../../../utills/constant"
 import {BASE_URL_FORECAST_CONDENSATE} from "../../../utills/constant"
+import {configHeader} from '../../../utills/congifHeader'
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
@@ -31,13 +32,13 @@ const TableGrafic = () => {
     }
     // get Api
     useEffect(()=> {
-        axios.get(BASE_URL_FORECAST_GAS + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear())
+        axios.get(BASE_URL_FORECAST_GAS + 1 + '/' + ((new Date().getFullYear()) - 1) + '/' + new Date().getFullYear(), configHeader)
             .then(res => {
                 if(res.data.object.length !== 0){
                     setData(res.data.object);
                 }
             });
-        axios.get(BASE_URL_FORECAST_CONDENSATE + 1 + '/' + ((new Date().getFullYear()) - 1 ) + '/' + new Date().getFullYear())
+        axios.get(BASE_URL_FORECAST_CONDENSATE + 1 + '/' + ((new Date().getFullYear()) - 1 ) + '/' + new Date().getFullYear(), configHeader)
         .then(res => {
             if(res.data.object.length !== 0){
                 setDataCond(res.data.object);
