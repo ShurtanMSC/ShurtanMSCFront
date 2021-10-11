@@ -18,7 +18,6 @@ const PressureTable = ({el, openPressureModal}) => {
         axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + el.objectDto.id, configHeader)
             .then(res =>{setWellPressure(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
-        console.log(el)
     }
 
     return(

@@ -1,6 +1,8 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, {useRef, useEffect, useCallback, useContext} from 'react';
+import {AppContext} from '../../../context'
 import { motion, AnimatePresence } from 'framer-motion'
-import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, TdModalShurtanColor, ButtonModalShurtan } from '../../../styled'
+import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, TdModalShurtanColor,
+    ButtonModalShurtan } from '../../../styled'
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -20,6 +22,35 @@ const modal = {
 }
 
 const Modal = ({showModal, setShowModal, id}) => {
+    const {openWell} = useContext(AppContext);
+    const filtered = openWell.filter(el => el.objectDto.number === id);
+    const findStatus = (status) => {
+        if(!status){
+            throw new Error("State is not defined")
+        }
+        switch (status) {
+            case "IN_WORK": return "в работе"
+            case "IN_IDLE": return "в простое"
+            case "IN_REPAIR": return "в ремонте"
+            case "IN_CONSERVATION": return "в консервации"
+            case "IN_LIQUIDATION": return "в ликвидации"
+            default: return ""
+        }
+    }
+    const findColor = (color) => {
+        if(!color){
+            throw new Error("Color is not defined")
+        }
+        switch (color) {
+            case "IN_WORK": return "#0FA30E"
+            case "IN_IDLE": return "#FFC91B"
+            case "IN_REPAIR": return "#FF0000"
+            case "IN_CONSERVATION": return "#800080"
+            case "IN_LIQUIDATION": return "#000000"
+            default: return ""
+        }
+    }
+
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -54,46 +85,48 @@ const Modal = ({showModal, setShowModal, id}) => {
                     >
                         <ModalDivShurtan>
                             <TableModalShurtan>
-                                <tbody>
+                                {filtered.map(el =>
+                                    <tbody key={el}>
                                     <tr>
                                         <TdModalShurtanFirst>Номер скважины</TdModalShurtanFirst>
                                         <TdModalShurtan>{id}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Статус</TdModalShurtanFirst>
-                                        <TdModalShurtanColor>В простое</TdModalShurtanColor>
+                                        <TdModalShurtanColor style={{color: `${findColor(el.objectActionDto.status)}`}}>{findStatus(el.objectActionDto.status)}</TdModalShurtanColor>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Изменение состояния</TdModalShurtanFirst>
-                                        <TdModalShurtan>258</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.date.slice(0, 10)}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Ру, кгс/см²</TdModalShurtanFirst>
-                                        <TdModalShurtan>258</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.pressure}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Рпл, кгс/см²</TdModalShurtanFirst>
-                                        <TdModalShurtan>258</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.rpl}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Расход, м³/ч</TdModalShurtanFirst>
-                                        <TdModalShurtan>258</TdModalShurtan>
+                                        <TdModalShurtan>{Math.round(el.objectActionDto.expend*10)/10}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C</TdModalShurtanFirst>
-                                        <TdModalShurtan>258</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.temperature}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Интервал перфарации</TdModalShurtanFirst>
-                                        <TdModalShurtan>2727-2750</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.perforation_min}-{el.objectActionDto.perforation_max}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtan colSpan="2">2021-06-17 14:49:22</TdModalShurtan>
+                                        <TdModalShurtan colSpan="2">{el.objectActionDto.date.slice(0, 19)}</TdModalShurtan>
                                     </tr>
-                                </tbody>
+                                    </tbody>
+                                )}
                             </TableModalShurtan>
                             <ButtonModalShurtan onClick={() => setShowModal(prev => !prev)}>OK</ButtonModalShurtan>
                         </ModalDivShurtan>
@@ -103,5 +136,7 @@ const Modal = ({showModal, setShowModal, id}) => {
         </AnimatePresence>
     )
 }
-
+// const TdModalShurtanColorWell = styled(TdModalShurtanColor)`
+//   color: findColor;
+// `
 export default Modal

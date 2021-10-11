@@ -28,7 +28,7 @@ const modalSP = {
     }
 }
 
-const PressureModal = ({showPressureModal, setShowPressureModal, id, sp}) => {
+const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal}) => {
     const {setPressureApi} = useContext(AppContext);
 
     const modalRef = useRef();
@@ -109,7 +109,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp}) => {
                                     <Tr>
                                         <TdFirst>{id}</TdFirst>
                                         <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
-                                        <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? sp.objectActionDto.expand : ""} disabled/></TdUp>
+                                        <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""} disabled/></TdUp>
                                         <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
                                     </Tr>
                                 </tbody>
@@ -127,125 +127,25 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp}) => {
                                 </Tr>
                                 </thead>
                                 <tbody>
-                                <Tr>
-                                    <TdFirst>154</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>155</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>157</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>158</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>169</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>309</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
-                                <Tr>
-                                    <TdFirst>312</TdFirst>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" value="9000" disabled/> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td>
-                                        <SelectModal>
-                                            <option>в работе</option>
-                                            <option>в простое</option>
-                                            <option>в ремонте</option>
-                                            <option>в консервации</option>
-                                            <option>в ликвидации</option>
-                                        </SelectModal>
-                                    </Td>
-                                    <Td> <InputModal type="text"  name="name" disabled/> </Td>
-                                </Tr>
+                                {wellPressureModal.map(el =>
+                                    <Tr key={el.objectDto.number}>
+                                        <TdFirst>{el.objectDto.number}</TdFirst>
+                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
+                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
+                                        <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
+                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
+                                        <Td>
+                                            <SelectModal defaultValue={el.objectActionDto.status}>
+                                                <option value="IN_WORK">в работе</option>
+                                                <option value="IN_IDLE">в простое</option>
+                                                <option value="IN_REPAIR">в ремонте</option>
+                                                <option value="IN_CONSERVATION">в консервации</option>
+                                                <option value="IN_LIQUIDATION">в ликвидации</option>
+                                            </SelectModal>
+                                        </Td>
+                                        <Td> <InputModal type="text"  name="name" value={el.objectActionDto.date.slice(0, 10)} disabled/> </Td>
+                                    </Tr>
+                                )}
                                 </tbody>
                             </Table>
                             <SaveDiv>

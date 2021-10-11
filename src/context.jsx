@@ -40,7 +40,8 @@ const AppProvider = ({children}) => {
     const [showWellOperation, setShowWellOperation] = useState(false);
     // PRESSURE_GET_API
     const [pressureApi, setPressureApi] = useState([]);
-
+    const [refresh, setRefresh] = useState([]);
+    const [openWell, setOpenWell] = useState([]);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -217,11 +218,23 @@ const AppProvider = ({children}) => {
     }
 
     // PRESSURE_GET_API
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
     setTimeout(() => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
-            .then(res => {setPressureApi(res.data.object) })
+            .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
             .catch(err => {console.log(err) })
     }, 11000);
+
+    useEffect(() => {
+        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
+            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
+            .catch(err => {console.log(err)})
+  }, [])
+
+
 
     const value={
         numberWell, handlerNumberWell,
@@ -249,6 +262,7 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
+        refresh, openWell,
     }
     return (
         <AppContext.Provider value={value}>

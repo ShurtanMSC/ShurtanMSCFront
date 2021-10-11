@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureModal from "./PressureModal";
 import PressureTable from './PressureTable'
+import axios from "axios";
+import {BASE_URL} from "../../utills/constant";
+import {configHeader} from "../../utills/congifHeader";
 
 const   Pressure = () => {
     const {pressureApi} = useContext(AppContext);
@@ -13,6 +16,7 @@ const   Pressure = () => {
     const [ showPressureModal, setShowPressureModal ] = useState(false);
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
+    const [ wellPressureModal, setWellPressureModal ] = useState([]);
 
     const [ id, setId ] = useState('');
     const [ currentSP, setCurrentSP ] = useState({});
@@ -20,8 +24,11 @@ const   Pressure = () => {
     const openPressureModal = (SPid, sp) => {
         setShowPressureModal(prev => !prev);
         setId(SPid);
-        setCurrentSP(sp)
-    };
+        setCurrentSP(sp);
+        axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + sp.objectDto.id, configHeader)
+            .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
+        };
     const openMoreTable = () => {
         setShowPressureTable(!showPressureTable);
         setTurnIcon(!turnIcon);
@@ -33,6 +40,7 @@ const   Pressure = () => {
                            setShowPressureModal={setShowPressureModal}
                            id={id}
                            sp={currentSP}
+                           wellPressureModal={wellPressureModal}
             />
             <TablePresure showPressureTable={showPressureTable}>
             <thead>

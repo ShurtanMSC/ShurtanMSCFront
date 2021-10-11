@@ -21,7 +21,7 @@ const modal = {
 }
 
 const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointModal, idPoint}) => {
-    const {pressureApi} = useContext(AppContext);
+    const {pressureApi, refresh} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -71,7 +71,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Расход, м³/ч:</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto !== null ? el.objectActionDto.expand : ""}</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expand*10)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>
@@ -81,7 +81,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtan colSpan="2">2021-06-17 14:49:22</TdModalShurtan>
+                                        <TdModalShurtan colSpan="2">{refresh}</TdModalShurtan>
                                     </tr>
                                     </tbody>
                                 )}

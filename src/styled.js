@@ -919,7 +919,6 @@ export const TdModalShurtanColor = styled.td`
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-    color: #158FFF;
 `
 export const TdModalShurtanData = styled.td`
     font-family: Montserrat;
