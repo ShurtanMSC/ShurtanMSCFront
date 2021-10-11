@@ -122,12 +122,6 @@ const AppProvider = ({children}) => {
         setCoordX('');
         setCoordY('');
     }
-    const takeWell = (e) => {
-        if(e.target.value.length > 0)
-            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
-                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
-                .catch(err => {console.log(err)})
-    }
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
@@ -142,11 +136,10 @@ const AppProvider = ({children}) => {
     }
     const handlerPointOperation = e => {
         setPointOper(e.target.value);
-        takeWell(e);
-        // if(e.target.value.length > 0)
-        //     axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
-        //         .then(res =>{setWell(res.data.object); console.log(res.data.object)})
-        //         .catch(err => {console.log(err)})
+        if(e.target.value.length > 0)
+            axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
+                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)})
     }
     const handlerWellNumberOperation = e => {
         setNumberWellOper(e.target.value);
@@ -256,7 +249,6 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
-        takeWell,
     }
     return (
         <AppContext.Provider value={value}>
