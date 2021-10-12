@@ -110,72 +110,72 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                     >
                         <ModalDivShurtan>
                             <form onSubmit={handlerSubmit}>
-                            <H2Div>
-                                <H2>Показатели скважин {id}</H2>
-                            </H2Div>
-                            <TableUp>
-                                <thead>
+                                <H2Div>
+                                    <H2>Показатели скважин {id}</H2>
+                                </H2Div>
+                                <TableUp>
+                                    <thead>
                                     <Tr>
                                         <Th style={{padding:'1rem'}}>Наименование</Th>
                                         <ThUp>Рсп</ThUp>
                                         <ThUp>Расход, м³/ч</ThUp>
                                         <ThUp>Темрература</ThUp>
                                     </Tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <Tr>
                                         <TdFirst>{id}</TdFirst>
                                         <TdUp> <InputModal id={'temperature_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
                                         <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""} disabled/></TdUp>
                                         <TdUp> <InputModal id={'pressure_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
                                     </Tr>
-                                </tbody>
-                            </TableUp>
-                            <Table>
-                                <thead>
-                                <Tr>
-                                    <Th style={{padding:'1rem'}}>Наименование</Th>
-                                    <Th>Ру</Th>
-                                    <Th>Рпл</Th>
-                                    <Th>Расход, м³/ч</Th>
-                                    <Th>Темрература</Th>
-                                    <Th>Состояние</Th>
-                                    <Th>Изменение статуса</Th>
-                                </Tr>
-                                </thead>
-                                <tbody>
-                                {wellPressureModal.map(el =>
-                                    <Tr key={el.objectDto.number}>
-                                        <TdFirst>{el.objectDto.number}</TdFirst>
-                                        <Td> <InputModal id={'pressure_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
-                                        <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
-                                        <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
-                                        <Td> <InputModal id={'temperature_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
-                                        <Td>
-                                            <SelectModal id={'status_well'+el.objectDto.id} defaultValue={el.objectActionDto.status}>
-                                                <option value="IN_WORK">в работе</option>
-                                                <option value="IN_IDLE">в простое</option>
-                                                <option value="IN_REPAIR">в ремонте</option>
-                                                <option value="IN_CONSERVATION">в консервации</option>
-                                                <option value="IN_LIQUIDATION">в ликвидации</option>
-                                            </SelectModal>
-                                        </Td>
-                                        <Td> <InputModal type="text"  name="name" value={el.objectActionDto.date.slice(0, 10)} disabled/> </Td>
+                                    </tbody>
+                                </TableUp>
+                                <Table>
+                                    <thead>
+                                    <Tr>
+                                        <Th style={{padding:'1rem'}}>Наименование</Th>
+                                        <Th>Ру</Th>
+                                        <Th>Рпл</Th>
+                                        <Th>Расход, м³/ч</Th>
+                                        <Th>Темрература</Th>
+                                        <Th>Состояние</Th>
+                                        <Th>Изменение статуса</Th>
                                     </Tr>
-                                )}
-                                </tbody>
-                            </Table>
-                            <SaveDiv>
-                                <div>
-                                    <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
-                                </div>
-                                <div>
-                                    <SaveBtnModal>Сохранит</SaveBtnModal>
-                                    <CloseBtnModal
-                                        onClick={()=> setShowPressureModal(prev => !prev)}>Закрыт
-                                    </CloseBtnModal>
-                                </div>
-                            </SaveDiv>
+                                    </thead>
+                                    <tbody>
+                                    {wellPressureModal.map(el =>
+                                        <Tr key={el.objectDto.number}>
+                                            <TdFirst>{el.objectDto.number}</TdFirst>
+                                            <Td> <InputModal id={'pressure_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
+                                            <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
+                                            <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
+                                            <Td> <InputModal id={'temperature_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
+                                            <Td>
+                                                <SelectModal id={'status_well'+el.objectDto.id} defaultValue={el.objectActionDto.status}>
+                                                    <option value="IN_WORK">в работе</option>
+                                                    <option value="IN_IDLE">в простое</option>
+                                                    <option value="IN_REPAIR">в ремонте</option>
+                                                    <option value="IN_CONSERVATION">в консервации</option>
+                                                    <option value="IN_LIQUIDATION">в ликвидации</option>
+                                                </SelectModal>
+                                            </Td>
+                                            <Td> <InputModal type="text"  name="name" value={el.objectActionDto.date.slice(0, 10)} disabled/> </Td>
+                                        </Tr>
+                                    )}
+                                    </tbody>
+                                </Table>
+                                <SaveDiv>
+                                    <div>
+                                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                                    </div>
+                                    <div>
+                                        <SaveBtnModal>Сохранит</SaveBtnModal>
+                                        <CloseBtnModal
+                                            onClick={()=> setShowPressureModal(prev => !prev)}>Закрыт
+                                        </CloseBtnModal>
+                                    </div>
+                                </SaveDiv>
                             </form>
                         </ModalDivShurtan>
                     </motion.div>
