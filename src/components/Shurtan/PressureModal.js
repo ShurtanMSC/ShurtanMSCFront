@@ -29,8 +29,8 @@ const modalSP = {
     }
 }
 
-const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal}) => {
-    // const {setPressureApi} = useContext(AppContext);
+const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal,getWellActions}) => {
+    const {setPressureApi} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -75,7 +75,11 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
         axios.post(BASE_URL + '/api/collection_point/manually/add/special',data,configHeader)
             .then(response=>{
                 console.log(response.data);
-                // setPressureApi(res1.data.object)
+                getWellActions(sp.objectDto.id);
+
+                axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
+                    .then(res1 => {setPressureApi(res1.data.object) })
+                    .catch(err => {console.log(err) })
             })
             .catch(err => {console.log(err)})
         console.log(data)

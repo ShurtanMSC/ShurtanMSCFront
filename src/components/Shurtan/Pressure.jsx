@@ -25,10 +25,15 @@ const   Pressure = () => {
         setShowPressureModal(prev => !prev);
         setId(SPid);
         setCurrentSP(sp);
-        axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + sp.objectDto.id, configHeader)
+        getWellActions(sp.objectDto.id)
+        };
+
+
+    const getWellActions = (id) => {
+        axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + id, configHeader)
             .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
-        };
+    }
     const openMoreTable = () => {
         setShowPressureTable(!showPressureTable);
         setTurnIcon(!turnIcon);
@@ -41,6 +46,7 @@ const   Pressure = () => {
                            id={id}
                            sp={currentSP}
                            wellPressureModal={wellPressureModal}
+                           getWellActions={getWellActions}
             />
             <TablePresure showPressureTable={showPressureTable}>
             <thead>
