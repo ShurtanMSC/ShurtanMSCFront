@@ -849,13 +849,13 @@ const  ShurtanMap = () => {
                                 <circle cx="654.5" cy="526.5" r="5.5" fill="#0FA30E"/>
                             </g>
                             <g filter="url(#filter181_d)">
-                                <circle cx="600.5" cy="521.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="600.5" cy="521.5" r="5.5" fill={findColor(openWell[62].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter182_d)">
-                                <circle cx="561.5" cy="526.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="561.5" cy="526.5" r="5.5" fill={findColor(openWell[61].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter183_d)">
-                                <circle cx="548.5" cy="487.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="548.5" cy="487.5" r="5.5" fill={findColor(openWell[59].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter184_d)">
                                 <circle cx="524.5" cy="496.5" r="5.5" fill="#0FA30E"/>
@@ -864,10 +864,10 @@ const  ShurtanMap = () => {
                                 <circle cx="498.5" cy="511.5" r="5.5" fill="#0FA30E"/>
                             </g>
                             <g filter="url(#filter186_d)">
-                                <circle cx="460.5" cy="528.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="460.5" cy="528.5" r="5.5" fill={findColor(openWell[93].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter187_d)">
-                                <circle cx="442.5" cy="496.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="442.5" cy="496.5" r="5.5" fill={findColor(openWell[92].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter188_d)">
                                 <circle cx="468.5" cy="453.5" r="5.5" fill="#0FA30E"/>
@@ -885,178 +885,178 @@ const  ShurtanMap = () => {
                                 <circle cx="365.5" cy="506.5" r="5.5" fill="#0FA30E"/>
                             </g>
                             <g filter="url(#filter193_d)">
-                                <circle cx="325.5" cy="757.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="325.5" cy="757.5" r="5.5" fill={findColor(openWell[6].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter194_d)">
                                 <circle cx="113.5" cy="764.5" r="5.5" fill={findColor(openWell[7].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter195_d)">
-                                <circle cx="93.5" cy="711.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="93.5" cy="711.5" r="5.5" fill={findColor(openWell[40].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter196_d)">
-                                <circle cx="128.5" cy="703.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="128.5" cy="703.5" r="5.5" fill={findColor(openWell[41].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter197_d)">
-                                <circle cx="161.5" cy="709.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="161.5" cy="709.5" r="5.5" fill={findColor(openWell[42].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter198_d)">
-                                <circle cx="199.5" cy="690.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="199.5" cy="690.5" r="5.5" fill={findColor(openWell[43].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter199_d)">
-                                <circle cx="233.5" cy="669.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="233.5" cy="669.5" r="5.5" fill={findColor(openWell[44].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter200_d)">
-                                <circle cx="140.5" cy="638.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="140.5" cy="638.5" r="5.5" fill={findColor(openWell[38].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter201_d)">
-                                <circle cx="91.5" cy="596.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="91.5" cy="596.5" r="5.5" fill={findColor(openWell[37].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter202_d)">
-                                <circle cx="99.5" cy="629.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="99.5" cy="629.5" r="5.5" fill={findColor(openWell[36].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter203_d)">
-                                <circle cx="49.5" cy="621.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="49.5" cy="621.5" r="5.5" fill={findColor(openWell[35].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter204_d)">
-                                <circle cx="30.5" cy="596.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="30.5" cy="596.5" r="5.5" fill={findColor(openWell[32].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter205_d)">
-                                <circle cx="21.5" cy="571.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="21.5" cy="571.5" r="5.5" fill={findColor(openWell[33].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter206_d)">
-                                <circle cx="45.5" cy="543.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="45.5" cy="543.5" r="5.5" fill={findColor(openWell[34].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter207_d)">
-                                <circle cx="9.5" cy="461.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="9.5" cy="461.5" r="5.5" fill={findColor(openWell[56].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter208_d)">
-                                <circle cx="38.5" cy="465.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="38.5" cy="465.5" r="5.5" fill={findColor(openWell[57].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter209_d)">
-                                <circle cx="66.5" cy="463.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="66.5" cy="463.5" r="5.5" fill={findColor(openWell[58].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter210_d)">
-                                <circle cx="34.5" cy="420.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="34.5" cy="420.5" r="5.5" fill={findColor(openWell[55].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter211_d)">
-                                <circle cx="75.5" cy="361.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="75.5" cy="361.5" r="5.5" fill={findColor(openWell[30].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter212_d)">
-                                <circle cx="46.5" cy="333.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="46.5" cy="333.5" r="5.5" fill={findColor(openWell[29].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter213_d)">
-                                <circle cx="22.5" cy="318.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="22.5" cy="318.5" r="5.5" fill={findColor(openWell[28].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter214_d)">
-                                <circle cx="10.5" cy="291.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="10.5" cy="291.5" r="5.5" fill={findColor(openWell[27].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter215_d)">
-                                <circle cx="11.5" cy="256.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="11.5" cy="256.5" r="5.5" fill={findColor(openWell[21].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter216_d)">
-                                <circle cx="55.5" cy="259.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="55.5" cy="259.5" r="5.5" fill={findColor(openWell[22].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter217_d)">
-                                <circle cx="89.5" cy="263.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="89.5" cy="263.5" r="5.5" fill={findColor(openWell[23].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter218_d)">
-                                <circle cx="114.5" cy="281.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="114.5" cy="281.5" r="5.5" fill={findColor(openWell[24].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter219_d)">
-                                <circle cx="137.5" cy="258.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="137.5" cy="258.5" r="5.5" fill={findColor(openWell[20].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter220_d)">
-                                <circle cx="111.5" cy="238.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="111.5" cy="238.5" r="5.5" fill={findColor(openWell[19].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter221_d)">
-                                <circle cx="79.5" cy="220.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="79.5" cy="220.5" r="5.5" fill={findColor(openWell[18].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter222_d)">
-                                <circle cx="82.5" cy="168.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="82.5" cy="168.5" r="5.5" fill={findColor(openWell[46].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter223_d)">
-                                <circle cx="56.5" cy="149.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="56.5" cy="149.5" r="5.5" fill={findColor(openWell[45].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter224_d)">
-                                <circle cx="56.5" cy="115.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="56.5" cy="115.5" r="5.5" fill={findColor(openWell[47].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter225_d)">
-                                <circle cx="85.5" cy="55.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="85.5" cy="55.5" r="5.5" fill={findColor(openWell[89].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter226_d)">
-                                <circle cx="131.5" cy="79.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="131.5" cy="79.5" r="5.5" fill={findColor(openWell[87].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter227_d)">
-                                <circle cx="177.5" cy="108.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="177.5" cy="108.5" r="5.5" fill={findColor(openWell[85].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter228_d)">
-                                <circle cx="214.5" cy="132.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="214.5" cy="132.5" r="5.5" fill={findColor(openWell[83].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter229_d)">
-                                <circle cx="253.5" cy="158.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="253.5" cy="158.5" r="5.5" fill={findColor(openWell[81].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter230_d)">
-                                <circle cx="295.5" cy="185.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="295.5" cy="185.5" r="5.5" fill={findColor(openWell[80].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter231_d)">
-                                <circle cx="324.5" cy="208.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="324.5" cy="208.5" r="5.5" fill={findColor(openWell[77].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter232_d)">
-                                <circle cx="368.5" cy="168.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="368.5" cy="168.5" r="5.5" fill={findColor(openWell[78].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter233_d)">
-                                <circle cx="340.5" cy="146.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="340.5" cy="146.5" r="5.5" fill={findColor(openWell[79].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter234_d)">
-                                <circle cx="308.5" cy="120.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="308.5" cy="120.5" r="5.5" fill={findColor(openWell[82].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter235_d)">
-                                <circle cx="279.5" cy="104.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="279.5" cy="104.5" r="5.5" fill={findColor(openWell[84].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter236_d)">
-                                <circle cx="256.5" cy="76.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="256.5" cy="76.5" r="5.5" fill={findColor(openWell[86].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter237_d)">
-                                <circle cx="229.5" cy="56.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="229.5" cy="56.5" r="5.5" fill={findColor(openWell[88].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter238_d)">
-                                <circle cx="203.5" cy="37.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="203.5" cy="37.5" r="5.5" fill={findColor(openWell[90].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter239_d)">
-                                <circle cx="172.5" cy="23.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="172.5" cy="23.5" r="5.5" fill={findColor(openWell[76].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter240_d)">
-                                <circle cx="480.5" cy="197.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="480.5" cy="197.5" r="5.5" fill={findColor(openWell[70].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter241_d)">
-                                <circle cx="130.5" cy="18.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="130.5" cy="18.5" r="5.5" fill={findColor(openWell[91].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter242_d)">
-                                <circle cx="453.5" cy="171.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="453.5" cy="171.5" r="5.5" fill={findColor(openWell[71].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter243_d)">
-                                <circle cx="424.5" cy="150.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="424.5" cy="150.5" r="5.5" fill={findColor(openWell[72].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter244_d)">
-                                <circle cx="394.5" cy="130.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="394.5" cy="130.5" r="5.5" fill={findColor(openWell[73].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter245_d)">
-                                <circle cx="368.5" cy="106.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="368.5" cy="106.5" r="5.5" fill={findColor(openWell[74].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter246_d)">
-                                <circle cx="341.5" cy="81.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="341.5" cy="81.5" r="5.5" fill={findColor(openWell[75].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter247_d)">
-                                <circle cx="387.5" cy="49.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="387.5" cy="49.5" r="5.5" fill={findColor(openWell[69].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter248_d)">
-                                <circle cx="424.5" cy="57.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="424.5" cy="57.5" r="5.5" fill={findColor(openWell[68].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter249_d)">
-                                <circle cx="454.5" cy="70.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="454.5" cy="70.5" r="5.5" fill={findColor(openWell[67].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter250_d)">
-                                <circle cx="479.5" cy="91.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="479.5" cy="91.5" r="5.5" fill={findColor(openWell[66].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter251_d)">
                                 <circle cx="579.5" cy="146.5" r="5.5" fill="#158FFF"/>
@@ -1155,91 +1155,91 @@ const  ShurtanMap = () => {
                                 <circle cx="988.5" cy="223.5" r="5.5" fill="#FF0000"/>
                             </g>
                             <g filter="url(#filter283_d)">
-                                <circle cx="506.5" cy="119.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="506.5" cy="119.5" r="5.5" fill={findColor(openWell[65].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter284_d)">
-                                <circle cx="526.5" cy="150.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="526.5" cy="150.5" r="5.5" fill={findColor(openWell[64].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter285_d)">
-                                <circle cx="111.5" cy="106.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="111.5" cy="106.5" r="5.5" fill={findColor(openWell[48].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter286_d)">
-                                <circle cx="137.5" cy="120.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="137.5" cy="120.5" r="5.5" fill={findColor(openWell[49].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter287_d)">
-                                <circle cx="161.5" cy="143.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="161.5" cy="143.5" r="5.5" fill={findColor(openWell[50].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter288_d)">
-                                <circle cx="198.5" cy="170.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="198.5" cy="170.5" r="5.5" fill={findColor(openWell[51].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter289_d)">
-                                <circle cx="125.5" cy="184.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="125.5" cy="184.5" r="5.5" fill={findColor(openWell[17].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter290_d)">
-                                <circle cx="157.5" cy="202.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="157.5" cy="202.5" r="5.5" fill={findColor(openWell[16].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter291_d)">
-                                <circle cx="174.5" cy="227.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="174.5" cy="227.5" r="5.5" fill={findColor(openWell[14].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter292_d)">
-                                <circle cx="206.5" cy="257.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="206.5" cy="257.5" r="5.5" fill={findColor(openWell[15].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter293_d)">
-                                <circle cx="139.5" cy="302.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="139.5" cy="302.5" r="5.5" fill={findColor(openWell[25].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter294_d)">
-                                <circle cx="178.5" cy="331.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="178.5" cy="331.5" r="5.5" fill={findColor(openWell[26].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter295_d)">
-                                <circle cx="115.5" cy="376.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="115.5" cy="376.5" r="5.5" fill={findColor(openWell[31].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter296_d)">
-                                <circle cx="67.5" cy="423.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="67.5" cy="423.5" r="5.5" fill={findColor(openWell[54].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter297_d)">
-                                <circle cx="97.5" cy="423.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="97.5" cy="423.5" r="5.5" fill={findColor(openWell[53].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter298_d)">
-                                <circle cx="129.5" cy="424.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="129.5" cy="424.5" r="5.5" fill={findColor(openWell[52].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter299_d)">
-                                <circle cx="110.5" cy="657.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="110.5" cy="657.5" r="5.5" fill={findColor(openWell[39].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter300_d)">
-                                <circle cx="72.5" cy="791.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="72.5" cy="791.5" r="5.5" fill={findColor(openWell[8].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter301_d)">
-                                <circle cx="89.5" cy="844.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="89.5" cy="844.5" r="5.5" fill={findColor(openWell[9].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter302_d)">
-                                <circle cx="109.5" cy="866.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="109.5" cy="866.5" r="5.5" fill={findColor(openWell[10].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter303_d)">
-                                <circle cx="148.5" cy="870.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="148.5" cy="870.5" r="5.5" fill={findColor(openWell[11].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter304_d)">
-                                <circle cx="199.5" cy="854.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="199.5" cy="854.5" r="5.5" fill={findColor(openWell[12].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter305_d)">
-                                <circle cx="213.5" cy="823.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="213.5" cy="823.5" r="5.5" fill={findColor(openWell[13].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter306_d)">
-                                <circle cx="331.5" cy="801.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="331.5" cy="801.5" r="5.5" fill={findColor(openWell[5].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter307_d)">
-                                <circle cx="368.5" cy="815.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="368.5" cy="815.5" r="5.5" fill={findColor(openWell[4].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter308_d)">
-                                <circle cx="454.5" cy="770.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="454.5" cy="770.5" r="5.5" fill={findColor(openWell[2].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter309_d)">
-                                <circle cx="429.5" cy="805.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="429.5" cy="805.5" r="5.5" fill={findColor(openWell[3].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter310_d)">
-                                <circle cx="436.5" cy="742.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="436.5" cy="742.5" r="5.5" fill={findColor(openWell[1].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter311_d)">
-                                <circle cx="407.5" cy="715.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="407.5" cy="715.5" r="5.5" fill={findColor(openWell[0].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter312_d)">
                                 <circle cx="335.5" cy="496.5" r="5.5" fill="#0FA30E"/>
@@ -1284,16 +1284,16 @@ const  ShurtanMap = () => {
                                 <circle cx="492.5" cy="389.5" r="5.5" fill="#0FA30E"/>
                             </g>
                             <g filter="url(#filter326_d)">
-                                <circle cx="497.5" cy="425.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="497.5" cy="425.5" r="5.5" fill={findColor(openWell[94].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter327_d)">
                                 <circle cx="541.5" cy="454.5" r="5.5" fill="#0FA30E"/>
                             </g>
                             <g filter="url(#filter328_d)">
-                                <circle cx="580.5" cy="453.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="580.5" cy="453.5" r="5.5" fill={findColor(openWell[60].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter329_d)">
-                                <circle cx="629.5" cy="498.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="629.5" cy="498.5" r="5.5" fill={findColor(openWell[63].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter330_d)">
                                 <circle cx="733.5" cy="571.5" r="5.5" fill="#0FA30E"/>

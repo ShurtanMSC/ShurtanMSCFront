@@ -16,7 +16,7 @@ const AppProvider = ({children}) => {
     const [drillDate, setDrillDate] = useState('');
     const [category, setCategory] = useState('');
     const [state, setState] = useState('');
-    const [interval, setInterval] = useState('');
+    const [intervalWell, setIntervalWell] = useState('');
     const [altitude, setAltitude] = useState('');
     const [depth, setDepth] = useState('');
     const [coordX, setCoordX] = useState('');
@@ -76,7 +76,7 @@ const AppProvider = ({children}) => {
         setState(e.target.value);
     }
     const handlerInterval = e => {
-        setInterval(e.target.value);
+        setIntervalWell(e.target.value);
     }
     const handlerAltitude = e => {
         setAltitude(e.target.value);
@@ -117,17 +117,39 @@ const AppProvider = ({children}) => {
         setDrillDate('');
         setCategory('');
         setState('');
-        setInterval('');
+        setIntervalWell('');
         setAltitude('');
         setDepth('');
         setCoordX('');
         setCoordY('');
     }
+
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
             .then(res => {setGetUppg(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)});
+        // Get allWells
+        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
+            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
+            .catch(err => {console.log(err)})
+        // PRESSURE_GET_API
+        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
+            .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
+            .catch(err => {console.log(err) })
+
+        setInterval(() => {
+            console.log("Ishladi")
+            axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
+                .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
+                .catch(err => {console.log(err) })
+        }, 10000);
+
+
     }, []);
 
     // WELL_OPERATION
@@ -217,25 +239,6 @@ const AppProvider = ({children}) => {
         setShowWellOperation(prev => !prev);
     }
 
-    // PRESSURE_GET_API
-    let today = new Date();
-    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date+' '+time;
-    setTimeout(() => {
-        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
-            .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
-            .catch(err => {console.log(err) })
-    }, 11000);
-
-    useEffect(() => {
-        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
-            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
-            .catch(err => {console.log(err)})
-  }, [])
-
-
-
     const value={
         numberWell, handlerNumberWell,
         uppg, handlerUppg,
@@ -245,7 +248,7 @@ const AppProvider = ({children}) => {
         drillDate, handlerDrillDate,
         category, handlerCategory,
         state, handlerState,
-        interval, handlerInterval,
+        intervalWell, handlerInterval,
         altitude, handlerAltitude,
         depth, handlerDepth,
         coordX, hadlerCoordX,

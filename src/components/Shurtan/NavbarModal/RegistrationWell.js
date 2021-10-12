@@ -46,7 +46,7 @@ const RegistrationWell = () => {
         drillDate, handlerDrillDate,
         category, handlerCategory,
         state, handlerState,
-        interval, handlerInterval,
+        intervalWell, handlerInterval,
         altitude, handlerAltitude,
         depth, handlerDepth,
         coordX, hadlerCoordX,
@@ -148,7 +148,7 @@ const RegistrationWell = () => {
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Интервал перфарации</ParametersPChange>
-                                        <ParametersInputChange type="number" name="number" value={interval} onChange={handlerInterval} required/>
+                                        <ParametersInputChange type="number" name="number" value={intervalWell} onChange={handlerInterval} required/>
                                     </ParametersCard>
                                     <ParametersCard>
                                         <ParametersPChange>Альтитуда, м</ParametersPChange>
