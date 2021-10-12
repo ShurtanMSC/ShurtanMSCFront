@@ -11,6 +11,7 @@ import {configHeader} from "../../utills/congifHeader";
 import {BASE_URL} from "../../utills/constant"
 
 
+
 const backdrop = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 }
@@ -29,7 +30,7 @@ const modalSP = {
 }
 
 const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal}) => {
-    const {setPressureApi} = useContext(AppContext);
+    // const {setPressureApi} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -53,20 +54,32 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
     // API
     const handlerSubmit = e => {
         e.preventDefault();
-        axios.post(BASE_URL + '/api/collection_point/manually/add/action',
-            {
-                collectionPointId: sp.objectDto.id,
-                pressure: rsp,
-                temperature: temp,
-            }, configHeader)
-            .then(res => {
-                if (res.status===201)
-                    axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
-                        .then(res1 => {setPressureApi(res1.data.object) })
-                        .catch(err => {console.log(err) })
-                })
-            .catch(err => {console.log(err)
+        let array=[];
+        wellPressureModal.forEach(well=>{
+
+            let w={
+                rpl:document.getElementById('rpl_well'+well.objectDto.id).value,
+                pressure:document.getElementById('pressure_well'+well.objectDto.id).value,
+                status:document.getElementById('status_well'+well.objectDto.id).value,
+                temperature:document.getElementById('temperature_well'+well.objectDto.id).value,
+                wellId:well.objectDto.id,
+            }
+            array.push(w)
+        })
+        let data={
+            collectionPointId: sp.objectDto.id,
+            pressure: rsp,
+            temperature: temp,
+            wellList:array
+        }
+        axios.post(BASE_URL + '/api/collection_point/manually/add/special',data,configHeader)
+            .then(response=>{
+                console.log(response.data);
+                // setPressureApi(res1.data.object)
             })
+            .catch(err => {console.log(err)})
+        console.log(data)
+
         setShowPressureModal(prev => !prev)
     }
     const [ rsp, setRsp ] = useState('');
@@ -108,9 +121,9 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                 <tbody>
                                     <Tr>
                                         <TdFirst>{id}</TdFirst>
-                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
+                                        <TdUp> <InputModal id={'temperature_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
                                         <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""} disabled/></TdUp>
-                                        <TdUp> <InputModal type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
+                                        <TdUp> <InputModal id={'pressure_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
                                     </Tr>
                                 </tbody>
                             </TableUp>
@@ -130,12 +143,12 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                 {wellPressureModal.map(el =>
                                     <Tr key={el.objectDto.number}>
                                         <TdFirst>{el.objectDto.number}</TdFirst>
-                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
-                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
+                                        <Td> <InputModal id={'pressure_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
+                                        <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
                                         <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
-                                        <Td> <InputModal type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
+                                        <Td> <InputModal id={'temperature_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
                                         <Td>
-                                            <SelectModal defaultValue={el.objectActionDto.status}>
+                                            <SelectModal id={'status_well'+el.objectDto.id} defaultValue={el.objectActionDto.status}>
                                                 <option value="IN_WORK">в работе</option>
                                                 <option value="IN_IDLE">в простое</option>
                                                 <option value="IN_REPAIR">в ремонте</option>
