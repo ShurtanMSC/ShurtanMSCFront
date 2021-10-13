@@ -147,13 +147,14 @@ a:focus{
 }
 /*ShurtanMap lamp*/
 .lamp{
-    animation: html ease-in-out 1.5s infinite;
+    opacity:1;
+    animation: lamped 0.7s ease-in-out forwards infinite alternate;
 }
-@keyframes html{
-    0%{
-        opacity:1;
-    }
-    100%{
+@keyframes lamped{
+    from{
         opacity:0;
+    }
+    to{
+        opacity:1;
     }
 }
