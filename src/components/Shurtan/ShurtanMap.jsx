@@ -44,7 +44,7 @@ const  ShurtanMap = () => {
         }
     }
 
-    if (openWell&&openWell.length> 0 && openWell[7].objectActionDto.status) {
+    if (openWell&&openWell.length> 0 ) {
         return (
             <>
                 <Modal showModal={showModal}
@@ -843,460 +843,460 @@ const  ShurtanMap = () => {
                             <path d="M741.4 870.012C741.173 870.292 740.897 870.505 740.57 870.652C740.25 870.798 739.897 870.872 739.51 870.872C738.99 870.872 738.52 870.758 738.1 870.532C737.68 870.312 737.2 869.918 736.66 869.352C736.027 869.272 735.46 869.068 734.96 868.742C734.467 868.415 734.08 867.995 733.8 867.482C733.527 866.962 733.39 866.388 733.39 865.762C733.39 865.075 733.553 864.458 733.88 863.912C734.213 863.358 734.67 862.925 735.25 862.612C735.837 862.298 736.493 862.142 737.22 862.142C737.947 862.142 738.6 862.298 739.18 862.612C739.76 862.925 740.217 863.358 740.55 863.912C740.883 864.458 741.05 865.075 741.05 865.762C741.05 866.575 740.82 867.288 740.36 867.902C739.907 868.515 739.303 868.942 738.55 869.182C738.717 869.355 738.877 869.478 739.03 869.552C739.19 869.632 739.36 869.672 739.54 869.672C739.973 869.672 740.353 869.498 740.68 869.152L741.4 870.012ZM735.03 865.762C735.03 866.195 735.123 866.582 735.31 866.922C735.503 867.262 735.767 867.528 736.1 867.722C736.433 867.908 736.807 868.002 737.22 868.002C737.633 868.002 738.007 867.908 738.34 867.722C738.673 867.528 738.933 867.262 739.12 866.922C739.313 866.582 739.41 866.195 739.41 865.762C739.41 865.328 739.313 864.942 739.12 864.602C738.933 864.262 738.673 863.998 738.34 863.812C738.007 863.618 737.633 863.522 737.22 863.522C736.807 863.522 736.433 863.618 736.1 863.812C735.767 863.998 735.503 864.262 735.31 864.602C735.123 864.942 735.03 865.328 735.03 865.762ZM742.158 863.912H746.918V865.132H742.158V863.912ZM742.158 866.392H746.918V867.612H742.158V866.392ZM749.856 865.766C750.645 865.766 751.226 865.923 751.6 866.238C751.978 866.552 752.168 866.974 752.168 867.502C752.168 867.843 752.082 868.155 751.912 868.438C751.741 868.715 751.48 868.939 751.128 869.11C750.781 869.275 750.352 869.358 749.84 869.358C749.445 869.358 749.056 869.307 748.672 869.206C748.293 869.099 747.97 868.95 747.704 868.758L748.216 867.766C748.429 867.926 748.674 868.051 748.952 868.142C749.229 868.227 749.514 868.27 749.808 868.27C750.133 868.27 750.389 868.206 750.576 868.078C750.762 867.95 750.856 867.771 750.856 867.542C750.856 867.302 750.757 867.12 750.56 866.998C750.368 866.875 750.032 866.814 749.552 866.814H748.12L748.408 863.662H751.824V864.702H749.488L749.4 865.766H749.856ZM753.518 867.774C753.742 867.774 753.926 867.846 754.07 867.99C754.214 868.128 754.286 868.312 754.286 868.542C754.286 868.648 754.272 868.755 754.246 868.862C754.219 868.968 754.16 869.128 754.07 869.342L753.614 870.494H752.822L753.174 869.222C753.04 869.168 752.934 869.083 752.854 868.966C752.779 868.843 752.742 868.702 752.742 868.542C752.742 868.312 752.814 868.128 752.958 867.99C753.107 867.846 753.294 867.774 753.518 867.774ZM757.246 869.358C756.782 869.358 756.368 869.243 756.006 869.014C755.643 868.784 755.358 868.454 755.15 868.022C754.947 867.584 754.846 867.064 754.846 866.462C754.846 865.859 754.947 865.342 755.15 864.91C755.358 864.472 755.643 864.139 756.006 863.91C756.368 863.68 756.782 863.566 757.246 863.566C757.71 863.566 758.123 863.68 758.486 863.91C758.848 864.139 759.131 864.472 759.334 864.91C759.542 865.342 759.646 865.859 759.646 866.462C759.646 867.064 759.542 867.584 759.334 868.022C759.131 868.454 758.848 868.784 758.486 869.014C758.123 869.243 757.71 869.358 757.246 869.358ZM757.246 868.262C757.587 868.262 757.854 868.115 758.046 867.822C758.243 867.528 758.342 867.075 758.342 866.462C758.342 865.848 758.243 865.395 758.046 865.102C757.854 864.808 757.587 864.662 757.246 864.662C756.91 864.662 756.643 864.808 756.446 865.102C756.254 865.395 756.158 865.848 756.158 866.462C756.158 867.075 756.254 867.528 756.446 867.822C756.643 868.115 756.91 868.262 757.246 868.262ZM767.189 869.262V866.686L765.901 868.846H765.373L764.117 866.678V869.262H762.989V864.958H764.293L765.669 867.446L767.133 864.958H768.301L768.317 869.262H767.189ZM773.721 864.958V869.262H772.473V865.982H771.113L771.073 866.742C771.051 867.307 770.998 867.776 770.913 868.15C770.827 868.523 770.689 868.816 770.497 869.03C770.305 869.243 770.038 869.35 769.697 869.35C769.515 869.35 769.299 869.318 769.049 869.254L769.113 868.23C769.198 868.24 769.259 868.246 769.297 868.246C769.483 868.246 769.622 868.179 769.713 868.046C769.809 867.907 769.873 867.734 769.905 867.526C769.937 867.312 769.961 867.032 769.977 866.686L770.041 864.958H773.721ZM775.001 864.958H776.241V866.638H778.113V864.958H779.361V869.262H778.113V867.654H776.241V869.262H775.001V864.958ZM781.083 869.326C780.865 869.326 780.681 869.251 780.531 869.102C780.382 868.952 780.307 868.766 780.307 868.542C780.307 868.312 780.382 868.128 780.531 867.99C780.681 867.846 780.865 867.774 781.083 867.774C781.302 867.774 781.486 867.846 781.635 867.99C781.785 868.128 781.859 868.312 781.859 868.542C781.859 868.766 781.785 868.952 781.635 869.102C781.486 869.251 781.302 869.326 781.083 869.326ZM787.009 869.262V866.686L785.721 868.846H785.193L783.937 866.678V869.262H782.809V864.958H784.113L785.489 867.446L786.953 864.958H788.121L788.137 869.262H787.009ZM790.997 864.654C791.317 864.702 791.562 864.811 791.733 864.982C791.903 865.152 791.989 865.366 791.989 865.622C791.989 865.814 791.93 865.992 791.813 866.158C791.701 866.323 791.527 866.456 791.293 866.558C791.058 866.659 790.77 866.71 790.429 866.71C790.141 866.71 789.861 866.675 789.589 866.606C789.322 866.536 789.111 866.446 788.957 866.334L789.277 865.694C789.426 865.795 789.602 865.875 789.805 865.934C790.007 865.987 790.21 866.014 790.413 866.014C790.642 866.014 790.813 865.979 790.925 865.91C791.042 865.84 791.101 865.744 791.101 865.622C791.101 865.371 790.89 865.246 790.469 865.246H789.997V864.702L790.725 863.99H789.101V863.326H791.805V863.862L790.997 864.654ZM794.706 862.526H795.818L793.178 870.062H792.066L794.706 862.526ZM797.675 869.326C797.217 869.326 796.803 869.232 796.435 869.046C796.073 868.854 795.787 868.59 795.579 868.254C795.377 867.918 795.275 867.536 795.275 867.11C795.275 866.683 795.377 866.302 795.579 865.966C795.787 865.63 796.073 865.368 796.435 865.182C796.803 864.99 797.217 864.894 797.675 864.894C798.129 864.894 798.523 864.99 798.859 865.182C799.201 865.368 799.449 865.638 799.603 865.99L798.635 866.51C798.411 866.115 798.089 865.918 797.667 865.918C797.342 865.918 797.073 866.024 796.859 866.238C796.646 866.451 796.539 866.742 796.539 867.11C796.539 867.478 796.646 867.768 796.859 867.982C797.073 868.195 797.342 868.302 797.667 868.302C798.094 868.302 798.417 868.104 798.635 867.71L799.603 868.238C799.449 868.579 799.201 868.846 798.859 869.038C798.523 869.23 798.129 869.326 797.675 869.326ZM804.691 864.958L802.747 869.526C802.55 870.022 802.304 870.371 802.011 870.574C801.723 870.776 801.374 870.878 800.963 870.878C800.739 870.878 800.518 870.843 800.299 870.774C800.08 870.704 799.902 870.608 799.763 870.486L800.219 869.598C800.315 869.683 800.424 869.75 800.547 869.798C800.675 869.846 800.8 869.87 800.923 869.87C801.094 869.87 801.232 869.827 801.339 869.742C801.446 869.662 801.542 869.526 801.627 869.334L801.643 869.294L799.779 864.958H801.067L802.275 867.878L803.491 864.958H804.691ZM809.028 865.982H807.572V869.262H806.332V865.982H804.876V864.958H809.028V865.982ZM811.67 867.63H811.022V869.262H809.774V864.958H811.022V866.63H811.694L812.862 864.958H814.19L812.686 867.022L814.294 869.262H812.822L811.67 867.63ZM816.58 864.894C817.247 864.894 817.759 865.054 818.116 865.374C818.474 865.688 818.652 866.166 818.652 866.806V869.262H817.484V868.726C817.25 869.126 816.812 869.326 816.172 869.326C815.842 869.326 815.554 869.27 815.308 869.158C815.068 869.046 814.884 868.891 814.756 868.694C814.628 868.496 814.564 868.272 814.564 868.022C814.564 867.622 814.714 867.307 815.012 867.078C815.316 866.848 815.783 866.734 816.412 866.734H817.404C817.404 866.462 817.322 866.254 817.156 866.11C816.991 865.96 816.743 865.886 816.412 865.886C816.183 865.886 815.956 865.923 815.732 865.998C815.514 866.067 815.327 866.163 815.172 866.286L814.724 865.414C814.959 865.248 815.239 865.12 815.564 865.03C815.895 864.939 816.234 864.894 816.58 864.894ZM816.484 868.486C816.698 868.486 816.887 868.438 817.052 868.342C817.218 868.24 817.335 868.094 817.404 867.902V867.462H816.548C816.036 867.462 815.78 867.63 815.78 867.966C815.78 868.126 815.842 868.254 815.964 868.35C816.092 868.44 816.266 868.486 816.484 868.486Z" fill="black"/>
                             <path d="M739.22 876.582H736.98V882.262H735.38V876.582H733.15V875.262H739.22V876.582ZM740.087 876.912H744.847V878.132H740.087V876.912ZM740.087 879.392H744.847V880.612H740.087V879.392ZM750.994 881.086H750.082V882.262H748.818V881.086H745.802V880.214L748.442 876.662H749.802L747.354 880.03H748.858V878.982H750.082V880.03H750.994V881.086ZM755.371 879.318C755.649 879.456 755.859 879.638 756.003 879.862C756.153 880.086 756.227 880.344 756.227 880.638C756.227 880.984 756.129 881.288 755.931 881.55C755.734 881.806 755.457 882.006 755.099 882.15C754.742 882.288 754.329 882.358 753.859 882.358C753.39 882.358 752.977 882.288 752.619 882.15C752.267 882.006 751.993 881.806 751.795 881.55C751.603 881.288 751.507 880.984 751.507 880.638C751.507 880.344 751.579 880.086 751.723 879.862C751.873 879.638 752.083 879.456 752.355 879.318C752.147 879.19 751.987 879.03 751.875 878.838C751.763 878.64 751.707 878.416 751.707 878.166C751.707 877.84 751.798 877.558 751.979 877.318C752.161 877.078 752.414 876.894 752.739 876.766C753.065 876.632 753.438 876.566 753.859 876.566C754.286 876.566 754.662 876.632 754.987 876.766C755.318 876.894 755.574 877.078 755.755 877.318C755.937 877.558 756.027 877.84 756.027 878.166C756.027 878.416 755.971 878.64 755.859 878.838C755.747 879.03 755.585 879.19 755.371 879.318ZM753.859 877.518C753.598 877.518 753.387 877.582 753.227 877.71C753.073 877.832 752.995 878.003 752.995 878.222C752.995 878.435 753.073 878.603 753.227 878.726C753.382 878.848 753.593 878.91 753.859 878.91C754.126 878.91 754.339 878.848 754.499 878.726C754.659 878.603 754.739 878.435 754.739 878.222C754.739 878.003 754.659 877.832 754.499 877.71C754.339 877.582 754.126 877.518 753.859 877.518ZM753.859 881.406C754.185 881.406 754.441 881.334 754.627 881.19C754.819 881.04 754.915 880.843 754.915 880.598C754.915 880.352 754.819 880.158 754.627 880.014C754.441 879.87 754.185 879.798 753.859 879.798C753.539 879.798 753.286 879.87 753.099 880.014C752.913 880.158 752.819 880.352 752.819 880.598C752.819 880.848 752.913 881.046 753.099 881.19C753.286 881.334 753.539 881.406 753.859 881.406ZM757.723 880.774C757.947 880.774 758.131 880.846 758.275 880.99C758.419 881.128 758.491 881.312 758.491 881.542C758.491 881.648 758.477 881.755 758.451 881.862C758.424 881.968 758.365 882.128 758.275 882.342L757.819 883.494H757.027L757.379 882.222C757.245 882.168 757.139 882.083 757.059 881.966C756.984 881.843 756.947 881.702 756.947 881.542C756.947 881.312 757.019 881.128 757.163 880.99C757.312 880.846 757.499 880.774 757.723 880.774ZM763.411 876.662V877.502L761.331 882.262H759.923L761.931 877.718H760.075V878.63H758.923V876.662H763.411ZM767.822 879.71C767.353 879.71 766.974 879.555 766.686 879.246C766.398 878.936 766.254 878.515 766.254 877.982C766.254 877.454 766.398 877.035 766.686 876.726C766.974 876.416 767.353 876.262 767.822 876.262C768.291 876.262 768.67 876.416 768.958 876.726C769.246 877.035 769.39 877.454 769.39 877.982C769.39 878.515 769.246 878.936 768.958 879.246C768.67 879.555 768.291 879.71 767.822 879.71ZM767.822 879.006C768.03 879.006 768.195 878.92 768.318 878.75C768.446 878.579 768.51 878.323 768.51 877.982C768.51 877.64 768.446 877.387 768.318 877.222C768.195 877.051 768.03 876.966 767.822 876.966C767.614 876.966 767.446 877.051 767.318 877.222C767.195 877.387 767.134 877.64 767.134 877.982C767.134 878.323 767.195 878.579 767.318 878.75C767.446 878.92 767.614 879.006 767.822 879.006ZM772.963 882.358C772.393 882.358 771.875 882.235 771.411 881.99C770.953 881.739 770.59 881.395 770.323 880.958C770.062 880.515 769.931 880.016 769.931 879.462C769.931 878.907 770.062 878.411 770.323 877.974C770.59 877.531 770.953 877.187 771.411 876.942C771.875 876.691 772.395 876.566 772.971 876.566C773.457 876.566 773.894 876.651 774.283 876.822C774.678 876.992 775.009 877.238 775.275 877.558L774.443 878.326C774.065 877.888 773.595 877.67 773.035 877.67C772.689 877.67 772.379 877.747 772.107 877.902C771.835 878.051 771.622 878.262 771.467 878.534C771.318 878.806 771.243 879.115 771.243 879.462C771.243 879.808 771.318 880.118 771.467 880.39C771.622 880.662 771.835 880.875 772.107 881.03C772.379 881.179 772.689 881.254 773.035 881.254C773.595 881.254 774.065 881.032 774.443 880.59L775.275 881.358C775.009 881.683 774.678 881.931 774.283 882.102C773.889 882.272 773.449 882.358 772.963 882.358Z" fill="black"/>
                             <g filter="url(#filter179_d)">
-                                <circle cx="690.5" cy="588.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="690.5" cy="588.5" r="5.5" className={openWell[143].objectActionDto.status === "IN_IDLE" || openWell[143].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[143].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter180_d)">
-                                <circle cx="654.5" cy="526.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="654.5" cy="526.5" r="5.5" className={openWell[142].objectActionDto.status === "IN_IDLE" || openWell[142].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[142].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter181_d)">
-                                <circle cx="600.5" cy="521.5" r="5.5" fill={findColor(openWell[62].objectActionDto.status)}/>
+                                <circle cx="600.5" cy="521.5" r="5.5" className={openWell[62].objectActionDto.status === "IN_IDLE" || openWell[62].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[62].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter182_d)">
-                                <circle cx="561.5" cy="526.5" r="5.5" fill={findColor(openWell[61].objectActionDto.status)}/>
+                                <circle cx="561.5" cy="526.5" r="5.5" className={openWell[61].objectActionDto.status === "IN_IDLE" || openWell[61].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[61].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter183_d)">
-                                <circle cx="548.5" cy="487.5" r="5.5" fill={findColor(openWell[59].objectActionDto.status)}/>
+                                <circle cx="548.5" cy="487.5" r="5.5" className={openWell[59].objectActionDto.status === "IN_IDLE" || openWell[59].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[59].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter184_d)">
-                                <circle cx="524.5" cy="496.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="524.5" cy="496.5" r="5.5" className={openWell[97].objectActionDto.status === "IN_IDLE" || openWell[97].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[97].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter185_d)">
-                                <circle cx="498.5" cy="511.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="498.5" cy="511.5" r="5.5" className={openWell[98].objectActionDto.status === "IN_IDLE" || openWell[98].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[98].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter186_d)">
-                                <circle cx="460.5" cy="528.5" r="5.5" fill={findColor(openWell[93].objectActionDto.status)}/>
+                                <circle cx="460.5" cy="528.5" r="5.5" className={openWell[93].objectActionDto.status === "IN_IDLE" || openWell[93].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[93].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter187_d)">
-                                <circle cx="442.5" cy="496.5" r="5.5" fill={findColor(openWell[92].objectActionDto.status)}/>
+                                <circle cx="442.5" cy="496.5" r="5.5" className={openWell[92].objectActionDto.status === "IN_IDLE" || openWell[92].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[92].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter188_d)">
-                                <circle cx="468.5" cy="453.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="468.5" cy="453.5" r="5.5" className={openWell[96].objectActionDto.status === "IN_IDLE" || openWell[96].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[96].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter189_d)">
-                                <circle cx="447.5" cy="432.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="447.5" cy="432.5" r="5.5" className={openWell[103].objectActionDto.status === "IN_IDLE" || openWell[103].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[103].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter190_d)">
-                                <circle cx="417.5" cy="455.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="417.5" cy="455.5" r="5.5" className={openWell[101].objectActionDto.status === "IN_IDLE" || openWell[101].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[101].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter191_d)">
-                                <circle cx="396.5" cy="486.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="396.5" cy="486.5" r="5.5" className={openWell[105].objectActionDto.status === "IN_IDLE" || openWell[105].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[105].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter192_d)">
-                                <circle cx="365.5" cy="506.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="365.5" cy="506.5" r="5.5" className={openWell[111].objectActionDto.status === "IN_IDLE" || openWell[111].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[111].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter193_d)">
-                                <circle cx="325.5" cy="757.5" r="5.5" fill={findColor(openWell[6].objectActionDto.status)}/>
+                                <circle cx="325.5" cy="757.5" r="5.5" className={openWell[6].objectActionDto.status === "IN_IDLE" || openWell[6].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[6].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter194_d)">
-                                <circle cx="113.5" cy="764.5" r="5.5" fill={findColor(openWell[7].objectActionDto.status)}/>
+                                <circle cx="113.5" cy="764.5" r="5.5" className={openWell[7].objectActionDto.status === "IN_IDLE" || openWell[7].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[7].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter195_d)">
-                                <circle cx="93.5" cy="711.5" r="5.5" fill={findColor(openWell[40].objectActionDto.status)}/>
+                                <circle cx="93.5" cy="711.5" r="5.5" className={openWell[40].objectActionDto.status === "IN_IDLE" || openWell[40].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[40].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter196_d)">
-                                <circle cx="128.5" cy="703.5" r="5.5" fill={findColor(openWell[41].objectActionDto.status)}/>
+                                <circle cx="128.5" cy="703.5" r="5.5" className={openWell[41].objectActionDto.status === "IN_IDLE" || openWell[41].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[41].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter197_d)">
-                                <circle cx="161.5" cy="709.5" r="5.5" fill={findColor(openWell[42].objectActionDto.status)}/>
+                                <circle cx="161.5" cy="709.5" r="5.5" className={openWell[42].objectActionDto.status === "IN_IDLE" || openWell[42].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[42].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter198_d)">
-                                <circle cx="199.5" cy="690.5" r="5.5" fill={findColor(openWell[43].objectActionDto.status)}/>
+                                <circle cx="199.5" cy="690.5" r="5.5" className={openWell[43].objectActionDto.status === "IN_IDLE" || openWell[43].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[43].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter199_d)">
-                                <circle cx="233.5" cy="669.5" r="5.5" fill={findColor(openWell[44].objectActionDto.status)}/>
+                                <circle cx="233.5" cy="669.5" r="5.5" className={openWell[44].objectActionDto.status === "IN_IDLE" || openWell[44].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[44].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter200_d)">
-                                <circle cx="140.5" cy="638.5" r="5.5" fill={findColor(openWell[38].objectActionDto.status)}/>
+                                <circle cx="140.5" cy="638.5" r="5.5" className={openWell[38].objectActionDto.status === "IN_IDLE" || openWell[38].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[38].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter201_d)">
-                                <circle cx="91.5" cy="596.5" r="5.5" fill={findColor(openWell[37].objectActionDto.status)}/>
+                                <circle cx="91.5" cy="596.5" r="5.5" className={openWell[37].objectActionDto.status === "IN_IDLE" || openWell[37].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[37].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter202_d)">
-                                <circle cx="99.5" cy="629.5" r="5.5" fill={findColor(openWell[36].objectActionDto.status)}/>
+                                <circle cx="99.5" cy="629.5" r="5.5" className={openWell[36].objectActionDto.status === "IN_IDLE" || openWell[36].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[36].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter203_d)">
-                                <circle cx="49.5" cy="621.5" r="5.5" fill={findColor(openWell[35].objectActionDto.status)}/>
+                                <circle cx="49.5" cy="621.5" r="5.5" className={openWell[35].objectActionDto.status === "IN_IDLE" || openWell[35].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[35].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter204_d)">
-                                <circle cx="30.5" cy="596.5" r="5.5" fill={findColor(openWell[32].objectActionDto.status)}/>
+                                <circle cx="30.5" cy="596.5" r="5.5" className={openWell[32].objectActionDto.status === "IN_IDLE" || openWell[32].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[32].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter205_d)">
-                                <circle cx="21.5" cy="571.5" r="5.5" fill={findColor(openWell[33].objectActionDto.status)}/>
+                                <circle cx="21.5" cy="571.5" r="5.5" className={openWell[33].objectActionDto.status === "IN_IDLE" || openWell[33].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[33].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter206_d)">
-                                <circle cx="45.5" cy="543.5" r="5.5" fill={findColor(openWell[34].objectActionDto.status)}/>
+                                <circle cx="45.5" cy="543.5" r="5.5" className={openWell[34].objectActionDto.status === "IN_IDLE" || openWell[34].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[34].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter207_d)">
-                                <circle cx="9.5" cy="461.5" r="5.5" fill={findColor(openWell[56].objectActionDto.status)}/>
+                                <circle cx="9.5" cy="461.5" r="5.5" className={openWell[56].objectActionDto.status === "IN_IDLE" || openWell[56].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[56].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter208_d)">
-                                <circle cx="38.5" cy="465.5" r="5.5" fill={findColor(openWell[57].objectActionDto.status)}/>
+                                <circle cx="38.5" cy="465.5" r="5.5" className={openWell[57].objectActionDto.status === "IN_IDLE" || openWell[57].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[57].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter209_d)">
-                                <circle cx="66.5" cy="463.5" r="5.5" fill={findColor(openWell[58].objectActionDto.status)}/>
+                                <circle cx="66.5" cy="463.5" r="5.5" className={openWell[58].objectActionDto.status === "IN_IDLE" || openWell[58].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[58].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter210_d)">
-                                <circle cx="34.5" cy="420.5" r="5.5" fill={findColor(openWell[55].objectActionDto.status)}/>
+                                <circle cx="34.5" cy="420.5" r="5.5" className={openWell[55].objectActionDto.status === "IN_IDLE" || openWell[55].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[55].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter211_d)">
-                                <circle cx="75.5" cy="361.5" r="5.5" fill={findColor(openWell[30].objectActionDto.status)}/>
+                                <circle cx="75.5" cy="361.5" r="5.5" className={openWell[30].objectActionDto.status === "IN_IDLE" || openWell[30].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[30].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter212_d)">
-                                <circle cx="46.5" cy="333.5" r="5.5" fill={findColor(openWell[29].objectActionDto.status)}/>
+                                <circle cx="46.5" cy="333.5" r="5.5" className={openWell[29].objectActionDto.status === "IN_IDLE" || openWell[29].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[29].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter213_d)">
-                                <circle cx="22.5" cy="318.5" r="5.5" fill={findColor(openWell[28].objectActionDto.status)}/>
+                                <circle cx="22.5" cy="318.5" r="5.5" className={openWell[28].objectActionDto.status === "IN_IDLE" || openWell[28].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[28].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter214_d)">
-                                <circle cx="10.5" cy="291.5" r="5.5" fill={findColor(openWell[27].objectActionDto.status)}/>
+                                <circle cx="10.5" cy="291.5" r="5.5" className={openWell[27].objectActionDto.status === "IN_IDLE" || openWell[27].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[27].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter215_d)">
-                                <circle cx="11.5" cy="256.5" r="5.5" fill={findColor(openWell[21].objectActionDto.status)}/>
+                                <circle cx="11.5" cy="256.5" r="5.5" className={openWell[21].objectActionDto.status === "IN_IDLE" || openWell[21].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[21].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter216_d)">
-                                <circle cx="55.5" cy="259.5" r="5.5" fill={findColor(openWell[22].objectActionDto.status)}/>
+                                <circle cx="55.5" cy="259.5" r="5.5" className={openWell[22].objectActionDto.status === "IN_IDLE" || openWell[22].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[22].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter217_d)">
-                                <circle cx="89.5" cy="263.5" r="5.5" fill={findColor(openWell[23].objectActionDto.status)}/>
+                                <circle cx="89.5" cy="263.5" r="5.5" className={openWell[23].objectActionDto.status === "IN_IDLE" || openWell[23].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[23].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter218_d)">
-                                <circle cx="114.5" cy="281.5" r="5.5" fill={findColor(openWell[24].objectActionDto.status)}/>
+                                <circle cx="114.5" cy="281.5" r="5.5" className={openWell[24].objectActionDto.status === "IN_IDLE" || openWell[24].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[24].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter219_d)">
-                                <circle cx="137.5" cy="258.5" r="5.5" fill={findColor(openWell[20].objectActionDto.status)}/>
+                                <circle cx="137.5" cy="258.5" r="5.5" className={openWell[20].objectActionDto.status === "IN_IDLE" || openWell[20].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[20].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter220_d)">
-                                <circle cx="111.5" cy="238.5" r="5.5" fill={findColor(openWell[19].objectActionDto.status)}/>
+                                <circle cx="111.5" cy="238.5" r="5.5" className={openWell[19].objectActionDto.status === "IN_IDLE" || openWell[19].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[19].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter221_d)">
-                                <circle cx="79.5" cy="220.5" r="5.5" fill={findColor(openWell[18].objectActionDto.status)}/>
+                                <circle cx="79.5" cy="220.5" r="5.5" className={openWell[18].objectActionDto.status === "IN_IDLE" || openWell[18].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[18].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter222_d)">
-                                <circle cx="82.5" cy="168.5" r="5.5" fill={findColor(openWell[46].objectActionDto.status)}/>
+                                <circle cx="82.5" cy="168.5" r="5.5" className={openWell[46].objectActionDto.status === "IN_IDLE" || openWell[46].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[46].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter223_d)">
-                                <circle cx="56.5" cy="149.5" r="5.5" fill={findColor(openWell[45].objectActionDto.status)}/>
+                                <circle cx="56.5" cy="149.5" r="5.5" className={openWell[45].objectActionDto.status === "IN_IDLE" || openWell[45].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[45].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter224_d)">
-                                <circle cx="56.5" cy="115.5" r="5.5" fill={findColor(openWell[47].objectActionDto.status)}/>
+                                <circle cx="56.5" cy="115.5" r="5.5" className={openWell[47].objectActionDto.status === "IN_IDLE" || openWell[47].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[47].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter225_d)">
-                                <circle cx="85.5" cy="55.5" r="5.5" fill={findColor(openWell[89].objectActionDto.status)}/>
+                                <circle cx="85.5" cy="55.5" r="5.5" className={openWell[89].objectActionDto.status === "IN_IDLE" || openWell[89].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[89].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter226_d)">
-                                <circle cx="131.5" cy="79.5" r="5.5" fill={findColor(openWell[87].objectActionDto.status)}/>
+                                <circle cx="131.5" cy="79.5" r="5.5" className={openWell[87].objectActionDto.status === "IN_IDLE" || openWell[87].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[87].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter227_d)">
-                                <circle cx="177.5" cy="108.5" r="5.5" fill={findColor(openWell[85].objectActionDto.status)}/>
+                                <circle cx="177.5" cy="108.5" r="5.5" className={openWell[85].objectActionDto.status === "IN_IDLE" || openWell[85].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[85].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter228_d)">
-                                <circle cx="214.5" cy="132.5" r="5.5" fill={findColor(openWell[83].objectActionDto.status)}/>
+                                <circle cx="214.5" cy="132.5" r="5.5" className={openWell[83].objectActionDto.status === "IN_IDLE" || openWell[83].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[83].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter229_d)">
-                                <circle cx="253.5" cy="158.5" r="5.5" fill={findColor(openWell[81].objectActionDto.status)}/>
+                                <circle cx="253.5" cy="158.5" r="5.5" className={openWell[81].objectActionDto.status === "IN_IDLE" || openWell[81].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[81].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter230_d)">
-                                <circle cx="295.5" cy="185.5" r="5.5" fill={findColor(openWell[80].objectActionDto.status)}/>
+                                <circle cx="295.5" cy="185.5" r="5.5" className={openWell[80].objectActionDto.status === "IN_IDLE" || openWell[80].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[80].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter231_d)">
-                                <circle cx="324.5" cy="208.5" r="5.5" fill={findColor(openWell[77].objectActionDto.status)}/>
+                                <circle cx="324.5" cy="208.5" r="5.5" className={openWell[77].objectActionDto.status === "IN_IDLE" || openWell[77].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[77].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter232_d)">
-                                <circle cx="368.5" cy="168.5" r="5.5" fill={findColor(openWell[78].objectActionDto.status)}/>
+                                <circle cx="368.5" cy="168.5" r="5.5" className={openWell[78].objectActionDto.status === "IN_IDLE" || openWell[78].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[78].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter233_d)">
-                                <circle cx="340.5" cy="146.5" r="5.5" fill={findColor(openWell[79].objectActionDto.status)}/>
+                                <circle cx="340.5" cy="146.5" r="5.5" className={openWell[79].objectActionDto.status === "IN_IDLE" || openWell[79].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[79].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter234_d)">
-                                <circle cx="308.5" cy="120.5" r="5.5" fill={findColor(openWell[82].objectActionDto.status)}/>
+                                <circle cx="308.5" cy="120.5" r="5.5" className={openWell[82].objectActionDto.status === "IN_IDLE" || openWell[82].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[82].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter235_d)">
-                                <circle cx="279.5" cy="104.5" r="5.5" fill={findColor(openWell[84].objectActionDto.status)}/>
+                                <circle cx="279.5" cy="104.5" r="5.5" className={openWell[84].objectActionDto.status === "IN_IDLE" || openWell[84].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[84].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter236_d)">
-                                <circle cx="256.5" cy="76.5" r="5.5" fill={findColor(openWell[86].objectActionDto.status)}/>
+                                <circle cx="256.5" cy="76.5" r="5.5" className={openWell[86].objectActionDto.status === "IN_IDLE" || openWell[86].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[86].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter237_d)">
-                                <circle cx="229.5" cy="56.5" r="5.5" fill={findColor(openWell[88].objectActionDto.status)}/>
+                                <circle cx="229.5" cy="56.5" r="5.5" className={openWell[88].objectActionDto.status === "IN_IDLE" || openWell[88].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[88].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter238_d)">
-                                <circle cx="203.5" cy="37.5" r="5.5" fill={findColor(openWell[90].objectActionDto.status)}/>
+                                <circle cx="203.5" cy="37.5" r="5.5" className={openWell[90].objectActionDto.status === "IN_IDLE" || openWell[90].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[90].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter239_d)">
-                                <circle cx="172.5" cy="23.5" r="5.5" fill={findColor(openWell[76].objectActionDto.status)}/>
+                                <circle cx="172.5" cy="23.5" r="5.5" className={openWell[76].objectActionDto.status === "IN_IDLE" || openWell[76].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[76].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter240_d)">
-                                <circle cx="480.5" cy="197.5" r="5.5" fill={findColor(openWell[70].objectActionDto.status)}/>
+                                <circle cx="480.5" cy="197.5" r="5.5" className={openWell[70].objectActionDto.status === "IN_IDLE" || openWell[70].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[70].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter241_d)">
-                                <circle cx="130.5" cy="18.5" r="5.5" fill={findColor(openWell[91].objectActionDto.status)}/>
+                                <circle cx="130.5" cy="18.5" r="5.5" className={openWell[91].objectActionDto.status === "IN_IDLE" || openWell[91].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[91].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter242_d)">
-                                <circle cx="453.5" cy="171.5" r="5.5" fill={findColor(openWell[71].objectActionDto.status)}/>
+                                <circle cx="453.5" cy="171.5" r="5.5" className={openWell[71].objectActionDto.status === "IN_IDLE" || openWell[71].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[71].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter243_d)">
-                                <circle cx="424.5" cy="150.5" r="5.5" fill={findColor(openWell[72].objectActionDto.status)}/>
+                                <circle cx="424.5" cy="150.5" r="5.5" className={openWell[72].objectActionDto.status === "IN_IDLE" || openWell[72].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[72].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter244_d)">
-                                <circle cx="394.5" cy="130.5" r="5.5" fill={findColor(openWell[73].objectActionDto.status)}/>
+                                <circle cx="394.5" cy="130.5" r="5.5" className={openWell[73].objectActionDto.status === "IN_IDLE" || openWell[73].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[73].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter245_d)">
-                                <circle cx="368.5" cy="106.5" r="5.5" fill={findColor(openWell[74].objectActionDto.status)}/>
+                                <circle cx="368.5" cy="106.5" r="5.5" className={openWell[74].objectActionDto.status === "IN_IDLE" || openWell[74].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[74].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter246_d)">
-                                <circle cx="341.5" cy="81.5" r="5.5" fill={findColor(openWell[75].objectActionDto.status)}/>
+                                <circle cx="341.5" cy="81.5" r="5.5" className={openWell[75].objectActionDto.status === "IN_IDLE" || openWell[75].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[75].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter247_d)">
-                                <circle cx="387.5" cy="49.5" r="5.5" fill={findColor(openWell[69].objectActionDto.status)}/>
+                                <circle cx="387.5" cy="49.5" r="5.5" className={openWell[69].objectActionDto.status === "IN_IDLE" || openWell[69].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[69].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter248_d)">
-                                <circle cx="424.5" cy="57.5" r="5.5" fill={findColor(openWell[68].objectActionDto.status)}/>
+                                <circle cx="424.5" cy="57.5" r="5.5" className={openWell[68].objectActionDto.status === "IN_IDLE" || openWell[68].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[68].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter249_d)">
-                                <circle cx="454.5" cy="70.5" r="5.5" fill={findColor(openWell[67].objectActionDto.status)}/>
+                                <circle cx="454.5" cy="70.5" r="5.5" className={openWell[67].objectActionDto.status === "IN_IDLE" || openWell[67].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[67].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter250_d)">
-                                <circle cx="479.5" cy="91.5" r="5.5" fill={findColor(openWell[66].objectActionDto.status)}/>
+                                <circle cx="479.5" cy="91.5" r="5.5" className={openWell[66].objectActionDto.status === "IN_IDLE" || openWell[66].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[66].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter251_d)">
-                                <circle cx="579.5" cy="146.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="579.5" cy="146.5" r="5.5" className={openWell[124].objectActionDto.status === "IN_IDLE" || openWell[124].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[124].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter252_d)">
-                                <circle cx="553.5" cy="123.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="553.5" cy="123.5" r="5.5" className={openWell[125].objectActionDto.status === "IN_IDLE" || openWell[125].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[125].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter253_d)">
-                                <circle cx="530.5" cy="89.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="530.5" cy="89.5" r="5.5" className={openWell[123].objectActionDto.status === "IN_IDLE" || openWell[123].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[123].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter254_d)">
-                                <circle cx="511.5" cy="50.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="511.5" cy="50.5" r="5.5" className={openWell[122].objectActionDto.status === "IN_IDLE" || openWell[122].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[122].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter255_d)">
-                                <circle cx="573.5" cy="45.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="573.5" cy="45.5" r="5.5" className={openWell[121].objectActionDto.status === "IN_IDLE" || openWell[121].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[121].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter256_d)">
-                                <circle cx="604.5" cy="49.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="604.5" cy="49.5" r="5.5" className={openWell[120].objectActionDto.status === "IN_IDLE" || openWell[120].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[120].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter257_d)">
-                                <circle cx="627.5" cy="70.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="627.5" cy="70.5" r="5.5" className={openWell[119].objectActionDto.status === "IN_IDLE" || openWell[119].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[119].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter258_d)">
-                                <circle cx="644.5" cy="102.5" r="5.5" fill="#158FFF"/>
+                                <circle cx="644.5" cy="102.5" r="5.5" className={openWell[118].objectActionDto.status === "IN_IDLE" || openWell[118].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[118].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter259_d)">
-                                <circle cx="717.5" cy="55.5" r="5.5" fill="#FFC91B"/>
+                                <circle cx="717.5" cy="55.5" r="5.5" className={openWell[150].objectActionDto.status === "IN_IDLE" || openWell[150].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[150].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter260_d)">
-                                <circle cx="752.5" cy="57.5" r="5.5" fill="#FFC91B"/>
+                                <circle cx="752.5" cy="57.5" r="5.5" className={openWell[151].objectActionDto.status === "IN_IDLE" || openWell[151].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[151].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter261_d)">
-                                <circle cx="774.5" cy="74.5" r="5.5" fill="#FFC91B"/>
+                                <circle cx="774.5" cy="74.5" r="5.5" className={openWell[152].objectActionDto.status === "IN_IDLE" || openWell[152].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[152].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter262_d)">
-                                <circle cx="801.5" cy="86.5" r="5.5" fill="#FFC91B"/>
+                                <circle cx="801.5" cy="86.5" r="5.5" className={openWell[153].objectActionDto.status === "IN_IDLE" || openWell[153].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[153].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter263_d)">
-                                <circle cx="856.5" cy="34.5" r="5.5" fill="#FFC91B"/>
+                                <circle cx="856.5" cy="34.5" r="5.5" className={openWell[131].objectActionDto.status === "IN_IDLE" || openWell[131].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[131].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter264_d)">
-                                <circle cx="921.5" cy="73.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="921.5" cy="73.5" r="5.5" className={openWell[132].objectActionDto.status === "IN_IDLE" || openWell[132].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[132].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter265_d)">
-                                <circle cx="883.5" cy="166.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="883.5" cy="166.5" r="5.5" className={openWell[137].objectActionDto.status === "IN_IDLE" || openWell[137].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[137].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter266_d)">
-                                <circle cx="816.5" cy="246.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="816.5" cy="246.5" r="5.5" className={openWell[130].objectActionDto.status === "IN_IDLE" || openWell[130].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[130].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter267_d)">
-                                <circle cx="787.5" cy="273.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="787.5" cy="273.5" r="5.5" className={openWell[129].objectActionDto.status === "IN_IDLE" || openWell[129].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[129].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter268_d)">
-                                <circle cx="889.5" cy="308.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="889.5" cy="308.5" r="5.5" className={openWell[149].objectActionDto.status === "IN_IDLE" || openWell[149].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[149].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter269_d)">
-                                <circle cx="937.5" cy="290.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="937.5" cy="290.5" r="5.5" className={openWell[148].objectActionDto.status === "IN_IDLE" || openWell[148].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[148].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter270_d)">
-                                <circle cx="993.5" cy="297.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="993.5" cy="297.5" r="5.5" className={openWell[147].objectActionDto.status === "IN_IDLE" || openWell[147].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[147].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter271_d)">
-                                <circle cx="1024.5" cy="333.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="1024.5" cy="333.5" r="5.5" className={openWell[146].objectActionDto.status === "IN_IDLE" || openWell[146].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[146].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter272_d)">
-                                <circle cx="1029.5" cy="379.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="1029.5" cy="379.5" r="5.5" className={openWell[145].objectActionDto.status === "IN_IDLE" || openWell[145].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[145].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter273_d)">
-                                <circle cx="761.5" cy="296.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="761.5" cy="296.5" r="5.5" className={openWell[128].objectActionDto.status === "IN_IDLE" || openWell[128].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[128].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter274_d)">
-                                <circle cx="732.5" cy="317.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="732.5" cy="317.5" r="5.5" className={openWell[127].objectActionDto.status === "IN_IDLE" || openWell[127].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[127].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter275_d)">
-                                <circle cx="704.5" cy="334.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="704.5" cy="334.5" r="5.5" className={openWell[126].objectActionDto.status === "IN_IDLE" || openWell[126].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[126].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter276_d)">
-                                <circle cx="910.5" cy="140.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="910.5" cy="140.5" r="5.5" className={openWell[136].objectActionDto.status === "IN_IDLE" || openWell[136].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[136].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter277_d)">
-                                <circle cx="935.5" cy="116.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="935.5" cy="116.5" r="5.5" className={openWell[135].objectActionDto.status === "IN_IDLE" || openWell[135].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[135].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter278_d)">
-                                <circle cx="973.5" cy="107.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="973.5" cy="107.5" r="5.5" className={openWell[134].objectActionDto.status === "IN_IDLE" || openWell[134].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[134].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter279_d)">
-                                <circle cx="1008.5" cy="113.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="1008.5" cy="113.5" r="5.5" className={openWell[133].objectActionDto.status === "IN_IDLE" || openWell[133].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[133].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter280_d)">
-                                <circle cx="1041.5" cy="149.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="1041.5" cy="149.5" r="5.5" className={openWell[138].objectActionDto.status === "IN_IDLE" || openWell[138].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[138].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter281_d)">
-                                <circle cx="1021.5" cy="192.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="1021.5" cy="192.5" r="5.5" className={openWell[139].objectActionDto.status === "IN_IDLE" || openWell[139].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[139].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter282_d)">
-                                <circle cx="988.5" cy="223.5" r="5.5" fill="#FF0000"/>
+                                <circle cx="988.5" cy="223.5" r="5.5" className={openWell[140].objectActionDto.status === "IN_IDLE" || openWell[140].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[140].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter283_d)">
-                                <circle cx="506.5" cy="119.5" r="5.5" fill={findColor(openWell[65].objectActionDto.status)}/>
+                                <circle cx="506.5" cy="119.5" r="5.5" className={openWell[65].objectActionDto.status === "IN_IDLE" || openWell[65].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[65].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter284_d)">
-                                <circle cx="526.5" cy="150.5" r="5.5" fill={findColor(openWell[64].objectActionDto.status)}/>
+                                <circle cx="526.5" cy="150.5" r="5.5" className={openWell[64].objectActionDto.status === "IN_IDLE" || openWell[64].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[64].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter285_d)">
-                                <circle cx="111.5" cy="106.5" r="5.5" fill={findColor(openWell[48].objectActionDto.status)}/>
+                                <circle cx="111.5" cy="106.5" r="5.5" className={openWell[48].objectActionDto.status === "IN_IDLE" || openWell[48].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[48].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter286_d)">
-                                <circle cx="137.5" cy="120.5" r="5.5" fill={findColor(openWell[49].objectActionDto.status)}/>
+                                <circle cx="137.5" cy="120.5" r="5.5" className={openWell[49].objectActionDto.status === "IN_IDLE" || openWell[49].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[49].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter287_d)">
-                                <circle cx="161.5" cy="143.5" r="5.5" fill={findColor(openWell[50].objectActionDto.status)}/>
+                                <circle cx="161.5" cy="143.5" r="5.5" className={openWell[50].objectActionDto.status === "IN_IDLE" || openWell[50].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[50].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter288_d)">
-                                <circle cx="198.5" cy="170.5" r="5.5" fill={findColor(openWell[51].objectActionDto.status)}/>
+                                <circle cx="198.5" cy="170.5" r="5.5" className={openWell[51].objectActionDto.status === "IN_IDLE" || openWell[51].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[51].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter289_d)">
-                                <circle cx="125.5" cy="184.5" r="5.5" fill={findColor(openWell[17].objectActionDto.status)}/>
+                                <circle cx="125.5" cy="184.5" r="5.5" className={openWell[17].objectActionDto.status === "IN_IDLE" || openWell[17].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[17].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter290_d)">
-                                <circle cx="157.5" cy="202.5" r="5.5" fill={findColor(openWell[16].objectActionDto.status)}/>
+                                <circle cx="157.5" cy="202.5" r="5.5" className={openWell[16].objectActionDto.status === "IN_IDLE" || openWell[16].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[16].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter291_d)">
-                                <circle cx="174.5" cy="227.5" r="5.5" fill={findColor(openWell[14].objectActionDto.status)}/>
+                                <circle cx="174.5" cy="227.5" r="5.5" className={openWell[14].objectActionDto.status === "IN_IDLE" || openWell[14].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[14].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter292_d)">
-                                <circle cx="206.5" cy="257.5" r="5.5" fill={findColor(openWell[15].objectActionDto.status)}/>
+                                <circle cx="206.5" cy="257.5" r="5.5" className={openWell[15].objectActionDto.status === "IN_IDLE" || openWell[15].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[15].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter293_d)">
-                                <circle cx="139.5" cy="302.5" r="5.5" fill={findColor(openWell[25].objectActionDto.status)}/>
+                                <circle cx="139.5" cy="302.5" r="5.5" className={openWell[25].objectActionDto.status === "IN_IDLE" || openWell[25].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[25].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter294_d)">
-                                <circle cx="178.5" cy="331.5" r="5.5" fill={findColor(openWell[26].objectActionDto.status)}/>
+                                <circle cx="178.5" cy="331.5" r="5.5" className={openWell[26].objectActionDto.status === "IN_IDLE" || openWell[26].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[26].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter295_d)">
-                                <circle cx="115.5" cy="376.5" r="5.5" fill={findColor(openWell[31].objectActionDto.status)}/>
+                                <circle cx="115.5" cy="376.5" r="5.5" className={openWell[31].objectActionDto.status === "IN_IDLE" || openWell[31].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[31].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter296_d)">
-                                <circle cx="67.5" cy="423.5" r="5.5" fill={findColor(openWell[54].objectActionDto.status)}/>
+                                <circle cx="67.5" cy="423.5" r="5.5" className={openWell[54].objectActionDto.status === "IN_IDLE" || openWell[54].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[54].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter297_d)">
-                                <circle cx="97.5" cy="423.5" r="5.5" fill={findColor(openWell[53].objectActionDto.status)}/>
+                                <circle cx="97.5" cy="423.5" r="5.5" className={openWell[53].objectActionDto.status === "IN_IDLE" || openWell[53].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[53].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter298_d)">
-                                <circle cx="129.5" cy="424.5" r="5.5" fill={findColor(openWell[52].objectActionDto.status)}/>
+                                <circle cx="129.5" cy="424.5" r="5.5" className={openWell[52].objectActionDto.status === "IN_IDLE" || openWell[52].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[52].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter299_d)">
-                                <circle cx="110.5" cy="657.5" r="5.5" fill={findColor(openWell[39].objectActionDto.status)}/>
+                                <circle cx="110.5" cy="657.5" r="5.5" className={openWell[39].objectActionDto.status === "IN_IDLE" || openWell[39].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[39].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter300_d)">
-                                <circle cx="72.5" cy="791.5" r="5.5" fill={findColor(openWell[8].objectActionDto.status)}/>
+                                <circle cx="72.5" cy="791.5" r="5.5" className={openWell[8].objectActionDto.status === "IN_IDLE" || openWell[8].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[8].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter301_d)">
-                                <circle cx="89.5" cy="844.5" r="5.5" fill={findColor(openWell[9].objectActionDto.status)}/>
+                                <circle cx="89.5" cy="844.5" r="5.5" className={openWell[9].objectActionDto.status === "IN_IDLE" || openWell[9].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[9].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter302_d)">
-                                <circle cx="109.5" cy="866.5" r="5.5" fill={findColor(openWell[10].objectActionDto.status)}/>
+                                <circle cx="109.5" cy="866.5" r="5.5" className={openWell[10].objectActionDto.status === "IN_IDLE" || openWell[10].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[10].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter303_d)">
-                                <circle cx="148.5" cy="870.5" r="5.5" fill={findColor(openWell[11].objectActionDto.status)}/>
+                                <circle cx="148.5" cy="870.5" r="5.5" className={openWell[11].objectActionDto.status === "IN_IDLE" || openWell[11].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[11].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter304_d)">
-                                <circle cx="199.5" cy="854.5" r="5.5" fill={findColor(openWell[12].objectActionDto.status)}/>
+                                <circle cx="199.5" cy="854.5" r="5.5" className={openWell[12].objectActionDto.status === "IN_IDLE" || openWell[12].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[12].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter305_d)">
-                                <circle cx="213.5" cy="823.5" r="5.5" fill={findColor(openWell[13].objectActionDto.status)}/>
+                                <circle cx="213.5" cy="823.5" r="5.5" className={openWell[13].objectActionDto.status === "IN_IDLE" || openWell[13].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[13].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter306_d)">
-                                <circle cx="331.5" cy="801.5" r="5.5" fill={findColor(openWell[5].objectActionDto.status)}/>
+                                <circle cx="331.5" cy="801.5" r="5.5" className={openWell[5].objectActionDto.status === "IN_IDLE" || openWell[5].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[5].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter307_d)">
-                                <circle cx="368.5" cy="815.5" r="5.5" fill={findColor(openWell[4].objectActionDto.status)}/>
+                                <circle cx="368.5" cy="815.5" r="5.5" className={openWell[4].objectActionDto.status === "IN_IDLE" || openWell[4].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[4].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter308_d)">
-                                <circle cx="454.5" cy="770.5" r="5.5" fill={findColor(openWell[2].objectActionDto.status)}/>
+                                <circle cx="454.5" cy="770.5" r="5.5" className={openWell[2].objectActionDto.status === "IN_IDLE" || openWell[2].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[2].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter309_d)">
-                                <circle cx="429.5" cy="805.5" r="5.5" fill={findColor(openWell[3].objectActionDto.status)}/>
+                                <circle cx="429.5" cy="805.5" r="5.5" className={openWell[3].objectActionDto.status === "IN_IDLE" || openWell[3].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[3].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter310_d)">
-                                <circle cx="436.5" cy="742.5" r="5.5" fill={findColor(openWell[1].objectActionDto.status)}/>
+                                <circle cx="436.5" cy="742.5" r="5.5" className={openWell[1].objectActionDto.status === "IN_IDLE" || openWell[1].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[1].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter311_d)">
-                                <circle cx="407.5" cy="715.5" r="5.5" fill={findColor(openWell[0].objectActionDto.status)}/>
+                                <circle cx="407.5" cy="715.5" r="5.5" className={openWell[0].objectActionDto.status === "IN_IDLE" || openWell[0].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[0].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter312_d)">
-                                <circle cx="335.5" cy="496.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="335.5" cy="496.5" r="5.5" className={openWell[112].objectActionDto.status === "IN_IDLE" || openWell[112].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[112].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter313_d)">
-                                <circle cx="299.5" cy="493.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="299.5" cy="493.5" r="5.5" className={openWell[110].objectActionDto.status === "IN_IDLE" || openWell[110].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[110].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter314_d)">
-                                <circle cx="323.5" cy="465.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="323.5" cy="465.5" r="5.5" className={openWell[109].objectActionDto.status === "IN_IDLE" || openWell[109].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[109].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter315_d)">
-                                <circle cx="346.5" cy="440.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="346.5" cy="440.5" r="5.5" className={openWell[108].objectActionDto.status === "IN_IDLE" || openWell[108].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[108].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter316_d)">
-                                <circle cx="373.5" cy="423.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="373.5" cy="423.5" r="5.5" className={openWell[107].objectActionDto.status === "IN_IDLE" || openWell[107].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[107].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter317_d)">
-                                <circle cx="398.5" cy="402.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="398.5" cy="402.5" r="5.5" className={openWell[106].objectActionDto.status === "IN_IDLE" || openWell[106].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[106].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter318_d)">
-                                <circle cx="425.5" cy="378.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="425.5" cy="378.5" r="5.5" className={openWell[104].objectActionDto.status === "IN_IDLE" || openWell[104].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[104].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter319_d)">
-                                <circle cx="450.5" cy="358.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="450.5" cy="358.5" r="5.5" className={openWell[99].objectActionDto.status === "IN_IDLE" || openWell[99].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[99].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter320_d)">
-                                <circle cx="405.5" cy="298.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="405.5" cy="298.5" r="5.5" className={openWell[117].objectActionDto.status === "IN_IDLE" || openWell[117].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[117].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter321_d)">
-                                <circle cx="362.5" cy="268.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="362.5" cy="268.5" r="5.5" className={openWell[115].objectActionDto.status === "IN_IDLE" || openWell[115].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[115].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter322_d)">
-                                <circle cx="386.5" cy="284.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="386.5" cy="284.5" r="5.5" className={openWell[116].objectActionDto.status === "IN_IDLE" || openWell[116].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[116].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter323_d)">
-                                <circle cx="341.5" cy="257.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="341.5" cy="257.5" r="5.5" className={openWell[114].objectActionDto.status === "IN_IDLE" || openWell[114].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[114].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter324_d)">
-                                <circle cx="473.5" cy="412.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="473.5" cy="412.5" r="5.5" className={openWell[102].objectActionDto.status === "IN_IDLE" || openWell[102].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[102].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter325_d)">
-                                <circle cx="492.5" cy="389.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="492.5" cy="389.5" r="5.5" className={openWell[100].objectActionDto.status === "IN_IDLE" || openWell[100].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[100].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter326_d)">
-                                <circle cx="497.5" cy="425.5" r="5.5" fill={findColor(openWell[94].objectActionDto.status)}/>
+                                <circle cx="497.5" cy="425.5" r="5.5" className={openWell[94].objectActionDto.status === "IN_IDLE" || openWell[94].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[94].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter327_d)">
-                                <circle cx="541.5" cy="454.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="541.5" cy="454.5" r="5.5" className={openWell[95].objectActionDto.status === "IN_IDLE" || openWell[95].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[95].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter328_d)">
-                                <circle cx="580.5" cy="453.5" r="5.5" fill={findColor(openWell[60].objectActionDto.status)}/>
+                                <circle cx="580.5" cy="453.5" r="5.5" className={openWell[60].objectActionDto.status === "IN_IDLE" || openWell[60].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[60].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter329_d)">
-                                <circle cx="629.5" cy="498.5" r="5.5" fill={findColor(openWell[63].objectActionDto.status)}/>
+                                <circle cx="629.5" cy="498.5" r="5.5" className={openWell[63].objectActionDto.status === "IN_IDLE" || openWell[63].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[63].objectActionDto.status)}/>
                             </g>
                             <g filter="url(#filter330_d)">
-                                <circle cx="733.5" cy="571.5" r="5.5" fill="#0FA30E"/>
+                                <circle cx="733.5" cy="571.5" r="5.5" className={openWell[144].objectActionDto.status === "IN_IDLE" || openWell[144].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[144].objectActionDto.status)}/>
                             </g>
                             <path d="M694.62 606.68V608H689.33V606.95L692.03 604.4C692.317 604.127 692.51 603.893 692.61 603.7C692.71 603.5 692.76 603.303 692.76 603.11C692.76 602.83 692.663 602.617 692.47 602.47C692.283 602.317 692.007 602.24 691.64 602.24C691.333 602.24 691.057 602.3 690.81 602.42C690.563 602.533 690.357 602.707 690.19 602.94L689.01 602.18C689.283 601.773 689.66 601.457 690.14 601.23C690.62 600.997 691.17 600.88 691.79 600.88C692.31 600.88 692.763 600.967 693.15 601.14C693.543 601.307 693.847 601.547 694.06 601.86C694.28 602.167 694.39 602.53 694.39 602.95C694.39 603.33 694.31 603.687 694.15 604.02C693.99 604.353 693.68 604.733 693.22 605.16L691.61 606.68H694.62ZM697.748 600.88C698.728 600.88 699.495 601.18 700.048 601.78C700.602 602.373 700.878 603.23 700.878 604.35C700.878 605.143 700.728 605.823 700.428 606.39C700.135 606.957 699.718 607.387 699.178 607.68C698.638 607.973 698.015 608.12 697.308 608.12C696.935 608.12 696.578 608.08 696.238 608C695.898 607.913 695.608 607.793 695.368 607.64L695.968 606.45C696.308 606.683 696.745 606.8 697.278 606.8C697.872 606.8 698.342 606.627 698.688 606.28C699.035 605.927 699.222 605.42 699.248 604.76C698.828 605.18 698.248 605.39 697.508 605.39C697.062 605.39 696.655 605.3 696.288 605.12C695.922 604.94 695.632 604.687 695.418 604.36C695.205 604.027 695.098 603.643 695.098 603.21C695.098 602.743 695.215 602.333 695.448 601.98C695.682 601.627 695.998 601.357 696.398 601.17C696.805 600.977 697.255 600.88 697.748 600.88ZM697.868 604.18C698.222 604.18 698.508 604.083 698.728 603.89C698.955 603.69 699.068 603.437 699.068 603.13C699.068 602.823 698.958 602.573 698.738 602.38C698.525 602.187 698.228 602.09 697.848 602.09C697.502 602.09 697.218 602.183 696.998 602.37C696.785 602.557 696.678 602.81 696.678 603.13C696.678 603.45 696.785 603.707 696.998 603.9C697.218 604.087 697.508 604.18 697.868 604.18ZM704.656 608.12C704.076 608.12 703.559 607.977 703.106 607.69C702.652 607.403 702.296 606.99 702.036 606.45C701.782 605.903 701.656 605.253 701.656 604.5C701.656 603.747 701.782 603.1 702.036 602.56C702.296 602.013 702.652 601.597 703.106 601.31C703.559 601.023 704.076 600.88 704.656 600.88C705.236 600.88 705.752 601.023 706.206 601.31C706.659 601.597 707.012 602.013 707.266 602.56C707.526 603.1 707.656 603.747 707.656 604.5C707.656 605.253 707.526 605.903 707.266 606.45C707.012 606.99 706.659 607.403 706.206 607.69C705.752 607.977 705.236 608.12 704.656 608.12ZM704.656 606.75C705.082 606.75 705.416 606.567 705.656 606.2C705.902 605.833 706.026 605.267 706.026 604.5C706.026 603.733 705.902 603.167 705.656 602.8C705.416 602.433 705.082 602.25 704.656 602.25C704.236 602.25 703.902 602.433 703.656 602.8C703.416 603.167 703.296 603.733 703.296 604.5C703.296 605.267 703.416 605.833 703.656 606.2C703.902 606.567 704.236 606.75 704.656 606.75Z" fill="black"/>
                             <g  onClick={ ()=> openModal(290) } style={{mixBlendMode:'multiply'}}>
@@ -1327,7 +1327,7 @@ const  ShurtanMap = () => {
                             <g  onClick={ ()=> openModal(127) } style={{mixBlendMode:'multiply'}}>
                                 <rect className="wells" x="553" y="477" width="13" height="20" fill="url(#pattern12)"/>
                             </g>
-                            <ellipse cx="652.5" cy="576" rx="6.5" ry="6" fill="#A55E1E"/>
+                            <ellipse cx="652.5" cy="576" rx="6.5" ry="6" className={openWell[141].objectActionDto.status === "IN_IDLE" || openWell[141].objectActionDto.status === "IN_REPAIR" ? "lamp" : ""} fill={findColor(openWell[141].objectActionDto.status)}/>
                             <g  onClick={ ()=> openModal(51) } style={{mixBlendMode:'multiply'}}>
                                 <rect className="wells" x="547" y="444" width="13" height="20" fill="url(#pattern13)"/>
                             </g>
