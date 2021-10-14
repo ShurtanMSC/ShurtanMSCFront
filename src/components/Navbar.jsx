@@ -64,10 +64,6 @@ const Navbar = () => {
     }
     let today = new Date();
     let date = today.getDate() +' '+ findDay(today.getMonth())+' '+today.getFullYear();
-    let hour = hours < 10 ? '0' : '';
-
-
-    // console.log(new Date().getMonth())
     setInterval(() => {
         setCurrentDay(date);
         setHours(((new Date().getHours() < 10 ? '0' : '') + new Date().getHours()));
