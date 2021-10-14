@@ -11,7 +11,7 @@ import Modal from './Wells/Modal'
 import CollectionPointModal from './Wells/CollectionPointModal'
 
 const  ShurtanMap = () => {
-    const {openWell} = useContext(AppContext)
+    const {openWell, takeAllWells} = useContext(AppContext)
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 
@@ -23,6 +23,7 @@ const  ShurtanMap = () => {
     const openModal = (WellId) => {
         setId(WellId);
         setShowModal(prev => !prev);
+        takeAllWells();
     }
 
     const openCollectionPointModal = (WellIdPoint) => {

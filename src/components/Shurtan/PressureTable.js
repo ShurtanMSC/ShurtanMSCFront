@@ -6,22 +6,51 @@ import { faEdit, faChevronDown, faTimes, faCheck } from '@fortawesome/free-solid
 import axios from "axios";
 import {BASE_URL} from "../../utills/constant";
 import {configHeader} from "../../utills/congifHeader";
+import PressureModal from "./PressureModal";
 
-
-const PressureTable = ({el, openPressureModal}) => {
+const PressureTable = ({el}) => {
     const [wellPressure, setWellPressure] = useState([]);
     const [ turnMore, setTurnMore ] = useState(false);
     const [ showMore, setShowMore ] = useState(false);
-    const openShowMoreTable = () => {
-        setTurnMore(!turnMore);
-        setShowMore(!showMore);
+
+    const [ showPressureModal, setShowPressureModal ] = useState(false);
+    const [ wellPressureModal, setWellPressureModal ] = useState([]);
+    const [ id, setId ] = useState('');
+    const [ currentSP, setCurrentSP ] = useState({});
+
+    const openPressureModal = (SPid, sp) => {
+        setShowPressureModal(prev => !prev);
+        setId(SPid);
+        setCurrentSP(sp);
+        getWellActions(sp.objectDto.id)
+    };
+
+    const getWellActions = (id) => {
+        axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + id, configHeader)
+            .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
+    }
+    const takeWell = () => {
         axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + el.objectDto.id, configHeader)
             .then(res =>{setWellPressure(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
+    const openShowMoreTable = () => {
+        setTurnMore(!turnMore);
+        setShowMore(!showMore);
+        takeWell();
+    }
 
     return(
         <tbody>
+        <PressureModal showPressureModal={showPressureModal}
+                       setShowPressureModal={setShowPressureModal}
+                       id={id}
+                       sp={currentSP}
+                       wellPressureModal={wellPressureModal}
+                       getWellActions={getWellActions}
+                       takeWell={takeWell}
+        />
             <Tr>
                 <TdFirstPresure>
                     <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
@@ -82,6 +111,6 @@ const TdPurple = styled(Td)`
   color:#800080;
 `
 const TdBlack = styled(Td)`
-  colot:#000000;
+  color:#000000;
 `
 export default PressureTable

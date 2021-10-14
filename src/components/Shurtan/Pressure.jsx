@@ -4,36 +4,36 @@ import { Table, Tr, Th, TdTotalCount, TdTotal } from '../../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import PressureModal from "./PressureModal";
+// import PressureModal from "./PressureModal";
 import PressureTable from './PressureTable'
-import axios from "axios";
-import {BASE_URL} from "../../utills/constant";
-import {configHeader} from "../../utills/congifHeader";
+// import axios from "axios";
+// import {BASE_URL} from "../../utills/constant";
+// import {configHeader} from "../../utills/congifHeader";
 
 const   Pressure = () => {
     const {pressureApi} = useContext(AppContext);
 
-    const [ showPressureModal, setShowPressureModal ] = useState(false);
+    // const [ showPressureModal, setShowPressureModal ] = useState(false);
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
-    const [ wellPressureModal, setWellPressureModal ] = useState([]);
+    // const [ wellPressureModal, setWellPressureModal ] = useState([]);
 
-    const [ id, setId ] = useState('');
-    const [ currentSP, setCurrentSP ] = useState({});
+    // const [ id, setId ] = useState('');
+    // const [ currentSP, setCurrentSP ] = useState({});
 
-    const openPressureModal = (SPid, sp) => {
-        setShowPressureModal(prev => !prev);
-        setId(SPid);
-        setCurrentSP(sp);
-        getWellActions(sp.objectDto.id)
-        };
+    // const openPressureModal = (SPid, sp) => {
+    //     setShowPressureModal(prev => !prev);
+    //     setId(SPid);
+    //     setCurrentSP(sp);
+    //     getWellActions(sp.objectDto.id)
+    //     };
 
 
-    const getWellActions = (id) => {
-        axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + id, configHeader)
-            .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
-            .catch(err => {console.log(err)})
-    }
+    // const getWellActions = (id) => {
+    //     axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + id, configHeader)
+    //         .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
+    //         .catch(err => {console.log(err)})
+    // }
     const openMoreTable = () => {
         setShowPressureTable(!showPressureTable);
         setTurnIcon(!turnIcon);
@@ -41,13 +41,6 @@ const   Pressure = () => {
 
     return (
         <PressureContainer>
-            <PressureModal showPressureModal={showPressureModal}
-                           setShowPressureModal={setShowPressureModal}
-                           id={id}
-                           sp={currentSP}
-                           wellPressureModal={wellPressureModal}
-                           getWellActions={getWellActions}
-            />
             <TablePresure showPressureTable={showPressureTable}>
             <thead>
             <Tr>
@@ -71,7 +64,7 @@ const   Pressure = () => {
             </Tr>
             </thead>
             {pressureApi.map((el) =>
-                    <PressureTable el={el} openPressureModal={openPressureModal} key={el.objectDto.name} />
+                    <PressureTable el={el} key={el.objectDto.name} />
             )}
             <tfoot>
             <Tr>

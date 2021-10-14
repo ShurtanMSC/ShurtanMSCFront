@@ -128,25 +128,35 @@ const AppProvider = ({children}) => {
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date+' '+time;
+    // PRESSURE_GET_API
+    const takeSpPressure = () => {
+        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
+            .then(res => {
+                setPressureApi(res.data.object);
+                setRefresh(dateTime);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+    // Get allWells
+    const takeAllWells = () => {
+        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
+            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
+            .catch(err => {console.log(err)})
+    }
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
             .then(res => {setGetUppg(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)});
         // Get allWells
-        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
-            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
-            .catch(err => {console.log(err)})
+        takeAllWells();
         // PRESSURE_GET_API
-        axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
-            .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
-            .catch(err => {console.log(err) })
-
+        takeSpPressure();
         setInterval(() => {
-            console.log("Ishladi")
-            axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
-                .then(res => {setPressureApi(res.data.object); setRefresh(dateTime); })
-                .catch(err => {console.log(err) })
+            takeSpPressure();
+            // takeAllWells();
         }, 10000);
 
 
@@ -265,7 +275,7 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
-        refresh, openWell,
+        refresh, openWell, takeSpPressure, takeAllWells,
     }
     return (
         <AppContext.Provider value={value}>
