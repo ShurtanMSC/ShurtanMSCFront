@@ -94,7 +94,7 @@ const Navbar = () => {
                 <img style={{marginRight:'1%'}} src={LogoTwo} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
-                    <P>{name}</P>
+                    <P><a href={"http://10.10.100.226:8080/admin"}>{name}</a></P>
                 </NavbarCard>
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
