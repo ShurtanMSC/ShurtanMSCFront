@@ -120,7 +120,7 @@ export const HumanImg = styled.img`
 `
 export const DateAndOclock = styled.div`
     z-index:2;
-    width: 100px;
+    //width: 100px;
     margin: 0 2%;
     @media(max-width:1777px){
         width:150px;

@@ -24,10 +24,11 @@ import { useHistory } from 'react-router-dom';
 const Navbar = () => {
     const {openRegistrationWell, openWellOperation} = useContext(AppContext);
 
+    const [currentDay, setCurrentDay] = useState('');
     const [hours, setHours] = useState('0');
-    const [name, setName] = useState('');
     const [minutes, setMinutes] = useState('0');
     const [seconds, setSeconds] = useState('0');
+    const [name, setName] = useState('');
 
     const [open, setOpen] = useState(false);
     const [openShurtan, setOpenShurtan ] = useState(false);
@@ -39,14 +40,39 @@ const Navbar = () => {
     const [showTechnological, setShowTechnological] = useState(false);
     const [showProduction, setShowProduction] = useState(false);
 
-
-
     const history = useHistory();
-    
+
+    const findDay = (month) => {
+        if(!month){
+            throw new Error("Month id not defined")
+        }
+        switch(month){
+            case 0: return "Январь"
+            case 1: return "Февраль"
+            case 2: return "Март"
+            case 3: return "Апрель"
+            case 4: return "Май"
+            case 5: return "Июнь"
+            case 6: return "Июль"
+            case 7: return "Август"
+            case 8: return "Сентябрь"
+            case 9: return "Октябрь"
+            case 10: return "Ноябрь"
+            case 11: return "Декабр"
+            default:return ""
+        }
+    }
+    let today = new Date();
+    let date = today.getDate() +' '+ findDay(today.getMonth())+' '+today.getFullYear();
+    let hour = hours < 10 ? '0' : '';
+
+
+    // console.log(new Date().getMonth())
     setInterval(() => {
-        setHours(new Date().getHours())
-        setMinutes(new Date().getMinutes())
-        setSeconds(new Date().getSeconds())
+        setCurrentDay(date);
+        setHours(((new Date().getHours() < 10 ? '0' : '') + new Date().getHours()));
+        setMinutes(((new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes()));
+        setSeconds(((new Date().getSeconds() < 10 ? '0' : '') + new Date().getSeconds()));
     }, 1000);
 
     const openModal = () => {
@@ -87,11 +113,11 @@ const Navbar = () => {
         <ConatainerFluidNavbarOut>
             <ContainerFluidNavbar>
                 <LeftCorner></LeftCorner>
-                <OzlitiImg src={LogoOne} alt="logo" />
+                <OzlitiImg src={LogoTwo} alt="logo" />
                 <Link to="/mainPage" style={{boxShadow:'none'}}>
                     <H1>Информационно-аналитическая система оперативного анализа эксплуатации Шуртанской группы месторождений</H1>
                 </Link>
-                <img style={{marginRight:'1%'}} src={LogoTwo} alt="logo" />
+                <img style={{marginRight:'1%'}} src={LogoOne} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
                     <P>{name}</P>
@@ -99,8 +125,8 @@ const Navbar = () => {
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
                 <DateAndOclock>
-                    <DateP>18 август 2021</DateP>
-                    <OclockP> {hours} : {minutes} : {seconds} </OclockP>
+                    <DateP>{currentDay}</DateP>
+                    <OclockP>{hours}:{minutes}:{seconds}</OclockP>
                 </DateAndOclock>
                 <RightCorner>
                     <Burger  onClick={()=>setOpen(!open)}>

@@ -57,7 +57,10 @@ const GasBalanceModal = ({showGasBalanceModal, setShowGasBalanceModal}) => {
                 <SlideCard>
                     <div>
                         <H2DivChange>
-                            <H2>Состав газа для выполнения расчетов (сырой газ)</H2>
+                            <H2>Состав
+                                {/*газа для выполнения расчетов */}
+                                (сырой газ)
+                            </H2>
                         </H2DivChange>
                         <DivDataModal>
                             <InputModalDate type="date" name="date" />

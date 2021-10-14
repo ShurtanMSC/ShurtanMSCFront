@@ -82,6 +82,6 @@ const TdPurple = styled(Td)`
   color:#800080;
 `
 const TdBlack = styled(Td)`
-  colot:#000000;
+  color:#000000;
 `
 export default PressureTable
