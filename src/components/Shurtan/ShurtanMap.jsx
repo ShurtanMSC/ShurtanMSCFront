@@ -9,6 +9,7 @@ import CircleRed from '../../image/Shurtan/circleRed.png'
 import CircleYellow from '../../image/Shurtan/circleYellow.png'
 import Modal from './Wells/Modal'
 import CollectionPointModal from './Wells/CollectionPointModal'
+import Loading from '../Loading';
 
 const  ShurtanMap = () => {
     const {openWell, takeAllWells} = useContext(AppContext)
@@ -5532,7 +5533,7 @@ const  ShurtanMap = () => {
     }
     else{
         return (
-            <></>
+            <Loading/>
         )
     }
 

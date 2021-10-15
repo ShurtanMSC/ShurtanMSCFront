@@ -27,13 +27,14 @@ const Admin = () => {
             console.log(localStorage.getItem(TOKEN));
             console.log(getRoleNameFromJWT());
             history.push("/mainPage");
-            }
+        }
         ).catch(error=>{
             console.log(error)
             alert('Неверный логин или пароль')
         })
         setName('')
         setPassword('')
+
     }
 
     const handlerName = (e) => {
@@ -43,7 +44,7 @@ const Admin = () => {
     const handlerPassword = (e) => {
         setPassword(e.target.value)
     }
-    
+
     return (
         <ContainerFluid>
             <ContainerAdmin>

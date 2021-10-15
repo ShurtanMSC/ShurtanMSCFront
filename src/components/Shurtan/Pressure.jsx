@@ -64,7 +64,7 @@ const   Pressure = () => {
             </Tr>
             </thead>
             {pressureApi.map((el) =>
-                    <PressureTable el={el} key={el.objectDto.name} />
+                    <PressureTable el={el} key={el.objectDto.name} pressureApi={pressureApi}/>
             )}
             <tfoot>
             <Tr>

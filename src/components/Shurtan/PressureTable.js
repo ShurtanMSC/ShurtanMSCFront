@@ -40,6 +40,19 @@ const PressureTable = ({el}) => {
         setShowMore(!showMore);
         takeWell();
     }
+    const counterWellStatus = () => {
+        let arrayWell = [ 0, 0, 0, 0, 0];
+        wellPressure.map(well=>{
+            switch (well.objectActionDto.status) {
+                case "IN_WORK":arrayWell[0]+=1; break;
+                case "IN_IDLE":arrayWell[1]+=1; break;
+                case "IN_REPAIR":arrayWell[2]+=1; break;
+                case "IN_CONSERVATION":arrayWell[3]+=1; break;
+                case "IN_LIQUIDATION":arrayWell[4]+=1; break;
+            }
+        })
+        return arrayWell;
+    }
 
     return(
         <tbody>
@@ -51,40 +64,42 @@ const PressureTable = ({el}) => {
                        getWellActions={getWellActions}
                        takeWell={takeWell}
         />
-            <Tr>
-                <TdFirstPresure>
-                    <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
-                    <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
-                </TdFirstPresure>
+        <Tr>
+            <TdFirstPresure>
+                <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
+                <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
+            </TdFirstPresure>
+            <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
+            <Td>-</Td>
+            <Td>-</Td>
+            <Td>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expand*10)/10 : ""}</Td>
+            <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
+            <Td>{counterWellStatus()[0]}</Td>
+            <Td>{counterWellStatus()[1]}</Td>
+            <Td>{counterWellStatus()[2]}</Td>
+            <Td>{counterWellStatus()[3]}</Td>
+            <Td>{counterWellStatus()[4]}</Td>
+
+        </Tr>
+        {wellPressure.map(well =>
+            <TrNone showMore={showMore} key={well.objectDto.number}>
+                <TdFirstPresure>{well.objectDto.number}</TdFirstPresure>
                 <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expand*10)/10 : ""}</Td>
-                <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
-                <Td>0</Td>
-                <Td>0</Td>
-                <Td>0</Td>
-                <Td>0</Td>
-                <Td>0</Td>
-            </Tr>
-            {wellPressure.map(well =>
-                <TrNone showMore={showMore} key={well.objectDto.number}>
-                    <TdFirstPresure>{well.objectDto.number}</TdFirstPresure>
-                    <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
-                    <Td>{well.objectActionDto.pressure}</Td>
-                    <Td>{well.objectActionDto.rpl}</Td>
-                    <Td>{Math.round(well.objectActionDto.expend*10)/10}</Td>
-                    <Td>{well.objectActionDto.temperature}</Td>
-                    <TdGreen>{well.objectActionDto.status !== "IN_WORK" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdGreen>
-                    <TdYellow>{well.objectActionDto.status !== "IN_IDLE" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdYellow>
-                    <TdRed>{well.objectActionDto.status !== "IN_REPAIR" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdRed>
-                    <TdPurple>{well.objectActionDto.status !== "IN_CONSERVATION" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdPurple>
-                    <TdBlack>{well.objectActionDto.status !== "IN_LIQUIDATION" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdBlack>
-                </TrNone>
-            )}
+                <Td>{well.objectActionDto.pressure}</Td>
+                <Td>{well.objectActionDto.rpl}</Td>
+                <Td>{Math.round(well.objectActionDto.expend*10)/10}</Td>
+                <Td>{well.objectActionDto.temperature}</Td>
+                <TdGreen>{well.objectActionDto.status !== "IN_WORK" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdGreen>
+                <TdYellow>{well.objectActionDto.status !== "IN_IDLE" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdYellow>
+                <TdRed>{well.objectActionDto.status !== "IN_REPAIR" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdRed>
+                <TdPurple>{well.objectActionDto.status !== "IN_CONSERVATION" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdPurple>
+                <TdBlack>{well.objectActionDto.status !== "IN_LIQUIDATION" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdBlack>
+            </TrNone>
+        )}
         </tbody>
     )
-}
+    }
+
 const TdFirstPresure = styled(TdFirst)`
     display: flex;
     justify-content: space-around;

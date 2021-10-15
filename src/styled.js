@@ -606,7 +606,8 @@ export const ShurtanBoxOne = styled.div`
     }
 `
 export const ShurtanBoxTwo = styled.div`
-    min-height: 91vh;
+  width: 100%;  
+  min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -966,4 +967,16 @@ export const SelectModal = styled.select`
         border:0px solid #3393DB;
         box-shadow: 0 0 2px 2px #3392db6c;
     }  
+`
+// LOADING...
+export const Loader = styled.div`
+  width: 100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+`
+export const ImgLoader = styled.img`
+  with:100%;
+  height:100%;
 `
