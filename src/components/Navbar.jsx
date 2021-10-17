@@ -116,7 +116,7 @@ const Navbar = () => {
                 <img style={{marginRight:'1%'}} src={LogoOne} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
-                    <P><a href={"http://10.10.100.226:8080/admin"}>{name}</a></P>
+                    <P><A href={"http://10.10.100.226:8080/admin"}>{name}</A></P>
                 </NavbarCard>
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
@@ -323,5 +323,17 @@ const LinkNav = styled.h2`
         transition: 0.5s ease-in;
         padding: 1rem;
     }
+`
+const A = styled.a`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: #363636;
+  cursor: pointer;
+  z-index:2;
+  text-transform: capitalize;
 `
 export default Navbar

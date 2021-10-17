@@ -9,10 +9,10 @@ import {AppProvider} from './context';
 
 ReactDOM.render(
     <Provider store={store} >
-        <AppProvider>
-            <Router>
+        <Router>
+            <AppProvider>
                 <App/>
-            </Router>
-        </AppProvider>
+            </AppProvider>
+        </Router>
     </Provider>,
     document.getElementById('root'))

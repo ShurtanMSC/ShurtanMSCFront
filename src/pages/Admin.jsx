@@ -1,49 +1,12 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react';
+import {AppContext} from "../context";
 import styled from 'styled-components'
-import {useHistory} from 'react-router-dom'
 import { ContainerFluid, Container, Img, Input, Button } from '../styled'
 import ImgAdmin from '../image/login-image.jpg'
 import ImgLogin from '../image/logo.png'
-import axios from 'axios'   
-import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
-import {BASE_URL, TOKEN} from "../utills/constant";
-import {configHeader} from '../utills/congifHeader'
 
 const Admin = () => {
-
-    const [name, setName] = useState('')
-    const [password, setPassword] = useState('')
-    const history = useHistory();
-
-    const handlerChange = e => {
-        e.preventDefault();
-        axios.post(BASE_URL+'/api/auth/login',
-        {
-            username: name,
-            password: password,
-        }, configHeader
-        ).then(res => {
-            localStorage.setItem(TOKEN,res.data.token);
-            console.log(localStorage.getItem(TOKEN));
-            console.log(getRoleNameFromJWT());
-            history.push("/mainPage");
-        }
-        ).catch(error=>{
-            console.log(error)
-            alert('Неверный логин или пароль')
-        })
-        setName('')
-        setPassword('')
-
-    }
-
-    const handlerName = (e) => {
-        setName(e.target.value)
-    }
-    
-    const handlerPassword = (e) => {
-        setPassword(e.target.value)
-    }
+    const {handlerChange, handlerName, handlerPassword, userName, userPassword } = useContext(AppContext);
 
     return (
         <ContainerFluid>
@@ -54,8 +17,8 @@ const Admin = () => {
                     </DivImg>
                     <div>
                         <Form onSubmit={handlerChange}>
-                            <Input type="text" name="name" required placeholder="Логин" value={name} onChange={handlerName} />
-                            <Input type="password" name="password" required placeholder="Пароль" value={password} onChange={handlerPassword} />
+                            <Input type="text" name="name" required placeholder="Логин" value={userName} onChange={handlerName} />
+                            <Input type="password" name="password" required placeholder="Пароль" value={userPassword} onChange={handlerPassword} />
                             <Button>Войти в систему </Button>
                         </Form>
                     </div>

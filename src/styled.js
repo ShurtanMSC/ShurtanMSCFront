@@ -606,8 +606,7 @@ export const ShurtanBoxOne = styled.div`
     }
 `
 export const ShurtanBoxTwo = styled.div`
-  width: 100%;  
-  min-height: 91vh;
+    min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

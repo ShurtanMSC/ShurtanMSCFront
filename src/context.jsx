@@ -1,11 +1,49 @@
 import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
-import {BASE_URL} from "./utills/constant";
+import {BASE_URL, TOKEN} from "./utills/constant";
 import {configHeader} from './utills/congifHeader'
+import {useHistory} from "react-router-dom";
+import {getRoleNameFromJWT} from "./utills/UsefullFunctions";
 
 const AppContext = createContext();
 
 const AppProvider = ({children}) => {
+    //LOGIN PAGE
+    const [userName, setUserName] = useState('')
+    const [userPassword, setUserPassword] = useState('')
+    const history = useHistory();
+
+    const handlerChange = e => {
+        e.preventDefault();
+        axios.post(BASE_URL+'/api/auth/login',
+            {
+                username: userName,
+                password: userPassword,
+            }, configHeader
+        ).then(res => {
+                localStorage.setItem(TOKEN,res.data.token);
+                console.log(localStorage.getItem(TOKEN));
+                console.log(getRoleNameFromJWT());
+                history.push("/mainPage")
+
+        }
+        ).catch(error=>{
+            console.log(error)
+            alert('Неверный логин или пароль')
+        })
+        setUserName('')
+        setUserPassword('')
+
+    }
+
+    const handlerName = (e) => {
+        setUserName(e.target.value)
+    }
+
+    const handlerPassword = (e) => {
+        setUserPassword(e.target.value)
+    }
+
     // REGISTRATION_WELL
     const [numberWell, setNumberWell] = useState('');
     const [uppg, setUppg] = useState('');
@@ -124,23 +162,20 @@ const AppProvider = ({children}) => {
         setCoordY('');
     }
 
-    let today = new Date();
-    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date+' '+time;
+
     // PRESSURE_GET_API
-    const takeSpPressure = () => {
+    const takeSpPressure = async () => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {
                 setPressureApi(res.data.object);
-                setRefresh(dateTime);
+
             })
             .catch(err => {
                 console.log(err)
             })
     }
     // Get allWells
-    const takeAllWells = () => {
+    const takeAllWells = async () => {
         axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
             .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
             .catch(err => {console.log(err)})
@@ -153,9 +188,15 @@ const AppProvider = ({children}) => {
         // Get allWells
         takeAllWells();
         // PRESSURE_GET_API
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let dateTime = date+' '+time;
         takeSpPressure();
+        setRefresh(dateTime);
         setInterval(() => {
             takeSpPressure();
+            setRefresh(dateTime);
             // takeAllWells();
         }, 10000);
 
@@ -250,6 +291,7 @@ const AppProvider = ({children}) => {
     }
 
     const value={
+        handlerChange, handlerName, handlerPassword, userName, userPassword,
         numberWell, handlerNumberWell,
         uppg, handlerUppg,
         point, handlerPoint, getPoint,

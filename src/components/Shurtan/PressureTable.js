@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Tr, Td, TdFirst } from '../../styled';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,15 +30,17 @@ const PressureTable = ({el}) => {
             .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
-    const takeWell = () => {
+    const takeWell = async () => {
         axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + el.objectDto.id, configHeader)
             .then(res =>{setWellPressure(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
+    useEffect(() => {
+       takeWell();
+    },[])
     const openShowMoreTable = () => {
         setTurnMore(!turnMore);
         setShowMore(!showMore);
-        takeWell();
     }
     const counterWellStatus = () => {
         let arrayWell = [ 0, 0, 0, 0, 0];
@@ -49,6 +51,7 @@ const PressureTable = ({el}) => {
                 case "IN_REPAIR":arrayWell[2]+=1; break;
                 case "IN_CONSERVATION":arrayWell[3]+=1; break;
                 case "IN_LIQUIDATION":arrayWell[4]+=1; break;
+                default:return ""
             }
         })
         return arrayWell;
