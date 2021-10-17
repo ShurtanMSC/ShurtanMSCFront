@@ -12,8 +12,37 @@ const BtnSearch = () => {
     const [ showBtnSearch, setShowBtnSearch] = useState(false);
     const [ showBdUppgModal, setShowBdUppgModal] = useState(false);
     const [ openUppg, setOpenUppg ] = useState(false);
-    const [ selectedWell, setSelectedWell ] = useState(50);
-    const [ selectWell, setSelectWell ] = useState('');
+    const [ selectedWell, setSelectedWell ] = useState();
+
+    /** Sborniy punklar (Collection points) kontekstdan **/
+    const {pressureApi} = useContext(AppContext);
+
+    /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
+    const cpNameFinder=(id)=> {
+        let name="";
+        /** for each bilan **/
+        pressureApi.forEach(cp=>{
+            if (cp.objectDto.id==id) {
+                name = cp.objectDto.name;
+            }
+        })
+
+        /** for bilan **/
+        // for (let i = 0; i <pressureApi.length ; i++) {
+        //     if (pressureApi[i].objectDto.id==id){
+        //         name = pressureApi[i].objectDto.name;
+        //     }
+        // }
+
+        /** map bilan **/
+        // pressureApi.map(cp=>{
+        //     if (cp.objectDto.id==id) {
+        //         name = cp.objectDto.name;
+        //     }
+        // })
+        return name;
+
+    }
 
     const openBtnSearchModal = () => {
         setShowBtnSearch(prev => !prev);
@@ -25,18 +54,41 @@ const BtnSearch = () => {
         return a.objectDto.number - b.objectDto.number;
     })
 
+
+
+    /** Tanlangan skvajinani selectWellga o'zlashtirish **/
     const handlerWellSearch = (e) => {
-        setSelectedWell(e.target.value);
-        console.log(filteredWell);
+
+        /** for each bilan **/
+        sorted.forEach(well=>{
+            if (well.objectDto.id==e.target.value){
+                setSelectedWell(well)
+            }
+        })
+
+        /** for bilan **/
+        // for (let i = 0; i < sorted.length; i++) {
+        //     if (sorted[i].objectDto.id==e.target.value){
+        //         setSelectedWell(sorted[i])
+        //     }
+        // }
+        //
+
+        /** map bilan **/
+        // sorted.map(well=>{
+        //     if (well.objectDto.id==e.target.value){
+        //         setSelectedWell(well)
+        //     }
+        // })
+
     }
-    const filteredWell = openWell.map(well => well.objectDto.id === selectedWell)
 
     return (
         <SearchDiv>
             <BtnDiv>
                 <Select name="text" id="text">
                     <option value="text">УППГ-1</option>
-                    <option value="text">УППГ-2</option>    
+                    <option value="text">УППГ-2</option>
                 </Select>
                 <BtnSerach onClick={()=> setOpenUppg(!openUppg)}>
                     <FontAwesomeIcon icon={faSearch} /> Поиск скважины
@@ -48,7 +100,7 @@ const BtnSearch = () => {
             <SearcherSK openUppg={openUppg}>
                 <div>
                     <LabelChange htmlFor="searcher">Введите номер скважины:</LabelChange>
-                    <SelectChange  htmlFor='searcher' id="searcher" value={selectedWell} onChange={handlerWellSearch}>
+                    <SelectChange  htmlFor='searcher' id="searcher" onChange={handlerWellSearch}>
                         <option value=""> --Поиск скважины-- </option>
                         {sorted.map(wells =>
                             <option key={wells.objectDto.number} value={wells.objectDto.id}>{wells.objectDto.number}</option>
@@ -59,39 +111,39 @@ const BtnSearch = () => {
                     <tbody>
                         <Tr>
                             <TdFirstChange>Скважина</TdFirstChange>
-                            <TdChange>4</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectDto.number:""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Сборный пункт</TdFirstChange>
-                            <TdChange>СП-2</TdChange>
+                            <TdChange>{selectedWell?cpNameFinder(selectedWell.objectDto.collectionPointId):""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата ввода в эксплуатацию</TdFirstChange>
-                            <TdChange>1980-11-03</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectDto.commissioningDate.slice(0,10):""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Горизонт</TdFirstChange>
-                            <TdChange>XV-НР</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectDto.horizon:""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Интервал перфарации</TdFirstChange>
-                            <TdChange>2796-2839</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectActionDto.perforation_min+"-"+selectedWell.objectActionDto.perforation_max:""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Состояние скважины</TdFirstChange>
-                            <TdChange>В простое</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectActionDto.status:""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата изменения состояния</TdFirstChange>
-                            <TdChange>2021-06-18</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectActionDto.date.slice(0,10):""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Давление Pу, кгс/см²</TdFirstChange>
-                            <TdChange>0.00</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectActionDto.pressure:""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Температура T, °C</TdFirstChange>
-                            <TdChange>50.00</TdChange>
+                            <TdChange>{selectedWell?selectedWell.objectActionDto.temperature:""}</TdChange>
                         </Tr>
                     </tbody>
 
@@ -187,7 +239,7 @@ const BtnSearch = () => {
                 </tbody>
             </Table>
         </SearchDiv>
-        
+
     )
 }
 const SearchDiv = styled.div`
