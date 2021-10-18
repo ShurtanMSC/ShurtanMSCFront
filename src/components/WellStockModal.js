@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
-const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
+const WellStockModal = ({showWellStockModal, setShowWellStockModal, statStatus}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -51,182 +51,24 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal}) => {
                         </Tr>
                     </thead>
                     <tbody>
-                        <Tr>
-                            <TdFirst>Шуртан</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                    {statStatus.map((stat, key) =>
+                        <Tr key={key}>
+                            <TdFirst>{stat.name}</TdFirst>
+                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_WORK} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_IDLE} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_REPAIR} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_CONSERVATION} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_LIQUIDATION} disabled/> </Td>
                         </Tr>
-                        <Tr>
-                            <TdFirst>Южная Тандирча</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Бузахур</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Восточный Бузахур</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Тарнасой</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Ойдин</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Номозбой</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Ёрмок</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Туртсари</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Северный Шуртан</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Гармистон</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Совлигор</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Яккасарай</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Мезон</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Феруза</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Тошли</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Зафар</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Коратепа</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Ширкент</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Рубойи</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
-                        <Tr>
-                            <TdFirst>Янги Коратепа</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                        </Tr>
+                    )}
                     </tbody>
                 </Table>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        {/*<PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>*/}
                     </div>
                     <div>
-                        <SaveBtnModal>Сохранит</SaveBtnModal>
+                        {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                         <CloseBtnModal 
                             aria-label='Close modal' 
                             onClick={()=> setShowWellStockModal(prev => !prev)}>Закрыт

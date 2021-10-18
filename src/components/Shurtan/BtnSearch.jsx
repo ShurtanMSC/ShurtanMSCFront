@@ -8,14 +8,15 @@ import BtnSearchModal from "./BtnSearchModal";
 import BdUppgModal from './BdUppgModal'
 
 const BtnSearch = () => {
-    const {openWell} = useContext(AppContext);
     const [ showBtnSearch, setShowBtnSearch] = useState(false);
     const [ showBdUppgModal, setShowBdUppgModal] = useState(false);
     const [ openUppg, setOpenUppg ] = useState(false);
     const [ selectedWell, setSelectedWell ] = useState();
+    const [ selectedUppg, setSelectedUppg ] = useState();
+    const [ uppgId, setUppgId ] = useState('');
 
     /** Sborniy punklar (Collection points) kontekstdan **/
-    const {pressureApi} = useContext(AppContext);
+    const {openWell, pressureApi, allUppg} = useContext(AppContext);
 
     /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
     const cpNameFinder=(id)=> {
@@ -44,8 +45,9 @@ const BtnSearch = () => {
 
     }
 
-    const openBtnSearchModal = () => {
+    const openBtnSearchModal = (id) => {
         setShowBtnSearch(prev => !prev);
+        setUppgId(id);
     }
     const openBdUppgModal = () => {
         setShowBdUppgModal(prev => !prev)
@@ -82,13 +84,23 @@ const BtnSearch = () => {
         // })
 
     }
+    const handlerAllUppg = e => {
+        allUppg.forEach(selectUppg => {
+            if(selectUppg.objectDto.id == e.target.value){
+                setSelectedUppg(selectUppg)
+                console.log(selectUppg)
+            }
+        })
+    }
 
     return (
         <SearchDiv>
             <BtnDiv>
-                <Select name="text" id="text">
-                    <option value="text">УППГ-1</option>
-                    <option value="text">УППГ-2</option>
+                <Select name="text" id="text" onChange={handlerAllUppg}>
+                    <option value="">--Выберите--</option>
+                    {allUppg.map((uppg, key) =>
+                        <option key={key} value={uppg.objectDto.id}>{uppg.objectDto.name}</option>
+                    )}
                 </Select>
                 <BtnSerach onClick={()=> setOpenUppg(!openUppg)}>
                     <FontAwesomeIcon icon={faSearch} /> Поиск скважины
@@ -111,39 +123,39 @@ const BtnSearch = () => {
                     <tbody>
                         <Tr>
                             <TdFirstChange>Скважина</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectDto.number:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectDto.number : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Сборный пункт</TdFirstChange>
-                            <TdChange>{selectedWell?cpNameFinder(selectedWell.objectDto.collectionPointId):""}</TdChange>
+                            <TdChange>{selectedWell ? cpNameFinder(selectedWell.objectDto.collectionPointId) : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата ввода в эксплуатацию</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectDto.commissioningDate.slice(0,10):""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectDto.commissioningDate.slice(0,10) : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Горизонт</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectDto.horizon:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectDto.horizon : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Интервал перфарации</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectActionDto.perforation_min+"-"+selectedWell.objectActionDto.perforation_max:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.perforation_min + "-" + selectedWell.objectActionDto.perforation_max : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Состояние скважины</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectActionDto.status:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.status : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата изменения состояния</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectActionDto.date.slice(0,10):""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.date.slice(0,10) : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Давление Pу, кгс/см²</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectActionDto.pressure:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.pressure : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Температура T, °C</TdFirstChange>
-                            <TdChange>{selectedWell?selectedWell.objectActionDto.temperature:""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.temperature : ""}</TdChange>
                         </Tr>
                     </tbody>
 
@@ -170,7 +182,10 @@ const BtnSearch = () => {
                 </Table>
             </SearcherSK>
             <BtnSearchModal showBtnSearch={showBtnSearch}
-                            setShowBtnSearch={setShowBtnSearch}/>
+                            setShowBtnSearch={setShowBtnSearch}
+                            uppgId={uppgId}
+                            selectedUppg={selectedUppg}
+            />
             <Table>
                 <thead>
                 <Tr>
@@ -180,7 +195,7 @@ const BtnSearch = () => {
                                                 left:'10px',
                                                 cursor:'pointer'}}
                                                 icon={faEdit}
-                                                onClick={openBtnSearchModal}/> Наименование</Th>
+                                                onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> Наименование</Th>
                     <Th>2-х часовая</Th>
                     <Th>За тек. сутки</Th>
                     <Th>За тек. месяц</Th>
@@ -190,51 +205,51 @@ const BtnSearch = () => {
                 <tbody>
                 <Tr>
                     <TdFirst>Проектная производительность <br/> м3/год</TdFirst>
-                    <Td>15</Td>
-                    <Td>20</Td>
-                    <Td>40</Td>
-                    <Td>12</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Фактическая производителность <br/> м3/год</TdFirst>
-                    <Td>15</Td>
-                    <Td>20</Td>
-                    <Td>40</Td>
-                    <Td>12</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м3</TdFirst>
-                    <Td>15</Td>
-                    <Td>20</Td>
-                    <Td>40</Td>
-                    <Td>12</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2/10000}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24/10000}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30/10000}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365/10000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>
-                    <Td>15</Td>
-                    <Td>20</Td>
-                    <Td>40</Td>
-                    <Td>12</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По воде, тыс. т</TdFirst>
-                    <Td colSpan="4">15</Td>
+                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.onWater : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Входное  давление, кгс\см2</TdFirst>
-                    <Td colSpan="4">15</Td>
+                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.incomePressure : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Выходное  давление, кгс\см2</TdFirst>
-                    <Td colSpan="4">15</Td>
+                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.exitPressure : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Входная температура, *С</TdFirst>
-                    <Td colSpan="4">15</Td>
+                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.incomeTemperature : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Выходная температура, *С</TdFirst>
-                    <Td colSpan="4">15</Td>
+                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.exitTemperature : ""}</Td>
                 </Tr>
                 </tbody>
             </Table>

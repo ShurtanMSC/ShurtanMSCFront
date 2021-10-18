@@ -22,7 +22,7 @@ const modalSP = {
     }
 }
 
-const BtnSearchModal = ({showBtnSearch, setShowBtnSearch}) => {
+const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg}) => {
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -57,7 +57,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch}) => {
                     >
                         <ModalDivShurtan>
                             <H2Div>
-                                <H2>Управление УППГ-1</H2>
+                                <H2>Управление УППГ-{uppgId}</H2>
                             </H2Div>
                             <Table>
                                 <thead>

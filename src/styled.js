@@ -788,7 +788,7 @@ export const Select = styled.select`
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
-    padding: 2px 5%;
+    padding: 2px 6px;
     text-align: center;
     color: #363636;
     outline: none;

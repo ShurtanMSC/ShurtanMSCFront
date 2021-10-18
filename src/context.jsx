@@ -80,6 +80,10 @@ const AppProvider = ({children}) => {
     const [pressureApi, setPressureApi] = useState([]);
     const [refresh, setRefresh] = useState([]);
     const [openWell, setOpenWell] = useState([]);
+    /** Call Stat-Status Api **/
+    const [statStatus, setStatStatus] = useState([]);
+    /** Call Uppg all collection **/
+    const [allUppg, setAllUppg] = useState([]);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -199,8 +203,14 @@ const AppProvider = ({children}) => {
             setRefresh(dateTime);
             // takeAllWells();
         }, 10000);
-
-
+        /** Call Stat-Status Api **/
+        axios.get(BASE_URL + '/api/well/stat/status')
+            .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
+        /** Call Uppg all collection **/
+        axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1)
+            .then(res => {setAllUppg(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
     }, []);
 
     // WELL_OPERATION
@@ -290,6 +300,8 @@ const AppProvider = ({children}) => {
         setShowWellOperation(prev => !prev);
     }
 
+
+
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword,
         numberWell, handlerNumberWell,
@@ -317,7 +329,7 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
-        refresh, openWell, takeSpPressure, takeAllWells,
+        refresh, openWell, takeSpPressure, takeAllWells, statStatus, allUppg,
     }
     return (
         <AppContext.Provider value={value}>
