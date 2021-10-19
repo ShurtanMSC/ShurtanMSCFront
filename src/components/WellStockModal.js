@@ -6,7 +6,7 @@ import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv,
     // SaveBtnModal,
     CloseBtnModal } from '../styled'
 
-const WellStockModal = ({showWellStockModal, setShowWellStockModal, statStatus}) => {
+const WellStockModal = ({showWellStockModal, setShowWellStockModal, statStatus, nameAllMining}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -55,14 +55,14 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal, statStatus})
                         </Tr>
                     </thead>
                     <tbody>
-                    {statStatus.map((stat, key) =>
-                        <Tr key={key}>
-                            <TdFirst>{stat.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_WORK} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_IDLE} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_REPAIR} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_CONSERVATION} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={stat.IN_LIQUIDATION} disabled/> </Td>
+                    {nameAllMining.map((mining, index) =>
+                        <Tr key={index}>
+                            <TdFirst>{mining.name}</TdFirst>
+                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus[index].IN_WORK} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus[index].IN_IDLE} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus[index].IN_REPAIR} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus[index].IN_CONSERVATION} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus[index].IN_LIQUIDATION} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>

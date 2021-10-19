@@ -170,7 +170,7 @@ const AppProvider = ({children}) => {
 
 
     // PRESSURE_GET_API
-    const takeSpPressure = async () => {
+    const takeSpPressure = () => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {
                 setPressureApi(res.data.object);
@@ -181,9 +181,15 @@ const AppProvider = ({children}) => {
             })
     }
     // Get allWells
-    const takeAllWells = async () => {
+    const takeAllWells = () => {
         axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
             .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
+            .catch(err => {console.log(err)})
+    }
+    /** Call Stat-Status Api **/
+    const takeStatus = () => {
+        axios.get(BASE_URL + '/api/well/stat/status')
+            .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
     useEffect(()=>{
@@ -206,9 +212,7 @@ const AppProvider = ({children}) => {
             // takeAllWells();
         }, 10000);
         /** Call Stat-Status Api **/
-        axios.get(BASE_URL + '/api/well/stat/status')
-            .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
-            .catch(err => {console.log(err)})
+        takeStatus();
         /** Call Uppg all collection **/
         axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1)
             .then(res => {setAllUppg(res.data.object); console.log(res.data.object)})
@@ -349,7 +353,7 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
-        refresh, openWell, takeSpPressure, takeAllWells, statStatus, allUppg, totalInWork, totalInIdle, totalInRepair,
+        refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
     }
     return (

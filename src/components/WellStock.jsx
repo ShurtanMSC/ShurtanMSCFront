@@ -62,7 +62,7 @@ const WellStock = () => {
             </Tr>
             </tfoot>
         </TableWellStock>
-        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus}/>
+        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus} nameAllMining={nameAllMining}/>
         </>
     )
 }

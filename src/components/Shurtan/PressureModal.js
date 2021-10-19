@@ -30,8 +30,8 @@ const modalSP = {
 }
 
 const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal,getWellActions, takeWell}) => {
-    const {setPressureApi, takeSpPressure, takeAllWells} = useContext(AppContext);
 
+    const {setPressureApi, takeSpPressure, takeAllWells, takeStatus} = useContext(AppContext);
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -82,6 +82,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                         setPressureApi(res1.data.object);
                         takeWell();
                         takeAllWells();
+                        takeStatus();
                     })
                     .catch(err => {console.log(err) })
             })
