@@ -15,7 +15,7 @@ const BtnSearch = () => {
     const [ selectedUppg, setSelectedUppg ] = useState();
     const [ uppgId, setUppgId ] = useState('');
 
-    /** Sborniy punklar (Collection points) kontekstdan **/
+        /** Sborniy punklar (Collection points) kontekstdan **/
     const {openWell, pressureApi, allUppg} = useContext(AppContext);
 
     /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
@@ -52,17 +52,15 @@ const BtnSearch = () => {
     const openBdUppgModal = () => {
         setShowBdUppgModal(prev => !prev)
     }
-    const sorted = openWell.sort(function (a, b){
-        return a.objectDto.number - b.objectDto.number;
-    })
-
-
+    // const sorted = openWell.sort(function (a, b){
+    //     return a.objectDto.number - b.objectDto.number;
+    // })
 
     /** Tanlangan skvajinani selectWellga o'zlashtirish **/
     const handlerWellSearch = (e) => {
 
         /** for each bilan **/
-        sorted.forEach(well=>{
+        openWell.forEach(well=>{
             if (well.objectDto.id==e.target.value){
                 setSelectedWell(well)
             }
@@ -110,15 +108,15 @@ const BtnSearch = () => {
                 <BtnSerach onClick={openBdUppgModal}> БД УППГ </BtnSerach>
             </BtnDiv>
             <SearcherSK openUppg={openUppg}>
-                <div>
+                <Form>
                     <LabelChange htmlFor="searcher">Введите номер скважины:</LabelChange>
                     <SelectChange  htmlFor='searcher' id="searcher" onChange={handlerWellSearch}>
                         <option value=""> --Поиск скважины-- </option>
-                        {sorted.map(wells =>
+                        {openWell.map(wells =>
                             <option key={wells.objectDto.number} value={wells.objectDto.id}>{wells.objectDto.number}</option>
                         )}
                     </SelectChange>
-                </div>
+                </Form>
                 <Table>
                     <tbody>
                         <Tr>
@@ -173,10 +171,10 @@ const BtnSearch = () => {
                     <tbody>
                     <Tr>
                         <TdFirst>Расход, тыс.м³/час</TdFirst>
-                        <Td>0</Td>
-                        <Td>0</Td>
-                        <Td>0</Td>
-                        <Td>0</Td>
+                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*10)/10}</Td>
+                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*10)/10}</Td>
+                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*30*10)/10}</Td>
+                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*30*365*10)/10}</Td>
                     </Tr>
                     </tbody>
                 </Table>

@@ -2,7 +2,9 @@ import React, { useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
-    H2, H2Div, Table, Tr, Th, TdFirst, Td, InputModal, SaveDiv, PModal, SpanModal, SaveBtnModal, CloseBtnModal } from '../../styled'
+    H2, H2Div, Table, Tr, Th, TdFirst, Td, InputModal, SaveDiv, PModal, SpanModal,
+    // SaveBtnModal,
+    CloseBtnModal } from '../../styled'
 import styled from 'styled-components'
 
 const backdrop = {
@@ -72,63 +74,60 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                 <tbody>
                                 <Tr>
                                     <TdFirstChange>Проектная производительность, м³/год</TdFirstChange>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*2} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*30} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*365} disabled /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>Фактическая производителность, м³/год</TdFirstChange>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*2} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*30} disabled /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*365} disabled /> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>По газу, тыс.м³</TdFirstChange>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2/10000} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24/10000} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30/10000} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365/10000} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>По конденсату, тыс.т</TdFirstChange>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*2} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*30} disabled/> </Td>
+                                    <Td> <InputModal type="text"  name="name" defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*365} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>По воде, тыс.т</TdFirstChange>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
-                                    <Td> <InputModal type="text"  name="name" /> </Td>
+                                    <Td colSpan="4"> <InputModal type="text"  name="name" defaultValue={selectedUppg ? selectedUppg.objectActionDto.onWater : ""} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>Входное давление, кгс/см²</TdFirstChange>
-                                    <Td colSpan="4"> <InputModal type="text"  name="name" /> </Td>
+                                    <Td colSpan="4"> <InputModal type="text"  name="name" defaultValue={selectedUppg ? selectedUppg.objectActionDto.incomePressure : ""} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>Выходное давление, кгс/см²</TdFirstChange>
-                                    <Td colSpan="4"> <InputModal type="text"  name="name" /> </Td>
+                                    <Td colSpan="4"> <InputModal type="text"  name="name" defaultValue={selectedUppg ? selectedUppg.objectActionDto.exitPressure : ""} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>Входная температура, °C</TdFirstChange>
-                                    <Td colSpan="4"> <InputModal type="text"  name="name" /> </Td>
+                                    <Td colSpan="4"> <InputModal type="text"  name="name" defaultValue={selectedUppg ? selectedUppg.objectActionDto.incomeTemperature : ""} disabled/> </Td>
                                 </Tr>
                                 <Tr>
                                     <TdFirstChange>Выходная температура, °C</TdFirstChange>
-                                    <Td colSpan="4"> <InputModal type="text"  name="name" /> </Td>
+                                    <Td colSpan="4"> <InputModal type="text"  name="name" defaultValue={selectedUppg ? selectedUppg.objectActionDto.exitTemperature : ""} disabled/> </Td>
                                 </Tr>
                                 </tbody>
                             </Table>
                             <SaveDiv>
                                 <div>
-                                    <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                                    <PModal>Дата изменения: <SpanModal> {(selectedUppg ? selectedUppg.objectActionDto.date : "").slice(0, 10)} </SpanModal> <SpanModal> {(selectedUppg ? selectedUppg.objectActionDto.date : "").slice(11, 19)} </SpanModal> </PModal>
                                 </div>
                                 <div>
-                                    <SaveBtnModal>Сохранит</SaveBtnModal>
+                                    {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                                     <CloseBtnModal
                                         onClick={()=> setShowBtnSearch(prev => !prev)}>Закрыт
                                     </CloseBtnModal>

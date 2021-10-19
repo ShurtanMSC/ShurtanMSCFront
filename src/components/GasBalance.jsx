@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react';
+import {AppContext} from '../context'
 import styled from 'styled-components'
 import CountUp from 'react-countup'
 import CurrentOperatingCostsModal from './CurrentOperatingCostsModal'
 import GasBalanceModal from './GasBalanceModal'
 
 const GasBalance = () => {
+    const {totalInWork, totalInIdle, totalInRepair, AllTotal} = useContext(AppContext);
     const [showCurrentOperatingCosts, setShowCurrentOperatingCosts] = useState(false);
     const [showGasBalanceModal, setShowGasBalanceModal] = useState(false);
 
@@ -15,44 +17,46 @@ const GasBalance = () => {
     const showModal = () => {
         setShowGasBalanceModal(prev => !prev);
     }
-
+    let totalInWorkPercent = (totalInWork*100)/AllTotal;
+    let totalInIdlePercent = (totalInIdle*100)/AllTotal;
+    let totalInRepairPercent = (totalInRepair*100)/AllTotal;
     return (
         <>
         <ContainerFluidGasBAlanced>
             <ContainerGasBalanced>
                 <BoxGasBalanced>
-                    <PGasBalanced>В ремонте</PGasBalanced>
-                    <Percent>
-                        <Svg>
-                            <CircleOne cx="30" cy="30" r="30"></CircleOne>
-                            <CircleOne cx="30" cy="30" r="30"></CircleOne>
-                        </Svg>
-                        <Number>
-                            <h4> <CountUp end={82} duration={5}/> <span>%</span></h4>
-                        </Number>
-                    </Percent>
-                </BoxGasBalanced>
-                <BoxGasBalanced>
-                    <PGasBalanced>В консервации</PGasBalanced>
-                    <Percent>
-                        <Svg>
-                            <CircleTwo cx="30" cy="30" r="30"></CircleTwo>
-                            <CircleTwo cx="30" cy="30" r="30"></CircleTwo>
-                        </Svg>
-                        <Number>
-                            <h4> <CountUp end={59} duration={5}/> <span>%</span></h4>
-                        </Number>
-                    </Percent>
-                </BoxGasBalanced>
-                <BoxGasBalanced>
                     <PGasBalanced>В работе</PGasBalanced>
                     <Percent>
                         <Svg>
-                            <CircleThree cx="30" cy="30" r="30"></CircleThree>
-                            <CircleThree cx="30" cy="30" r="30"></CircleThree>
+                            <CircleOne cx="30" cy="30" r="30" ></CircleOne>
+                            <CircleOne cx="30" cy="30" r="30" totalInWorkPercent={totalInWorkPercent} ></CircleOne>
                         </Svg>
                         <Number>
-                            <h4> <CountUp end={69} duration={5}/> <span>%</span></h4>
+                            <h4> <CountUp end={totalInWorkPercent} duration={5}/> <span>%</span></h4>
+                        </Number>
+                    </Percent>
+                </BoxGasBalanced>
+                <BoxGasBalanced>
+                    <PGasBalanced>В простое</PGasBalanced>
+                    <Percent>
+                        <Svg>
+                            <CircleTwo cx="30" cy="30" r="30"></CircleTwo>
+                            <CircleTwo cx="30" cy="30" r="30" totalInIdlePercent={totalInIdlePercent}></CircleTwo>
+                        </Svg>
+                        <Number>
+                            <h4> <CountUp end={totalInIdlePercent} duration={5}/> <span>%</span></h4>
+                        </Number>
+                    </Percent>
+                </BoxGasBalanced>
+                <BoxGasBalanced>
+                    <PGasBalanced>В ремонте</PGasBalanced>
+                    <Percent>
+                        <Svg>
+                            <CircleThree cx="30" cy="30" r="30"></CircleThree>
+                            <CircleThree cx="30" cy="30" r="30" totalInRepairPercent={totalInRepairPercent}></CircleThree>
+                        </Svg>
+                        <Number>
+                            <h4> <CountUp end={totalInRepairPercent} duration={5}/> <span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -169,7 +173,7 @@ const CircleOne =styled.circle`
         stroke:#FAFAFA;
     }
     &:nth-child(2){
-        stroke-dashoffset: calc( 189 - ( 189 * 82 ) / 100);
+        stroke-dashoffset: calc( 189 - ( 189 * ${(props) => props.totalInWorkPercent}) / 100);
         stroke:#FF914B;
         animation: html 5s;
         @keyframes html{
@@ -177,7 +181,7 @@ const CircleOne =styled.circle`
                 stroke-dashoffset: 270%;
             }
             100%{
-                stroke-dashoffset: calc( 189 - ( 189 * 82 ) / 100)"%";
+                stroke-dashoffset: calc( 189 - ( 189 * ${(props) => props.totalInWorkPercent}) / 100)"%";
             }
         }
     }
@@ -195,7 +199,7 @@ const CircleTwo =styled.circle`
         stroke:#FAFAFA;
     }
     &:nth-child(2){
-        stroke-dashoffset:calc( 189 - ( 189 * 59 ) / 100);
+        stroke-dashoffset:calc( 189 - ( 189 * ${(props) => props.totalInIdlePercent} ) / 100);
         stroke:#FF914B;
         animation: css 5s;
         @keyframes css{
@@ -203,7 +207,7 @@ const CircleTwo =styled.circle`
                 stroke-dashoffset: 270%;
             }
             100%{
-                stroke-dashoffset: calc( 189 - ( 189 * 59 ) / 100)"%";
+                stroke-dashoffset: calc( 189 - ( 189 * ${(props) => props.totalInIdlePercent} ) / 100)"%";
             }
         }
     }
@@ -221,7 +225,7 @@ const CircleThree =styled.circle`
         stroke:#FAFAFA;
     }
     &:nth-child(2){
-        stroke-dashoffset:calc( 189 - ( 189 * 68 ) / 100);
+        stroke-dashoffset:calc( 189 - ( 189 * ${(props) => props.totalInRepairPercent} ) / 100);
         stroke:#FF914B;
         animation: js 5s;
         @keyframes js{
@@ -229,7 +233,7 @@ const CircleThree =styled.circle`
                 stroke-dashoffset: 270%;
             }
             100%{
-                stroke-dashoffset: calc( 189 - ( 189 * 68 ) / 100)"%";
+                stroke-dashoffset: calc( 189 - ( 189 * ${(props) => props.totalInRepairPercent} ) / 100)"%";
             }
         }
     }

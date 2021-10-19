@@ -969,7 +969,7 @@ export const SelectModal = styled.select`
 `
 // LOADING...
 export const Loader = styled.div`
-  width: 100%;
+  width: 1100px;
   height: 100%;
   display:flex;
   justify-content: center;

@@ -84,6 +84,8 @@ const AppProvider = ({children}) => {
     const [statStatus, setStatStatus] = useState([]);
     /** Call Uppg all collection **/
     const [allUppg, setAllUppg] = useState([]);
+    /** Name All Mining **/
+    const [ nameAllMining, setNameAllMining] = useState([]);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -211,6 +213,10 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1)
             .then(res => {setAllUppg(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
+        /** Call Name All Mining **/
+        axios.get(BASE_URL + '/api/mining_system/all')
+            .then(res => {setNameAllMining(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
     }, []);
 
     // WELL_OPERATION
@@ -300,7 +306,21 @@ const AppProvider = ({children}) => {
         setShowWellOperation(prev => !prev);
     }
 
-
+    /** Call Stat-Status Api with total **/
+    let totalInWork = 0;
+    let totalInIdle = 0;
+    let totalInRepair = 0;
+    let totalInConservation = 0;
+    let totalInLiquidation = 0;
+    let AllTotal = 0;
+    for (let i = 0; i < statStatus.length; i++) {
+        totalInWork = totalInWork + statStatus[i].IN_WORK;
+        totalInIdle = totalInIdle + statStatus[i].IN_IDLE;
+        totalInRepair = totalInRepair + statStatus[i].IN_REPAIR;
+        totalInConservation = totalInConservation + statStatus[i].IN_CONSERVATION;
+        totalInLiquidation = totalInConservation + statStatus[i].IN_LIQUIDATION;
+        AllTotal = totalInWork + totalInIdle + totalInRepair + totalInConservation + totalInLiquidation;
+    }
 
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword,
@@ -329,7 +349,8 @@ const AppProvider = ({children}) => {
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
-        refresh, openWell, takeSpPressure, takeAllWells, statStatus, allUppg,
+        refresh, openWell, takeSpPressure, takeAllWells, statStatus, allUppg, totalInWork, totalInIdle, totalInRepair,
+        totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
     }
     return (
         <AppContext.Provider value={value}>

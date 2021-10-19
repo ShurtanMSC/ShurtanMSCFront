@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import {AppContext} from '../context'
 import { Table, Tr, Th, TdFirst, Td, TdTotal,TdTotalCount } from '../styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +8,7 @@ import AddAnalizeModal from './AddAnalizeModal'
 import CountUp from 'react-countup'
 
 const AddAnalize = () => {
+    const {nameAllMining} = useContext(AppContext);
 
     const [openTable, setOpenTable] = useState(false);
     const [turnIcon, setTurnIcon] = useState(false);
@@ -68,258 +70,20 @@ const AddAnalize = () => {
             </Tr>
             </thead>
             <tbody>
-            <Tr>
-                <TdFirst>Шуртан</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Южная Тандырча</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Бузахур</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Восточный Бузахур</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Тарнасой</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Ойдин</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Номозбой</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Ёрмок</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Туртсари</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Северный Шуртан</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Гармистон</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Совлигор</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Яккасарай</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Мезон</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Феруза</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Тошли</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Зафар</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Коратепа</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Ширкент</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Рубойи</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
-            <Tr>
-                <TdFirst>Янги Коратепа</TdFirst>
-                <Td> <CountUp end={5000} duration={5}/> </Td>
-                <Td> <CountUp end={4500} duration={4}/> </Td>
-                <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                <Td> <CountUp end={60000} duration={6}/> </Td>
-                <Td> <CountUp end={59000} duration={6}/> </Td>
-                <Td> <CountUp end={70000} duration={7}/> </Td>
-                <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
-            </Tr>
+            {nameAllMining.map((mining, key) =>
+                <Tr key={key}>
+                    <TdFirst>{mining.name}</TdFirst>
+                    <Td> <CountUp end={5000} duration={5}/> </Td>
+                    <Td> <CountUp end={4500} duration={4}/> </Td>
+                    <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
+                    <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
+                    <Td> <CountUp end={60000} duration={6}/> </Td>
+                    <Td> <CountUp end={59000} duration={6}/> </Td>
+                    <Td> <CountUp end={70000} duration={7}/> </Td>
+                    <TdREd> <CountUp end={98} duration={2}/> </TdREd>
+                    <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
+                </Tr>
+            )}
             </tbody>
             <tfoot>
             <Tr>
@@ -336,7 +100,7 @@ const AddAnalize = () => {
             </Tr>
             </tfoot>
         </TableAddAnalize>
-        <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal}/>
+        <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal} nameAllMining={nameAllMining}/>
         </>
     )
 }
@@ -344,7 +108,7 @@ const AddAnalize = () => {
 const TableAddAnalize = styled(Table)`
     width:1040px;
     transition:0.2s;  
-    height:${({openTable}) => (openTable ? "610px" : "125px")};
+    height:${({openTable}) => (openTable ? "615px" : "125px")};
     margin-bottom: 5px;
     transition:0.5s;
     overflow-y: auto;

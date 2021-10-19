@@ -8,23 +8,11 @@ import WellStockModal from './WellStockModal'
 import CountUp from 'react-countup'
 
 const WellStock = () => {
-    const {statStatus} = useContext(AppContext);
+    const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation, nameAllMining} = useContext(AppContext);
     const [showWellStockModal, setShowWellStockModal] = useState(false);
 
     const openModal = () => {
         setShowWellStockModal(prev => !prev);
-    }
-    let totalInWork = 0;
-    let totalInIdle = 0;
-    let totalInRepair = 0;
-    let totalInConservation = 0;
-    let totalInLiquidation = 0;
-    for (let i = 0; i < statStatus.length; i++) {
-        totalInWork = totalInWork + statStatus[i].IN_WORK;
-        totalInIdle = totalInIdle + statStatus[i].IN_IDLE;
-        totalInRepair = totalInRepair + statStatus[i].IN_REPAIR;
-        totalInConservation = totalInConservation + statStatus[i].IN_CONSERVATION;
-        totalInLiquidation = totalInConservation + statStatus[i].IN_LIQUIDATION;
     }
 
     return (
@@ -52,14 +40,14 @@ const WellStock = () => {
             </Tr>
             </thead>
             <tbody>
-            {statStatus.map((stat, key) =>
-                <Tr key={key}>
-                    <TdFirst>{stat.name}</TdFirst>
-                    <Td> <CountUp end={stat.IN_WORK} duration={5}/> </Td>
-                    <Td> <CountUp end={stat.IN_IDLE} duration={5}/> </Td>
-                    <Td> <CountUp end={stat.IN_REPAIR} duration={5}/> </Td>
-                    <Td> <CountUp end={stat.IN_CONSERVATION} duration={5}/> </Td>
-                    <Td> <CountUp end={stat.IN_LIQUIDATION} duration={5}/> </Td>
+            {nameAllMining.map((mining,index) =>
+                <Tr key={index}>
+                    <TdFirst>{mining.name}</TdFirst>
+                    <Td> <CountUp end={statStatus[index].IN_WORK} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus[index].IN_IDLE} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus[index].IN_REPAIR} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus[index].IN_CONSERVATION} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus[index].IN_LIQUIDATION} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
