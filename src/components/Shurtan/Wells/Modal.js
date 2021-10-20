@@ -21,23 +21,9 @@ const modal = {
     }
 }
 
-const Modal = ({showModal, setShowModal, id, findColor}) => {
+const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
     const {openWell} = useContext(AppContext);
     const filtered = openWell.filter(el => el.objectDto.number === id);
-    const findStatus = (status) => {
-        if(!status){
-            throw new Error("State is not defined")
-        }
-        switch (status) {
-            case "IN_WORK": return "в работе"
-            case "IN_IDLE": return "в простое"
-            case "IN_REPAIR": return "в ремонте"
-            case "IN_CONSERVATION": return "в консервации"
-            case "IN_LIQUIDATION": return "в ликвидации"
-            default: return ""
-        }
-    }
-
 
     const modalRef = useRef();
 

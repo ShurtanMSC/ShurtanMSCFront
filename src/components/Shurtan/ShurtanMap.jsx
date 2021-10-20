@@ -12,7 +12,7 @@ import CollectionPointModal from './Wells/CollectionPointModal'
 import Loading from '../Loading';
 
 const  ShurtanMap = () => {
-    const {openWell, takeAllWells} = useContext(AppContext)
+    const {openWell, takeAllWells, findStatus, findColor} = useContext(AppContext)
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 
@@ -32,19 +32,7 @@ const  ShurtanMap = () => {
         setShowCollectionPointModal(prev => !prev);
     }
 
-    const findColor = (status) => {
-        if(!status){
-            throw new Error("Color is not defined")
-        }
-        switch (status) {
-            case "IN_WORK": return "#0FA30E"
-            case "IN_IDLE": return "#FFC91B"
-            case "IN_REPAIR": return "#FF0000"
-            case "IN_CONSERVATION": return "#800080"
-            case "IN_LIQUIDATION": return "#000000"
-            default: return ""
-        }
-    }
+
 
     if (openWell&&openWell.length> 0 ) {
         return (
@@ -53,6 +41,7 @@ const  ShurtanMap = () => {
                        setShowModal={setShowModal}
                        id={id}
                        findColor={findColor}
+                       findStatus={findStatus}
                 />
                 <CollectionPointModal showCollectionPointModal={showCollectionPointModal}
                                       setShowCollectionPointModal={setShowCollectionPointModal}

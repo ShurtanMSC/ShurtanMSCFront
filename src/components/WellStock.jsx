@@ -43,11 +43,11 @@ const WellStock = () => {
             {nameAllMining.map((mining,index) =>
                 <Tr key={index}>
                     <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={statStatus[index].IN_WORK} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus[index].IN_IDLE} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus[index].IN_REPAIR} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus[index].IN_CONSERVATION} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus[index].IN_LIQUIDATION} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus ? statStatus[index].IN_WORK : ''} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus ? statStatus[index].IN_IDLE : ''} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus ? statStatus[index].IN_REPAIR : ''} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus ? statStatus[index].IN_CONSERVATION : ''} duration={5}/> </Td>
+                    <Td> <CountUp end={statStatus ? statStatus[index].IN_LIQUIDATION : ''} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>

@@ -16,7 +16,7 @@ const BtnSearch = () => {
     const [ uppgId, setUppgId ] = useState('');
 
         /** Sborniy punklar (Collection points) kontekstdan **/
-    const {openWell, pressureApi, allUppg} = useContext(AppContext);
+    const {openWell, pressureApi, allUppg, findStatus, findColor} = useContext(AppContext);
 
     /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
     const cpNameFinder=(id)=> {
@@ -52,10 +52,16 @@ const BtnSearch = () => {
     const openBdUppgModal = () => {
         setShowBdUppgModal(prev => !prev)
     }
-    // const sorted = openWell.sort(function (a, b){
-    //     return a.objectDto.number - b.objectDto.number;
-    // })
-
+    // const sorted = [];
+    // if(openWell){
+    //     for (let s = 0; s < openWell.length; s++){
+    //         sorted.push({
+    //             number: openWell[s].objectDto.number - openWell[s].objectDto.number,
+    //             id: openWell[s].objectDto.id,
+    //         })
+    //     }
+    // }
+    // console.log(sorted)
     /** Tanlangan skvajinani selectWellga o'zlashtirish **/
     const handlerWellSearch = (e) => {
 
@@ -141,7 +147,7 @@ const BtnSearch = () => {
                         </Tr>
                         <Tr>
                             <TdFirstChange>Состояние скважины</TdFirstChange>
-                            <TdChange>{selectedWell ? selectedWell.objectActionDto.status : ""}</TdChange>
+                            <TdChange style={{color: `${selectedWell ? findColor(selectedWell.objectActionDto.status) : ''}`}}>{selectedWell ? findStatus(selectedWell.objectActionDto.status) : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата изменения состояния</TdFirstChange>

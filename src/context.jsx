@@ -86,6 +86,10 @@ const AppProvider = ({children}) => {
     const [allUppg, setAllUppg] = useState([]);
     /** Name All Mining **/
     const [ nameAllMining, setNameAllMining] = useState([]);
+    /** Post Electric **/
+    const [ electricHourly, setElectricHourly] = useState([]);
+    /** Show Electric Modal **/
+    const [showConsumedElectricity, setShowConsumedElectricity] = useState(false);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -167,8 +171,6 @@ const AppProvider = ({children}) => {
         setCoordX('');
         setCoordY('');
     }
-
-
     // PRESSURE_GET_API
     const takeSpPressure = () => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
@@ -188,7 +190,7 @@ const AppProvider = ({children}) => {
     }
     /** Call Stat-Status Api **/
     const takeStatus = () => {
-        axios.get(BASE_URL + '/api/well/stat/status')
+        axios.get(BASE_URL + '/api/well/stat/status', configHeader)
             .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
@@ -214,11 +216,11 @@ const AppProvider = ({children}) => {
         /** Call Stat-Status Api **/
         takeStatus();
         /** Call Uppg all collection **/
-        axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1)
+        axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1, configHeader)
             .then(res => {setAllUppg(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
         /** Call Name All Mining **/
-        axios.get(BASE_URL + '/api/mining_system/all')
+        axios.get(BASE_URL + '/api/mining_system/all', configHeader)
             .then(res => {setNameAllMining(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }, []);
@@ -325,7 +327,63 @@ const AppProvider = ({children}) => {
         totalInLiquidation = totalInConservation + statStatus[i].IN_LIQUIDATION;
         AllTotal = totalInWork + totalInIdle + totalInRepair + totalInConservation + totalInLiquidation;
     }
+    /** Change Status Name **/
+    const findStatus = (status) => {
+        if(!status){
+            throw new Error("State is not defined")
+        }
+        switch (status) {
+            case "IN_WORK": return "в работе"
+            case "IN_IDLE": return "в простое"
+            case "IN_REPAIR": return "в ремонте"
+            case "IN_CONSERVATION": return "в консервации"
+            case "IN_LIQUIDATION": return "в ликвидации"
+            default: return ""
+        }
+    }
+    /** Change Status Color **/
+    const findColor = (status) => {
+        if(!status){
+            throw new Error("Color is not defined")
+        }
+        switch (status) {
+            case "IN_WORK": return "#0FA30E"
+            case "IN_IDLE": return "#FFC91B"
+            case "IN_REPAIR": return "#FF0000"
+            case "IN_CONSERVATION": return "#800080"
+            case "IN_LIQUIDATION": return "#000000"
+            default: return ""
+        }
+    }
+    /** Post Electric Api **/
+    const handlerElectric = e => {
+        setElectricHourly(e.target.value);
+    }
+    const onSubmitElectric = e => {
+        e.preventDefault();
 
+        const DataElectric = [];
+            if(nameAllMining){
+                for (let m = 0; m < nameAllMining.length; m++){
+                    DataElectric.push({
+                        daily: 0,
+                        hourly: nameAllMining[m].electricHourly,
+                        id: 0,
+                        miningSystemId: nameAllMining[m].id,
+                        monthly: 0,
+                        yearly: 0
+                    })
+                }
+
+            }
+        console.log(DataElectric)
+        console.log(electricHourly)
+        axios.post(BASE_URL + '/api/electricity/add/all', DataElectric, configHeader)
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err)})
+        setShowConsumedElectricity(prev => !prev);
+        setElectricHourly('');
+    }
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword,
         numberWell, handlerNumberWell,
@@ -352,9 +410,10 @@ const AppProvider = ({children}) => {
         numberWellOper, handlerWellNumberOperation,
         horizonOper, handlerHorizonOperation,
         changeDate, handlerChangeDate,
-        handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp,
+        handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp, findStatus, findColor,
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
+        handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity,
     }
     return (
         <AppContext.Provider value={value}>
