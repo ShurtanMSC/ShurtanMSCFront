@@ -116,7 +116,7 @@ const Navbar = () => {
                 <img style={{marginRight:'1%'}} src={LogoOne} alt="logo" />
                 <NavbarCard>
                     <HumanImg src={Human} alt="human" />
-                    <P><A href={"http://10.10.100.226:8080/admin"}>{name}</A></P>
+                    <P><A href={BASE_URL}>{name}</A></P>
                 </NavbarCard>
                 <RightCenterLittle></RightCenterLittle>
                 <RightCenterBig></RightCenterBig>
