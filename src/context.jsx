@@ -87,7 +87,9 @@ const AppProvider = ({children}) => {
     /** Name All Mining **/
     const [ nameAllMining, setNameAllMining] = useState([]);
     /** Post Electric **/
-    const [ electricHourly, setElectricHourly] = useState([]);
+    const [ electricHourly, setElectricHourly] = useState('');
+    /** Get Electric All Last **/
+    const [ getElectric, setGetElectric ] = useState(null);
     /** Show Electric Modal **/
     const [showConsumedElectricity, setShowConsumedElectricity] = useState(false);
     // REGISTRATION_WELL
@@ -194,6 +196,17 @@ const AppProvider = ({children}) => {
             .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
     }
+    /** Get Electric All Last **/
+    const takeElectric = () => {
+        axios.get(BASE_URL + '/api/electricity/all/last', configHeader)
+            .then(res => {
+                setGetElectric(res.data.object);
+                console.log(res.data.object)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
@@ -223,6 +236,8 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/mining_system/all', configHeader)
             .then(res => {setNameAllMining(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
+        /** Get Electric All Last **/
+        takeElectric();
     }, []);
 
     // WELL_OPERATION
@@ -356,10 +371,11 @@ const AppProvider = ({children}) => {
         }
     }
     /** Post Electric Api **/
-    const handlerElectric = e => {
+    const handlerElectric = (e) => {
         setElectricHourly(e.target.value);
+        console.log(electricHourly);
     }
-    const onSubmitElectric = e => {
+     const onSubmitElectric = e => {
         e.preventDefault();
 
         const DataElectric = [];
@@ -367,7 +383,7 @@ const AppProvider = ({children}) => {
                 for (let m = 0; m < nameAllMining.length; m++){
                     DataElectric.push({
                         daily: 0,
-                        hourly: nameAllMining[m].electricHourly,
+                        hourly: electricHourly ? electricHourly : (getElectric !==null ? getElectric[m].hourly : 0),
                         id: 0,
                         miningSystemId: nameAllMining[m].id,
                         monthly: 0,
@@ -377,13 +393,13 @@ const AppProvider = ({children}) => {
 
             }
         console.log(DataElectric)
-        console.log(electricHourly)
         axios.post(BASE_URL + '/api/electricity/add/all', DataElectric, configHeader)
-            .then(res => {console.log(res)})
+            .then(res => {console.log(res); takeElectric();})
             .catch(err => {console.log(err)})
         setShowConsumedElectricity(prev => !prev);
         setElectricHourly('');
     }
+
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword,
         numberWell, handlerNumberWell,
@@ -413,7 +429,7 @@ const AppProvider = ({children}) => {
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp, findStatus, findColor,
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
-        handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity,
+        handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
     }
     return (
         <AppContext.Provider value={value}>

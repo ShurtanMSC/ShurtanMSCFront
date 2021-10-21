@@ -8,7 +8,7 @@ import ConsumesElectricityModal from './ConsumesElectricityModal'
 import CountUp from 'react-countup'
 
 const ConsumedElectricity = () => {
-    const {nameAllMining, showConsumedElectricity, setShowConsumedElectricity} = useContext(AppContext)
+    const {nameAllMining, showConsumedElectricity, setShowConsumedElectricity, getElectric} = useContext(AppContext)
 
     const openModal = () => {
         setShowConsumedElectricity(prev => !prev)
@@ -38,13 +38,13 @@ const ConsumedElectricity = () => {
             </Tr>
             </thead>
             <tbody>
-            {nameAllMining.map((mining, key) =>
-                <Tr key={key}>
+            {nameAllMining.map((mining, index) =>
+                <Tr key={index}>
                     <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={15} duration={4} /> </Td>
-                    <Td> <CountUp end={20} duration={4}/> </Td>
-                    <Td> <CountUp end={40} duration={3}/> </Td>
-                    <Td> <CountUp end={500} duration={5}/> </Td>
+                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].hourly : 0} duration={4} /> </Td>
+                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].daily : 0} duration={4}/> </Td>
+                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].monthly : 0} duration={3}/> </Td>
+                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].yearly : 0} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
@@ -59,7 +59,7 @@ const ConsumedElectricity = () => {
             </tfoot>
         </TableConsumedElectricity>
         <ConsumesElectricityModal showConsumedElectricity={showConsumedElectricity} setShowConsumedElectricity={setShowConsumedElectricity}
-                                  nameAllMining={nameAllMining}/>
+                                  nameAllMining={nameAllMining} getElectric={getElectric}/>
         </>
     )
 }

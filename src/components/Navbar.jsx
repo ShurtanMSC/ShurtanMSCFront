@@ -20,6 +20,7 @@ import axios from "axios";
 import {BASE_URL} from "../utills/constant";
 import {configHeader} from '../utills/congifHeader';
 import { useHistory } from 'react-router-dom';
+import Report from "./Shurtan/NavbarModal/Report";
 
 const Navbar = () => {
     const {openRegistrationWell, openWellOperation} = useContext(AppContext);
@@ -33,6 +34,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [openShurtan, setOpenShurtan ] = useState(false);
 
+    const [showReport, setShowReport] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showElectricity, setShowElectricity] = useState(false);
     const [showPersonnel, setShowPersonnel] = useState(false);
@@ -71,6 +73,9 @@ const Navbar = () => {
         setSeconds(((new Date().getSeconds() < 10 ? '0' : '') + new Date().getSeconds()));
     }, 1000);
 
+    const openReporter = () => {
+        setShowReport(prev => !prev);
+    }
     const openModal = () => {
         setShowModal(prev => !prev);
     }
@@ -137,6 +142,9 @@ const Navbar = () => {
                     <h1>Выберите месторождение</h1>
                     <LinkShurtan to="/shurtan"> <H2Navigation onClick={() => setOpenShurtan(!openShurtan)}>Шуртан</H2Navigation> </LinkShurtan>
                     <ShurtanNavigation openShurtan={openShurtan}>
+                        <H2Navigation onClick={openReporter}>Отчеты</H2Navigation>
+                            <Report showReport={showReport}
+                                    setShowReport={setShowReport}/>
                         <H2Navigation onClick={openModal}>Анализ добычи</H2Navigation>
                             <AddGasNavbarModal showModal={showModal}
                                            setShowModal={setShowModal}/>
@@ -285,7 +293,7 @@ const LinkShurtan = styled(Link)`
 `
 const ShurtanNavigation = styled.div`
     width: 78%;
-    height: 700px;
+    height: 680px;
     position: absolute;
     top: 140px;
     display: flex;

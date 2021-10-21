@@ -3,8 +3,8 @@ import {AppContext} from '../context';
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
-const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElectricity, nameAllMining}) => {
-    const {handlerElectric, electricHourly, onSubmitElectric} = useContext(AppContext);
+const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElectricity, nameAllMining, getElectric}) => {
+    const {handlerElectric, onSubmitElectric} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -54,13 +54,13 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                         </Tr>
                     </thead>
                     <tbody>
-                    {nameAllMining.map((mining, key) =>
-                        <Tr key={key}>
+                    {nameAllMining.map((mining, index) =>
+                        <Tr key={index}>
                             <TdFirst>{mining.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" defaultValue={mining.electricHourly} onChange={handlerElectric} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].hourly ? getElectric[index].hourly : 0} onChange={handlerElectric} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].daily ? getElectric[index].daily : 0} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].monthly? getElectric[index].monthly : 0} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].yearly? getElectric[index].yearly : 0} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>

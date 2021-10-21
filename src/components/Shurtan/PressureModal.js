@@ -68,9 +68,9 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
         })
         let data={
             collectionPointId: sp.objectDto.id,
-            pressure: rsp?rsp:sp.objectActionDto.pressure,
-            temperature: temp?temp:sp.objectActionDto.temperature,
-            wellList:array
+            pressure: rsp ? rsp : sp.objectActionDto.pressure,
+            temperature: temp ? temp : sp.objectActionDto.temperature,
+            wellList: array
         }
         axios.post(BASE_URL + '/api/collection_point/manually/add/special',data,configHeader)
             .then(response=>{

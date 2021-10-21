@@ -8,7 +8,7 @@ import WellStockModal from './WellStockModal'
 import CountUp from 'react-countup'
 
 const WellStock = () => {
-    const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation, nameAllMining} = useContext(AppContext);
+    const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation} = useContext(AppContext);
     const [showWellStockModal, setShowWellStockModal] = useState(false);
 
     const openModal = () => {
@@ -40,14 +40,14 @@ const WellStock = () => {
             </Tr>
             </thead>
             <tbody>
-            {nameAllMining.map((mining,index) =>
+            {statStatus.map((mining,index) =>
                 <Tr key={index}>
                     <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={statStatus ? statStatus[index].IN_WORK : ''} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus ? statStatus[index].IN_IDLE : ''} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus ? statStatus[index].IN_REPAIR : ''} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus ? statStatus[index].IN_CONSERVATION : ''} duration={5}/> </Td>
-                    <Td> <CountUp end={statStatus ? statStatus[index].IN_LIQUIDATION : ''} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.IN_WORK} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.IN_IDLE} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.IN_REPAIR} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.IN_CONSERVATION} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.IN_LIQUIDATION} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
@@ -62,7 +62,7 @@ const WellStock = () => {
             </Tr>
             </tfoot>
         </TableWellStock>
-        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus} nameAllMining={nameAllMining}/>
+        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus} />
         </>
     )
 }
