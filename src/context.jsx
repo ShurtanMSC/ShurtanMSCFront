@@ -186,7 +186,7 @@ const AppProvider = ({children}) => {
     }
     // Get allWells
     const takeAllWells = () => {
-        axios.get(BASE_URL + '/api/well/all/actions/', configHeader)
+        axios.get(BASE_URL + '/api/well/all/action/mining_system/'+1, configHeader)
             .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
             .catch(err => {console.log(err)})
     }
