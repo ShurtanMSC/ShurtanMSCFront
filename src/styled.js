@@ -733,7 +733,7 @@ export const PModal = styled.p`
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
-    font-size: 14x;
+    font-size: 14px;
     text-align: center;
     color: #363636;
 `
@@ -978,4 +978,142 @@ export const Loader = styled.div`
 export const ImgLoader = styled.img`
   with:100%;
   height:100%;
+`
+/** ReportHeader **/
+export const ContainerReportHeader = styled.div`
+  width: 90%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1% 1.5%;
+  margin-bottom:1.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+export const FormReportHeader = styled.form`
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+`
+export const LabelReportHeader = styled.label`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: #363636;
+  margin-right: 5px;
+`
+export const SelectReportHeader = styled.select`
+  border: 1px solid #888;
+  width: 362px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  color: #363636;
+  cursor: pointer;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(136, 136, 136, 0.28);
+  }
+`
+export const LabelReportHeaderDate = styled.label`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #363636;
+  span{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #363636;
+  }
+`
+export const InputReportDate = styled.input`
+  width: 213px;
+  height: 40px;
+  border: 1px solid #888;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #363636;
+  cursor: pointer;
+  outline:none;
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(136, 136, 136, 0.28);
+  }
+`
+export const ButtonReportApply = styled.button`
+  width: 146px;
+  height: 40px;
+  background: #3497DA;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(52, 151, 218, 0.55);
+  }
+`
+export const ButtonReportDownload = styled.button`
+  width: 150px;
+  height: 40px;
+  background: #6FE66C;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(111, 230, 108, 0.5);
+  }
+`
+export const SelectDiv = styled.div`
+  margin-right: 10px;
+`
+export const InputDateDiv = styled.div`
+  margin-right: 10px;
+`
+export const PrintDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items:center;
+`
+/** ReportBody **/
+export const ContainerReportBody = styled.div`
+  width:90%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1% 1.5%;
 `

@@ -4,6 +4,7 @@ import Admin from './pages/Admin'
 import MainPage from './pages/MainPage'
 import Shurtan from './pages/Shurtan'
 import {TOKEN} from "./utills/constant";
+import Report from "./pages/Report";
 // import Test from "./requests/Test";
 
 const App = () => {
@@ -19,6 +20,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/shurtan">
                         {localStorage.getItem(TOKEN) ? <Shurtan/> : <Admin/>}
+                    </Route>
+                    <Route exact path="/reports">
+                        {localStorage.getItem(TOKEN) ? <Report/> : <Admin/>}
                     </Route>
                 </Switch>
             </div>

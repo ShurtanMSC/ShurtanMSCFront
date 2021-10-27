@@ -7,7 +7,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import PressureTable from './PressureTable'
 
 const   Pressure = () => {
-    const {pressureApi} = useContext(AppContext);
+    const {pressureApi, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation} = useContext(AppContext);
 
     const [ showPressureTable, setShowPressureTable ] = useState(false);
     const [ turnIcon, setTurnIcon ] = useState(false);
@@ -47,16 +47,16 @@ const   Pressure = () => {
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>500</TdTotalCount>
-                <TdTotalCount>8000</TdTotalCount>
-                <TdTotalCount>9000</TdTotalCount>
-                <TdTotalCount>5</TdTotalCount>
-                <TdTotalCount>3</TdTotalCount>
-                <TdTotalCount>4</TdTotalCount>
-                <TdTotalCount>6</TdTotalCount>
-                <TdTotalCount>0</TdTotalCount>
+                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount>{totalInWork}</TdTotalCount>
+                <TdTotalCount>{totalInIdle}</TdTotalCount>
+                <TdTotalCount>{totalInRepair}</TdTotalCount>
+                <TdTotalCount>{totalInConservation}</TdTotalCount>
+                <TdTotalCount>{totalInLiquidation}</TdTotalCount>
             </Tr>
             </tfoot>
         </TablePresure>

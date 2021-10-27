@@ -153,7 +153,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                         <Tr key={el.objectDto.number}>
                                             <TdFirst>{el.objectDto.number}</TdFirst>
                                             <Td> <InputModal id={'pressure_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
-                                            <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.rpl}/> </Td>
+                                            <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={Math.round(el.objectActionDto.rpl*10)/10}/> </Td>
                                             <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
                                             <Td> <InputModal id={'temperature_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
                                             <Td>
