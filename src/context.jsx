@@ -92,6 +92,8 @@ const AppProvider = ({children}) => {
     const [ getElectric, setGetElectric ] = useState(null);
     /** Show Electric Modal **/
     const [showConsumedElectricity, setShowConsumedElectricity] = useState(false);
+    /** Search Wells **/
+    const [ selectedWell, setSelectedWell ] = useState();
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -178,7 +180,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {
                 setPressureApi(res.data.object);
-
+                console.log(res.data.object)
             })
             .catch(err => {
                 console.log(err)
@@ -400,6 +402,34 @@ const AppProvider = ({children}) => {
         setElectricHourly('');
     }
 
+    /** Tanlangan skvajinani selectWellga o'zlashtirish **/
+    const handlerWellSearch = (e) => {
+
+        /** for each bilan **/
+        openWell.forEach(well=>{
+            if (well.objectDto.id==e.target.value){
+                setSelectedWell(well)
+            }
+        })
+
+        /** for bilan **/
+        // for (let i = 0; i < sorted.length; i++) {
+        //     if (sorted[i].objectDto.id==e.target.value){
+        //         setSelectedWell(sorted[i])
+        //     }
+        // }
+        //
+
+        /** map bilan **/
+        // sorted.map(well=>{
+        //     if (well.objectDto.id==e.target.value){
+        //         setSelectedWell(well)
+        //     }
+        // })
+
+    }
+
+
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword,
         numberWell, handlerNumberWell,
@@ -430,6 +460,7 @@ const AppProvider = ({children}) => {
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
         handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
+        handlerWellSearch, selectedWell,
     }
     return (
         <AppContext.Provider value={value}>

@@ -1117,3 +1117,39 @@ export const ContainerReportBody = styled.div`
   border-radius: 10px;
   padding: 1% 1.5%;
 `
+export const TitleReportDiv = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const TitleReport = styled.div`
+  width:90%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+`
+export const TitleP = styled.p`
+  text-align: center;
+  font-weight: 600;
+  &:last-child{
+    margin: 10px 0;
+  }
+`
+export const TitleFooterDiv = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+`
+export const TitleFooter = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0 0 0;
+  font-weight: 600;
+`

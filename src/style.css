@@ -158,4 +158,32 @@ a:focus{
         opacity:1;
     }
 }
-
+.selected{
+    fill:white;
+    stroke: #00A0DC;
+    stroke-width:4px;
+    opacity:1;
+    animation: selected 0.5s ease-in-out forwards infinite alternate;
+}
+@keyframes selected{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+.danger{
+    stroke:red;
+    stroke-width:4px;
+    opacity:1;
+    animation: dangered 0.5s ease-in-out forwards infinite alternate;
+}
+@keyframes dangered{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}

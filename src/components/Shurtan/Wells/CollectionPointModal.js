@@ -1,7 +1,8 @@
 import React, {useRef, useEffect, useCallback, useContext} from 'react';
 import {AppContext} from '../../../context'
 import { motion, AnimatePresence } from 'framer-motion'
-import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, ButtonModalShurtan } from '../../../styled'
+import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, ButtonModalShurtan } from '../../../styled';
+import styled from 'styled-components';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -20,8 +21,8 @@ const modal = {
     }
 }
 
-const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointModal, idPoint}) => {
-    const {pressureApi, refresh} = useContext(AppContext);
+const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointModal, idPoint, filtered}) => {
+    const {refresh} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -41,8 +42,6 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
         document.addEventListener('keydown', keyPress);
         return() => document.removeEventListener('keydown', keyPress);
     }, [keyPress]);
-
-    const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
 
     return (
         <AnimatePresence>
@@ -77,6 +76,11 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                         <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>
                                         <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.temperature*10)/10 : ""}</TdModalShurtan>
                                     </tr>
+                                    {el.objectActionDto !== null && el.objectActionDto.pressure === 0 && el.objectActionDto.temperature === 0 ?
+                                    <tr>
+                                        <TdModalShurtanRed colSpan="2">НЕТ СИГНАЛА</TdModalShurtanRed>
+                                    </tr>
+                                    : ""}
                                     <tr>
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
@@ -95,5 +99,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
         </AnimatePresence>
     )
 }
-
+const TdModalShurtanRed = styled(TdModalShurtan)`
+  color:red;
+`
 export default CollectionPointModal

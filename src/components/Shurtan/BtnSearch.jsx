@@ -11,12 +11,12 @@ const BtnSearch = () => {
     const [ showBtnSearch, setShowBtnSearch] = useState(false);
     const [ showBdUppgModal, setShowBdUppgModal] = useState(false);
     const [ openUppg, setOpenUppg ] = useState(false);
-    const [ selectedWell, setSelectedWell ] = useState();
+
     const [ selectedUppg, setSelectedUppg ] = useState();
     const [ uppgId, setUppgId ] = useState('');
 
         /** Sborniy punklar (Collection points) kontekstdan **/
-    const {openWell, pressureApi, allUppg, findStatus, findColor} = useContext(AppContext);
+    const {openWell, pressureApi, allUppg, findStatus, findColor, handlerWellSearch, selectedWell} = useContext(AppContext);
 
     /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
     const cpNameFinder=(id)=> {
@@ -62,32 +62,7 @@ const BtnSearch = () => {
     //     }
     // }
     // console.log(sorted)
-    /** Tanlangan skvajinani selectWellga o'zlashtirish **/
-    const handlerWellSearch = (e) => {
 
-        /** for each bilan **/
-        openWell.forEach(well=>{
-            if (well.objectDto.id==e.target.value){
-                setSelectedWell(well)
-            }
-        })
-
-        /** for bilan **/
-        // for (let i = 0; i < sorted.length; i++) {
-        //     if (sorted[i].objectDto.id==e.target.value){
-        //         setSelectedWell(sorted[i])
-        //     }
-        // }
-        //
-
-        /** map bilan **/
-        // sorted.map(well=>{
-        //     if (well.objectDto.id==e.target.value){
-        //         setSelectedWell(well)
-        //     }
-        // })
-
-    }
     const handlerAllUppg = e => {
         allUppg.forEach(selectUppg => {
             if(selectUppg.objectDto.id == e.target.value){

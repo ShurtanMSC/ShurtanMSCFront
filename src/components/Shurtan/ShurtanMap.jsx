@@ -12,14 +12,12 @@ import CollectionPointModal from './Wells/CollectionPointModal'
 import Loading from '../Loading';
 
 const  ShurtanMap = () => {
-    const {openWell, takeAllWells, findStatus, findColor} = useContext(AppContext)
+    const {openWell, takeAllWells, findStatus, findColor, selectedWell, pressureApi} = useContext(AppContext)
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 
     const [id, setId] = useState('');
     const [idPoint, setIdPoint] = useState('');
-
-
 
     const openModal = (WellId) => {
         setId(WellId);
@@ -32,7 +30,7 @@ const  ShurtanMap = () => {
         setShowCollectionPointModal(prev => !prev);
     }
 
-
+    const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
 
     if (openWell&&openWell.length> 0 ) {
         return (
@@ -45,7 +43,9 @@ const  ShurtanMap = () => {
                 />
                 <CollectionPointModal showCollectionPointModal={showCollectionPointModal}
                                       setShowCollectionPointModal={setShowCollectionPointModal}
-                                      idPoint={idPoint}/>
+                                      idPoint={idPoint}
+                                      filtered={filtered}
+                />
                 <ShurtanMapContainer>
                     <H1Div>
                         <H1shurtan>Месторождение Шуртан</H1shurtan>
@@ -261,529 +261,529 @@ const  ShurtanMap = () => {
                                 <circle cx="785" cy="653" r="53" fill="white"/>
                             </g>
                             <g filter="url(#filter3_d_114:184)">
-                                <circle cx="698.5" cy="588.5" r="10.5" fill="white"/>
+                                <circle cx="698.5" cy="588.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 290 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter4_d_114:184)">
-                                <circle cx="660.5" cy="576.5" r="10.5" fill="white"/>
+                                <circle cx="660.5" cy="576.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 236 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter5_d_114:184)">
-                                <circle cx="662.5" cy="526.5" r="10.5" fill="white"/>
+                                <circle cx="662.5" cy="526.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 233 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter6_d_114:184)">
-                                <circle cx="637.5" cy="498.5" r="10.5" fill="white"/>
+                                <circle cx="637.5" cy="498.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 321 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter7_d_114:184)">
-                                <circle cx="609.5" cy="521.5" r="10.5" fill="white"/>
+                                <circle cx="609.5" cy="521.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 37 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter8_d_114:184)">
-                                <circle cx="569.5" cy="526.5" r="10.5" fill="white"/>
+                                <circle cx="569.5" cy="526.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 301 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter9_d_114:184)">
-                                <circle cx="555.5" cy="487.5" r="10.5" fill="white"/>
+                                <circle cx="555.5" cy="487.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 127 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter10_d_114:184)">
-                                <circle cx="531.5" cy="496.5" r="10.5" fill="white"/>
+                                <circle cx="531.5" cy="496.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 292 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter11_d_114:184)">
-                                <circle cx="504.5" cy="511.5" r="10.5" fill="white"/>
+                                <circle cx="504.5" cy="511.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 256 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter12_d_114:184)">
-                                <circle cx="467.5" cy="528.5" r="10.5" fill="white"/>
+                                <circle cx="467.5" cy="528.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 198 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter13_d_114:184)">
-                                <circle cx="448.5" cy="497.5" r="10.5" fill="white"/>
+                                <circle cx="448.5" cy="497.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 61 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter14_d_114:184)">
-                                <circle cx="475.5" cy="453.5" r="10.5" fill="white"/>
+                                <circle cx="475.5" cy="453.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 56 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter15_d_114:184)">
-                                <circle cx="455.5" cy="431.5" r="10.5" fill="white"/>
+                                <circle cx="455.5" cy="431.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 193 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter16_d_114:184)">
-                                <circle cx="424.5" cy="455.5" r="10.5" fill="white"/>
+                                <circle cx="424.5" cy="455.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 190 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter17_d_114:184)">
-                                <circle cx="403.5" cy="486.5" r="10.5" fill="white"/>
+                                <circle cx="403.5" cy="486.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 195 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter18_d_114:184)">
-                                <circle cx="372.5" cy="506.5" r="10.5" fill="white"/>
+                                <circle cx="372.5" cy="506.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 310 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter19_d_114:184)">
-                                <circle cx="400.5" cy="521.5" r="10.5" fill="white"/>
+                                <circle cx="400.5" cy="521.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 318 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter20_d_114:184)">
-                                <circle cx="332.5" cy="757.5" r="10.5" fill="white"/>
+                                <circle cx="332.5" cy="757.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 309 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter21_d_114:184)">
-                                <circle cx="120.5" cy="764.5" r="10.5" fill="white"/>
+                                <circle cx="120.5" cy="764.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 4 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter22_d_114:184)">
-                                <circle cx="100.5" cy="711.5" r="10.5" fill="white"/>
+                                <circle cx="100.5" cy="711.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 151 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter23_d_114:184)">
-                                <circle cx="135.5" cy="703.5" r="10.5" fill="white"/>
+                                <circle cx="135.5" cy="703.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 282 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter24_d_114:184)">
-                                <circle cx="168.5" cy="709.5" r="10.5" fill="white"/>
+                                <circle cx="168.5" cy="709.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 284 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter25_d_114:184)">
-                                <circle cx="206.5" cy="690.5" r="10.5" fill="white"/>
+                                <circle cx="206.5" cy="690.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 296 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter26_d_114:184)">
-                                <circle cx="240.5" cy="669.5" r="10.5" fill="white"/>
+                                <circle cx="240.5" cy="669.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 311 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter27_d_114:184)">
-                                <circle cx="147.5" cy="638.5" r="10.5" fill="white"/>
+                                <circle cx="147.5" cy="638.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 3 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter28_d_114:184)">
-                                <circle cx="98.5" cy="596.5" r="10.5" fill="white"/>
+                                <circle cx="98.5" cy="596.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 283 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter29_d_114:184)">
-                                <circle cx="106.5" cy="629.5" r="10.5" fill="white"/>
+                                <circle cx="106.5" cy="629.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 153 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter30_d_114:184)">
-                                <circle cx="56.5" cy="621.5" r="10.5" fill="white"/>
+                                <circle cx="56.5" cy="621.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 141 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter31_d_114:184)">
-                                <circle cx="37.5" cy="596.5" r="10.5" fill="white"/>
+                                <circle cx="37.5" cy="596.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 137 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter32_d_114:184)">
-                                <circle cx="28.5" cy="571.5" r="10.5" fill="white"/>
+                                <circle cx="28.5" cy="571.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 139 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter33_d_114:184)">
-                                <circle cx="52.5" cy="543.5" r="10.5" fill="white"/>
+                                <circle cx="52.5" cy="543.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 140 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter34_d_114:184)">
-                                <circle cx="16.5" cy="461.5" r="10.5" fill="white"/>
+                                <circle cx="16.5" cy="461.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 183 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter35_d_114:184)">
-                                <circle cx="45.5" cy="465.5" r="10.5" fill="white"/>
+                                <circle cx="45.5" cy="465.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 184 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter36_d_114:184)">
-                                <circle cx="73.5" cy="463.5" r="10.5" fill="white"/>
+                                <circle cx="73.5" cy="463.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 103 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter37_d_114:184)">
-                                <circle cx="41.5" cy="420.5" r="10.5" fill="white"/>
+                                <circle cx="41.5" cy="420.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 182 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter38_d_114:184)">
-                                <circle cx="82.5" cy="361.5" r="10.5" fill="white"/>
+                                <circle cx="82.5" cy="361.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 320 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter39_d_114:184)">
-                                <circle cx="53.5" cy="333.5" r="10.5" fill="white"/>
+                                <circle cx="53.5" cy="333.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 314 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter40_d_114:184)">
-                                <circle cx="29.5" cy="318.5" r="10.5" fill="white"/>
+                                <circle cx="29.5" cy="318.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 305 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter41_d_114:184)">
-                                <circle cx="17.5" cy="291.5" r="10.5" fill="white"/>
+                                <circle cx="17.5" cy="291.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 278 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter42_d_114:184)">
-                                <circle cx="18.5" cy="256.5" r="10.5" fill="white"/>
+                                <circle cx="18.5" cy="256.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 125 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter43_d_114:184)">
-                                <circle cx="62.5" cy="259.5" r="10.5" fill="white"/>
+                                <circle cx="62.5" cy="259.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 128 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter44_d_114:184)">
-                                <circle cx="96.5" cy="263.5" r="10.5" fill="white"/>
+                                <circle cx="96.5" cy="263.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 129 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter45_d_114:184)">
-                                <circle cx="121.5" cy="281.5" r="10.5" fill="white"/>
+                                <circle cx="121.5" cy="281.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 130 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter46_d_114:184)">
-                                <circle cx="144.5" cy="258.5" r="10.5" fill="white"/>
+                                <circle cx="144.5" cy="258.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 315 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter47_d_114:184)">
-                                <circle cx="118.5" cy="238.5" r="10.5" fill="white"/>
+                                <circle cx="118.5" cy="238.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 275 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter48_d_114:184)">
-                                <circle cx="86.5" cy="220.5" r="10.5" fill="white"/>
+                                <circle cx="86.5" cy="220.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 219 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter49_d_114:184)">
-                                <circle cx="89.5" cy="168.5" r="10.5" fill="white"/>
+                                <circle cx="89.5" cy="168.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 53 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter50_d_114:184)">
-                                <circle cx="63.5" cy="149.5" r="10.5" fill="white"/>
+                                <circle cx="63.5" cy="149.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 2 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter51_d_114:184)">
-                                <circle cx="63.5" cy="115.5" r="10.5" fill="white"/>
+                                <circle cx="63.5" cy="115.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 55 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter52_d_114:184)">
-                                <circle cx="92.5" cy="55.5" r="10.5" fill="white"/>
+                                <circle cx="92.5" cy="55.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 293 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter53_d_114:184)">
-                                <circle cx="138.5" cy="79.5" r="10.5" fill="white"/>
+                                <circle cx="138.5" cy="79.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 260 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter54_d_114:184)">
-                                <circle cx="184.5" cy="108.5" r="10.5" fill="white"/>
+                                <circle cx="184.5" cy="108.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 118 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter55_d_114:184)">
-                                <circle cx="221.5" cy="132.5" r="10.5" fill="white"/>
+                                <circle cx="221.5" cy="132.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 207 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter56_d_114:184)">
-                                <circle cx="260.5" cy="158.5" r="10.5" fill="white"/>
+                                <circle cx="260.5" cy="158.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 202 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter57_d_114:184)">
-                                <circle cx="302.5" cy="185.5" r="10.5" fill="white"/>
+                                <circle cx="302.5" cy="185.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 201 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter58_d_114:184)">
-                                <circle cx="331.5" cy="208.5" r="10.5" fill="white"/>
+                                <circle cx="331.5" cy="208.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 15 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter59_d_114:184)">
-                                <circle cx="375.5" cy="168.5" r="10.5" fill="white"/>
+                                <circle cx="375.5" cy="168.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 119 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter60_d_114:184)">
-                                <circle cx="347.5" cy="146.5" r="10.5" fill="white"/>
+                                <circle cx="347.5" cy="146.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 196 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter61_d_114:184)">
-                                <circle cx="315.5" cy="120.5" r="10.5" fill="white"/>
+                                <circle cx="315.5" cy="120.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 203 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter62_d_114:184)">
-                                <circle cx="286.5" cy="104.5" r="10.5" fill="white"/>
+                                <circle cx="286.5" cy="104.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 115 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter63_d_114:184)">
-                                <circle cx="263.5" cy="76.5" r="10.5" fill="white"/>
+                                <circle cx="263.5" cy="76.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 258 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter64_d_114:184)">
-                                <circle cx="236.5" cy="56.5" r="10.5" fill="white"/>
+                                <circle cx="236.5" cy="56.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 285 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter65_d_114:184)">
-                                <circle cx="210.5" cy="37.5" r="10.5" fill="white"/>
+                                <circle cx="210.5" cy="37.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 306 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter66_d_114:184)">
-                                <circle cx="179.5" cy="23.5" r="10.5" fill="white"/>
+                                <circle cx="179.5" cy="23.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 10 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter67_d_114:184)">
-                                <circle cx="137.5" cy="18.5" r="10.5" fill="white"/>
+                                <circle cx="137.5" cy="18.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 307 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter68_d_114:184)">
-                                <circle cx="487.5" cy="197.5" r="10.5" fill="white"/>
+                                <circle cx="487.5" cy="197.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 252 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter69_d_114:184)">
-                                <circle cx="460.5" cy="171.5" r="10.5" fill="white"/>
+                                <circle cx="460.5" cy="171.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 253 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter70_d_114:184)">
-                                <circle cx="431.5" cy="150.5" r="10.5" fill="white"/>
+                                <circle cx="431.5" cy="150.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 254 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter71_d_114:184)">
-                                <circle cx="401.5" cy="130.5" r="10.5" fill="white"/>
+                                <circle cx="401.5" cy="130.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 257 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter72_d_114:184)">
-                                <circle cx="375.5" cy="106.5" r="10.5" fill="white"/>
+                                <circle cx="375.5" cy="106.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 288 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter73_d_114:184)">
-                                <circle cx="348.5" cy="81.5" r="10.5" fill="white"/>
+                                <circle cx="348.5" cy="81.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 289 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter74_d_114:184)">
-                                <circle cx="394.5" cy="49.5" r="10.5" fill="white"/>
+                                <circle cx="394.5" cy="49.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 218 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter75_d_114:184)">
-                                <circle cx="431.5" cy="57.5" r="10.5" fill="white"/>
+                                <circle cx="431.5" cy="57.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 211 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter76_d_114:184)">
-                                <circle cx="461.5" cy="70.5" r="10.5" fill="white"/>
+                                <circle cx="461.5" cy="70.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 208 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter77_d_114:184)">
-                                <circle cx="486.5" cy="91.5" r="10.5" fill="white"/>
+                                <circle cx="486.5" cy="91.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 199 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter78_d_114:184)">
-                                <circle cx="586.5" cy="146.5" r="10.5" fill="white"/>
+                                <circle cx="586.5" cy="146.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 286 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter79_d_114:184)">
-                                <circle cx="560.5" cy="123.5" r="10.5" fill="white"/>
+                                <circle cx="560.5" cy="123.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 287 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter80_d_114:184)">
-                                <circle cx="537.5" cy="89.5" r="10.5" fill="white"/>
+                                <circle cx="537.5" cy="89.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 251 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter81_d_114:184)">
-                                <circle cx="518.5" cy="50.5" r="10.5" fill="white"/>
+                                <circle cx="518.5" cy="50.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 210 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter82_d_114:184)">
-                                <circle cx="580.5" cy="45.5" r="10.5" fill="white"/>
+                                <circle cx="580.5" cy="45.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 178 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter83_d_114:184)">
-                                <circle cx="611.5" cy="49.5" r="10.5" fill="white"/>
+                                <circle cx="611.5" cy="49.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 123 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter84_d_114:184)">
-                                <circle cx="634.5" cy="70.5" r="10.5" fill="white"/>
+                                <circle cx="634.5" cy="70.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 102 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter85_d_114:184)">
-                                <circle cx="651.5" cy="102.5" r="10.5" fill="white"/>
+                                <circle cx="651.5" cy="102.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 92 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter86_d_114:184)">
-                                <circle cx="724.5" cy="55.5" r="10.5" fill="white"/>
+                                <circle cx="724.5" cy="55.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 264 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter87_d_114:184)">
-                                <circle cx="759.5" cy="57.5" r="10.5" fill="white"/>
+                                <circle cx="759.5" cy="57.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 266 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter88_d_114:184)">
-                                <circle cx="781.5" cy="74.5" r="10.5" fill="white"/>
+                                <circle cx="781.5" cy="74.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 267 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter89_d_114:184)">
-                                <circle cx="808.5" cy="86.5" r="10.5" fill="white"/>
+                                <circle cx="808.5" cy="86.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 268 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter90_d_114:184)">
-                                <circle cx="863.5" cy="34.5" r="10.5" fill="white"/>
+                                <circle cx="863.5" cy="34.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 23 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter91_d_114:184)">
-                                <circle cx="928.5" cy="73.5" r="10.5" fill="white"/>
+                                <circle cx="928.5" cy="73.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 79 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter92_d_114:184)">
-                                <circle cx="890.5" cy="166.5" r="10.5" fill="white"/>
+                                <circle cx="890.5" cy="166.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 144 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter93_d_114:184)">
-                                <circle cx="823.5" cy="246.5" r="10.5" fill="white"/>
+                                <circle cx="823.5" cy="246.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 240 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter94_d_114:184)">
-                                <circle cx="794.5" cy="273.5" r="10.5" fill="white"/>
+                                <circle cx="794.5" cy="273.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 225 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter95_d_114:184)">
-                                <circle cx="896.5" cy="308.5" r="10.5" fill="white"/>
+                                <circle cx="896.5" cy="308.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 7 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter96_d_114:184)">
-                                <circle cx="944.5" cy="290.5" r="10.5" fill="white"/>
+                                <circle cx="944.5" cy="290.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 110 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter97_d_114:184)">
-                                <circle cx="1000.5" cy="297.5" r="10.5" fill="white"/>
+                                <circle cx="1000.5" cy="297.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 108 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter98_d_114:184)">
-                                <circle cx="1031.5" cy="333.5" r="10.5" fill="white"/>
+                                <circle cx="1031.5" cy="333.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 101 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter99_d_114:184)">
-                                <circle cx="1036.5" cy="379.5" r="10.5" fill="white"/>
+                                <circle cx="1036.5" cy="379.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 96 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter100_d_114:184)">
-                                <circle cx="768.5" cy="296.5" r="10.5" fill="white"/>
+                                <circle cx="768.5" cy="296.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 131 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter101_d_114:184)">
-                                <circle cx="739.5" cy="317.5" r="10.5" fill="white"/>
+                                <circle cx="739.5" cy="317.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 86 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter102_d_114:184)">
-                                <circle cx="711.5" cy="334.5" r="10.5" fill="white"/>
+                                <circle cx="711.5" cy="334.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 83 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter103_d_114:184)">
-                                <circle cx="917.5" cy="140.5" r="10.5" fill="white"/>
+                                <circle cx="917.5" cy="140.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 71 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter104_d_114:184)">
-                                <circle cx="942.5" cy="116.5" r="10.5" fill="white"/>
+                                <circle cx="942.5" cy="116.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 21 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter105_d_114:184)">
-                                <circle cx="980.5" cy="107.5" r="10.5" fill="white"/>
+                                <circle cx="980.5" cy="107.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 163 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter106_d_114:184)">
-                                <circle cx="1015.5" cy="113.5" r="10.5" fill="white"/>
+                                <circle cx="1015.5" cy="113.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 72 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter107_d_114:184)">
-                                <circle cx="1048.5" cy="149.5" r="10.5" fill="white"/>
+                                <circle cx="1048.5" cy="149.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 145 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter108_d_114:184)">
-                                <circle cx="1028.5" cy="192.5" r="10.5" fill="white"/>
+                                <circle cx="1028.5" cy="192.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 179 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter109_d_114:184)">
-                                <circle cx="995.5" cy="223.5" r="10.5" fill="white"/>
+                                <circle cx="995.5" cy="223.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 244 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter110_d_114:184)">
-                                <circle cx="513.5" cy="119.5" r="10.5" fill="white"/>
+                                <circle cx="513.5" cy="119.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 197 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter111_d_114:184)">
-                                <circle cx="533.5" cy="150.5" r="10.5" fill="white"/>
+                                <circle cx="533.5" cy="150.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 14 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter112_d_114:184)">
-                                <circle cx="118.5" cy="106.5" r="10.5" fill="white"/>
+                                <circle cx="118.5" cy="106.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 57 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter113_d_114:184)">
-                                <circle cx="144.5" cy="120.5" r="10.5" fill="white"/>
+                                <circle cx="144.5" cy="120.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 1 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter114_d_114:184)">
-                                <circle cx="168.5" cy="143.5" r="10.5" fill="white"/>
+                                <circle cx="168.5" cy="143.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 304 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter115_d_114:184)">
-                                <circle cx="205.5" cy="170.5" r="10.5" fill="white"/>
+                                <circle cx="205.5" cy="170.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 316 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter116_d_114:184)">
-                                <circle cx="132.5" cy="184.5" r="10.5" fill="white"/>
+                                <circle cx="132.5" cy="184.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 122 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter117_d_114:184)">
-                                <circle cx="164.5" cy="202.5" r="10.5" fill="white"/>
+                                <circle cx="164.5" cy="202.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 120 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter118_d_114:184)">
-                                <circle cx="181.5" cy="227.5" r="10.5" fill="white"/>
+                                <circle cx="181.5" cy="227.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 13 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter119_d_114:184)">
-                                <circle cx="213.5" cy="257.5" r="10.5" fill="white"/>
+                                <circle cx="213.5" cy="257.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 52 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter120_d_114:184)">
-                                <circle cx="146.5" cy="302.5" r="10.5" fill="white"/>
+                                <circle cx="146.5" cy="302.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 132 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter121_d_114:184)">
-                                <circle cx="185.5" cy="331.5" r="10.5" fill="white"/>
+                                <circle cx="185.5" cy="331.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 136 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter122_d_114:184)">
-                                <circle cx="122.5" cy="376.5" r="10.5" fill="white"/>
+                                <circle cx="122.5" cy="376.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 323 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter123_d_114:184)">
-                                <circle cx="74.5" cy="423.5" r="10.5" fill="white"/>
+                                <circle cx="74.5" cy="423.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 175 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter124_d_114:184)">
-                                <circle cx="104.5" cy="423.5" r="10.5" fill="white"/>
+                                <circle cx="104.5" cy="423.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 174 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter125_d_114:184)">
-                                <circle cx="136.5" cy="424.5" r="10.5" fill="white"/>
+                                <circle cx="136.5" cy="424.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 167 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter126_d_114:184)">
-                                <circle cx="117.5" cy="657.5" r="10.5" fill="white"/>
+                                <circle cx="117.5" cy="657.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 160 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter127_d_114:184)">
-                                <circle cx="79.5" cy="791.5" r="10.5" fill="white"/>
+                                <circle cx="79.5" cy="791.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 170 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter128_d_114:184)">
-                                <circle cx="96.5" cy="844.5" r="10.5" fill="white"/>
+                                <circle cx="96.5" cy="844.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 171 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter129_d_114:184)">
-                                <circle cx="116.5" cy="866.5" r="10.5" fill="white"/>
+                                <circle cx="116.5" cy="866.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 172 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter130_d_114:184)">
-                                <circle cx="155.5" cy="870.5" r="10.5" fill="white"/>
+                                <circle cx="155.5" cy="870.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 173 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter131_d_114:184)">
-                                <circle cx="206.5" cy="854.5" r="10.5" fill="white"/>
+                                <circle cx="206.5" cy="854.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 185 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter132_d_114:184)">
-                                <circle cx="220.5" cy="823.5" r="10.5" fill="white"/>
+                                <circle cx="220.5" cy="823.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 313 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter133_d_114:184)">
-                                <circle cx="338.5" cy="801.5" r="10.5" fill="white"/>
+                                <circle cx="338.5" cy="801.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 158 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter134_d_114:184)">
-                                <circle cx="375.5" cy="815.5" r="10.5" fill="white"/>
+                                <circle cx="375.5" cy="815.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 312 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter135_d_114:184)">
-                                <circle cx="436.5" cy="805.5" r="10.5" fill="white"/>
+                                <circle cx="436.5" cy="805.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 169 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter136_d_114:184)">
-                                <circle cx="461.5" cy="770.5" r="10.5" fill="white"/>
+                                <circle cx="461.5" cy="770.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 157 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter137_d_114:184)">
-                                <circle cx="443.5" cy="742.5" r="10.5" fill="white"/>
+                                <circle cx="443.5" cy="742.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 155 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter138_d_114:184)">
-                                <circle cx="414.5" cy="715.5" r="10.5" fill="white"/>
+                                <circle cx="414.5" cy="715.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 154 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter139_d_114:184)">
-                                <circle cx="342.5" cy="496.5" r="10.5" fill="white"/>
+                                <circle cx="342.5" cy="496.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 317 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter140_d_114:184)">
-                                <circle cx="306.5" cy="493.5" r="10.5" fill="white"/>
+                                <circle cx="306.5" cy="493.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 308 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter141_d_114:184)">
-                                <circle cx="330.5" cy="465.5" r="10.5" fill="white"/>
+                                <circle cx="330.5" cy="465.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 280 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter142_d_114:184)">
-                                <circle cx="353.5" cy="440.5" r="10.5" fill="white"/>
+                                <circle cx="353.5" cy="440.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 261 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter143_d_114:184)">
-                                <circle cx="380.5" cy="423.5" r="10.5" fill="white"/>
+                                <circle cx="380.5" cy="423.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 259 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter144_d_114:184)">
-                                <circle cx="405.5" cy="402.5" r="10.5" fill="white"/>
+                                <circle cx="405.5" cy="402.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 303 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter145_d_114:184)">
-                                <circle cx="432.5" cy="378.5" r="10.5" fill="white"/>
+                                <circle cx="432.5" cy="378.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 194 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter146_d_114:184)">
-                                <circle cx="457.5" cy="358.5" r="10.5" fill="white"/>
+                                <circle cx="457.5" cy="358.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 67 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter147_d_114:184)">
-                                <circle cx="412.5" cy="298.5" r="10.5" fill="white"/>
+                                <circle cx="412.5" cy="298.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 165 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter148_d_114:184)">
-                                <circle cx="393.5" cy="284.5" r="10.5" fill="white"/>
+                                <circle cx="393.5" cy="284.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 164 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter149_d_114:184)">
-                                <circle cx="369.5" cy="268.5" r="10.5" fill="white"/>
+                                <circle cx="369.5" cy="268.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 161 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter150_d_114:184)">
-                                <circle cx="348.5" cy="257.5" r="10.5" fill="white"/>
+                                <circle cx="348.5" cy="257.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 33 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter151_d_114:184)">
-                                <circle cx="480.5" cy="412.5" r="10.5" fill="white"/>
+                                <circle cx="480.5" cy="412.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 192 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter152_d_114:184)">
-                                <circle cx="500.5" cy="389.5" r="10.5" fill="white"/>
+                                <circle cx="500.5" cy="389.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 5 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter153_d_114:184)">
-                                <circle cx="495" cy="354" r="23" fill="white"/>
+                                <circle cx="495" cy="354" r="23" fill="white" className={pressureApi[12].objectActionDto.pressure === 0 && pressureApi[12].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter154_d_114:184)">
-                                <circle cx="445" cy="315" r="23" fill="white"/>
+                                <circle cx="445" cy="315" r="23" fill="white" className={pressureApi[13].objectActionDto.pressure === 0 && pressureApi[13].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter155_d_114:184)">
-                                <circle cx="633" cy="147" r="23" fill="white"/>
+                                <circle cx="633" cy="147" r="23" fill="white" className={pressureApi[14].objectActionDto.pressure === 0 && pressureApi[14].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter156_d_114:184)">
-                                <circle cx="749" cy="155" r="23" fill="white"/>
+                                <circle cx="749" cy="155" r="23" fill="white" className={pressureApi[20].objectActionDto.pressure === 0 && pressureApi[20].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter157_d_114:184)">
-                                <circle cx="696" cy="267" r="23" fill="white"/>
+                                <circle cx="696" cy="267" r="23" fill="white" className={pressureApi[15].objectActionDto.pressure === 0 && pressureApi[15].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter158_d_114:184)">
-                                <circle cx="941" cy="195" r="23" fill="white"/>
+                                <circle cx="941" cy="195" r="23" fill="white" className={pressureApi[17].objectActionDto.pressure === 0 && pressureApi[17].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter159_d_114:184)">
-                                <circle cx="946" cy="349" r="23" fill="white"/>
+                                <circle cx="946" cy="349" r="23" fill="white" className={pressureApi[19].objectActionDto.pressure === 0 && pressureApi[19].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter160_d_114:184)">
-                                <circle cx="866" cy="91" r="23" fill="white"/>
+                                <circle cx="866" cy="91" r="23" fill="white" className={pressureApi[16].objectActionDto.pressure === 0 && pressureApi[16].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter161_d_114:184)">
-                                <circle cx="531" cy="190" r="23" fill="white"/>
+                                <circle cx="531" cy="190" r="23" fill="white" className={pressureApi[9].objectActionDto.pressure === 0 && pressureApi[9].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter162_d_114:184)">
-                                <circle cx="380" cy="208" r="23" fill="white"/>
+                                <circle cx="380" cy="208" r="23" fill="white" className={pressureApi[10].objectActionDto.pressure === 0 && pressureApi[10].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter163_d_114:184)">
-                                <circle cx="539" cy="416" r="23" fill="white"/>
+                                <circle cx="539" cy="416" r="23" fill="white" className={pressureApi[11].objectActionDto.pressure === 0 && pressureApi[11].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter164_d_114:184)">
-                                <circle cx="374" cy="733" r="23" fill="white"/>
+                                <circle cx="374" cy="733" r="23" fill="white" className={pressureApi[0].objectActionDto.pressure === 0 && pressureApi[0].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter165_d_114:184)">
-                                <circle cx="167" cy="789" r="23" fill="white"/>
+                                <circle cx="167" cy="789" r="23" fill="white" className={pressureApi[1].objectActionDto.pressure === 0 && pressureApi[1].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter166_d_114:184)">
-                                <circle cx="210" cy="636" r="23" fill="white"/>
+                                <circle cx="210" cy="636" r="23" fill="white" className={pressureApi[5].objectActionDto.pressure === 0 && pressureApi[5].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter167_d_114:184)">
-                                <circle cx="112" cy="555" r="23" fill="white"/>
+                                <circle cx="112" cy="555" r="23" fill="white" className={pressureApi[4].objectActionDto.pressure === 0 && pressureApi[4].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter168_d_114:184)">
-                                <circle cx="111" cy="468" r="23" fill="white"/>
+                                <circle cx="111" cy="468" r="23" fill="white" className={pressureApi[7].objectActionDto.pressure === 0 && pressureApi[7].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter169_d_114:184)">
-                                <circle cx="165" cy="376" r="23" fill="white"/>
+                                <circle cx="165" cy="376" r="23" fill="white" className={pressureApi[3].objectActionDto.pressure === 0 && pressureApi[3].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter170_d_114:184)">
-                                <circle cx="228" cy="213" r="23" fill="white"/>
+                                <circle cx="228" cy="213" r="23" fill="white" className={pressureApi[6].objectActionDto.pressure === 0 && pressureApi[6].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter171_d_114:184)">
-                                <circle cx="216" cy="293" r="23" fill="white"/>
+                                <circle cx="216" cy="293" r="23" fill="white" className={pressureApi[2].objectActionDto.pressure === 0 && pressureApi[2].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter172_d_114:184)">
-                                <circle cx="633" cy="458" r="23" fill="white"/>
+                                <circle cx="633" cy="458" r="23" fill="white" className={pressureApi[8].objectActionDto.pressure === 0 && pressureApi[8].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter173_d_114:184)">
-                                <circle cx="712" cy="533" r="23" fill="white"/>
+                                <circle cx="712" cy="533" r="23" fill="white" className={pressureApi[18].objectActionDto.pressure === 0 && pressureApi[18].objectActionDto.temperature === 0 ? "danger" : ""}/>
                             </g>
                             <g filter="url(#filter174_d_114:184)">
-                                <circle cx="504.5" cy="425.5" r="10.5" fill="white"/>
+                                <circle cx="504.5" cy="425.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 200 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter175_d_114:184)">
-                                <circle cx="548.5" cy="455.5" r="10.5" fill="white"/>
+                                <circle cx="548.5" cy="455.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 51 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter176_d_114:184)">
-                                <circle cx="587.5" cy="453.5" r="10.5" fill="white"/>
+                                <circle cx="587.5" cy="453.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 300 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter177_d_114:184)">
-                                <circle cx="740.5" cy="572.5" r="10.5" fill="white"/>
+                                <circle cx="740.5" cy="572.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 319 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter178_d_114:184)">
                                 <circle cx="901.5" cy="526.5" r="66.5" fill="white"/>
