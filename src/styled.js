@@ -1079,7 +1079,7 @@ export const ButtonReportApply = styled.button`
     box-shadow: 0 0 2px 2px rgba(52, 151, 218, 0.55);
   }
 `
-export const ButtonReportDownload = styled.button`
+export const ButtonReportDownload = styled.a`
   width: 150px;
   height: 40px;
   background: #6FE66C;
@@ -1088,12 +1088,14 @@ export const ButtonReportDownload = styled.button`
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-  line-height: 22px;
-  text-align: center;
   color: #FFFFFF;
   border: none;
   cursor: pointer;
   margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
   &:focus {
     box-shadow: 0 0 2px 2px rgba(111, 230, 108, 0.5);
   }

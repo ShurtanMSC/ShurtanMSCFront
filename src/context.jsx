@@ -213,6 +213,10 @@ const AppProvider = ({children}) => {
                 console.log(err)
             })
     }
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
@@ -221,10 +225,7 @@ const AppProvider = ({children}) => {
         // Get allWells
         takeAllWells();
         // PRESSURE_GET_API
-        let today = new Date();
-        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        let dateTime = date+' '+time;
+
         takeSpPressure();
         setRefresh(dateTime);
         setInterval(() => {
@@ -478,7 +479,7 @@ const AppProvider = ({children}) => {
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
         handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
-        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport,
+        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime,
     }
     return (
         <AppContext.Provider value={value}>

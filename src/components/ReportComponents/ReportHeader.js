@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AppContext} from "../../context";
 import {
     ContainerReportHeader,
     FormReportHeader,
@@ -17,6 +18,7 @@ import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const ReportHeader = ({handlerPrint, handlerShowTexReport}) => {
+    const {dateTime} = useContext(AppContext);
     return(
         <ContainerReportHeader>
             <FormReportHeader onSubmit={handlerShowTexReport}>
@@ -41,7 +43,7 @@ const ReportHeader = ({handlerPrint, handlerShowTexReport}) => {
                 <ButtonReportApply>Применить</ButtonReportApply>
             </FormReportHeader>
             <PrintDiv>
-                <ButtonReportDownload>Экспорт Excel</ButtonReportDownload>
+                <ButtonReportDownload href={"http://185.170.214.207:8080/api/report/test/" + "Tex - " + dateTime}>Экспорт Excel</ButtonReportDownload>
                 <FontAwesomeIconPrint icon={faPrint} onClick={handlerPrint} size='2x'/>
             </PrintDiv>
         </ContainerReportHeader>

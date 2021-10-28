@@ -1,12 +1,10 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {AppContext} from "../../context";
 import {ContainerReportBody, Table, Tr, Td, Th, TitleReportDiv, TitleReport, TitleP, TitleFooterDiv, TitleFooter, TdTotal, TdTotalCount, TitleH1} from '../../styled';
 import styled from 'styled-components';
 
 const ReportBody = ({componentRef, showTexReport}) => {
     const {pdfReport} = useContext(AppContext);
-
-
 
     return(
         <ContainerReportBody>
