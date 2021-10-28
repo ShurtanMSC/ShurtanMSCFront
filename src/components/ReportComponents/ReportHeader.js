@@ -16,10 +16,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
-const ReportHeader = ({handlerPrint}) => {
+const ReportHeader = ({handlerPrint, handlerShowTexReport}) => {
     return(
         <ContainerReportHeader>
-            <FormReportHeader>
+            <FormReportHeader onSubmit={handlerShowTexReport}>
                 <SelectDiv>
                     <LabelReportHeader htmlFor="reportAnalysis">Вид счета</LabelReportHeader>
                     <SelectReportHeader name="reportAnalysis" >
@@ -27,8 +27,7 @@ const ReportHeader = ({handlerPrint}) => {
                         <option>Анализ добычи</option>
                         <option>Потребление электроэнергии</option>
                         <option>Управление персоналом</option>
-                        <option>Технологический режим
-                            эксплуатации месторождений</option>
+                        <option>Технологический режим эксплуатации месторождений</option>
                     </SelectReportHeader>
                 </SelectDiv>
                 <InputDateDiv>

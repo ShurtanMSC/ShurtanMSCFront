@@ -1112,10 +1112,14 @@ export const PrintDiv = styled.div`
 /** ReportBody **/
 export const ContainerReportBody = styled.div`
   width:90%;
+  min-height: 75vh;
   background: #FFFFFF;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 1% 1.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 export const TitleReportDiv = styled.div`
   width: 100%;
@@ -1152,4 +1156,11 @@ export const TitleFooter = styled.div`
   align-items: center;
   margin: 50px 0 0 0;
   font-weight: 600;
+`
+export const TitleH1 = styled.h1`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  opacity: 0.5;
 `

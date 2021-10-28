@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { Window, ContainerFluid } from '../styled';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
@@ -8,16 +8,22 @@ import {useReactToPrint} from 'react-to-print';
 
 const Report = () => {
     const componentRef = useRef();
+    const [ showTexReport, setShowTexReport ] = useState(false);
+
     const handlerPrint = useReactToPrint({
         content: () => componentRef.current,
-    });
+    })
+    const handlerShowTexReport = e => {
+        e.preventDefault();
+        setShowTexReport(prev => !prev);
+    }
 
     return (
         <Window>
             <Navbar/>
             <ContainerFluidReport>
-                <ReportHeader handlerPrint={handlerPrint}/>
-                <ReportBody componentRef={componentRef}/>
+                <ReportHeader handlerPrint={handlerPrint} handlerShowTexReport={handlerShowTexReport}/>
+                <ReportBody componentRef={componentRef} showTexReport={showTexReport}/>
             </ContainerFluidReport>
         </Window>
     )

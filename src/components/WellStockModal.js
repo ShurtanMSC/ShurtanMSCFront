@@ -58,11 +58,11 @@ const WellStockModal = ({showWellStockModal, setShowWellStockModal, statStatus})
                     {statStatus.map((mining, index) =>
                         <Tr key={index}>
                             <TdFirst>{mining.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus.IN_WORK} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus.IN_IDLE} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus.IN_REPAIR} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus.IN_CONSERVATION} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={statStatus.IN_LIQUIDATION} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={mining.IN_WORK} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={mining.IN_IDLE} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={mining.IN_REPAIR} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={mining.IN_CONSERVATION} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={mining.IN_LIQUIDATION} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>

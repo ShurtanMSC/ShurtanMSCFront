@@ -1,36 +1,41 @@
-import React from 'react';
-import {ContainerReportBody, Table, Tr, Td, Th, TitleReportDiv, TitleReport, TitleP, TitleFooterDiv, TitleFooter, TdTotal, TdTotalCount} from '../../styled';
+import React, {useContext, useState} from 'react';
+import {AppContext} from "../../context";
+import {ContainerReportBody, Table, Tr, Td, Th, TitleReportDiv, TitleReport, TitleP, TitleFooterDiv, TitleFooter, TdTotal, TdTotalCount, TitleH1} from '../../styled';
 import styled from 'styled-components';
 
-const ReportBody = ({componentRef}) => {
+const ReportBody = ({componentRef, showTexReport}) => {
+    const {pdfReport} = useContext(AppContext);
+
+
+
     return(
         <ContainerReportBody>
-            <div ref={componentRef}>
-                <TitleReportDiv>
-                    <TitleReport>
-                        <TitleP>"Согласовано" <br/>
-                            Заместитель главного <br/>
-                            геолога  по технологии <br/>
-                            "Шуртанского" НГДУ <br/>
-                            ___________ Б.Х.Очилов <br/>
-                            "______" _____________ 2021 г.
-                        </TitleP>
-                        <TitleP>"Утверждаю" <br/>
-                            Главный геолог <br/>
-                            "Шуртанского" НГДУ <br/>
-                            ___________ З.Б.Нематов <br/>
-                            "_______" _____________ 2021 г.
-                        </TitleP>
-                    </TitleReport>
-                    <div>
-                        <TitleP>Технологический режим работы <br/>
-                           эксплуатации газовых скважин по месторождению Шуртан на март месяц 2021 года
-                        </TitleP>
-                    </div>
-                </TitleReportDiv>
-                <TableReportBody >
-
-                    <thead>
+            {showTexReport ? (
+                <div ref={componentRef}>
+                    <TitleReportDiv>
+                        <TitleReport>
+                            <TitleP>"Согласовано" <br/>
+                                Заместитель главного <br/>
+                                геолога  по технологии <br/>
+                                "Шуртанского" НГДУ <br/>
+                                ___________ Б.Х.Очилов <br/>
+                                "______" _____________ 2021 г.
+                            </TitleP>
+                            <TitleP>"Утверждаю" <br/>
+                                Главный геолог <br/>
+                                "Шуртанского" НГДУ <br/>
+                                ___________ З.Б.Нематов <br/>
+                                "_______" _____________ 2021 г.
+                            </TitleP>
+                        </TitleReport>
+                        <div>
+                            <TitleP>Технологический режим работы <br/>
+                                эксплуатации газовых скважин по месторождению Шуртан на март месяц 2021 года
+                            </TitleP>
+                        </div>
+                    </TitleReportDiv>
+                    <TableReportBody>
+                        <thead style={{position:'sticky', top:'0'}}>
                         <Tr>
                             <ThReport rowSpan="3">№</ThReport>
                             <ThReport rowSpan="3">№ скв</ThReport>
@@ -43,7 +48,7 @@ const ReportBody = ({componentRef}) => {
                         <Tr>
                             <ThReport rowSpan="2">Искус, <br/> забоя</ThReport>
                             <ThReport colSpan="2">Интервала <br/> перфорации</ThReport>
-                            <ThReport rowSpan="2"></ThReport>
+                            <ThReport rowSpan="2">C</ThReport>
                             <ThReport colSpan="2">Подвески <br/> НКТ</ThReport>
                             <ThReport rowSpan="2">Dшт, <br/> мм</ThReport>
                             <ThReport colSpan="6">Давление, кгс/см2</ThReport>
@@ -65,16 +70,16 @@ const ReportBody = ({componentRef}) => {
                             <ThReport>Рзтр</ThReport>
                             <ThReport>Рстат</ThReport>
                             <ThReport>Рзаб</ThReport>
-                            <ThReport>Рил</ThReport>
-                            <ThReport>^Р</ThReport>
+                            <ThReport>Рпл</ThReport>
+                            <ThReport>ΔР</ThReport>
                             <ThReport>газа <br/>тыс.м3/сут</ThReport>
                             <ThReport>конден, <br/>т/сут.</ThReport>
                             <ThReport>Ртр</ThReport>
                             <ThReport>Рзтр</ThReport>
                             <ThReport>Рстат</ThReport>
                             <ThReport>Рзаб</ThReport>
-                            <ThReport>Рил</ThReport>
-                            <ThReport>^Р</ThReport>
+                            <ThReport>Рпл</ThReport>
+                            <ThReport>ΔР</ThReport>
                             <ThReport>газа <br/>тыс.м3/сут</ThReport>
                             <ThReport>конден, <br/>т/сут.</ThReport>
                         </Tr>
@@ -112,214 +117,46 @@ const ReportBody = ({componentRef}) => {
                             <ThReport>31</ThReport>
                             <ThReport>21</ThReport>
                         </Tr>
-                    </thead>
-                    <tbody>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                        <Tr>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>1</TdReportBody>
-                            <TdReportBody>XV-HP</TdReportBody>
-                            <TdReportBody>140</TdReportBody>
-                            <TdReportBody>3270</TdReportBody>
-                            <TdReportBody>2797</TdReportBody>
-                            <TdReportBody>2806</TdReportBody>
-                            <TdReportBody>89</TdReportBody>
-                            <TdReportBody>73/89</TdReportBody>
-                            <TdReportBody>2887</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>16.3</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>31.2</TdReportBody>
-                            <TdReportBody>35.3</TdReportBody>
-                            <TdReportBody>37.2</TdReportBody>
-                            <TdReportBody>1.9</TdReportBody>
-                            <TdReportBody>139</TdReportBody>
-                            <TdReportBody>3.7</TdReportBody>
-                            <TdReportBody>17.4</TdReportBody>
-                            <TdReportBody>9.6</TdReportBody>
-                            <TdReportBody> </TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>14</TdReportBody>
-                            <TdReportBody>30.3</TdReportBody>
-                            <TdReportBody>34.6</TdReportBody>
-                            <TdReportBody>36.0</TdReportBody>
-                            <TdReportBody>1.4</TdReportBody>
-                            <TdReportBody>138</TdReportBody>
-                            <TdReportBody>3.8</TdReportBody>
-                            <TdReportBody>21.7</TdReportBody>
-                            <TdReportBody>9.7</TdReportBody>
-                        </Tr>
-                    </tbody>
-                    <tfoot>
+                        </thead>
+                        <tbody>
+                        {pdfReport.map((report, key) =>
+                            <Tr key={key}>
+                                <TdReportBody>{report.nomer}</TdReportBody>
+                                <TdReportBody>1</TdReportBody>
+                                <TdReportBody>{report.gorizont}</TdReportBody>
+                                <TdReportBody>{report.d_eks_kol}</TdReportBody>
+                                <TdReportBody>{report.iskus_zaboy}</TdReportBody>
+                                <TdReportBody>{report.verx}</TdReportBody>
+                                <TdReportBody>{report.nijn}</TdReportBody>
+                                <TdReportBody>{report.c}</TdReportBody>
+                                <TdReportBody>{report.d}</TdReportBody>
+                                <TdReportBody>{report.l}</TdReportBody>
+                                <TdReportBody>{report.d_sht1}</TdReportBody>
+                                <TdReportBody>{report.r_tr1}</TdReportBody>
+                                <TdReportBody>{report.r_ztr1}</TdReportBody>
+                                <TdReportBody>{report.r_stat1}</TdReportBody>
+                                <TdReportBody>{report.r_zab1}</TdReportBody>
+                                <TdReportBody>{Math.round(report.r_pl1*10)/10}</TdReportBody>
+                                <TdReportBody>{Math.round(report.delta_R1*10)/10}</TdReportBody>
+                                <TdReportBody>{Math.round(report.debit_gaz1*10)/10}</TdReportBody>
+                                <TdReportBody>{report.debit_kondensat1}</TdReportBody>
+                                <TdReportBody>{report.ustevaya_skorost1}</TdReportBody>
+                                <TdReportBody>{report.zaboynaya_skorost1}</TdReportBody>
+                                <TdReportBody>{report.d_sht2} </TdReportBody>
+                                <TdReportBody>{report.r_tr2}</TdReportBody>
+                                <TdReportBody>{report.r_ztr2}</TdReportBody>
+                                <TdReportBody>{report.r_stat2}</TdReportBody>
+                                <TdReportBody>{report.r_zab2}</TdReportBody>
+                                <TdReportBody>{Math.round(report.r_pl2*10)/10}</TdReportBody>
+                                <TdReportBody>{Math.round(report.delta_R2*10)/10}</TdReportBody>
+                                <TdReportBody>{Math.round(report.debit_gaz2*10)/10}</TdReportBody>
+                                <TdReportBody>{report.debit_kondensat2}</TdReportBody>
+                                <TdReportBody>{report.ustevaya_skorost2}</TdReportBody>
+                                <TdReportBody>{report.zaboynaya_skorost2}</TdReportBody>
+                            </Tr>
+                        )}
+                        </tbody>
+                        <tfoot>
                         <Tr>
                             <TdTotalReport colSpan="10">Среднее по месторождению</TdTotalReport>
                             <TdTotalCountReport> </TdTotalCountReport>
@@ -370,19 +207,21 @@ const ReportBody = ({componentRef}) => {
                             <TdTotalCountReport> </TdTotalCountReport>
                             <TdTotalCountReport> </TdTotalCountReport>
                         </Tr>
-                    </tfoot>
-                </TableReportBody>
-                <TitleFooterDiv>
-                    <TitleFooter>
-                        <p>Начальник отдела РНиГМ:</p>
-                        <p>А.У.Шоймардонов</p>
-                    </TitleFooter>
-                    <TitleFooter>
-                        <p>Ведущий инженер отдела РНиГМ:</p>
-                        <p>И.В.Жумаев</p>
-                    </TitleFooter>
-                </TitleFooterDiv>
-            </div>
+                        </tfoot>
+                    </TableReportBody>
+                    <TitleFooterDiv>
+                        <TitleFooter>
+                            <p>Начальник отдела РНиГМ:</p>
+                            <p>А.У.Шоймардонов</p>
+                        </TitleFooter>
+                        <TitleFooter>
+                            <p>Ведущий инженер отдела РНиГМ:</p>
+                            <p>И.В.Жумаев</p>
+                        </TitleFooter>
+                    </TitleFooterDiv>
+                </div>
+            ) : <TitleH1>ВЫБЕРИТЕ ОТЧЕТ</TitleH1>}
+
         </ContainerReportBody>
     )
 }
@@ -393,7 +232,6 @@ const ThReport = styled(Th)`
 `
 const TableReportBody = styled(Table)`
   width:100%;
-  
 `
 const TdReportBody = styled(Td)`
   border: 1px solid #F4B790;

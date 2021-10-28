@@ -8,7 +8,7 @@ import AddGasModal from './AddGasModal'
 import CountUp from 'react-countup'
 
 const AddGas = () => {
-    const {nameAllMining} = useContext(AppContext);
+    const {addGas, totalAddGas} = useContext(AppContext);
 
     const [showAddGassModal, setShowAddGassModal] = useState(false);
 
@@ -39,25 +39,25 @@ const AddGas = () => {
                 </Tr>
                 </thead>
                 <tbody>
-                {nameAllMining.map((mining, key) =>
+                {addGas.map((mining, key) =>
                     <Tr key={key}>
-                        <TdFirst>{mining.name}</TdFirst>
-                        <Td> <CountUp end={500} duration={2}/> </Td>
-                        <Td> <CountUp end={8000} duration={4}/> </Td>
-                        <Td> <CountUp end={9000} duration={5}/> </Td>
+                        <TdFirst>{mining.objectDto !== null ? mining.objectDto.name : ""}</TdFirst>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.expend : ""} duration={2}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.expend*24 : ""} duration={4}/> </Td>
+                        <Td> <CountUp end={0} duration={5}/> </Td>
                     </Tr>
                 )}
                 </tbody>
                 <tfoot>
                 <Tr>
                     <TdTotal>Итого</TdTotal>
-                    <TdTotalCount> <CountUp end={500} duration={2}/> </TdTotalCount>
-                    <TdTotalCount> <CountUp end={8000} duration={4}/> </TdTotalCount>
-                    <TdTotalCount> <CountUp end={9000} duration={5}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={totalAddGas} duration={2}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={totalAddGas*24} duration={4}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={0} duration={5}/> </TdTotalCount>
                 </Tr>
                 </tfoot>
             </TableAddGas>
-            <AddGasModal showAddGassModal={showAddGassModal} setShowAddGassModal={setShowAddGassModal} nameAllMining={nameAllMining}/>
+            <AddGasModal showAddGassModal={showAddGassModal} setShowAddGassModal={setShowAddGassModal} addGas={addGas}/>
         </>
     )
 }

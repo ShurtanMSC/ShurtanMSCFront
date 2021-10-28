@@ -1,8 +1,10 @@
 import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
-import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
+import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer,
+    // SaveBtnModal,
+    CloseBtnModal } from '../styled'
 
-const AddGasModal = ({showAddGassModal, setShowAddGassModal, nameAllMining}) => {
+const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -49,12 +51,12 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal, nameAllMining}) => 
                         </Tr>
                     </thead>
                     <tbody>
-                    {nameAllMining.map((mining, key) =>
+                    {addGas.map((mining, key) =>
                         <Tr key={key}>
-                            <TdFirst>{mining.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" value="500" disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" value="8000" disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" value="9000" disabled/> </Td>
+                            <TdFirst>{mining.objectDto !== null ? mining.objectDto.name : ""}</TdFirst>
+                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? mining.objectActionDto.expend : "0"} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? mining.objectActionDto.expend*24 : "0"} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value="0" disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>
@@ -64,7 +66,7 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal, nameAllMining}) => 
                         <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
                     </div>
                     <div>
-                        <SaveBtnModal>Сохранит</SaveBtnModal>
+                        {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                         <CloseBtnModal 
                             aria-label='Close modal' 
                             onClick={()=> setShowAddGassModal(prev => !prev)}>Закрыт

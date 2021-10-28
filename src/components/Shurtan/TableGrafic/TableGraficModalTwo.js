@@ -149,16 +149,16 @@ const TableGraficModalTwo = ({showTableGraficModalTwo, setShowTableGraficModalTw
                                         count.map(number =>
                                             <Tr key={number}>
                                                 <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(dataCond[number*2-2].month)}</label> </TdFirst>
-                                                <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year"+number} defaultValue={dataCond[number*2-2].amount} required /> </Td>
-                                                <Td> <InputModal min="1" id={"t"+number} type="number"  name={"Year" + number} defaultValue={dataCond[number*2-1].amount} required /> </Td>
+                                                <Td> <InputModal min="1" step="any" id={"l"+number} type="number" name={"Year"+number} defaultValue={dataCond[number*2-2].amount} required /> </Td>
+                                                <Td> <InputModal min="1" step="any" id={"t"+number} type="number"  name={"Year" + number} defaultValue={dataCond[number*2-1].amount} required /> </Td>
                                             </Tr>
                                         )
                                         :
                                         count.map(number =>
                                             <Tr key={number}>
                                                 <TdFirst> <label htmlFor={"Year"+number}>{findMonthName(findMonth(number))}</label> </TdFirst>
-                                                <Td> <InputModal min="1" id={"l"+number} type="number" name={"Year" + number} required /> </Td>
-                                                <Td> <InputModal min="1" id={"t"+number} type="number" name={"Year" + number} required /> </Td>
+                                                <Td> <InputModal min="1" step="any" id={"l"+number} type="number" name={"Year" + number} required /> </Td>
+                                                <Td> <InputModal min="1" step="any" id={"t"+number} type="number" name={"Year" + number} required /> </Td>
                                             </Tr>
                                         )
                                     }

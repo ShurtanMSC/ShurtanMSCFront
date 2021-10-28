@@ -94,6 +94,10 @@ const AppProvider = ({children}) => {
     const [showConsumedElectricity, setShowConsumedElectricity] = useState(false);
     /** Search Wells **/
     const [ selectedWell, setSelectedWell ] = useState();
+    /** Dobicha Gaza **/
+    const [ addGas, setAddGas ] = useState([]);
+    /** Call Pdf Report Api **/
+    const [ pdfReport, setPdfReport ] = useState([]);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -240,6 +244,15 @@ const AppProvider = ({children}) => {
             .catch(err => {console.log(err)})
         /** Get Electric All Last **/
         takeElectric();
+        /** Dobicha Gaza **/
+        axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
+            .then(res => {setAddGas(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
+        /** Call Pdf Report Api **/
+        axios.get(BASE_URL + '/api/report/interval?mining_system_id='+ 1 +'&start=' + '2222-12-22' + '&end=' + '2222-12-22' , configHeader)
+            .then(res => {setPdfReport(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
+
     }, []);
 
     // WELL_OPERATION
@@ -343,6 +356,11 @@ const AppProvider = ({children}) => {
         totalInConservation = totalInConservation + statStatus[i].IN_CONSERVATION;
         totalInLiquidation = totalInConservation + statStatus[i].IN_LIQUIDATION;
         AllTotal = totalInWork + totalInIdle + totalInRepair + totalInConservation + totalInLiquidation;
+    }
+    /** Dobicha Gas Total **/
+    let totalAddGas = 0;
+    for (let add = 0; add < addGas.length; add++) {
+        totalAddGas = totalAddGas + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.expend : "");
     }
     /** Change Status Name **/
     const findStatus = (status) => {
@@ -460,7 +478,7 @@ const AppProvider = ({children}) => {
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
         handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
-        handlerWellSearch, selectedWell,
+        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport,
     }
     return (
         <AppContext.Provider value={value}>
