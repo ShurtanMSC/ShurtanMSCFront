@@ -89,7 +89,7 @@ const AppProvider = ({children}) => {
     /** Post Electric **/
     const [ electricHourly, setElectricHourly] = useState('');
     /** Get Electric All Last **/
-    const [ getElectric, setGetElectric ] = useState(null);
+    const [ getElectric, setGetElectric ] = useState([]);
     /** Show Electric Modal **/
     const [showConsumedElectricity, setShowConsumedElectricity] = useState(false);
     /** Search Wells **/
@@ -98,6 +98,8 @@ const AppProvider = ({children}) => {
     const [ addGas, setAddGas ] = useState([]);
     /** Call Pdf Report Api **/
     const [ pdfReport, setPdfReport ] = useState([]);
+    /** Call Gas Balans Api **/
+    const [ gasBalans, setGasBalans ] = useState([]);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -253,7 +255,10 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/report/interval?mining_system_id='+ 1 +'&start=' + '2222-12-22' + '&end=' + '2222-12-22' , configHeader)
             .then(res => {setPdfReport(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
-
+        /** Call Gas Balans Api **/
+        axios.get(BASE_URL + '/api/gas_composition/molar/all', configHeader)
+            .then(res => {setGasBalans(res.data.object); console.log(res.data.object)})
+            .catch(err => {console.log(err)})
     }, []);
 
     // WELL_OPERATION
@@ -400,11 +405,11 @@ const AppProvider = ({children}) => {
         e.preventDefault();
 
         const DataElectric = [];
-            if(nameAllMining){
-                for (let m = 0; m < nameAllMining.length; m++){
+            if(getElectric){
+                for (let m = 0; m < getElectric.length; m++){
                     DataElectric.push({
                         daily: 0,
-                        hourly: electricHourly ? electricHourly : (getElectric !==null ? getElectric[m].hourly : 0),
+                        hourly: electricHourly ? electricHourly : getElectric[m].hourly,
                         id: 0,
                         miningSystemId: nameAllMining[m].id,
                         monthly: 0,
@@ -479,7 +484,7 @@ const AppProvider = ({children}) => {
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
         handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
-        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime,
+        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans,
     }
     return (
         <AppContext.Provider value={value}>

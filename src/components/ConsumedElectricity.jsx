@@ -8,7 +8,7 @@ import ConsumesElectricityModal from './ConsumesElectricityModal'
 import CountUp from 'react-countup'
 
 const ConsumedElectricity = () => {
-    const {nameAllMining, showConsumedElectricity, setShowConsumedElectricity, getElectric} = useContext(AppContext)
+    const {showConsumedElectricity, setShowConsumedElectricity, getElectric} = useContext(AppContext)
 
     const openModal = () => {
         setShowConsumedElectricity(prev => !prev)
@@ -38,13 +38,13 @@ const ConsumedElectricity = () => {
             </Tr>
             </thead>
             <tbody>
-            {nameAllMining.map((mining, index) =>
+            {getElectric.map((mining, index) =>
                 <Tr key={index}>
-                    <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].hourly : 0} duration={4} /> </Td>
-                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].daily : 0} duration={4}/> </Td>
-                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].monthly : 0} duration={3}/> </Td>
-                    <Td> <CountUp end={getElectric && getElectric[index]!==null ? getElectric[index].yearly : 0} duration={5}/> </Td>
+                    <TdFirst>{mining.miningSystemName}</TdFirst>
+                    <Td> <CountUp end={mining.hourly} duration={4} /> </Td>
+                    <Td> <CountUp end={mining.daily} duration={4}/> </Td>
+                    <Td> <CountUp end={mining.monthly} duration={3}/> </Td>
+                    <Td> <CountUp end={mining.yearly} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
@@ -59,7 +59,7 @@ const ConsumedElectricity = () => {
             </tfoot>
         </TableConsumedElectricity>
         <ConsumesElectricityModal showConsumedElectricity={showConsumedElectricity} setShowConsumedElectricity={setShowConsumedElectricity}
-                                  nameAllMining={nameAllMining} getElectric={getElectric}/>
+                                  getElectric={getElectric}/>
         </>
     )
 }

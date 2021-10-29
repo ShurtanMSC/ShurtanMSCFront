@@ -16,13 +16,13 @@ const App = () => {
                         <Admin />
                     </Route>
                     <Route exact path="/mainPage">
-                        {localStorage.getItem(TOKEN) ? <MainPage/> : <Admin/>}
+                       <MainPage/> {/*{localStorage.getItem(TOKEN) ? <MainPage/> : <Admin/>}*/}
                     </Route>
                     <Route exact path="/shurtan">
-                        {localStorage.getItem(TOKEN) ? <Shurtan/> : <Admin/>}
+                       <Shurtan/> {/*{localStorage.getItem(TOKEN) ? <Shurtan/> : <Admin/>}*/}
                     </Route>
                     <Route exact path="/reports">
-                        {localStorage.getItem(TOKEN) ? <Report/> : <Admin/>}
+                       <Report/> {/*{localStorage.getItem(TOKEN) ? <Report/> : <Admin/>}*/}
                     </Route>
                 </Switch>
             </div>

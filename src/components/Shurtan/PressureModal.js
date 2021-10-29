@@ -130,9 +130,28 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                     <tbody>
                                     <Tr>
                                         <TdFirst>{id}</TdFirst>
-                                        <TdUp> <InputModal id={'temperature_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""} onChange={handlerRsp} required/> </TdUp>
-                                        <TdUp> <InputModal type="text" name="name" value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""} disabled/></TdUp>
-                                        <TdUp> <InputModal id={'pressure_cp'} type="text" name="name" defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""} onChange={handlerTemp} required/> </TdUp>
+                                        <TdUp> <InputModal
+                                            id={'temperature_cp'}
+                                            type="text"
+                                            name="name"
+                                            defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.pressure)*10)/10 : ""}
+                                            onChange={handlerRsp}
+                                            required/>
+                                        </TdUp>
+                                        <TdUp> <InputModal
+                                            type="text"
+                                            name="name"
+                                            value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""}
+                                            disabled/>
+                                        </TdUp>
+                                        <TdUp> <InputModal
+                                            id={'pressure_cp'}
+                                            type="text"
+                                            name="name"
+                                            defaultValue={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.temperature)*10)/10 : ""}
+                                            onChange={handlerTemp}
+                                            required/>
+                                        </TdUp>
                                     </Tr>
                                     </tbody>
                                 </TableUp>
@@ -152,10 +171,28 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                     {wellPressureModal.map(el =>
                                         <Tr key={el.objectDto.number}>
                                             <TdFirst>{el.objectDto.number}</TdFirst>
-                                            <Td> <InputModal id={'pressure_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.pressure}/> </Td>
-                                            <Td> <InputModal id={'rpl_well'+el.objectDto.id} type="text"  name="name" defaultValue={Math.round(el.objectActionDto.rpl*10)/10}/> </Td>
-                                            <Td> <InputModal type="text"  name="name" value={Math.round(el.objectActionDto.expend*10)/10} disabled/> </Td>
-                                            <Td> <InputModal id={'temperature_well'+el.objectDto.id} type="text"  name="name" defaultValue={el.objectActionDto.temperature}/> </Td>
+                                            <Td> <InputModal
+                                                id={'pressure_well'+el.objectDto.id}
+                                                type="text"
+                                                name="name"
+                                                defaultValue={el.objectActionDto.pressure}/>
+                                            </Td>
+                                            <Td> <InputModal
+                                                id={'rpl_well'+el.objectDto.id}
+                                                type="text"  name="name"
+                                                defaultValue={Math.round(el.objectActionDto.rpl*10)/10}/>
+                                            </Td>
+                                            <Td> <InputModal
+                                                type="text"
+                                                name="name"
+                                                value={Math.round(el.objectActionDto.expend*10)/10}
+                                                disabled/> </Td>
+                                            <Td> <InputModal
+                                                id={'temperature_well'+el.objectDto.id}
+                                                type="text"
+                                                name="name"
+                                                defaultValue={el.objectActionDto.temperature}/>
+                                            </Td>
                                             <Td>
                                                 <SelectModal id={'status_well'+el.objectDto.id} defaultValue={el.objectActionDto.status}>
                                                     <option value="IN_WORK">в работе</option>

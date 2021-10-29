@@ -54,13 +54,13 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                         </Tr>
                     </thead>
                     <tbody>
-                    {nameAllMining.map((mining, index) =>
+                    {getElectric.map((mining, index) =>
                         <Tr key={index}>
-                            <TdFirst>{mining.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].hourly ? getElectric[index].hourly : 0} onChange={handlerElectric} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].daily ? getElectric[index].daily : 0} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].monthly? getElectric[index].monthly : 0} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" defaultValue={getElectric && getElectric[index]!==null && getElectric[index].yearly? getElectric[index].yearly : 0} disabled/> </Td>
+                            <TdFirst>{mining.miningSystemName}</TdFirst>
+                            <Td> <InputModal type="number" id={'electricHourly'} name="name" defaultValue={mining.hourly} onChange={handlerElectric} required/> </Td>
+                            <Td> <InputModal type="number" id={'electricDaily' + mining.daily} name="name" defaultValue={mining.daily} disabled/> </Td>
+                            <Td> <InputModal type="number" id={'electricMonthly' + mining.monthly} name="name" defaultValue={mining.monthly} disabled/> </Td>
+                            <Td> <InputModal type="number" id={'electricYearly' + mining.yearly} name="name" defaultValue={mining.yearly} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>
