@@ -86,8 +86,6 @@ const AppProvider = ({children}) => {
     const [allUppg, setAllUppg] = useState([]);
     /** Name All Mining **/
     const [ nameAllMining, setNameAllMining] = useState([]);
-    /** Post Electric **/
-    const [ electricHourly, setElectricHourly] = useState('');
     /** Get Electric All Last **/
     const [ getElectric, setGetElectric ] = useState([]);
     /** Show Electric Modal **/
@@ -100,6 +98,9 @@ const AppProvider = ({children}) => {
     const [ pdfReport, setPdfReport ] = useState([]);
     /** Call Gas Balans Api **/
     const [ gasBalans, setGasBalans ] = useState([]);
+    /** Post Shurtan Electric Api **/
+    const [ shurtanElectric, setShurtanElectric ] = useState('');
+    const [showElectricity, setShowElectricity] = useState(false);
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -368,6 +369,11 @@ const AppProvider = ({children}) => {
     for (let add = 0; add < addGas.length; add++) {
         totalAddGas = totalAddGas + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.expend : "");
     }
+    /** Post Shurtan Electric Api Total **/
+    let totalElectric = 0;
+    for (let e = 0; e < getElectric.length; e++) {
+        totalElectric = totalElectric + (getElectric[e] !==null ? getElectric[e].hourly : "")
+    }
     /** Change Status Name **/
     const findStatus = (status) => {
         if(!status){
@@ -396,36 +402,32 @@ const AppProvider = ({children}) => {
             default: return ""
         }
     }
-    /** Post Electric Api **/
-    const handlerElectric = (e) => {
-        setElectricHourly(e.target.value);
-        console.log(electricHourly);
+
+    /** Post Shurtan Electric Api **/
+    const handlerShurtanElectric = e => {
+        setShurtanElectric(e.target.value);
     }
-     const onSubmitElectric = e => {
+    const onSubmitElectricShurtan = e => {
         e.preventDefault();
-
-        const DataElectric = [];
-            if(getElectric){
-                for (let m = 0; m < getElectric.length; m++){
-                    DataElectric.push({
-                        daily: 0,
-                        hourly: electricHourly ? electricHourly : getElectric[m].hourly,
-                        id: 0,
-                        miningSystemId: nameAllMining[m].id,
-                        monthly: 0,
-                        yearly: 0
-                    })
-                }
-
-            }
-        console.log(DataElectric)
-        axios.post(BASE_URL + '/api/electricity/add/all', DataElectric, configHeader)
-            .then(res => {console.log(res); takeElectric();})
-            .catch(err => {console.log(err)})
-        setShowConsumedElectricity(prev => !prev);
-        setElectricHourly('');
+        const dataShurtanElectric = {
+            daily: 0,
+            hourly: shurtanElectric,
+            miningSystemId: 1,
+            miningSystemName: "string",
+            monthly: 0,
+            yearly: 0
+        }
+        console.log(dataShurtanElectric)
+        axios.post(BASE_URL + '/api/electricity/add', dataShurtanElectric, configHeader)
+            .then(res => {
+                console.log(res); takeElectric();
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        setShowElectricity(prev => !prev);
+        setShurtanElectric('');
     }
-
     /** Tanlangan skvajinani selectWellga o'zlashtirish **/
     const handlerWellSearch = (e) => {
 
@@ -483,8 +485,9 @@ const AppProvider = ({children}) => {
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp, findStatus, findColor,
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
-        handlerElectric, electricHourly, onSubmitElectric, showConsumedElectricity, setShowConsumedElectricity, getElectric,
-        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans,
+        showConsumedElectricity, setShowConsumedElectricity, getElectric,
+        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
+        handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric,
     }
     return (
         <AppContext.Provider value={value}>

@@ -22,7 +22,7 @@ import {configHeader} from '../utills/congifHeader';
 import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
-    const {openRegistrationWell, openWellOperation} = useContext(AppContext);
+    const {openRegistrationWell, openWellOperation, showElectricity, setShowElectricity} = useContext(AppContext);
 
     const [currentDay, setCurrentDay] = useState('');
     const [hours, setHours] = useState('0');
@@ -34,7 +34,7 @@ const Navbar = () => {
     const [openShurtan, setOpenShurtan ] = useState(false);
 
     const [showModal, setShowModal] = useState(false);
-    const [showElectricity, setShowElectricity] = useState(false);
+
     const [showPersonnel, setShowPersonnel] = useState(false);
     const [showParameters, setShowParameters] = useState(false);
     const [showTechnological, setShowTechnological] = useState(false);

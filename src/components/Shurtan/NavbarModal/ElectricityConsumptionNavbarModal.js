@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useCallback, useContext } from 'react';
+import {AppContext} from "../../../context";
 import { motion, AnimatePresence } from 'framer-motion'
 import { AddGasNavbarModalDiv, NavbarModalP, NavbarModalInput,
     CurrentMonthDiv, AddFactDiv, DataP, ButtonNavbarCancel,
-    ButtonNavbarSave, ButtonDiv, DateInputDiv, DateInputNavbar, GeneralDiv } from '../../../styled'
+    ButtonNavbarSave, ButtonDiv } from '../../../styled'
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -22,6 +23,8 @@ const modal = {
 }
 
 const ElectricityConsumptionNavbarModal = ({showElectricity, setShowElectricity}) => {
+    const {shurtanElectric, onSubmitElectricShurtan, handlerShurtanElectric} = useContext(AppContext);
+
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -55,44 +58,35 @@ const ElectricityConsumptionNavbarModal = ({showElectricity, setShowElectricity}
                                 variants={modal}
                     >
                         <AddGasNavbarModalDiv>
-                            <form>
+                            <form onSubmit={onSubmitElectricShurtan}>
                                 <CurrentMonthDiv>
                                     <div>
                                         <NavbarModalP>Часовая</NavbarModalP>
-                                        <NavbarModalInput type="number" name="number"/>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            value={shurtanElectric}
+                                            onChange={handlerShurtanElectric}/>
                                     </div>
                                     <AddFactDiv>
                                         <NavbarModalP>С начала суток</NavbarModalP>
-                                        <NavbarModalInput type="number" name="number"/>
+                                        <NavbarModalInput type="number" name="number" value={shurtanElectric*24}/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
                                 <CurrentMonthDiv>
                                     <div>
                                         <NavbarModalP>С начала месяца</NavbarModalP>
-                                        <NavbarModalInput type="number" name="number"/>
+                                        <NavbarModalInput type="number" name="number" value={shurtanElectric*24*30}/>
                                     </div>
                                     <AddFactDiv>
                                         <NavbarModalP>С начала года</NavbarModalP>
-                                        <NavbarModalInput type="number" name="number"/>
+                                        <NavbarModalInput type="number" name="number" value={shurtanElectric*24*365}/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
                                 <div>
                                     <NavbarModalP>Дата ввода данных</NavbarModalP>
                                     <DataP>2021-06-17 14:49:22</DataP>
                                 </div>
-                                <ButtonDiv>
-                                    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
-                                    <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>
-                                </ButtonDiv>
-                            </form>
-                            <form>
-                                <GeneralDiv>
-                                    <NavbarModalP>Генерация отсчета</NavbarModalP>
-                                    <DateInputDiv>
-                                        <DateInputNavbar type="date" name="date"/>
-                                        <DateInputNavbar type="date" name="date"/>
-                                    </DateInputDiv>
-                                </GeneralDiv>
                                 <ButtonDiv>
                                     <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
                                     <ButtonNavbarCancel onClick={() => setShowElectricity(prev => !prev)}>Назад</ButtonNavbarCancel>

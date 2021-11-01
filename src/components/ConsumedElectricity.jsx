@@ -8,7 +8,7 @@ import ConsumesElectricityModal from './ConsumesElectricityModal'
 import CountUp from 'react-countup'
 
 const ConsumedElectricity = () => {
-    const {showConsumedElectricity, setShowConsumedElectricity, getElectric} = useContext(AppContext)
+    const {showConsumedElectricity, setShowConsumedElectricity, getElectric, nameAllMining, totalElectric} = useContext(AppContext)
 
     const openModal = () => {
         setShowConsumedElectricity(prev => !prev)
@@ -40,26 +40,26 @@ const ConsumedElectricity = () => {
             <tbody>
             {getElectric.map((mining, index) =>
                 <Tr key={index}>
-                    <TdFirst>{mining.miningSystemName}</TdFirst>
-                    <Td> <CountUp end={mining.hourly} duration={4} /> </Td>
-                    <Td> <CountUp end={mining.daily} duration={4}/> </Td>
-                    <Td> <CountUp end={mining.monthly} duration={3}/> </Td>
-                    <Td> <CountUp end={mining.yearly} duration={5}/> </Td>
+                    <TdFirst>{nameAllMining !== null ? nameAllMining[index].name : ""}</TdFirst>
+                    <Td> <CountUp end={mining !==null ? mining.hourly : ""} duration={4} /> </Td>
+                    <Td> <CountUp end={mining !==null ? mining.hourly*24 : ""} duration={4}/> </Td>
+                    <Td> <CountUp end={mining !==null ? mining.hourly*24*30 : ""} duration={3}/> </Td>
+                    <Td> <CountUp end={mining !==null ? mining.hourly*24*365 : ""} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> <CountUp end={15} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={20} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={40} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={23} duration={5}/> </TdTotalCount>    
+                <TdTotalCount> <CountUp end={totalElectric} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalElectric*24} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalElectric*24*30} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalElectric*24*30*365} duration={5}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableConsumedElectricity>
         <ConsumesElectricityModal showConsumedElectricity={showConsumedElectricity} setShowConsumedElectricity={setShowConsumedElectricity}
-                                  getElectric={getElectric}/>
+                                  getElectric={getElectric} nameAllMining={nameAllMining}/>
         </>
     )
 }

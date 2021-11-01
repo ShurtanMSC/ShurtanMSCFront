@@ -145,6 +145,13 @@ a:focus{
     width:6%;
     height:7%;
 }
+.mapTitle{
+    font-family:'Montserrat';
+    font-size: 10px;
+    font-style:italic;
+    letter-spacing:0.01em;
+    font-weight: bold;
+}
 /*ShurtanMap lamp*/
 .lamp{
     opacity:1;

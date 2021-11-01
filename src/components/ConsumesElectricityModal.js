@@ -56,11 +56,11 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                     <tbody>
                     {getElectric.map((mining, index) =>
                         <Tr key={index}>
-                            <TdFirst>{mining.miningSystemName}</TdFirst>
-                            <Td> <InputModal type="number" id={'electricHourly'} name="name" defaultValue={mining.hourly} onChange={handlerElectric} required/> </Td>
-                            <Td> <InputModal type="number" id={'electricDaily' + mining.daily} name="name" defaultValue={mining.daily} disabled/> </Td>
-                            <Td> <InputModal type="number" id={'electricMonthly' + mining.monthly} name="name" defaultValue={mining.monthly} disabled/> </Td>
-                            <Td> <InputModal type="number" id={'electricYearly' + mining.yearly} name="name" defaultValue={mining.yearly} disabled/> </Td>
+                            <TdFirst>{nameAllMining !== null ? nameAllMining[index].name : ""}</TdFirst>
+                            <Td> <InputModal type="number" name="name" defaultValue={mining !== null ? mining.hourly : ""} onChange={handlerElectric} required/> </Td>
+                            <Td> <InputModal type="number" name="name" defaultValue={mining !== null ? mining.hourly*24 : ""} disabled/> </Td>
+                            <Td> <InputModal type="number" name="name" defaultValue={mining !== null ? mining.hourly*24*30 : ""} disabled/> </Td>
+                            <Td> <InputModal type="number" name="name" defaultValue={mining !== null ? mining.hourly*24*30*365 : ""} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>
@@ -70,7 +70,7 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                         <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
                     </div>
                     <div>
-                        <SaveBtnModal>Сохранит</SaveBtnModal>
+                        {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                         <CloseBtnModal 
                             aria-label='Close modal' 
                             onClick={()=> setShowConsumedElectricity(prev => !prev)}>Закрыт
