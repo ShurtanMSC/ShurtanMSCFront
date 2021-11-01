@@ -141,7 +141,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                         <TdUp> <InputModal
                                             type="text"
                                             name="name"
-                                            value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expand)*10)/10  : ""}
+                                            value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expend)*10)/10  : ""}
                                             disabled/>
                                         </TdUp>
                                         <TdUp> <InputModal

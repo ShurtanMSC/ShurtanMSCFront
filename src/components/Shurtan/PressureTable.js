@@ -75,7 +75,7 @@ const PressureTable = ({el}) => {
             <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
             <Td>-</Td>
             <Td>-</Td>
-            <Td>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expand*10)/10 : ""}</Td>
+            <Td>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expend*10)/10 : ""}</Td>
             <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
             <Td>{counterWellStatus()[0]}</Td>
             <Td>{counterWellStatus()[1]}</Td>
