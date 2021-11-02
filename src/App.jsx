@@ -1,9 +1,9 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Admin from './pages/Admin'
 import MainPage from './pages/MainPage'
 import Shurtan from './pages/Shurtan'
-// import {TOKEN} from "./utills/constant";
+import {TOKEN} from "./utills/constant";
 import Report from "./pages/Report";
 // import Test from "./requests/Test";
 
@@ -15,14 +15,17 @@ const App = () => {
                     <Route exact path="/">
                         <Admin />
                     </Route>
-                    <Route exact path="/mainPage">
-                       <MainPage/> {/*{localStorage.getItem(TOKEN) ? <MainPage/> : <Admin/>}*/}
+                    <Route exact path="/mainPage" render={() =>{
+                        return localStorage.getItem(TOKEN) ? <MainPage/> : <Redirect to="/"/>
+                    }}>
                     </Route>
-                    <Route exact path="/shurtan">
-                       <Shurtan/> {/*{localStorage.getItem(TOKEN) ? <Shurtan/> : <Admin/>}*/}
+                    <Route exact path="/shurtan" render={() => {
+                        return localStorage.getItem(TOKEN) ? <Shurtan/> : <Redirect to="/"/>
+                    }}>
                     </Route>
-                    <Route exact path="/reports">
-                       <Report/> {/*{localStorage.getItem(TOKEN) ? <Report/> : <Admin/>}*/}
+                    <Route exact path="/reports" render={() => {
+                        return localStorage.getItem(TOKEN) ? <Report/> : <Redirect to="/"/>
+                    }}>
                     </Route>
                 </Switch>
             </div>
