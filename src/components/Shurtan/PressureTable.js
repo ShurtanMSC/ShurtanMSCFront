@@ -88,10 +88,10 @@ const PressureTable = ({el}) => {
             <TrNone showMore={showMore} key={well.objectDto.number}>
                 <TdFirstPresure>{well.objectDto.number}</TdFirstPresure>
                 <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
-                <Td>{well.objectActionDto.pressure}</Td>
+                <Td>{Math.round(well.objectActionDto.pressure*10)/10}</Td>
                 <Td>{Math.round(well.objectActionDto.rpl*10)/10}</Td>
                 <Td>{Math.round(well.objectActionDto.expend*10)/10}</Td>
-                <Td>{well.objectActionDto.temperature}</Td>
+                <Td>{Math.round(well.objectActionDto.temperature*10)/10}</Td>
                 <TdGreen>{well.objectActionDto.status !== "IN_WORK" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdGreen>
                 <TdYellow>{well.objectActionDto.status !== "IN_IDLE" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdYellow>
                 <TdRed>{well.objectActionDto.status !== "IN_REPAIR" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdRed>
