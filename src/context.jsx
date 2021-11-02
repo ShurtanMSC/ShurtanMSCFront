@@ -374,6 +374,15 @@ const AppProvider = ({children}) => {
     for (let e = 0; e < getElectric.length; e++) {
         totalElectric = totalElectric + (getElectric[e] !==null ? getElectric[e].hourly : "")
     }
+    /** AllUppg Total **/
+    let totalAllUppg = 0;
+    let totalAllUppgCon = 0;
+    let totalAllUppgWater = 0;
+    for (let u = 0; u < allUppg.length; u++) {
+        totalAllUppg = totalAllUppg + (allUppg[u] !== null ? allUppg[u].objectActionDto.expend : "")
+        totalAllUppgCon = totalAllUppgCon + (allUppg[u] !== null ? allUppg[u].objectActionDto.condensate : "")
+        totalAllUppgWater = totalAllUppgWater + (allUppg[u] !== null ? allUppg[u].objectActionDto.onWater : "")
+    }
     /** Change Status Name **/
     const findStatus = (status) => {
         if(!status){
@@ -487,7 +496,7 @@ const AppProvider = ({children}) => {
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
         showConsumedElectricity, setShowConsumedElectricity, getElectric,
         handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
-        handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric,
+        handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
     }
     return (
         <AppContext.Provider value={value}>
