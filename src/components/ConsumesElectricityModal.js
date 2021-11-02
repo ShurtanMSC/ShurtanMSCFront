@@ -1,7 +1,9 @@
 import React, {useRef, useEffect, useCallback, useContext} from 'react';
 import {AppContext} from '../context';
 import { useSpring, animated } from 'react-spring';
-import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
+import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer,
+    // SaveBtnModal,
+    CloseBtnModal } from '../styled'
 
 const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElectricity, nameAllMining, getElectric}) => {
     const {handlerElectric, onSubmitElectric} = useContext(AppContext);

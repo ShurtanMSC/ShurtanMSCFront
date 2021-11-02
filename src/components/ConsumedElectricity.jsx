@@ -40,11 +40,11 @@ const ConsumedElectricity = () => {
             <tbody>
             {getElectric.map((mining, index) =>
                 <Tr key={index}>
-                    <TdFirst>{nameAllMining !== null ? nameAllMining[index].name : ""}</TdFirst>
-                    <Td> <CountUp end={mining !==null ? mining.hourly : ""} duration={4} /> </Td>
-                    <Td> <CountUp end={mining !==null ? mining.hourly*24 : ""} duration={4}/> </Td>
-                    <Td> <CountUp end={mining !==null ? mining.hourly*24*30 : ""} duration={3}/> </Td>
-                    <Td> <CountUp end={mining !==null ? mining.hourly*24*365 : ""} duration={5}/> </Td>
+                    <TdFirst>{nameAllMining[index] ? nameAllMining[index].name : ""}</TdFirst>
+                    <Td> <CountUp end={mining !== null ? mining.hourly : ""} duration={4} /> </Td>
+                    <Td> <CountUp end={mining !== null ? mining.hourly*24 : ""} duration={4}/> </Td>
+                    <Td> <CountUp end={mining !== null ? mining.hourly*24*30 : ""} duration={3}/> </Td>
+                    <Td> <CountUp end={mining !== null ? mining.hourly*24*365 : ""} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
