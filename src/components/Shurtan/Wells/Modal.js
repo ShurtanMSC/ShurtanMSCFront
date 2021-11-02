@@ -71,11 +71,11 @@ const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Изменение состояния</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto.date.slice(0, 10)}</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto.createdAt.slice(0, 10)}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Ру, кгс/см²</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto.pressure}</TdModalShurtan>
+                                        <TdModalShurtan>{Math.round(el.objectActionDto.pressure*10)/10 }</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Рпл, кгс/см²</TdModalShurtanFirst>
@@ -97,7 +97,7 @@ const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtan colSpan="2">{el.objectActionDto.date.slice(0, 19)}</TdModalShurtan>
+                                        <TdModalShurtan colSpan="2">{el.objectActionDto.createdAt.slice(0, 10)} {el.objectActionDto.createdAt.slice(11, 19)}</TdModalShurtan>
                                     </tr>
                                     </tbody>
                                 )}

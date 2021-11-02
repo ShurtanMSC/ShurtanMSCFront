@@ -175,7 +175,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                                 id={'pressure_well'+el.objectDto.id}
                                                 type="text"
                                                 name="name"
-                                                defaultValue={el.objectActionDto.pressure}/>
+                                                defaultValue={Math.round(el.objectActionDto.pressure*10)/10}/>
                                             </Td>
                                             <Td> <InputModal
                                                 id={'rpl_well'+el.objectDto.id}
@@ -191,7 +191,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                                 id={'temperature_well'+el.objectDto.id}
                                                 type="text"
                                                 name="name"
-                                                defaultValue={el.objectActionDto.temperature}/>
+                                                defaultValue={Math.round(el.objectActionDto.temperature*10)/10 }/>
                                             </Td>
                                             <Td>
                                                 <SelectModal id={'status_well'+el.objectDto.id} defaultValue={el.objectActionDto.status}>
@@ -202,7 +202,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                                     <option value="IN_LIQUIDATION">в ликвидации</option>
                                                 </SelectModal>
                                             </Td>
-                                            <Td> <InputModal type="text"  name="name" value={el.objectActionDto.date.slice(0, 10)} disabled/> </Td>
+                                            <Td> <InputModal type="text"  name="name" value={el.objectActionDto.createdAt.slice(0, 10)} disabled/> </Td>
                                         </Tr>
                                     )}
                                     </tbody>
