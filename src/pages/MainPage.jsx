@@ -10,7 +10,8 @@ import NumberOfStaff from '../components/NumberOfStaff'
 import GasBalance from '../components/GasBalance'
 import WellStock from '../components/WellStock'
 import ModesOfOperation from '../components/ModesOfOperation'
-import Map from '../components/Map'
+import Map from '../components/Map';
+import Footer from '../components/Footer';
 
 const MainPage = () => {
     return (
@@ -40,13 +41,14 @@ const MainPage = () => {
                     <NumberOfStaff/>
                 </ThirdBox>
             </ContainerFluidMainPage>
+            <Footer/>
         </Window>
     )
 }
 
 const ContainerFluidMainPage = styled(ContainerFluid)`
     width:100%;
-    height:95%;
+    //height:95%;
     display: flex;
     justify-content: center;
     align-items: flex-start;

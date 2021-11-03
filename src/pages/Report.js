@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import ReportHeader from "../components/ReportComponents/ReportHeader";
 import ReportBody from "../components/ReportComponents/ReportBody";
 import {useReactToPrint} from 'react-to-print';
+import Footer from '../components/Footer'
 
 const Report = () => {
     const componentRef = useRef();
@@ -25,6 +26,7 @@ const Report = () => {
                 <ReportHeader handlerPrint={handlerPrint} handlerShowTexReport={handlerShowTexReport}/>
                 <ReportBody componentRef={componentRef} showTexReport={showTexReport}/>
             </ContainerFluidReport>
+            <Footer/>
         </Window>
     )
 }
@@ -32,7 +34,7 @@ const ContainerFluidReport = styled(ContainerFluid)`
   background: #F2FAFF;
   padding-top: 2%;
   width: 100%;
-  min-height:92vh;
+  min-height:89.6vh;
   flex-direction:column;
   justify-content: flex-start;
   align-items: center;

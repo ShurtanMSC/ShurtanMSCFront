@@ -113,7 +113,7 @@ const TableGrafic = () => {
 }
 const TableGraficContainer = styled.div`
     width: 400px;
-    height: 810px;
+    height: 765px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -123,7 +123,7 @@ const TableGraficContainer = styled.div`
 const TableGraficDiv = styled.div`
     width: ${({openGrafic})=> (openGrafic ? "850px" : "400px")};
     height: 98%;
-    padding-top: 5%;
+    padding-top: 5px;
     position: absolute;
     right: 0;
     background-color: #fff;

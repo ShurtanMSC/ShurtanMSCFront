@@ -63,7 +63,7 @@ const AddGas = () => {
 }
 const TableAddGas = styled(Table)`
     width:380px;
-    height:416px;
+    height:400px;
     margin-bottom: 5px;
 `
 export default AddGas

@@ -65,7 +65,7 @@ const   Pressure = () => {
 }
 const PressureContainer = styled.div`
     width: 400px;
-    height:590px;  
+    height:565px;  
     position:relative;
 `
 const TablePresure = styled(Table)`

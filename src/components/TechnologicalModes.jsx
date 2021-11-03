@@ -71,7 +71,7 @@ const TechnologicalModes = () => {
 
 const TableTechnologicalModel = styled(Table)`
     width:455px;
-    height:369px;
+    height:346px;
     margin-bottom: 5px;
 `
 export default TechnologicalModes

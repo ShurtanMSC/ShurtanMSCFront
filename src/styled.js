@@ -429,7 +429,7 @@ export const SelectNav = styled.select`
 
 // MainPage
 export const FirstBox = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -447,7 +447,7 @@ export const FirstBoxOut = styled.div`
     display:flex;
 `
 export const SecondBox = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -462,7 +462,7 @@ export const SecondBox = styled.div`
     }
 `
 export const ThirdBox = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -480,7 +480,7 @@ export const ThirdBoxLittleSize = styled.div`
     display: none;
     @media(max-width:1900px){
         display: block;
-        min-height: 91vh;
+        //min-height: 91vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -574,8 +574,8 @@ export const MainPageImg = styled.img`
 export const MapBox = styled.div`
     /* width:1030px;
     height:535px; */
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 630px;
     background: #fff;
     transition: 2s ease;
     z-index: 2;
@@ -592,7 +592,7 @@ export const MapBox = styled.div`
 
 // Shurtan
 export const ShurtanBoxOne = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -606,7 +606,7 @@ export const ShurtanBoxOne = styled.div`
     }
 `
 export const ShurtanBoxTwo = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -620,7 +620,7 @@ export const ShurtanBoxTwo = styled.div`
     }
 `
 export const ShurtanBoxThree = styled.div`
-    min-height: 91vh;
+    //min-height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -796,7 +796,7 @@ export const Select = styled.select`
 
 // ShurtanMap
 export const ShurtanMapContainer = styled.div`
-    min-height: 90vh;
+    min-height: 88.7vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

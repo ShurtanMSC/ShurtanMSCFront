@@ -68,6 +68,6 @@ const WellStock = () => {
 }
 const TableWellStock = styled(Table)`
     width:380px;
-    height:400px;
+    height:385px;
 `
 export default WellStock
