@@ -711,67 +711,67 @@ const  ShurtanMap = () => {
                                 <circle cx="500.5" cy="389.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 5 ? "selected" : ""}/>
                             </g>
                             <g filter="url(#filter153_d_114:184)">
-                                <circle cx="495" cy="354" r="23" fill="white" className={pressureApi[12] && pressureApi[12].objectActionDto.pressure === 0 && pressureApi[12].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="495" cy="354" r="23" fill="white" className={pressureApi[12] && pressureApi[12].objectActionDto.pressure === 0 && pressureApi[12].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter154_d_114:184)">
-                                <circle cx="445" cy="315" r="23" fill="white" className={pressureApi[13] && pressureApi[13].objectActionDto.pressure === 0 && pressureApi[13].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="445" cy="315" r="23" fill="white" className={pressureApi[13] && pressureApi[13].objectActionDto.pressure === 0 && pressureApi[13].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter155_d_114:184)">
-                                <circle cx="633" cy="147" r="23" fill="white" className={pressureApi[14] && pressureApi[14].objectActionDto.pressure === 0 && pressureApi[14].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="633" cy="147" r="23" fill="white" className={pressureApi[14] && pressureApi[14].objectActionDto.pressure === 0 && pressureApi[14].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter156_d_114:184)">
-                                <circle cx="749" cy="155" r="23" fill="white" className={pressureApi[20] && pressureApi[20].objectActionDto.pressure === 0 && pressureApi[20].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="749" cy="155" r="23" fill="white" className={pressureApi[20] && pressureApi[20].objectActionDto.pressure === 0 && pressureApi[20].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter157_d_114:184)">
-                                <circle cx="696" cy="267" r="23" fill="white" className={pressureApi[15] && pressureApi[15].objectActionDto.pressure === 0 && pressureApi[15].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="696" cy="267" r="23" fill="white" className={pressureApi[15] && pressureApi[15].objectActionDto.pressure === 0 && pressureApi[15].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter158_d_114:184)">
-                                <circle cx="941" cy="195" r="23" fill="white" className={pressureApi[17] && pressureApi[17].objectActionDto.pressure === 0 && pressureApi[17].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="941" cy="195" r="23" fill="white" className={pressureApi[17] && pressureApi[17].objectActionDto.pressure === 0 && pressureApi[17].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter159_d_114:184)">
-                                <circle cx="946" cy="349" r="23" fill="white" className={pressureApi[19] && pressureApi[19].objectActionDto.pressure === 0 && pressureApi[19].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="946" cy="349" r="23" fill="white" className={pressureApi[19] && pressureApi[19].objectActionDto.pressure === 0 && pressureApi[19].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter160_d_114:184)">
-                                <circle cx="866" cy="91" r="23" fill="white" className={pressureApi[16] && pressureApi[16].objectActionDto.pressure === 0 && pressureApi[16].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="866" cy="91" r="23" fill="white" className={pressureApi[16] && pressureApi[16].objectActionDto.pressure === 0 && pressureApi[16].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter161_d_114:184)">
-                                <circle cx="531" cy="190" r="23" fill="white" className={pressureApi[9] && pressureApi[9].objectActionDto.pressure === 0 && pressureApi[9].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="531" cy="190" r="23" fill="white" className={pressureApi[9] && pressureApi[9].objectActionDto.pressure === 0 && pressureApi[9].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter162_d_114:184)">
-                                <circle cx="380" cy="208" r="23" fill="white" className={pressureApi[10] && pressureApi[10].objectActionDto.pressure === 0 && pressureApi[10].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="380" cy="208" r="23" fill="white" className={pressureApi[10] && pressureApi[10].objectActionDto.pressure === 0 && pressureApi[10].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter163_d_114:184)">
-                                <circle cx="539" cy="416" r="23" fill="white" className={pressureApi[11] && pressureApi[11].objectActionDto.pressure === 0 && pressureApi[11].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="539" cy="416" r="23" fill="white" className={pressureApi[11] && pressureApi[11].objectActionDto.pressure === 0 && pressureApi[11].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter164_d_114:184)">
-                                <circle cx="374" cy="733" r="23" fill="white" className={pressureApi[0] && pressureApi[0].objectActionDto.pressure === 0 && pressureApi[0].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="374" cy="733" r="23" fill="white" className={pressureApi[0] && pressureApi[0].objectActionDto.pressure === 0 && pressureApi[0].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter165_d_114:184)">
-                                <circle cx="167" cy="789" r="23" fill="white" className={pressureApi[1] && pressureApi[1].objectActionDto.pressure === 0 && pressureApi[1].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="167" cy="789" r="23" fill="white" className={pressureApi[1] && pressureApi[1].objectActionDto.pressure === 0 && pressureApi[1].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter166_d_114:184)">
-                                <circle cx="210" cy="636" r="23" fill="white" className={pressureApi[5] && pressureApi[5].objectActionDto.pressure === 0 && pressureApi[5].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="210" cy="636" r="23" fill="white" className={pressureApi[5] && pressureApi[5].objectActionDto.pressure === 0 && pressureApi[5].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter167_d_114:184)">
-                                <circle cx="112" cy="555" r="23" fill="white" className={pressureApi[4] && pressureApi[4].objectActionDto.pressure === 0 && pressureApi[4].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="112" cy="555" r="23" fill="white" className={pressureApi[4] && pressureApi[4].objectActionDto.pressure === 0 && pressureApi[4].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter168_d_114:184)">
-                                <circle cx="111" cy="468" r="23" fill="white" className={pressureApi[7] && pressureApi[7].objectActionDto.pressure === 0 && pressureApi[7].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="111" cy="468" r="23" fill="white" className={pressureApi[7] && pressureApi[7].objectActionDto.pressure === 0 && pressureApi[7].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter169_d_114:184)">
-                                <circle cx="165" cy="376" r="23" fill="white" className={pressureApi[3] && pressureApi[3].objectActionDto.pressure === 0 && pressureApi[3].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="165" cy="376" r="23" fill="white" className={pressureApi[3] && pressureApi[3].objectActionDto.pressure === 0 && pressureApi[3].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter170_d_114:184)">
-                                <circle cx="228" cy="213" r="23" fill="white" className={pressureApi[6] && pressureApi[6].objectActionDto.pressure === 0 && pressureApi[6].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="228" cy="213" r="23" fill="white" className={pressureApi[6] && pressureApi[6].objectActionDto.pressure === 0 && pressureApi[6].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter171_d_114:184)">
-                                <circle cx="216" cy="293" r="23" fill="white" className={pressureApi[2] && pressureApi[2].objectActionDto.pressure === 0 && pressureApi[2].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="216" cy="293" r="23" fill="white" className={pressureApi[2] && pressureApi[2].objectActionDto.pressure === 0 && pressureApi[2].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter172_d_114:184)">
-                                <circle cx="633" cy="458" r="23" fill="white" className={pressureApi[8] && pressureApi[8].objectActionDto.pressure === 0 && pressureApi[8].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="633" cy="458" r="23" fill="white" className={pressureApi[8] && pressureApi[8].objectActionDto.pressure === 0 && pressureApi[8].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter173_d_114:184)">
-                                <circle cx="712" cy="533" r="23" fill="white" className={pressureApi[18] && pressureApi[18].objectActionDto.pressure === 0 && pressureApi[18].objectActionDto.temperature === 0 ? "danger" : ""}/>
+                                <circle cx="712" cy="533" r="23" fill="white" className={pressureApi[18] && pressureApi[18].objectActionDto.pressure === 0 && pressureApi[18].objectActionDto.temperature === 0 ? "danger" : "working"}/>
                             </g>
                             <g filter="url(#filter174_d_114:184)">
                                 <circle cx="504.5" cy="425.5" r="10.5" fill="white" className={selectedWell && selectedWell.objectDto.number === 200 ? "selected" : ""}/>

@@ -9,7 +9,7 @@ const Admin = () => {
     const {handlerChange, handlerName, handlerPassword, userName, userPassword } = useContext(AppContext);
 
     return (
-        <ContainerFluid>
+        <ContainerFluidFooter>
             <ContainerAdmin>
                 <Login>
                     <DivImg>
@@ -22,11 +22,16 @@ const Admin = () => {
                             <Button>Войти в систему </Button>
                         </Form>
                     </div>
+                    <P_Admin_Footer>© Все права защищены АО "O'ZLITINEFTGAZ" {new Date().getFullYear()}</P_Admin_Footer>
                 </Login>
             </ContainerAdmin>
-        </ContainerFluid>
+        </ContainerFluidFooter>
     )
 }
+const ContainerFluidFooter = styled(ContainerFluid)`
+  flex-direction: column;
+  justify-content: space-between;
+`
 const ContainerAdmin = styled(Container)`
     background : url(${ImgAdmin}) no-repeat center center/cover;
     justify-content: flex-end;
@@ -44,11 +49,21 @@ const Login = styled.div`
     border-radius: 0;
     background: #fff;
     padding: 3% 2%;
+    position: relative;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 13% 100%);
     @media(max-width:996px){
         width: 100%;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
+`
+const P_Admin_Footer = styled.p`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: #000;
+  position: absolute;
+  bottom: 5px;
 `
 const DivImg = styled.div`
     width: 250px;

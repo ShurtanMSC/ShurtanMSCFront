@@ -194,3 +194,7 @@ a:focus{
         opacity:1;
     }
 }
+.working{
+    stroke: rgb(15, 163, 14);
+    stroke-width: 4px;
+}

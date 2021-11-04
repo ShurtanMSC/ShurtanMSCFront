@@ -58,8 +58,8 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
         wellPressureModal.forEach(well=>{
 
             let w={
-                rpl:document.getElementById('rpl_well'+well.objectDto.id).value,
                 pressure:document.getElementById('pressure_well'+well.objectDto.id).value,
+                rpl:document.getElementById('rpl_well'+well.objectDto.id).value,
                 status:document.getElementById('status_well'+well.objectDto.id).value,
                 temperature:document.getElementById('temperature_well'+well.objectDto.id).value,
                 wellId:well.objectDto.id,
