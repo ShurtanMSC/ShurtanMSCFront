@@ -276,9 +276,14 @@ const AppProvider = ({children}) => {
         /** Get Electric All Last **/
         takeElectric();
         /** Dobicha Gaza **/
-        axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
-            .then(res => {setAddGas(res.data.object); console.log(res.data.object)})
-            .catch(err => {console.log(err)})
+        setInterval(() => {
+            axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
+                .then(res => {setAddGas(res.data.object); console.log(res.data.object)})
+                .catch(err => {console.log(err)});
+            // setRefresh(dateTime);
+            // takeAllWells();
+        }, 2000);
+
         /** Call Pdf Report Api **/
         axios.get(BASE_URL + '/api/report/interval?mining_system_id='+ 1 +'&start=' + '2222-12-22' + '&end=' + '2222-12-22' , configHeader)
             .then(res => {setPdfReport(res.data.object); console.log(res.data.object)})
@@ -396,7 +401,7 @@ const AppProvider = ({children}) => {
     /** Dobicha Gas Total **/
     let totalAddGas = 0;
     for (let add = 0; add < addGas.length; add++) {
-        totalAddGas = totalAddGas + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.expend : "");
+        totalAddGas = totalAddGas + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.expend : 0);
     }
     /** Post Shurtan Electric Api Total **/
     let totalElectric = 0;

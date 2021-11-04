@@ -42,18 +42,18 @@ const AddGas = () => {
                 {addGas.map((mining, key) =>
                     <Tr key={key}>
                         <TdFirst>{mining.objectDto !== null ? mining.objectDto.name : ""}</TdFirst>
-                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.expend : ""} duration={2}/> </Td>
-                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.expend*24 : ""} duration={4}/> </Td>
-                        <Td> <CountUp end={0} duration={5}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.expend : 0} duration={0.7}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.todayExpend : 0} duration={1}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? mining.objectActionDto.yesterdayExpend : 0} duration={1}/> </Td>
                     </Tr>
                 )}
                 </tbody>
                 <tfoot>
                 <Tr>
                     <TdTotal>Итого</TdTotal>
-                    <TdTotalCount> <CountUp end={totalAddGas} duration={2}/> </TdTotalCount>
-                    <TdTotalCount> <CountUp end={totalAddGas*24} duration={4}/> </TdTotalCount>
-                    <TdTotalCount> <CountUp end={0} duration={5}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={totalAddGas} duration={0.7}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={totalAddGas*24} duration={1}/> </TdTotalCount>
+                    <TdTotalCount> <CountUp end={0} duration={1}/> </TdTotalCount>
                 </Tr>
                 </tfoot>
             </TableAddGas>
