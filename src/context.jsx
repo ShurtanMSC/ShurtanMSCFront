@@ -208,6 +208,7 @@ const AppProvider = ({children}) => {
             })
     }
 
+
     // Get allWells
     const takeAllWells = () => {
         axios.get(BASE_URL + '/api/well/all/action/mining_system/'+1, configHeader)
