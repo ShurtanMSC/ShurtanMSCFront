@@ -198,10 +198,10 @@ const BtnSearch = () => {
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м3</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2/10000}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24/10000}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30/10000}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365/10000}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>

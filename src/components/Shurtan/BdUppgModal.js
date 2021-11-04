@@ -1,8 +1,11 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, {useRef, useEffect, useCallback, useContext} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
     H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, SaveBtnModal, CloseBtnModal } from '../../styled'
+import axios from "axios";
+import {BASE_URL} from "../../utills/constant";
+import {AppContext} from "../../context";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -23,12 +26,15 @@ const modalSP = {
 
 const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
     const modalRef = useRef();
+    const {uppgDatabase} = useContext(AppContext);
+
 
     const closeModal = e => {
         if( modalRef.current === e.target ) {
             setShowBdUppgModal(false);
         }
     };
+
 
     const keyPress = useCallback (e => {
         if(e.key === 'Escape' && showBdUppgModal){
@@ -77,15 +83,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 </thead>
                                 <tbody>
                                 <Tr>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_sutok*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_mesyach*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_za_pered_mesyach*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].perepad_davleniya*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].davleniya*100*10.2)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].temperatura*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].rasxod*100)/100):0}</Td>
                                 </Tr>
                                 </tbody>
                             </Table>
@@ -108,15 +114,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 </thead>
                                 <tbody>
                                 <Tr>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
-                                    <Td>0</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_sutok*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].perepad_davleniya*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].davleniya*100*10.2)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].temperatura*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].rasxod*100)/100):0}</Td>
                                 </Tr>
                                 </tbody>
                             </Table>

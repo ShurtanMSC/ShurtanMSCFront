@@ -78,6 +78,7 @@ const AppProvider = ({children}) => {
     const [showWellOperation, setShowWellOperation] = useState(false);
     // PRESSURE_GET_API
     const [pressureApi, setPressureApi] = useState([]);
+    const [uppgDatabase, setUppgDatabase] = useState([]);
     const [refresh, setRefresh] = useState([]);
     const [openWell, setOpenWell] = useState([]);
     /** Call Stat-Status Api **/
@@ -193,6 +194,20 @@ const AppProvider = ({children}) => {
                 console.log(err)
             })
     }
+
+    // Uppg Database
+    const getUppgDatabase = () => {
+        axios.get(BASE_URL + '/api/fake/all', configHeader)
+            .then(res => {
+                // console.log(res)
+                // console.log(res.data)
+                setUppgDatabase(res.data);
+            })
+            .catch(err => {
+                // console.log(err)
+            })
+    }
+
     // Get allWells
     const takeAllWells = () => {
         axios.get(BASE_URL + '/api/well/all/action/mining_system/'+1, configHeader)
@@ -235,7 +250,12 @@ const AppProvider = ({children}) => {
             takeSpPressure();
             setRefresh(dateTime);
             // takeAllWells();
-        }, 10000);
+        }, 3000);
+        setInterval(() => {
+            getUppgDatabase();
+            // setRefresh(dateTime);
+            // takeAllWells();
+        }, 1500);
         /** Call Stat-Status Api **/
         takeStatus();
         /** Call Uppg all collection **/
@@ -486,6 +506,7 @@ const AppProvider = ({children}) => {
         showRegistrationWell, setShowRegistrationWell, openRegistrationWell,
         showWellOperation, setShowWellOperation, openWellOperation,
         pressureApi, setPressureApi,
+        uppgDatabase, setUppgDatabase,
         uppgOper, handlerUppgOperation,
         pointOper, handlerPointOperation,
         numberWellOper, handlerWellNumberOperation,

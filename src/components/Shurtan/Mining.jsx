@@ -19,25 +19,25 @@ const Mining = () => {
             <tbody>
                 <Tr>
                     <TdFirst>2-х часовая</TdFirst>
-                    <Td>{totalAllUppg*2/10000}</Td>
+                    <Td>{totalAllUppg*2}</Td>
                     <Td>{totalAllUppgCon*2}</Td>
                     <Td>{totalAllUppgWater}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. сутки</TdFirst>
-                    <Td>{totalAllUppg*24/10000}</Td>
+                    <Td>{totalAllUppg*24}</Td>
                     <Td>{totalAllUppgCon*24}</Td>
                     <Td>{totalAllUppgWater}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. месяц</TdFirst>
-                    <Td>{totalAllUppg*24*30/10000}</Td>
+                    <Td>{totalAllUppg*24*30}</Td>
                     <Td>{totalAllUppgCon*24*30}</Td>
                     <Td>{totalAllUppgWater}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>С начала эксплуатации</TdFirst>
-                    <Td>{totalAllUppg*24*365/10000}</Td>
+                    <Td>{totalAllUppg*24*365}</Td>
                     <Td>{totalAllUppgCon*24*365}</Td>
                     <Td>{totalAllUppgWater}</Td>
                 </Tr>
