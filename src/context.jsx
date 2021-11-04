@@ -24,8 +24,8 @@ const AppProvider = ({children}) => {
                 localStorage.setItem(TOKEN,res.data.token);
                 console.log(localStorage.getItem(TOKEN));
                 console.log(getRoleNameFromJWT());
-                history.push("/mainPage")
-
+                history.push("/mainPage");
+                takeFio();
         }
         ).catch(error=>{
             console.log(error)
@@ -35,15 +35,12 @@ const AppProvider = ({children}) => {
         setUserPassword('')
 
     }
-
     const handlerName = (e) => {
         setUserName(e.target.value)
     }
-
     const handlerPassword = (e) => {
         setUserPassword(e.target.value)
     }
-
     // REGISTRATION_WELL
     const [numberWell, setNumberWell] = useState('');
     const [uppg, setUppg] = useState('');
@@ -102,6 +99,9 @@ const AppProvider = ({children}) => {
     /** Post Shurtan Electric Api **/
     const [ shurtanElectric, setShurtanElectric ] = useState('');
     const [showElectricity, setShowElectricity] = useState(false);
+    /** Call Me Api (user) **/
+    const [name, setName] = useState([]);
+
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
         setNumberWell(e.target.value);
@@ -231,6 +231,12 @@ const AppProvider = ({children}) => {
                 console.log(err)
             })
     }
+    /** Call Me Api (user) **/
+    const takeFio = () => {
+        axios.get(BASE_URL + '/api/auth/me', configHeader)
+            .then(res=>{ setName(res.data.object.fio); console.log(res); })
+            .catch(error=>{ console.log(error)})
+    }
     let today = new Date();
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -280,6 +286,8 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/gas_composition/molar/all', configHeader)
             .then(res => {setGasBalans(res.data.object); console.log(res.data.object)})
             .catch(err => {console.log(err)})
+        /** Call Me Api (user) **/
+        takeFio();
     }, []);
 
     // WELL_OPERATION
@@ -486,7 +494,7 @@ const AppProvider = ({children}) => {
 
 
     const value={
-        handlerChange, handlerName, handlerPassword, userName, userPassword,
+        handlerChange, handlerName, handlerPassword, userName, userPassword, name,
         numberWell, handlerNumberWell,
         uppg, handlerUppg,
         point, handlerPoint, getPoint,

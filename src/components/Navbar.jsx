@@ -16,19 +16,16 @@ import TechnologicalRegime from './Shurtan/NavbarModal/TechnologicalRegime'
 import ProductionIndicators from './Shurtan/NavbarModal/ProductionIndicators'
 import WellOperation from './Shurtan/NavbarModal/WellOperation'
 import RegistrationWell from './Shurtan/NavbarModal/RegistrationWell'
-import axios from "axios";
 import {BASE_URL} from "../utills/constant";
-import {configHeader} from '../utills/congifHeader';
 import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
-    const {openRegistrationWell, openWellOperation, showElectricity, setShowElectricity} = useContext(AppContext);
+    const {openRegistrationWell, openWellOperation, showElectricity, setShowElectricity, name} = useContext(AppContext);
 
     const [currentDay, setCurrentDay] = useState('');
     const [hours, setHours] = useState('0');
     const [minutes, setMinutes] = useState('0');
     const [seconds, setSeconds] = useState('0');
-    const [name, setName] = useState('');
 
     const [open, setOpen] = useState(false);
     const [openShurtan, setOpenShurtan ] = useState(false);
@@ -90,21 +87,11 @@ const Navbar = () => {
         setShowProduction(prev => !prev);
     }
 
-
-    useEffect(()=>{
-        axios.get(BASE_URL + '/api/auth/me', configHeader)
-            .then(res=>{
-            console.log(res)
-            setName(res.data.object.fio)
-        })
-            .catch(error=>{
-            console.log(error)
-            })
-    }, [])
     const logOut = () => {
         localStorage.clear();
         history.push("/");
     }
+
     return (
         <ConatainerFluidNavbarOut>
             <ContainerFluidNavbar>
@@ -185,8 +172,7 @@ const Navbar = () => {
 const ConatainerFluidNavbarOut = styled.div`
     width:100%; 
     z-index: 5;
-    position: sticky;
-    position: -webkit-sticky;
+    position: fixed;
     top: 0px;
 `
 const ContainerFluidNavbar = styled(ContainerFluid)`
