@@ -40,6 +40,7 @@ const ContainerFluidShurtan = styled(ContainerFluid)`
     justify-content: center;
     align-items: flex-start;
     padding:5px;
+    margin-top: 72px;
     @media(max-width:1900px){
         flex-direction: column;
         align-items: center;
