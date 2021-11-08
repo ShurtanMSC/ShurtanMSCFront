@@ -126,7 +126,7 @@ const BtnSearch = () => {
                         </Tr>
                         <Tr>
                             <TdFirstChange>Дата изменения состояния</TdFirstChange>
-                            <TdChange>{selectedWell ? selectedWell.objectActionDto.date.slice(0,10) : ""}</TdChange>
+                            <TdChange>{selectedWell ? selectedWell.objectActionDto.createdAt.slice(0,10) : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Давление Pу, кгс/см²</TdFirstChange>

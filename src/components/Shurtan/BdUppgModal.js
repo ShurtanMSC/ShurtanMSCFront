@@ -83,15 +83,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 </thead>
                                 <tbody>
                                 <Tr>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_sutok*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_mesyach*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].nakoplenniy_obyom_za_pered_mesyach*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].perepad_davleniya*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].davleniya*100*10.2)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].temperatura*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[0]?(Math.round(uppgDatabase[0].rasxod*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].nakoplenniy_obyom*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_sutok*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].nakoplenniy_obyom_za_vchera*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].nakoplenniy_obyom_s_nachalo_mesyach*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].nakoplenniy_obyom_za_pered_mesyach*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].perepad_davleniya*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].davleniya*100*10.2)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].temperatura*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[0] ? (Math.round(uppgDatabase[0].rasxod*100)/100) : 0}</Td>
                                 </Tr>
                                 </tbody>
                             </Table>
@@ -114,15 +114,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 </thead>
                                 <tbody>
                                 <Tr>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_sutok*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].perepad_davleniya*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].davleniya*100*10.2)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].temperatura*100)/100):0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1]?(Math.round(uppgDatabase[1].rasxod*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_sutok*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].perepad_davleniya*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].davleniya*100*10.2)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].temperatura*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].rasxod*100)/100) :  0 }</Td>
                                 </Tr>
                                 </tbody>
                             </Table>
@@ -131,7 +131,7 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                     <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
                                 </div>
                                 <div>
-                                    <SaveBtnModal>Сохранит</SaveBtnModal>
+                                    {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                                     <CloseBtnModal
                                         onClick={()=> setShowBdUppgModal(prev => !prev)}>Закрыт
                                     </CloseBtnModal>
