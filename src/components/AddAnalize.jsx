@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import AddAnalizeModal from './AddAnalizeModal'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const AddAnalize = () => {
     const {nameAllMining} = useContext(AppContext);
@@ -40,13 +41,13 @@ const AddAnalize = () => {
                 </Th>
                 <Th colSpan="10" style={{position:'sticky', 
                                         top:'0'}} >
-                    Анализ добычи 
-                    <FontAwesomeIcon style={{position:'absolute', 
-                                            right:'5px', 
-                                            top:'3px', 
-                                            cursor:'pointer'}}
-                                            icon={faEdit} 
-                                            onClick={openModal}/> 
+                    Анализ добычи
+                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{position:'absolute',
+                        right:'5px',
+                        top:'3px',
+                        cursor:'pointer'}}
+                        icon={faEdit}
+                        onClick={openModal}/> : ""}
                 </Th>
             </Tr>
             <Tr>

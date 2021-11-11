@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ConsumesElectricityModal from './ConsumesElectricityModal'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const ConsumedElectricity = () => {
     const {showConsumedElectricity, setShowConsumedElectricity, getElectric, nameAllMining, totalElectric} = useContext(AppContext)
@@ -20,14 +21,14 @@ const ConsumedElectricity = () => {
             <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'sticky', top:'0'}}>Потребляемая электроэнергия, кв/ч 
-                <FontAwesomeIcon style={{
-                                    position:'absolute', 
-                                    right:'5px', 
-                                    top:'3px', 
-                                    cursor:'pointer'}} 
-                                    icon={faEdit}
-                                    onClick={openModal}/> 
+                <Th colSpan="4" style={{position:'sticky', top:'0'}}>Потребляемая электроэнергия, кв/ч
+                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                        position:'absolute',
+                        right:'5px',
+                        top:'3px',
+                        cursor:'pointer'}}
+                        icon={faEdit}
+                        onClick={openModal}/> : ""}
                 </Th>
             </Tr>
             <Tr>

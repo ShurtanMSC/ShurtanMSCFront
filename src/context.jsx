@@ -257,12 +257,12 @@ const AppProvider = ({children}) => {
             takeSpPressure();
             setRefresh(dateTime);
             // takeAllWells();
-        }, 3000);
+        }, 15000);
         setInterval(() => {
             getUppgDatabase();
             // setRefresh(dateTime);
             // takeAllWells();
-        }, 1500);
+        }, 15000);
         /** Call Stat-Status Api **/
         takeStatus();
         /** Call Uppg all collection **/

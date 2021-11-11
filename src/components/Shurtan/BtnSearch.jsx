@@ -5,7 +5,8 @@ import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { BtnDiv, BtnSerach, Select, Table, Tr, Th, TdFirst, Td, LabelNavTitle } from '../../styled'
 import styled from 'styled-components'
 import BtnSearchModal from "./BtnSearchModal";
-import BdUppgModal from './BdUppgModal'
+import BdUppgModal from './BdUppgModal';
+import {getRoleNameFromJWT} from "../../utills/UsefullFunctions";
 
 const BtnSearch = () => {
     const [ showBtnSearch, setShowBtnSearch] = useState(false);
@@ -86,7 +87,7 @@ const BtnSearch = () => {
                 </BtnSerach>
                 <BdUppgModal showBdUppgModal={showBdUppgModal}
                                 setShowBdUppgModal={setShowBdUppgModal}/>
-                <BtnSerach onClick={openBdUppgModal}> БД УППГ </BtnSerach>
+                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}> БД УППГ </BtnSerach>
             </BtnDiv>
             <SearcherSK openUppg={openUppg}>
                 <Form>
@@ -169,12 +170,13 @@ const BtnSearch = () => {
                 <thead>
                 <Tr>
                     <Th style={{position:'relative'}}>
-                        <FontAwesomeIcon style={{position:'absolute',
-                                                top:'10px',
-                                                left:'10px',
-                                                cursor:'pointer'}}
-                                                icon={faEdit}
-                                                onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> Наименование</Th>
+                        {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{position:'absolute',
+                            top:'10px',
+                            left:'10px',
+                            cursor:'pointer'}}
+                            icon={faEdit}
+                            onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> : ""}
+                        Наименование</Th>
                     <Th>2-х часовая</Th>
                     <Th>За тек. сутки</Th>
                     <Th>За тек. месяц</Th>
@@ -242,7 +244,7 @@ const SearchDiv = styled.div`
 `
 const SearcherSK = styled.div`
   width:100%;
-  height:${({openUppg}) => (openUppg ? "100%" : "0")};
+  height:${({openUppg}) => (openUppg ? "90%" : "0")};
   position:absolute;
   top:35px;
   z-index: 2;

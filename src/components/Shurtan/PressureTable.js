@@ -7,6 +7,7 @@ import axios from "axios";
 import {BASE_URL} from "../../utills/constant";
 import {configHeader} from "../../utills/congifHeader";
 import PressureModal from "./PressureModal";
+import {getRoleNameFromJWT} from "../../utills/UsefullFunctions";
 
 const PressureTable = ({el}) => {
     const [wellPressure, setWellPressure] = useState([]);
@@ -69,7 +70,10 @@ const PressureTable = ({el}) => {
         />
         <Tr>
             <TdFirstPresure>
-                <FontAwesomeIconPresure icon={faEdit} onClick={()=>openPressureModal(el.objectDto.name, el)}/> {el.objectDto.name}
+                {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIconPresure
+                    icon={faEdit}
+                    onClick={()=>openPressureModal(el.objectDto.name, el)}/> : ""}
+                {el.objectDto.name}
                 <FontAwesomeIconPresure rotation={turnMore ? 180 : 0} icon={faChevronDown} onClick={openShowMoreTable} />
             </TdFirstPresure>
             <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>

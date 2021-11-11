@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import WellStockModal from './WellStockModal'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const WellStock = () => {
     const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation} = useContext(AppContext);
@@ -21,14 +22,14 @@ const WellStock = () => {
             <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наимено-<br/>вание</Th>
-                <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин 
-                <FontAwesomeIcon style={{
-                                    position:'absolute', 
-                                    right:'5px', 
-                                    top:'3px', 
-                                    cursor:'pointer'}} 
-                                    icon={faEdit} 
-                                    onClick={openModal}/> 
+                <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин
+                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                        position:'absolute',
+                        right:'5px',
+                        top:'3px',
+                        cursor:'pointer'}}
+                        icon={faEdit}
+                        onClick={openModal}/> : "" }
                 </Th>
             </Tr>
             <Tr>

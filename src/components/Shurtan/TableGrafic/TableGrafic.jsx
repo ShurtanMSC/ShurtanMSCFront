@@ -10,7 +10,8 @@ import TableGraficModalTwo from "./TableGraficModalTwo";
 import axios from "axios";
 import {BASE_URL_FORECAST_GAS} from "../../../utills/constant"
 import {BASE_URL_FORECAST_CONDENSATE} from "../../../utills/constant"
-import {configHeader} from '../../../utills/congifHeader'
+import {configHeader} from '../../../utills/congifHeader';
+import {getRoleNameFromJWT} from "../../../utills/UsefullFunctions";
 
 const TableGrafic = () => {
     const [openGrafic, setOpenGrafic] = useState(false);
@@ -65,7 +66,7 @@ const TableGrafic = () => {
                     </LeftDiv>
                     <EditDiv>
                         <SelectDiv>
-                            <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} />
+                            {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} /> : ""}
                             <P> Отбор газа млн.м³ </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
@@ -87,7 +88,7 @@ const TableGrafic = () => {
                 <WidthDiv>
                     <EditDiv>
                         <SelectDiv>
-                            <FontAwesomeIcon onClick={openModalTwo} style={{cursor:'pointer'}} icon={faEdit} />
+                            {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon onClick={openModalTwo} style={{cursor:'pointer'}} icon={faEdit} /> : ""}
                             <P> Отбор конденсата тыс.т </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>

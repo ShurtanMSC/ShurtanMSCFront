@@ -3,7 +3,8 @@ import {AppContext} from '../context'
 import styled from 'styled-components'
 import CountUp from 'react-countup'
 import CurrentOperatingCostsModal from './CurrentOperatingCostsModal'
-import GasBalanceModal from './GasBalanceModal'
+import GasBalanceModal from './GasBalanceModal';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const GasBalance = () => {
     const {totalInWork, totalInIdle, totalInRepair, AllTotal} = useContext(AppContext);
@@ -72,8 +73,8 @@ const GasBalance = () => {
                 </Card>
             </ContainerGasBalanced>
             <BtnDiv>
-                <Button onClick={openModal}>Текущие эксплуатационные затраты</Button>
-                <Button onClick={showModal}>Баланс газа</Button>
+                <Button onClick={openModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}>Текущие эксплуатационные затраты</Button>
+                <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}>Баланс газа</Button>
             </BtnDiv>
         </ContainerFluidGasBAlanced>
         <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts}/>

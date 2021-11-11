@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import ModesOfOperationModal from './ModesOfOperationModal'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const ModesOfOperation = () => {
     const [showModesOperationModal, setShowModesOperationModal] = useState(false);
@@ -19,15 +20,15 @@ const ModesOfOperation = () => {
             <thead>
             <Tr>
                 <Th rowSpan="3">Наименование обьектов, агрегатов и марка ГТД</Th>
-                <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС 
-                    <FontAwesomeIcon style={{
-                                        position:'absolute', 
-                                        right:'5px', 
-                                        top:'3px', 
-                                        cursor:'pointer', 
-                                        zIndex:"1"}} 
-                                        icon={faEdit}
-                                        onClick={openModal} /> 
+                <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС
+                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                        position:'absolute',
+                        right:'5px',
+                        top:'3px',
+                        cursor:'pointer',
+                        zIndex:"1"}}
+                        icon={faEdit}
+                        onClick={openModal} /> : ""}
                 </Th>
             </Tr>
             <Tr>

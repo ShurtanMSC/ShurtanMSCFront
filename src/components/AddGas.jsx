@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import AddGasModal from './AddGasModal'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const AddGas = () => {
     const {addGas, totalAddGas} = useContext(AppContext);
@@ -22,14 +23,14 @@ const AddGas = () => {
                 <thead>
                 <Tr>
                     <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
-                    <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, млн.м3 
-                        <FontAwesomeIcon style={{
-                                            position:'absolute', 
-                                            right:'5px', 
-                                            top:'3px', 
-                                            cursor:'pointer'}} 
-                                            icon={faEdit} 
-                                            onClick={openModal}/> 
+                    <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, млн.м3
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' ? <FontAwesomeIcon style={{
+                            position:'absolute',
+                            right:'5px',
+                            top:'3px',
+                            cursor:'pointer'}}
+                            icon={faEdit}
+                            onClick={openModal}/> : ""}
                     </Th>
                 </Tr>
                 <Tr>
