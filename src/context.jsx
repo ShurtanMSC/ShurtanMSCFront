@@ -256,13 +256,13 @@ const AppProvider = ({children}) => {
         setInterval(() => {
             takeSpPressure();
             setRefresh(dateTime);
-            // takeAllWells();
-        }, 15000);
-        setInterval(() => {
-            getUppgDatabase();
-            // setRefresh(dateTime);
-            // takeAllWells();
-        }, 15000);
+            takeAllWells();
+        }, 30000);
+        // setInterval(() => {
+        //     getUppgDatabase();
+        //     // setRefresh(dateTime);
+        //     // takeAllWells();
+        // }, 15000);
         /** Call Stat-Status Api **/
         takeStatus();
         /** Call Uppg all collection **/

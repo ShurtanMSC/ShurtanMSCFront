@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Footer = () => {
     return(
         <ContainerFluidFooter>
-            <P_Footer> © Все права защищены АО "O'ZLITINEFTGAZ" {new Date().getFullYear()} </P_Footer>
+            <P_Footer> © Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()} </P_Footer>
         </ContainerFluidFooter>
     )
 }

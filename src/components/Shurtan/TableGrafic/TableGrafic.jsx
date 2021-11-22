@@ -66,7 +66,10 @@ const TableGrafic = () => {
                     </LeftDiv>
                     <EditDiv>
                         <SelectDiv>
-                            {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon onClick={openModal} style={{cursor:'pointer'}} icon={faEdit} /> : ""}
+                            {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon
+                                onClick={openModal}
+                                style={{cursor:'pointer'}}
+                                icon={faEdit} /> : ""}
                             <P> Отбор газа млн.м³ </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
@@ -88,7 +91,10 @@ const TableGrafic = () => {
                 <WidthDiv>
                     <EditDiv>
                         <SelectDiv>
-                            {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon onClick={openModalTwo} style={{cursor:'pointer'}} icon={faEdit} /> : ""}
+                            {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon
+                                onClick={openModalTwo}
+                                style={{cursor:'pointer'}}
+                                icon={faEdit} /> : ""}
                             <P> Отбор конденсата тыс.т </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>

@@ -22,7 +22,7 @@ const ConsumedElectricity = () => {
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Месторождение</Th>
                 <Th colSpan="4" style={{position:'sticky', top:'0'}}>Потребляемая электроэнергия, кв/ч
-                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
                         top:'3px',

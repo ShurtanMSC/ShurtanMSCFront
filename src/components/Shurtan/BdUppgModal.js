@@ -2,9 +2,9 @@ import React, {useRef, useEffect, useCallback, useContext} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ModalDivShurtan,
-    H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, SaveBtnModal, CloseBtnModal } from '../../styled'
-import axios from "axios";
-import {BASE_URL} from "../../utills/constant";
+    H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal,
+    // SaveBtnModal,
+    CloseBtnModal } from '../../styled'
 import {AppContext} from "../../context";
 
 const backdrop = {
@@ -70,15 +70,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                             <Table>
                                 <thead>
                                 <Tr>
-                                    <Th>Накопленный объем</Th>
-                                    <Th>Накопленный объем с начала суток</Th>
-                                    <Th>Накопленный объем за вчера</Th>
-                                    <Th>Накопленный объем с начала месяца</Th>
-                                    <Th>Накопленный объем за предыдущий месяц</Th>
-                                    <Th>Перепад давления</Th>
-                                    <Th>Давление</Th>
-                                    <Th>Температура</Th>
-                                    <Th>Расход</Th>
+                                    <Th>Накопленный объем т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем с начала суток т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем за вчера т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем с начала месяца т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем за предыдущий месяц т.м<sup>3</sup></Th>
+                                    <Th>Перепад давления кПа</Th>
+                                    <Th>Давление МПа</Th>
+                                    <Th>Температура <sup>o</sup>C</Th>
+                                    <Th>Расход т.м<sup>3</sup>/ч</Th>
                                 </Tr>
                                 </thead>
                                 <tbody>
@@ -101,15 +101,15 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                             <Table>
                                 <thead>
                                 <Tr>
-                                    <Th>Накопленный объем</Th>
-                                    <Th>Накопленный объем с начала суток</Th>
-                                    <Th>Накопленный объем за вчера</Th>
-                                    <Th>Накопленный объем с начала месяца</Th>
-                                    <Th>Накопленный объем за предыдущий месяц</Th>
-                                    <Th>Перепад давления</Th>
-                                    <Th>Давление</Th>
-                                    <Th>Температура</Th>
-                                    <Th>Расход</Th>
+                                    <Th>Накопленный объем т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем с начала суток т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем за вчера т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем с начала месяца т.м<sup>3</sup></Th>
+                                    <Th>Накопленный объем за предыдущий месяц т.м<sup>3</sup></Th>
+                                    <Th>Перепад давления кПа</Th>
+                                    <Th>Давление МПа</Th>
+                                    <Th>Температура <sup>o</sup>C</Th>
+                                    <Th>Расход т.м<sup>3</sup>/ч</Th>
                                 </Tr>
                                 </thead>
                                 <tbody>

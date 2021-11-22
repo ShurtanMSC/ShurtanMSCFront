@@ -87,7 +87,7 @@ const BtnSearch = () => {
                 </BtnSerach>
                 <BdUppgModal showBdUppgModal={showBdUppgModal}
                                 setShowBdUppgModal={setShowBdUppgModal}/>
-                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}> БД УППГ </BtnSerach>
+                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}> БД УППГ </BtnSerach>
             </BtnDiv>
             <SearcherSK openUppg={openUppg}>
                 <Form>
@@ -170,14 +170,14 @@ const BtnSearch = () => {
                 <thead>
                 <Tr>
                     <Th style={{position:'relative'}}>
-                        {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{position:'absolute',
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{position:'absolute',
                             top:'10px',
                             left:'10px',
                             cursor:'pointer'}}
                             icon={faEdit}
                             onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> : ""}
                         Наименование</Th>
-                    <Th>2-х часовая</Th>
+                    <Th>Часовая</Th>
                     <Th>За тек. сутки</Th>
                     <Th>За тек. месяц</Th>
                     <Th>С нач. года</Th>
@@ -186,28 +186,28 @@ const BtnSearch = () => {
                 <tbody>
                 <Tr>
                     <TdFirst>Проектная производительность <br/> м3/год</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*30}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Фактическая производителность <br/> м3/год</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*30}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м3</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*2}</Td>
+                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*30}</Td>
                     <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*365}</Td>

@@ -77,7 +77,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*2}
+                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
@@ -104,7 +104,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*2}
+                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
@@ -131,7 +131,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*2/10000}
+                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")/10000}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
@@ -158,7 +158,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*2}
+                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal

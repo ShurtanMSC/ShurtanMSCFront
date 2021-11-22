@@ -175,7 +175,7 @@ export const BtnBurger = styled.div`
         height:2px;
     }
 `
-export const H2Navigation = styled.h2`
+export const H2Navigation = styled.button`
       width: 100%;
       background: #FFFFFF;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -191,6 +191,8 @@ export const H2Navigation = styled.h2`
       cursor: pointer;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
+      border: none;
+      outline: none;
       &:hover{
         color: #00A0DC;
       }

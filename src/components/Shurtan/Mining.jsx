@@ -18,9 +18,9 @@ const Mining = () => {
             </thead>
             <tbody>
                 <Tr>
-                    <TdFirst>2-х часовая</TdFirst>
-                    <Td>{totalAllUppg*2}</Td>
-                    <Td>{totalAllUppgCon*2}</Td>
+                    <TdFirst>Часовая</TdFirst>
+                    <Td>{totalAllUppg}</Td>
+                    <Td>{totalAllUppgCon}</Td>
                     <Td>{totalAllUppgWater}</Td>
                 </Tr>
                 <Tr>

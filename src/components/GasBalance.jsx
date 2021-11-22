@@ -73,8 +73,8 @@ const GasBalance = () => {
                 </Card>
             </ContainerGasBalanced>
             <BtnDiv>
-                <Button onClick={openModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}>Текущие эксплуатационные затраты</Button>
-                <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" ? true : false}>Баланс газа</Button>
+                <Button onClick={openModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Текущие эксплуатационные затраты</Button>
+                <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Баланс газа</Button>
             </BtnDiv>
         </ContainerFluidGasBAlanced>
         <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts}/>

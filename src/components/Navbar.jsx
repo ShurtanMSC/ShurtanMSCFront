@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {AppContext} from "../context";
 import styled from 'styled-components'
 import { ContainerFluid, H1, P, NavbarCard, HumanImg, DateP, OclockP, DateAndOclock, Burger, BtnBurger, H2Navigation } from '../styled'
@@ -128,27 +128,58 @@ const Navbar = () => {
                         <LinkShurtan to="/reports">
                             <H2Navigation>Отчеты</H2Navigation>
                         </LinkShurtan>
-                        <H2Navigation onClick={openModal}>Анализ добычи</H2Navigation>
+                        <H2Navigation
+                            onClick={openModal}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Анализ добычи
+                        </H2Navigation>
                             <AddGasNavbarModal showModal={showModal}
                                            setShowModal={setShowModal}/>
-                        <H2Navigation onClick={openElectricity}>Потребление электроэнергии</H2Navigation>
+                        <H2Navigation
+                            onClick={openElectricity}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>
+                            Потребление электроэнергии
+                        </H2Navigation>
                             <ElectricityConsumptionNavbarModal showElectricity={showElectricity}
                                                                setShowElectricity={setShowElectricity}/>
-                        <H2Navigation onClick={openPersonnel}>Управление персоналом</H2Navigation>
+                        <H2Navigation
+                            onClick={openPersonnel}
+                            disabled={getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>
+                            Управление персоналом</H2Navigation>
                             <PersonnelManagementNavbarModal showPersonnel={showPersonnel}
                                                             setShowPersonnel={setShowPersonnel}/>
-                        <H2Navigation onClick={openParameters}>Параметры пласта</H2Navigation>
+                        <H2Navigation
+                            onClick={openParameters}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Параметры пласта
+                        </H2Navigation>
                             <ReservoirParameters showParameters={showParameters}
                                                  setShowParameters={setShowParameters}/>
-                        <H2Navigation onClick={openProduction}>Показатели добычи</H2Navigation>
+                        <H2Navigation
+                            onClick={openProduction}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Показатели добычи
+                        </H2Navigation>
                             <ProductionIndicators showProduction={showProduction}
                                                   setShowProduction={setShowProduction}/>
-                        <H2Navigation onClick={openTechnological}>Технологический режим эксплуатации месторождений</H2Navigation>
+                        <H2Navigation
+                            onClick={openTechnological}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Технологический режим эксплуатации месторождений
+                        </H2Navigation>
                             <TechnologicalRegime showTechnological={showTechnological}
                                                  setShowTechnological={setShowTechnological}/>
-                        <H2Navigation onClick={openWellOperation}>Показатели эксплуатации скважин</H2Navigation>
+                        <H2Navigation
+                            onClick={openWellOperation}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Показатели эксплуатации скважин
+                        </H2Navigation>
                             <WellOperation />
-                        <H2Navigation onClick={openRegistrationWell}>Регистрация новой скважины</H2Navigation>
+                        <H2Navigation
+                            onClick={openRegistrationWell}
+                            disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' ? true : false}>
+                            Регистрация новой скважины
+                        </H2Navigation>
                             <RegistrationWell />
                     </ShurtanNavigation>
                     <H2Navigation>Южная Тандырча</H2Navigation>

@@ -22,7 +22,7 @@ const Admin = () => {
                             <Button>Войти в систему </Button>
                         </Form>
                     </div>
-                    <P_Admin_Footer>© Все права защищены АО "O'ZLITINEFTGAZ" {new Date().getFullYear()}</P_Admin_Footer>
+                    <P_Admin_Footer>© Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()}</P_Admin_Footer>
                 </Login>
             </ContainerAdmin>
         </ContainerFluidFooter>

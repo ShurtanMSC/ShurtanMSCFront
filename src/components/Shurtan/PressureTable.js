@@ -70,7 +70,7 @@ const PressureTable = ({el}) => {
         />
         <Tr>
             <TdFirstPresure>
-                {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIconPresure
+                {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIconPresure
                     icon={faEdit}
                     onClick={()=>openPressureModal(el.objectDto.name, el)}/> : ""}
                 {el.objectDto.name}

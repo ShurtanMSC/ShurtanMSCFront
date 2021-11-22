@@ -23,7 +23,7 @@ const WellStock = () => {
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наимено-<br/>вание</Th>
                 <Th colSpan="5" style={{position:'sticky', top:'0'}}> Фонд скважин
-                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
                         top:'3px',

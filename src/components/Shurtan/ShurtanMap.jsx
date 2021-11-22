@@ -819,41 +819,57 @@ const  ShurtanMap = () => {
                             <rect x="989.5" y="424.5" width="110" height="65" rx="9.5" fill="white" stroke="#FF914B"/>
                             <g id="textP1_3">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="995" y="467.353"> P</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1005.278" y="467.353">вх= {Math.round(allUppg[1].objectActionDto.incomePressure*10)/10} кгс/см²</tspan></text>
+                                <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1005.278" y="467.353">
+                                    вх={/*{Math.round(allUppg[1].objectActionDto.incomePressure*10)/10} */}  кгс/см²
+                                </tspan></text>
 
                             </g>
                             <g id="textP2_3">
                                 <text fill="black" xmlSpace="preserve" className={"mapTitle"}><tspan x="995" y="482.353"> P</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className={"mapTitle"}><tspan x="1005.278" y="482.353">вых= {Math.round(allUppg[1].objectActionDto.exitPressure*10)/10} кгс/см²</tspan></text>
+                                <text fill="black" xmlSpace="preserve" className={"mapTitle"}><tspan x="1005.278" y="482.353">
+                                    вых={/*{Math.round(allUppg[1].objectActionDto.exitPressure*10)/10} */}  кгс/см²
+                                </tspan></text>
                             </g>
                             <g id="textQ_3">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" > <tspan x="994" y="439.353"> Q=</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle" > <tspan x="1057.475" y="439.353"> ³/сутка </tspan> </text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle" > <tspan x="1015.341" y="439.353">{Math.round(allUppg[1].objectActionDto.expend*10)/10/1000} млн.м </tspan> </text>
+                                {/*<text fill="black" xmlSpace="preserve" className="mapTitle" > <tspan x="1057.475" y="439.353"> ³/сутка </tspan> </text>*/}
+                                <text fill="black" xmlSpace="preserve" className="mapTitle" > <tspan x="1015.341" y="439.353">
+                                    {/*{Math.round(allUppg[1].objectActionDto.expend*10)/10/1000} */}  млн.м³/сутка
+                                </tspan> </text>
                             </g>
                             <g id="textT_3">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="994" y="454.353"> Т=</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1027.475" y="454.353"> °C</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1015.341" y="454.353">{Math.round(allUppg[1].objectActionDto.exitTemperature*10)/10} </tspan></text>
+                                {/*<text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1027.475" y="454.353">°C</tspan></text>*/}
+                                <text fill="black" xmlSpace="preserve" className="mapTitle" ><tspan x="1015.341" y="454.353">
+                                    {/*{Math.round(allUppg[1].objectActionDto.exitTemperature*10)/10} */} °C
+                                </tspan></text>
                             </g>
                             <rect x="416.5" y="837.5" width="110" height="65" rx="9.5" fill="white" stroke="#FF914B"/>
                             <g id="textP1">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="425" y="880.585">P</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="432.278" y="880.585">вх= {Math.round(allUppg[0].objectActionDto.incomePressure*10)/10} кгс/см² </tspan></text>
+                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="432.278" y="880.585">
+                                    вх={/*{Math.round(allUppg[0].objectActionDto.incomePressure*10)/10} */}  кгс/см²
+                                </tspan></text>
                             </g>
                             <g id="textP2">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="425" y="895.585">P</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="432.278" y="895.585">вых= {Math.round(allUppg[0].objectActionDto.exitPressure*10)/10} кгс/см²</tspan></text>
+                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="432.278" y="895.585">
+                                    вых={/*{Math.round(allUppg[0].objectActionDto.exitPressure*10)/10} */}  кгс/см²
+                                </tspan></text>
                             </g>
                             <g id="textQ">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="425" y="852.585">Q=</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="488.475" y="852.585">³/сутка</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="440.341" y="852.585"> {Math.round(allUppg[0].objectActionDto.expend*10)/10/1000} млн.м</tspan></text>
+                                {/*<text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="488.475" y="852.585">³/сутка</tspan></text>*/}
+                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="440.341" y="852.585">
+                                    {/*{Math.round(allUppg[0].objectActionDto.expend*10)/10/1000} */}  млн.м³/сутка
+                                </tspan></text>
                             </g>
                             <g id="textT">
                                 <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="425" y="867.585">Т=</tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="463.371" y="867.585">°C </tspan></text>
-                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="440.831" y="867.585"> {Math.round(allUppg[0].objectActionDto.exitTemperature*10)/10} </tspan></text>
+                                {/*<text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="463.371" y="867.585">°C </tspan></text>*/}
+                                <text fill="black" xmlSpace="preserve" className="mapTitle"><tspan x="440.831" y="867.585">
+                                    {/*{Math.round(allUppg[0].objectActionDto.exitTemperature*10)/10} */} °C
+                                </tspan></text>
                             </g>
                             <rect x="658.5" y="762.5" width="110" height="65" rx="9.5" fill="white" stroke="#FF914B"/>
                             <path d="M673.86 798C674.48 798 675.017 798.103 675.47 798.31C675.93 798.517 676.283 798.81 676.53 799.19C676.777 799.57 676.9 800.02 676.9 800.54C676.9 801.053 676.777 801.503 676.53 801.89C676.283 802.27 675.93 802.563 675.47 802.77C675.017 802.97 674.48 803.07 673.86 803.07H672.45V805H670.83V798H673.86ZM673.77 801.75C674.257 801.75 674.627 801.647 674.88 801.44C675.133 801.227 675.26 800.927 675.26 800.54C675.26 800.147 675.133 799.847 674.88 799.64C674.627 799.427 674.257 799.32 673.77 799.32H672.45V801.75H673.77ZM681.312 802.752C681.819 802.923 682.072 803.264 682.072 803.776C682.072 804.165 681.926 804.467 681.632 804.68C681.339 804.893 680.902 805 680.32 805H678.024V800.696H680.224C680.763 800.696 681.184 800.795 681.488 800.992C681.792 801.184 681.944 801.456 681.944 801.808C681.944 802.021 681.888 802.211 681.776 802.376C681.67 802.536 681.515 802.661 681.312 802.752ZM679.168 802.464H680.112C680.55 802.464 680.768 802.309 680.768 802C680.768 801.696 680.55 801.544 680.112 801.544H679.168V802.464ZM680.216 804.152C680.675 804.152 680.904 803.995 680.904 803.68C680.904 803.515 680.851 803.395 680.744 803.32C680.638 803.24 680.47 803.2 680.24 803.2H679.168V804.152H680.216ZM685.785 805L684.841 803.68L683.865 805H682.505L684.161 802.832L682.561 800.696H683.961L684.873 801.952L685.809 800.696H687.137L685.537 802.8L687.201 805H685.785ZM687.791 800.72H691.599V801.696H687.791V800.72ZM687.791 802.704H691.599V803.68H687.791V802.704ZM694.636 799.4V805H693.34V800.44H692.22V799.4H694.636ZM697.609 801.504C698.398 801.504 698.98 801.661 699.353 801.976C699.732 802.291 699.921 802.712 699.921 803.24C699.921 803.581 699.836 803.893 699.665 804.176C699.494 804.453 699.233 804.677 698.881 804.848C698.534 805.013 698.105 805.096 697.593 805.096C697.198 805.096 696.809 805.045 696.425 804.944C696.046 804.837 695.724 804.688 695.457 804.496L695.969 803.504C696.182 803.664 696.428 803.789 696.705 803.88C696.982 803.965 697.268 804.008 697.561 804.008C697.886 804.008 698.142 803.944 698.329 803.816C698.516 803.688 698.609 803.509 698.609 803.28C698.609 803.04 698.51 802.859 698.313 802.736C698.121 802.613 697.785 802.552 697.305 802.552H695.873L696.161 799.4H699.577V800.44H697.241L697.153 801.504H697.609ZM705.056 803.368H704.408V805H703.16V800.696H704.408V802.368H705.08L706.248 800.696H707.576L706.072 802.76L707.68 805H706.208L705.056 803.368ZM711.821 801.72H709.613V805H708.373V800.696H711.821V801.72ZM714.431 805.064C713.972 805.064 713.559 804.971 713.191 804.784C712.828 804.592 712.543 804.328 712.335 803.992C712.132 803.656 712.031 803.275 712.031 802.848C712.031 802.421 712.132 802.04 712.335 801.704C712.543 801.368 712.828 801.107 713.191 800.92C713.559 800.728 713.972 800.632 714.431 800.632C714.884 800.632 715.279 800.728 715.615 800.92C715.956 801.107 716.204 801.376 716.359 801.728L715.391 802.248C715.167 801.853 714.844 801.656 714.423 801.656C714.098 801.656 713.828 801.763 713.615 801.976C713.402 802.189 713.295 802.48 713.295 802.848C713.295 803.216 713.402 803.507 713.615 803.72C713.828 803.933 714.098 804.04 714.423 804.04C714.85 804.04 715.172 803.843 715.391 803.448L716.359 803.976C716.204 804.317 715.956 804.584 715.615 804.776C715.279 804.968 714.884 805.064 714.431 805.064ZM718.973 798.264H720.085L717.445 805.8H716.333L718.973 798.264ZM721.943 805.064C721.484 805.064 721.071 804.971 720.703 804.784C720.34 804.592 720.055 804.328 719.847 803.992C719.644 803.656 719.543 803.275 719.543 802.848C719.543 802.421 719.644 802.04 719.847 801.704C720.055 801.368 720.34 801.107 720.703 800.92C721.071 800.728 721.484 800.632 721.943 800.632C722.396 800.632 722.791 800.728 723.127 800.92C723.468 801.107 723.716 801.376 723.871 801.728L722.903 802.248C722.679 801.853 722.356 801.656 721.935 801.656C721.609 801.656 721.34 801.763 721.127 801.976C720.913 802.189 720.807 802.48 720.807 802.848C720.807 803.216 720.913 803.507 721.127 803.72C721.34 803.933 721.609 804.04 721.935 804.04C722.361 804.04 722.684 803.843 722.903 803.448L723.871 803.976C723.716 804.317 723.468 804.584 723.127 804.776C722.791 804.968 722.396 805.064 721.943 805.064ZM728.909 805V802.424L727.621 804.584H727.093L725.837 802.416V805H724.709V800.696H726.013L727.389 803.184L728.853 800.696H730.021L730.037 805H728.909ZM732.896 800.392C733.216 800.44 733.462 800.549 733.632 800.72C733.803 800.891 733.888 801.104 733.888 801.36C733.888 801.552 733.83 801.731 733.712 801.896C733.6 802.061 733.427 802.195 733.192 802.296C732.958 802.397 732.67 802.448 732.328 802.448C732.04 802.448 731.76 802.413 731.488 802.344C731.222 802.275 731.011 802.184 730.856 802.072L731.176 801.432C731.326 801.533 731.502 801.613 731.704 801.672C731.907 801.725 732.11 801.752 732.312 801.752C732.542 801.752 732.712 801.717 732.824 801.648C732.942 801.579 733 801.483 733 801.36C733 801.109 732.79 800.984 732.368 800.984H731.896V800.44L732.624 799.728H731V799.064H733.704V799.6L732.896 800.392Z" fill="black"/>

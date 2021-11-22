@@ -21,7 +21,7 @@ const ModesOfOperation = () => {
             <Tr>
                 <Th rowSpan="3">Наименование обьектов, агрегатов и марка ГТД</Th>
                 <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС
-                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
                         top:'3px',

@@ -24,7 +24,7 @@ const TechnologicalModes = () => {
             <Tr>
                 <Th rowSpan="3" style={{position:'sticky', top:'0'}}>Месторождение</Th>
                 <Th colSpan="4" style={{position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений
-                    {getRoleNameFromJWT() !== "EMPLOYEE" ? <FontAwesomeIcon style={{
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
                         top:'3px',
@@ -34,7 +34,7 @@ const TechnologicalModes = () => {
                 </Th>
             </Tr>
             <Tr>
-                <Th colSpan="4" style={{position:'sticky', top:'38px'}}>2-х часовой режим, кгс/см2</Th>
+                <Th colSpan="4" style={{position:'sticky', top:'38px'}}>Часовой режим, кгс/см2</Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'60px'}}>Текущее пластовое давление</Th>
