@@ -120,7 +120,7 @@ const TableGrafic = () => {
 }
 const TableGraficContainer = styled.div`
     width: 400px;
-    height: 765px;
+    height: 740px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -217,7 +217,7 @@ const YearP = styled.p`
 `
 const GraficDiv = styled.div`
   width:400px;
-  height:320px;
+  height:290px;
   @media(min-width:401px){
     width:850px;
   }
