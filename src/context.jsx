@@ -257,6 +257,7 @@ const AppProvider = ({children}) => {
             takeSpPressure();
             setRefresh(dateTime);
             takeAllWells();
+            getUppgDatabase();
         }, 30000);
         // setInterval(() => {
         //     getUppgDatabase();

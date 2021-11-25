@@ -1167,4 +1167,5 @@ export const TitleH1 = styled.h1`
   font-weight: normal;
   font-size: 40px;
   opacity: 0.5;
+  text-align: center;
 `

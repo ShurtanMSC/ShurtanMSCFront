@@ -17,19 +17,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
-const ReportHeader = ({handlerPrint, handlerShowTexReport}) => {
+const ReportHeader = ({handlerPrint, handlerShowTexReport, handlerSelectReport}) => {
     const {dateTime} = useContext(AppContext);
     return(
         <ContainerReportHeader>
             <FormReportHeader onSubmit={handlerShowTexReport}>
                 <SelectDiv>
-                    <LabelReportHeader htmlFor="reportAnalysis">Вид счета</LabelReportHeader>
-                    <SelectReportHeader name="reportAnalysis" >
-                        <option>--Выберите--</option>
-                        <option>Анализ добычи</option>
-                        <option>Потребление электроэнергии</option>
-                        <option>Управление персоналом</option>
-                        <option>Технологический режим эксплуатации месторождений</option>
+                    <LabelReportHeader htmlFor="reportShurtan">Вид счета</LabelReportHeader>
+                    <SelectReportHeader name="reportShurtan" onChange={handlerSelectReport}>
+                        <option value="select" selected>--Выберите--</option>
+                        <option value="addAnalysis" >Анализ добычи</option>
+                        <option value="consumedElectricity" >Потребление электроэнергии</option>
+                        <option value="numberOfStaff" >Управление персоналом</option>
+                        <option value="technologicalModes" >Технологический режим эксплуатации месторождений</option>
                     </SelectReportHeader>
                 </SelectDiv>
                 <InputDateDiv>
