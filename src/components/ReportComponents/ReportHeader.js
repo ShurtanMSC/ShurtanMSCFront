@@ -34,11 +34,11 @@ const ReportHeader = ({handlerPrint, handlerShowTexReport, handlerSelectReport})
                 </SelectDiv>
                 <InputDateDiv>
                     <LabelReportHeaderDate htmlFor="fromData">Дата отсчета <span> От </span> </LabelReportHeaderDate>
-                    <InputReportDate type="date"/>
+                    <InputReportDate type="date"required/>
                 </InputDateDiv>
                 <InputDateDiv>
                     <LabelReportHeaderDate htmlFor="toData">Анализ добычи <span> До </span> </LabelReportHeaderDate>
-                    <InputReportDate type="date"/>
+                    <InputReportDate type="date"required/>
                 </InputDateDiv>
                 <ButtonReportApply>Применить</ButtonReportApply>
             </FormReportHeader>

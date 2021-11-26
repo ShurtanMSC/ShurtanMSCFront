@@ -295,6 +295,8 @@ const AppProvider = ({children}) => {
             .catch(err => {console.log(err)})
         /** Call Me Api (user) **/
         takeFio();
+        /** Get PersonalManagement Api **/
+        takePersonal();
     }, []);
 
     // WELL_OPERATION
@@ -461,7 +463,7 @@ const AppProvider = ({children}) => {
             monthly: 0,
             yearly: 0
         }
-        console.log(dataShurtanElectric)
+        // console.log(dataShurtanElectric)
         axios.post(BASE_URL + '/api/electricity/add', dataShurtanElectric, configHeader)
             .then(res => {
                 console.log(res); takeElectric();
@@ -498,7 +500,63 @@ const AppProvider = ({children}) => {
         // })
 
     }
+    /** Post PersonalManagement Api **/
+    const [atWork, setAtWork] = useState('');
+    const [onVacation, setOnVacation] = useState('');
+    const [onSickLeave, setOnSickLeave] = useState('');
+    const [withoutContent, setWithoutContent] = useState('');
+    const [showPersonnel, setShowPersonnel] = useState(false);
 
+    const handlerPersonal = e => {
+        e.preventDefault();
+        const PersonalDate = {
+            atWork: atWork,
+            date: "2021-11-25T11:10:49.687Z",
+            id: 0,
+            miningSystemId: 1,
+            onSickLeave: onSickLeave,
+            onVacation: onVacation,
+            withoutContent: withoutContent,
+        }
+        axios.post(BASE_URL + '/api/staff/number/add', PersonalDate, configHeader)
+            .then(res => {console.log(res); takePersonal();})
+            .catch(err => {console.log(err)})
+        setAtWork('');
+        setOnVacation('');
+        setOnSickLeave('');
+        setWithoutContent('');
+        setShowPersonnel(prev => !prev);
+    }
+    const handlerAtWork = e => {
+        setAtWork(e.target.value);
+    }
+    const handlerOnVacation = e => {
+        setOnVacation(e.target.value);
+    }
+    const handlerOnSick = e => {
+        setOnSickLeave(e.target.value);
+    }
+    const handlerOnContent = e => {
+        setWithoutContent(e.target.value);
+    }
+    /** Get PersonalManagement Api **/
+    const [personal, setPersonal] = useState([]);
+    const takePersonal = () => {
+        axios.get(BASE_URL + '/api/staff/number/all', configHeader)
+            .then(res => {console.log(res.data.object); setPersonal(res.data.object);})
+            .catch(err => {console.log(err)})
+    }
+    /** Total Personal **/
+    let totalAtWork = 0;
+    let totalOnVacation = 0;
+    let totalOnSick = 0;
+    let totalWithoutContent = 0;
+    for (let w = 0; w < personal.length; w++){
+        totalAtWork = totalAtWork + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.atWork : "");
+        totalOnVacation = totalOnVacation + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.onVacation : "");
+        totalOnSick = totalOnSick + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.onSickLeave : "");
+        totalWithoutContent = totalWithoutContent + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.withoutContent : "");
+    }
 
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword, name,
@@ -533,6 +591,8 @@ const AppProvider = ({children}) => {
         showConsumedElectricity, setShowConsumedElectricity, getElectric,
         handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
         handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
+        handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
+        totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent,
     }
     return (
         <AppContext.Provider value={value}>

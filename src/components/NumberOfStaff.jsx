@@ -9,12 +9,13 @@ import CountUp from 'react-countup'
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const NumberOfStaff = () => {
-    const {nameAllMining} = useContext(AppContext);
+    const {nameAllMining, personal, totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent,} = useContext(AppContext);
     const [showNumberOfStaffModal, setShowNumberOfStaffModal] = useState(false);
 
     const openModal = () => {
         setShowNumberOfStaffModal(prev => !prev)
     };
+    console.log(nameAllMining);
 
     return (
         <>
@@ -41,23 +42,23 @@ const NumberOfStaff = () => {
             </Tr>
             </thead>
             <tbody>
-            {nameAllMining.map((mining, key) =>
-                <Tr key={key}>
-                    <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={15} duration={5}/> </Td>
-                    <Td> <CountUp end={20} duration={5}/> </Td>
-                    <Td> <CountUp end={40} duration={5}/> </Td>
-                    <Td> <CountUp end={12} duration={5}/> </Td>
+            {personal && personal.map((workers, index) =>
+                <Tr key={index}>
+                    <TdFirst>{workers.objectDto.name}</TdFirst>
+                    <Td> <CountUp end={workers.objectActionDto !== null ? workers.objectActionDto.atWork : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={workers.objectActionDto !== null ? workers.objectActionDto.onVacation : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={workers.objectActionDto !== null ? workers.objectActionDto.onSickLeave : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={workers.objectActionDto !== null ? workers.objectActionDto.withoutContent : ""} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> <CountUp end={15} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={20} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={40} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={12} duration={5}/> </TdTotalCount>    
+                <TdTotalCount> <CountUp end={totalAtWork} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalOnVacation} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalOnSick} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalWithoutContent} duration={5}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableNumberOfStaff>
