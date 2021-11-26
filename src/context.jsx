@@ -241,7 +241,7 @@ const AppProvider = ({children}) => {
     let today = new Date();
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date+' '+time;
+    let dateTime = date;
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)

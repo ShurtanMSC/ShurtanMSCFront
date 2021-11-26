@@ -1077,6 +1077,7 @@ export const ButtonReportApply = styled.button`
   color: #FFFFFF;
   border: none;
   cursor: pointer;
+  margin: 0 10px 0 0;
   &:focus {
     box-shadow: 0 0 2px 2px rgba(52, 151, 218, 0.55);
   }

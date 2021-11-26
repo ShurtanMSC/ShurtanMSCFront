@@ -16,34 +16,52 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+import {BASE_URL} from "../../utills/constant";
+import {getRoleNameFromJWT} from "../../utills/UsefullFunctions";
 
-const ReportHeader = ({handlerPrint, handlerShowTexReport, handlerSelectReport}) => {
+const ReportHeader = ({handlerPrint, handlerShowTexReport,
+                          handlerSelectReport, showTexReport,
+                          showAnalysis, showElectricity,
+                          showStaff, handlerStartDate,
+                          handlerEndDate, startDate, endDate}) => {
     const {dateTime} = useContext(AppContext);
     return(
         <ContainerReportHeader>
             <FormReportHeader onSubmit={handlerShowTexReport}>
                 <SelectDiv>
                     <LabelReportHeader htmlFor="reportShurtan">Вид счета</LabelReportHeader>
-                    <SelectReportHeader name="reportShurtan" onChange={handlerSelectReport}>
+                    <SelectReportHeader name="reportShurtan" onChange={handlerSelectReport} required>
                         <option value="select" selected>--Выберите--</option>
-                        <option value="addAnalysis" >Анализ добычи</option>
-                        <option value="consumedElectricity" >Потребление электроэнергии</option>
-                        <option value="numberOfStaff" >Управление персоналом</option>
-                        <option value="technologicalModes" >Технологический режим эксплуатации месторождений</option>
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                         getRoleNameFromJWT() !== 'ENERGETIC' &&
+                         getRoleNameFromJWT() !== 'METROLOGIST' ? <option value="addAnalysis" >Анализ добычи</option> : ""}
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                         getRoleNameFromJWT() !== 'METROLOGIST' &&
+                         getRoleNameFromJWT() !== 'GEOLOGIST' ? <option value="consumedElectricity" >Потребление электроэнергии</option> : ""}
+                        {getRoleNameFromJWT() !== 'METROLOGIST' &&
+                         getRoleNameFromJWT() !== 'ENERGETIC' &&
+                         getRoleNameFromJWT() !== 'GEOLOGIST' ? <option value="numberOfStaff" >Управление персоналом</option> : ""}
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                         getRoleNameFromJWT() !== 'ENERGETIC' &&
+                         getRoleNameFromJWT() !== 'METROLOGIST' ? <option value="technologicalModes" >Технологический режим эксплуатации месторождений</option> : ""}
                     </SelectReportHeader>
                 </SelectDiv>
                 <InputDateDiv>
                     <LabelReportHeaderDate htmlFor="fromData">Дата отсчета <span> От </span> </LabelReportHeaderDate>
-                    <InputReportDate type="date"required/>
+                    <InputReportDate type="date" onChange={handlerStartDate} required/>
                 </InputDateDiv>
                 <InputDateDiv>
                     <LabelReportHeaderDate htmlFor="toData">Анализ добычи <span> До </span> </LabelReportHeaderDate>
-                    <InputReportDate type="date"required/>
+                    <InputReportDate type="date" onChange={handlerEndDate} required/>
                 </InputDateDiv>
                 <ButtonReportApply>Применить</ButtonReportApply>
+                <ButtonReportDownload href={showTexReport ? (BASE_URL + "/api/report/test/" + "Tex - " + startDate +' '+ endDate) :
+                                            showElectricity ? (BASE_URL + "/api/report/electricity/excel/" + "Electricity - " + startDate +' '+endDate) :
+                                            showStaff ? (BASE_URL + "/api/report/staff/excel/" + "Staff - " + startDate+' '+endDate) : "#"}
+                                      >Экспорт Excel</ButtonReportDownload>
             </FormReportHeader>
             <PrintDiv>
-                <ButtonReportDownload href={"http://185.170.214.207:8080/api/report/test/" + "Tex - " + dateTime}>Экспорт Excel</ButtonReportDownload>
+
                 <FontAwesomeIconPrint icon={faPrint} onClick={handlerPrint} size='2x'/>
             </PrintDiv>
         </ContainerReportHeader>

@@ -24,7 +24,11 @@ const AddGas = () => {
                 <Tr>
                     <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
                     <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, млн.м3
-                        {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                        getRoleNameFromJWT() !== 'OPERATOR' &&
+                        getRoleNameFromJWT() !== 'ENERGETIC' &&
+                        getRoleNameFromJWT() !== 'METROLOGIST' &&
+                        getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                             position:'absolute',
                             right:'5px',
                             top:'3px',

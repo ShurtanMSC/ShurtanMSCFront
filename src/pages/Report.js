@@ -5,7 +5,8 @@ import Navbar from '../components/Navbar';
 import ReportHeader from "../components/ReportComponents/ReportHeader";
 import ReportBody from "../components/ReportComponents/ReportBody";
 import {useReactToPrint} from 'react-to-print';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import {BASE_URL} from "../utills/constant";
 
 const Report = () => {
     const [selectReport, setSelectReport] = useState('');
@@ -14,6 +15,8 @@ const Report = () => {
     const [showAnalysis, setShowAnalysis] = useState(false);
     const [showElectricity , setShowElectricity] = useState(false);
     const [showStaff, setShowStaff] = useState(false);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const handlerPrint = useReactToPrint({
         content: () => componentRef.current,
@@ -51,6 +54,12 @@ const Report = () => {
     const handlerSelectReport = e => {
         setSelectReport(e.target.value)
     }
+    const handlerStartDate = e => {
+        setStartDate(e.target.value);
+    }
+    const handlerEndDate = e => {
+        setEndDate(e.target.value);
+    }
 
     return (
         <Window>
@@ -59,7 +68,15 @@ const Report = () => {
                 <ReportHeader
                     handlerPrint={handlerPrint}
                     handlerShowTexReport={handlerShowTexReport}
-                    handlerSelectReport={handlerSelectReport}/>
+                    handlerSelectReport={handlerSelectReport}
+                    showTexReport={showTexReport}
+                    showAnalysis={showAnalysis}
+                    showElectricity={showElectricity}
+                    showStaff={showStaff}
+                    handlerStartDate={handlerStartDate}
+                    handlerEndDate={handlerEndDate}
+                    startDate={startDate}
+                    endDate={endDate}/>
                 <ReportBody
                     componentRef={componentRef}
                     showTexReport={showTexReport}

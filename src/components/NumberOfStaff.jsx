@@ -62,7 +62,10 @@ const NumberOfStaff = () => {
             </Tr>
             </tfoot>
         </TableNumberOfStaff>
-        <NumberOfStaffModal showNumberOfStaffModal={showNumberOfStaffModal} setShowNumberOfStaffModal={setShowNumberOfStaffModal} nameAllMining={nameAllMining}/>
+        <NumberOfStaffModal showNumberOfStaffModal={showNumberOfStaffModal}
+                            setShowNumberOfStaffModal={setShowNumberOfStaffModal}
+                            nameAllMining={nameAllMining}
+                            personal={personal}/>
         </>
     )
 }
