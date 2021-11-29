@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AppContext} from "../../../context";
 import {
     Table,
     Td,
@@ -14,6 +15,7 @@ import {
 import styled from "styled-components";
 
 const ReportElectricity = () => {
+    const {electracityReport} = useContext(AppContext);
     return(
             <ReportAnalysisContainer>
                 <div>
@@ -53,20 +55,20 @@ const ReportElectricity = () => {
                         </thead>
                         <tbody>
                         <Tr>
-                            <TdReportBody>Шуртан</TdReportBody>
-                            <TdReportBody>5000</TdReportBody>
-                            <TdReportBody>4500</TdReportBody>
-                            <TdReportBody>-90</TdReportBody>
-                            <TdReportBody>-500</TdReportBody>
+                            <TdReportBody>{electracityReport[0].miningSystemName}</TdReportBody>
+                            <TdReportBody>{electracityReport[0].hourly ? electracityReport[0].hourly : ""}</TdReportBody>
+                            <TdReportBody>{electracityReport[0].hourly ? electracityReport[0].hourly*24 : ""}</TdReportBody>
+                            <TdReportBody>{electracityReport[0].hourly ? electracityReport[0].hourly*24*30 : ""}</TdReportBody>
+                            <TdReportBody>{electracityReport[0].hourly ? electracityReport[0].hourly*24*365 : ""}</TdReportBody>
                         </Tr>
                         </tbody>
                         <tfoot>
                         <Tr>
                             <TdTotalReport>Итого</TdTotalReport>
-                            <TdTotalCountReport>5000</TdTotalCountReport>
-                            <TdTotalCountReport>4500</TdTotalCountReport>
-                            <TdTotalCountReport>-90</TdTotalCountReport>
-                            <TdTotalCountReport>-500</TdTotalCountReport>
+                            <TdTotalCountReport>{electracityReport[0].hourly ? electracityReport[0].hourly : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{electracityReport[0].hourly ? electracityReport[0].hourly*24 : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{electracityReport[0].hourly ? electracityReport[0].hourly*24*30 : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{electracityReport[0].hourly ? electracityReport[0].hourly*24*365 : ""}</TdTotalCountReport>
                         </Tr>
                         </tfoot>
                     </TableReportBody>

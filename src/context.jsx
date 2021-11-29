@@ -101,6 +101,10 @@ const AppProvider = ({children}) => {
     const [showElectricity, setShowElectricity] = useState(false);
     /** Call Me Api (user) **/
     const [name, setName] = useState([]);
+    /** Start & End Data & Select Report **/
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [selectReport, setSelectReport] = useState('');
 
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
@@ -297,6 +301,10 @@ const AppProvider = ({children}) => {
         takeFio();
         /** Get PersonalManagement Api **/
         takePersonal();
+        /** Get PersonalManagementReport Api **/
+        takePersonalReport();
+        /** Get ElectricityReport Api **/
+        takeElectrictyReport();
     }, []);
 
     // WELL_OPERATION
@@ -466,7 +474,7 @@ const AppProvider = ({children}) => {
         // console.log(dataShurtanElectric)
         axios.post(BASE_URL + '/api/electricity/add', dataShurtanElectric, configHeader)
             .then(res => {
-                console.log(res); takeElectric();
+                console.log(res); takeElectric(); takeElectrictyReport();
             })
             .catch(err => {
                 console.log(err)
@@ -500,6 +508,17 @@ const AppProvider = ({children}) => {
         // })
 
     }
+    /** Start & End Data & Select Report **/
+    const handlerSelectReport = e => {
+        setSelectReport(e.target.value)
+    }
+    const handlerStartDate = e => {
+        setStartDate(e.target.value);
+    }
+    const handlerEndDate = e => {
+        setEndDate(e.target.value);
+    }
+
     /** Post PersonalManagement Api **/
     const [atWork, setAtWork] = useState('');
     const [onVacation, setOnVacation] = useState('');
@@ -519,7 +538,7 @@ const AppProvider = ({children}) => {
             withoutContent: withoutContent,
         }
         axios.post(BASE_URL + '/api/staff/number/add', PersonalDate, configHeader)
-            .then(res => {console.log(res); takePersonal();})
+            .then(res => {console.log(res); takePersonal(); takePersonalReport();})
             .catch(err => {console.log(err)})
         setAtWork('');
         setOnVacation('');
@@ -557,6 +576,20 @@ const AppProvider = ({children}) => {
         totalOnSick = totalOnSick + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.onSickLeave : "");
         totalWithoutContent = totalWithoutContent + (personal[w].objectActionDto !== null ? personal[w].objectActionDto.withoutContent : "");
     }
+    /** Get PersonalManagementReport Api **/
+    const [personalReport, setPersonalReport] = useState([]);
+    const takePersonalReport = () => {
+        axios.get(BASE_URL + '/api/report/staff/interval' + startDate + endDate, configHeader)
+            .then(res => {console.log(res.data.object); setPersonalReport(res.data.object)})
+            .catch(err => (console.log(err)))
+    }
+    /** Get ElectricityReport Api **/
+    const [electracityReport, setElectricityReport] = useState([]);
+    const takeElectrictyReport = () => {
+        axios.get(BASE_URL + "/api/report/electricity/interval" + startDate + endDate, configHeader)
+            .then(res => {console.log(res.data.object); setElectricityReport(res.data.object)})
+            .catch(err => {console.log(err)})
+    }
 
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword, name,
@@ -592,7 +625,8 @@ const AppProvider = ({children}) => {
         handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
         handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
-        totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent,
+        totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,
+        handlerEndDate, personalReport, electracityReport,
     }
     return (
         <AppContext.Provider value={value}>

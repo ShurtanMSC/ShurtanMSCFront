@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import {AppContext} from "../../../context";
 import {
     Table,
     Td,
@@ -14,6 +15,7 @@ import {
 import styled from "styled-components";
 
 const ReportStaff = () => {
+    const {personalReport} = useContext(AppContext);
         return(
             <ReportAnalysisContainer>
                 <div>
@@ -53,20 +55,20 @@ const ReportStaff = () => {
                         </thead>
                         <tbody>
                         <Tr>
-                            <TdReportBody>Шуртан</TdReportBody>
-                            <TdReportBody>15</TdReportBody>
-                            <TdReportBody>20</TdReportBody>
-                            <TdReportBody>40</TdReportBody>
-                            <TdReportBody>12</TdReportBody>
+                            <TdReportBody>{personalReport[0].objectDto.name}</TdReportBody>
+                            <TdReportBody>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.atWork : ""}</TdReportBody>
+                            <TdReportBody>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.onVacation : ""}</TdReportBody>
+                            <TdReportBody>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.onSickLeave : ""}</TdReportBody>
+                            <TdReportBody>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.withoutContent : ""}</TdReportBody>
                         </Tr>
                         </tbody>
                         <tfoot>
                         <Tr>
                             <TdTotalReport>Итого</TdTotalReport>
-                            <TdTotalCountReport>15</TdTotalCountReport>
-                            <TdTotalCountReport>20</TdTotalCountReport>
-                            <TdTotalCountReport>40</TdTotalCountReport>
-                            <TdTotalCountReport>12</TdTotalCountReport>
+                            <TdTotalCountReport>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.atWork : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.onVacation : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.onSickLeave : ""}</TdTotalCountReport>
+                            <TdTotalCountReport>{personalReport[0].objectActionDto ? personalReport[0].objectActionDto.withoutContent : ""}</TdTotalCountReport>
                         </Tr>
                         </tfoot>
                     </TableReportBody>

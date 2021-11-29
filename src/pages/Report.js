@@ -1,4 +1,5 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import {AppContext} from "../context";
 import { Window, ContainerFluid } from '../styled';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
@@ -9,14 +10,13 @@ import Footer from '../components/Footer';
 import {BASE_URL} from "../utills/constant";
 
 const Report = () => {
-    const [selectReport, setSelectReport] = useState('');
+    const {startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate, handlerEndDate,} = useContext(AppContext);
+
     const componentRef = useRef();
     const [showTexReport, setShowTexReport] = useState(false);
     const [showAnalysis, setShowAnalysis] = useState(false);
     const [showElectricity , setShowElectricity] = useState(false);
     const [showStaff, setShowStaff] = useState(false);
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
 
     const handlerPrint = useReactToPrint({
         content: () => componentRef.current,
@@ -50,15 +50,6 @@ const Report = () => {
             setShowStaff(false);
         }
         setSelectReport('');
-    }
-    const handlerSelectReport = e => {
-        setSelectReport(e.target.value)
-    }
-    const handlerStartDate = e => {
-        setStartDate(e.target.value);
-    }
-    const handlerEndDate = e => {
-        setEndDate(e.target.value);
     }
 
     return (
