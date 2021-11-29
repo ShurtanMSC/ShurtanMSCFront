@@ -305,6 +305,10 @@ const AppProvider = ({children}) => {
         takePersonalReport();
         /** Get ElectricityReport Api **/
         takeElectrictyReport();
+        /** Get Analysis Add **/
+        takeAnalysis();
+        /** Get Analysis Add Report **/
+        takeAnalysisReport();
     }, []);
 
     // WELL_OPERATION
@@ -590,6 +594,33 @@ const AppProvider = ({children}) => {
             .then(res => {console.log(res.data.object); setElectricityReport(res.data.object)})
             .catch(err => {console.log(err)})
     }
+    /** Get Analysis Add **/
+    const [analysis, setAnalysis] = useState([]);
+    const takeAnalysis = () => {
+        axios.get(BASE_URL + "/api/report/production/interval", configHeader)
+            .then(res => {console.log(res.data.object); setAnalysis(res.data.object)})
+            .catch(err => {console.log(err)})
+    }
+    /** Total Analysis Add **/
+    let planMonth = 0;
+    let factMonth = 0;
+    let planYear = 0;
+    let factYear = 0;
+    let lastYear = 0;
+    for (let a = 0; a < analysis.length; a++){
+        planMonth = planMonth + analysis[a].plan_m;
+        factMonth = factMonth + analysis[a].fakt_m;
+        planYear = planYear + analysis[a].plan_g;
+        factYear = factYear + analysis[a].fakt_g;
+        lastYear = lastYear + analysis[a].proshlom_god;
+    }
+    /** Get Analysis Add Report **/
+    const [analysisReport, setAnalysisReport] = useState([]);
+    const takeAnalysisReport = () => {
+        axios.get(BASE_URL + '/api/report/production/interval' + startDate + endDate, configHeader)
+            .then(res => {console.log(res.data.object); setAnalysisReport(res.data.object)})
+            .catch(err => {console.log(err)})
+    }
 
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword, name,
@@ -626,7 +657,7 @@ const AppProvider = ({children}) => {
         handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
         totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,
-        handlerEndDate, personalReport, electracityReport,
+        handlerEndDate, personalReport, electracityReport, analysis, planMonth, factMonth, planYear, factYear, lastYear, analysisReport,
     }
     return (
         <AppContext.Provider value={value}>

@@ -2,7 +2,7 @@
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
-const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, nameAllMining}) => {
+const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, analysis}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -55,14 +55,14 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, nameAllMi
                         </Tr>
                     </thead>
                     <tbody>
-                    {nameAllMining.map((mining, key) =>
+                    {analysis.map((add, key) =>
                         <Tr key={key}>
-                            <TdFirst>{mining.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <TdFirst>{add.name}</TdFirst>
+                            <Td> <InputModal type="number"  name="name" value={add.plan_m} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={add.fakt_m} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={add.plan_g} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={add.fakt_g} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={add.proshlom_god} required/> </Td>
                         </Tr>
                     )}
                     </tbody>
@@ -72,7 +72,7 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, nameAllMi
                         <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
                     </div>
                     <div>
-                        <SaveBtnModal>Сохранит</SaveBtnModal>
+                        {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
                         <CloseBtnModal 
                             aria-label='Close modal' 
                             onClick={()=> setShowAddAnalizeModal(prev => !prev)}>Закрыт

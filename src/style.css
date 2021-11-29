@@ -198,3 +198,24 @@ a:focus{
     stroke: rgb(15, 163, 14);
     stroke-width: 4px;
 }
+/*Analysis Change Color*/
+.green{
+    color: green;
+    background: #FAFAFA;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 0 1.5px #aaa;
+}
+.red{
+    color:red;
+    background: #FAFAFA;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 0 1.5px #aaa;
+}

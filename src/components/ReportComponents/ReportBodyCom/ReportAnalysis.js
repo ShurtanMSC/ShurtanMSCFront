@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import {AppContext} from "../../../context";
 import {Table, Tr, Td, Th,
     TitleReportDiv,
     TitleReport,
@@ -10,6 +11,7 @@ import {Table, Tr, Td, Th,
 import styled from 'styled-components';
 
 const ReportAnalysis = () => {
+    const {analysisReport} = useContext(AppContext);
     return(
         <ReportAnalysisContainer>
             <div>
@@ -62,30 +64,30 @@ const ReportAnalysis = () => {
                 </thead>
                 <tbody>
                     <Tr>
-                        <TdReportBody>Шуртан</TdReportBody>
-                        <TdReportBody>5000</TdReportBody>
-                        <TdReportBody>4500</TdReportBody>
-                        <TdReportBody>-90</TdReportBody>
-                        <TdReportBody>-500</TdReportBody>
-                        <TdReportBody>60000</TdReportBody>
-                        <TdReportBody>59000</TdReportBody>
-                        <TdReportBody>70000</TdReportBody>
-                        <TdReportBody>98</TdReportBody>
-                        <TdReportBody>-1000</TdReportBody>
+                        <TdReportBody>{analysisReport[0].name}</TdReportBody>
+                        <TdReportBody>{analysisReport[0].plan_m}</TdReportBody>
+                        <TdReportBody>{analysisReport[0].fakt_m}</TdReportBody>
+                        <TdReportBody>{Math.ceil( (analysisReport[0].fakt_m*100)/(analysisReport[0].plan_m) )}</TdReportBody>
+                        <TdReportBody>{(analysisReport[0].fakt_m)-(analysisReport[0].plan_m)}</TdReportBody>
+                        <TdReportBody>{analysisReport[0].plan_g}</TdReportBody>
+                        <TdReportBody>{analysisReport[0].fakt_g}</TdReportBody>
+                        <TdReportBody>{analysisReport[0].proshlom_god}</TdReportBody>
+                        <TdReportBody>{Math.ceil( (analysisReport[0].fakt_g*100)/(analysisReport[0].plan_g) )}</TdReportBody>
+                        <TdReportBody>{(analysisReport[0].fakt_g)-(analysisReport[0].plan_g)}</TdReportBody>
                     </Tr>
                 </tbody>
                 <tfoot>
                     <Tr>
                         <TdTotalReport>Итого</TdTotalReport>
-                        <TdTotalCountReport>5000</TdTotalCountReport>
-                        <TdTotalCountReport>4500</TdTotalCountReport>
-                        <TdTotalCountReport>-90</TdTotalCountReport>
-                        <TdTotalCountReport>-500</TdTotalCountReport>
-                        <TdTotalCountReport>60000</TdTotalCountReport>
-                        <TdTotalCountReport>59000</TdTotalCountReport>
-                        <TdTotalCountReport>70000</TdTotalCountReport>
-                        <TdTotalCountReport>98</TdTotalCountReport>
-                        <TdTotalCountReport>-1000</TdTotalCountReport>
+                        <TdTotalCountReport>{analysisReport[0].plan_m}</TdTotalCountReport>
+                        <TdTotalCountReport>{analysisReport[0].fakt_m}</TdTotalCountReport>
+                        <TdTotalCountReport>{Math.ceil( (analysisReport[0].fakt_m*100)/(analysisReport[0].plan_m) )}</TdTotalCountReport>
+                        <TdTotalCountReport>{(analysisReport[0].fakt_m)-(analysisReport[0].plan_m)}</TdTotalCountReport>
+                        <TdTotalCountReport>{analysisReport[0].plan_g}</TdTotalCountReport>
+                        <TdTotalCountReport>{analysisReport[0].fakt_g}</TdTotalCountReport>
+                        <TdTotalCountReport>{analysisReport[0].proshlom_god}</TdTotalCountReport>
+                        <TdTotalCountReport>{Math.ceil( (analysisReport[0].fakt_g*100)/analysisReport[0].plan_g )}</TdTotalCountReport>
+                        <TdTotalCountReport>{(analysisReport[0].fakt_g)-(analysisReport[0].plan_g)}</TdTotalCountReport>
                     </Tr>
                 </tfoot>
             </TableReportBody>

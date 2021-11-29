@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const AddAnalize = () => {
-    const {nameAllMining} = useContext(AppContext);
+    const {analysis, planMonth, factMonth, planYear, factYear, lastYear,} = useContext(AppContext);
 
     const [openTable, setOpenTable] = useState(false);
     const [turnIcon, setTurnIcon] = useState(false);
@@ -71,37 +71,38 @@ const AddAnalize = () => {
             </Tr>
             </thead>
             <tbody>
-            {nameAllMining.map((mining, key) =>
+            {analysis.map((add, key) =>
                 <Tr key={key}>
-                    <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={5000} duration={5}/> </Td>
-                    <Td> <CountUp end={4500} duration={4}/> </Td>
-                    <TdREd> <CountUp end={-90} duration={2}/> </TdREd>
-                    <TdREd> <CountUp end={-500} duration={3}/> </TdREd>
-                    <Td> <CountUp end={60000} duration={6}/> </Td>
-                    <Td> <CountUp end={59000} duration={6}/> </Td>
-                    <Td> <CountUp end={70000} duration={7}/> </Td>
-                    <TdREd> <CountUp end={98} duration={2}/> </TdREd>
-                    <TdREd> <CountUp end={-1000} duration={3}/> </TdREd>
+                    <TdFirst>{add.name}</TdFirst>
+                    <Td> <CountUp end={add.plan_m} duration={5}/> </Td>
+                    <Td> <CountUp end={add.fakt_m} duration={4}/> </Td>
+                    <td className={((add.fakt_m*100)/add.plan_m) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_m*100)/(add.plan_m)} duration={2}/> </td>
+                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_m)-(add.plan_m)} duration={3}/> </td>
+                    <Td> <CountUp end={add.plan_g} duration={6}/> </Td>
+                    <Td> <CountUp end={add.fakt_g} duration={6}/> </Td>
+                    <Td> <CountUp end={add.proshlom_god} duration={7}/> </Td>
+                    <td className={((add.fakt_m*100)/add.plan_m) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_g*100)/add.plan_g} duration={2}/> </td>
+                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_g)-(add.plan_g)} duration={3}/> </td>
                 </Tr>
             )}
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={9000} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={8000} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={500} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={planMonth} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={factMonth} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={(factMonth*100)/planMonth} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={factMonth-planMonth} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={planYear} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={factYear} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={lastYear} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={(factYear*100)/planYear} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={factYear-planYear} duration={3}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableAddAnalize>
-        <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal} nameAllMining={nameAllMining}/>
+        <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal}
+                         analysis={analysis}/>
         </>
     )
 }
