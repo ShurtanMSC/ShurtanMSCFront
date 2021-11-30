@@ -709,7 +709,7 @@ const AppProvider = ({children}) => {
             yesterdayExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.yesterdayExpend : "",
         }
         axios.put(BASE_URL + "/api/mining_system/edit/action", dataAnalysisPut, configHeader)
-            .then(res => {console.log(res)})
+            .then(res => {console.log(res); takeAnalysisGetModal();})
             .catch(err => {console.log(err)})
         setShowModal(prev => !prev);
     }
@@ -751,8 +751,7 @@ const AppProvider = ({children}) => {
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
         totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,
         handlerEndDate, personalReport, electracityReport, analysis, planMonth, factMonth, planYear, factYear, lastYear, analysisReport,
-        analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisFact, handlerAnalysisPlanYear, handlerAnalysisFactYear,
-        handlerAnalysisLastYear, showModal, setShowModal,
+        analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisPlanYear, showModal, setShowModal,
     }
     return (
         <AppContext.Provider value={value}>
