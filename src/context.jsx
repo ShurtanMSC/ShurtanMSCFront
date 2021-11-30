@@ -114,7 +114,10 @@ const AppProvider = ({children}) => {
     const takeSp = (e) => {
         if(e.target.value.length > 0)
             axios.get(BASE_URL + '/api/collection_point/all/uppg/' + e.target.value, configHeader)
-                .then(res=>{setGetPoint(res.data.object); console.log(res.data.object)})
+                .then(
+                    res=>{setGetPoint(res.data.object);
+                    // console.log(res.data.object)
+                })
                 .catch(err => {console.log(err)})
     }
     const handlerUppg = e => {
@@ -192,7 +195,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {
                 setPressureApi(res.data.object);
-                console.log(res.data.object)
+                // console.log(res.data.object)
             })
             .catch(err => {
                 console.log(err)
@@ -204,7 +207,8 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/fake/all', configHeader)
             .then(res => {
                 // console.log(res)
-                console.log(res.data)
+                // console.log(res.data)
+
                 setUppgDatabase(res.data);
             })
             .catch(err => {
@@ -216,13 +220,19 @@ const AppProvider = ({children}) => {
     // Get allWells
     const takeAllWells = () => {
         axios.get(BASE_URL + '/api/well/all/action/mining_system/'+1, configHeader)
-            .then(res => {setOpenWell(res.data.object); console.log(res.data.object); })
+            .then(res => {
+                setOpenWell(res.data.object);
+                // console.log(res.data.object);
+            })
             .catch(err => {console.log(err)})
     }
     /** Call Stat-Status Api **/
     const takeStatus = () => {
         axios.get(BASE_URL + '/api/well/stat/status', configHeader)
-            .then(res => {setStatStatus(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setStatStatus(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
     /** Get Electric All Last **/
@@ -230,7 +240,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/electricity/all/last', configHeader)
             .then(res => {
                 setGetElectric(res.data.object);
-                console.log(res.data.object)
+                // console.log(res.data.object)
             })
             .catch(err => {
                 console.log(err)
@@ -239,7 +249,10 @@ const AppProvider = ({children}) => {
     /** Call Me Api (user) **/
     const takeFio = () => {
         axios.get(BASE_URL + '/api/auth/me', configHeader)
-            .then(res=>{ setName(res.data.object.fio); console.log(res); })
+            .then(res=>{
+                setName(res.data.object.fio);
+                // console.log(res);
+            })
             .catch(error=>{ console.log(error)})
     }
     let today = new Date();
@@ -249,7 +262,10 @@ const AppProvider = ({children}) => {
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
-            .then(res => {setGetUppg(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setGetUppg(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)});
         // Get allWells
         takeAllWells();
@@ -272,18 +288,27 @@ const AppProvider = ({children}) => {
         takeStatus();
         /** Call Uppg all collection **/
         axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1, configHeader)
-            .then(res => {setAllUppg(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setAllUppg(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
         /** Call Name All Mining **/
         axios.get(BASE_URL + '/api/mining_system/all', configHeader)
-            .then(res => {setNameAllMining(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setNameAllMining(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
         /** Get Electric All Last **/
         takeElectric();
         /** Dobicha Gaza **/
         setInterval(() => {
             axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
-                .then(res => {setAddGas(res.data.object); console.log(res.data.object)})
+                .then(res => {
+                    setAddGas(res.data.object);
+                    // console.log(res.data.object)
+                })
                 .catch(err => {console.log(err)});
             // setRefresh(dateTime);
             // takeAllWells();
@@ -291,11 +316,17 @@ const AppProvider = ({children}) => {
 
         /** Call Pdf Report Api **/
         axios.get(BASE_URL + '/api/report/interval?mining_system_id='+ 1 +'&start=' + '2222-12-22' + '&end=' + '2222-12-22' , configHeader)
-            .then(res => {setPdfReport(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setPdfReport(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
         /** Call Gas Balans Api **/
         axios.get(BASE_URL + '/api/gas_composition/molar/all', configHeader)
-            .then(res => {setGasBalans(res.data.object); console.log(res.data.object)})
+            .then(res => {
+                setGasBalans(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
         /** Call Me Api (user) **/
         takeFio();
@@ -309,6 +340,8 @@ const AppProvider = ({children}) => {
         takeAnalysis();
         /** Get Analysis Add Report **/
         takeAnalysisReport();
+        /** Get Analysis Add Modal **/
+        takeAnalysisGetModal();
     }, []);
 
     // WELL_OPERATION
@@ -320,7 +353,11 @@ const AppProvider = ({children}) => {
         setPointOper(e.target.value);
         if(e.target.value.length > 0)
             axios.get(BASE_URL + '/api/well/all/collection_point/' + e.target.value, configHeader)
-                .then(res =>{setWell(res.data.object); console.log(res.data.object)})
+                .then(res =>{
+                    setWell(res.data.object);
+                    // console.log(res.data.object)
+                })
+
                 .catch(err => {console.log(err)})
     }
     const handlerWellNumberOperation = e => {
@@ -566,7 +603,10 @@ const AppProvider = ({children}) => {
     const [personal, setPersonal] = useState([]);
     const takePersonal = () => {
         axios.get(BASE_URL + '/api/staff/number/all', configHeader)
-            .then(res => {console.log(res.data.object); setPersonal(res.data.object);})
+            .then(res => {
+                // console.log(res.data.object);
+                setPersonal(res.data.object);
+            })
             .catch(err => {console.log(err)})
     }
     /** Total Personal **/
@@ -584,21 +624,30 @@ const AppProvider = ({children}) => {
     const [personalReport, setPersonalReport] = useState([]);
     const takePersonalReport = () => {
         axios.get(BASE_URL + '/api/report/staff/interval' + startDate + endDate, configHeader)
-            .then(res => {console.log(res.data.object); setPersonalReport(res.data.object)})
+            .then(res => {
+                // console.log(res.data.object);
+                setPersonalReport(res.data.object)
+            })
             .catch(err => (console.log(err)))
     }
     /** Get ElectricityReport Api **/
     const [electracityReport, setElectricityReport] = useState([]);
     const takeElectrictyReport = () => {
         axios.get(BASE_URL + "/api/report/electricity/interval" + startDate + endDate, configHeader)
-            .then(res => {console.log(res.data.object); setElectricityReport(res.data.object)})
+            .then(res => {
+                // console.log(res.data.object);
+                setElectricityReport(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
     /** Get Analysis Add **/
     const [analysis, setAnalysis] = useState([]);
     const takeAnalysis = () => {
         axios.get(BASE_URL + "/api/report/production/interval", configHeader)
-            .then(res => {console.log(res.data.object); setAnalysis(res.data.object)})
+            .then(res => {
+                // console.log(res.data.object);
+                setAnalysis(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
     /** Total Analysis Add **/
@@ -618,9 +667,66 @@ const AppProvider = ({children}) => {
     const [analysisReport, setAnalysisReport] = useState([]);
     const takeAnalysisReport = () => {
         axios.get(BASE_URL + '/api/report/production/interval' + startDate + endDate, configHeader)
-            .then(res => {console.log(res.data.object); setAnalysisReport(res.data.object)})
+            .then(res => {
+                // console.log(res.data.object);
+                setAnalysisReport(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
+    /** Get Analysis Add Modal **/
+    const [analysisGetModal, setAnalysisGetModal] = useState([]);
+    const takeAnalysisGetModal = () => {
+        axios.get(BASE_URL + "/api/mining_system/one/action/" + 1, configHeader)
+            .then(res =>{
+                console.log(res.data.object);
+                setAnalysisGetModal(res.data.object);
+            })
+            .catch(err =>{console.log(err)})
+    }
+    let analysisGet = [analysisGetModal];
+    /** Put Edit Analysis Add Modal **/
+    const [analysisPut, setAnalysisPut] = useState([]);
+    const [analysisPlanMonth, setAnalysisPlanMonth] = useState('');
+    const [analysisFactMonth, setAnalysisFactMonth] = useState('');
+    const [analysisPlanYear, setAnalysisPlanYear] = useState('');
+    const [analysisFactYear, setAnalysisFactYear] = useState('');
+    const [analysisLastYear, setAnalysisLastYear] = useState('');
+    const handlerAnalysisPlan = e => {
+        setAnalysisPlanMonth(e.target.value);
+    }
+    const handlerAnalysisFact = e => {
+        setAnalysisFactMonth(e.target.value);
+    }
+    const handlerAnalysisPlanYear = e => {
+        setAnalysisPlanYear(e.target.value);
+    }
+    const handlerAnalysisFactYear = e => {
+        setAnalysisFactYear(e.target.value);
+    }
+    const handlerAnalysisLastYear = e => {
+        setAnalysisLastYear(e.target.value);
+    }
+    const handlerAnalysisPut = e => {
+        e.preventDefault();
+        const dataAnalysisPut = {
+            actionId: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.id : "",
+            // createdAt: date,
+            expend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.expend : "",
+            lastMonthExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.lastMonthExpend : "",
+            lastYearExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.lastYearExpend : "",
+            miningSystemId: analysisGet[0].objectDto ? analysisGet[0].objectDto.id : "",
+            planThisMonth: analysisPlanMonth ? analysisPlanMonth : analysisGet[0].objectActionDto.planThisMonth,
+            planThisYear: analysisPlanYear ? analysisPlanYear : analysisGet[0].objectActionDto.planThisYear,
+            thisMonthExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.thisMonthExpend : "",
+            todayExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.todayExpend : "",
+            yesterdayExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.yesterdayExpend : "",
+        }
+        axios.put(BASE_URL + "/api/mining_system/edit/action", dataAnalysisPut, configHeader)
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err)})
+        setShowModal(prev => !prev);
+    }
+    const [showModal, setShowModal] = useState(false);
 
     const value={
         handlerChange, handlerName, handlerPassword, userName, userPassword, name,
@@ -658,6 +764,8 @@ const AppProvider = ({children}) => {
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
         totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,
         handlerEndDate, personalReport, electracityReport, analysis, planMonth, factMonth, planYear, factYear, lastYear, analysisReport,
+        analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisFact, handlerAnalysisPlanYear, handlerAnalysisFactYear,
+        handlerAnalysisLastYear, showModal, setShowModal,
     }
     return (
         <AppContext.Provider value={value}>

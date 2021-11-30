@@ -28,12 +28,18 @@ const PressureTable = ({el}) => {
 
     const getWellActions = (id) => {
         axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + id, configHeader)
-            .then(res =>{setWellPressureModal(res.data.object); console.log(res.data.object)})
+            .then(res =>{
+                setWellPressureModal(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
     const takeWell = () => {
         axios.get(BASE_URL + '/api/well/all/actions/collection_point/' + el.objectDto.id, configHeader)
-            .then(res =>{setWellPressure(res.data.object); console.log(res.data.object)})
+            .then(res =>{
+                setWellPressure(res.data.object);
+                // console.log(res.data.object)
+            })
             .catch(err => {console.log(err)})
     }
     useEffect(() => {

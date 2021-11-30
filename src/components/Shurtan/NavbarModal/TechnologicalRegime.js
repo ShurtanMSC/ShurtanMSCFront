@@ -87,17 +87,17 @@ const TechnologicalRegime = ({showTechnological, setShowTechnological}) => {
                                 </ButtonDiv>
                             </form>
                             <form>
-                                <GeneralDiv>
-                                    <NavbarModalP>Генерация отсчета</NavbarModalP>
-                                    <DateInputDiv>
-                                        <DateInputNavbar type="date" name="date"/>
-                                        <DateInputNavbar type="date" name="date"/>
-                                    </DateInputDiv>
-                                </GeneralDiv>
-                                <ButtonDiv>
-                                    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
-                                    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>
-                                </ButtonDiv>
+                                {/*<GeneralDiv>*/}
+                                {/*    <NavbarModalP>Генерация отсчета</NavbarModalP>*/}
+                                {/*    <DateInputDiv>*/}
+                                {/*        <DateInputNavbar type="date" name="date"/>*/}
+                                {/*        <DateInputNavbar type="date" name="date"/>*/}
+                                {/*    </DateInputDiv>*/}
+                                {/*</GeneralDiv>*/}
+                                {/*<ButtonDiv>*/}
+                                {/*    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>*/}
+                                {/*    <ButtonNavbarCancel onClick={() => setShowTechnological(prev => !prev)}>Назад</ButtonNavbarCancel>*/}
+                                {/*</ButtonDiv>*/}
                             </form>
                         </AddGasNavbarModalDiv>
                     </motion.div>

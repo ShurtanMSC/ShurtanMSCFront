@@ -57,7 +57,8 @@ const ReportHeader = ({handlerPrint, handlerShowTexReport,
                 <ButtonReportApply>Применить</ButtonReportApply>
                 <ButtonReportDownload href={showTexReport ? (BASE_URL + "/api/report/test/" + "Tex - " + startDate +' '+ endDate) :
                                             showElectricity ? (BASE_URL + "/api/report/electricity/excel/" + "Electricity - " + startDate +' '+endDate) :
-                                            showStaff ? (BASE_URL + "/api/report/staff/excel/" + "Staff - " + startDate+' '+endDate) : "#"}
+                                            showStaff ? (BASE_URL + "/api/report/staff/excel/" + "Staff - " + startDate+' '+endDate) :
+                                            showAnalysis ? (BASE_URL + "/api/report/production/excel/" + "Analysis - " + startDate+' ' +endDate) : "#"}
                                       >Экспорт Excel</ButtonReportDownload>
             </FormReportHeader>
             <PrintDiv>

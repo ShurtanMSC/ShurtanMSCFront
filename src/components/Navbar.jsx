@@ -21,7 +21,10 @@ import { useHistory } from 'react-router-dom';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const Navbar = () => {
-    const {openRegistrationWell, openWellOperation, showElectricity, setShowElectricity, name, showPersonnel, setShowPersonnel} = useContext(AppContext);
+    const {openRegistrationWell, openWellOperation,
+        showElectricity, setShowElectricity,
+        name, showPersonnel, setShowPersonnel,
+        showModal, setShowModal,} = useContext(AppContext);
 
     const [currentDay, setCurrentDay] = useState('');
     const [hours, setHours] = useState('0');
@@ -31,7 +34,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [openShurtan, setOpenShurtan ] = useState(false);
 
-    const [showModal, setShowModal] = useState(false);
+
 
     const [showParameters, setShowParameters] = useState(false);
     const [showTechnological, setShowTechnological] = useState(false);

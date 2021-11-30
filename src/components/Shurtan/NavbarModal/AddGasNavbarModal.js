@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useCallback, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AddGasNavbarModalDiv, NavbarModalH2, NavbarModalP, NavbarModalInput,
         CurrentMonthDiv, AddFactDiv, DataP, ButtonNavbarCancel,
         ButtonNavbarSave, ButtonDiv } from '../../../styled'
+import {AppContext} from "../../../context";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -22,6 +23,9 @@ const modal = {
 }
 
 const AddGasNavbarModal = ({showModal, setShowModal}) => {
+    const {analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisFact, handlerAnalysisPlanYear, handlerAnalysisFactYear,
+            handlerAnalysisLastYear} = useContext(AppContext);
+
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -55,41 +59,66 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                 variants={modal}
                     >
                         <AddGasNavbarModalDiv>
-                            <form>
-                            <NavbarModalH2>За текущий месяц</NavbarModalH2>
-                            <CurrentMonthDiv>
-                                <div>
-                                    <NavbarModalP>План добычи</NavbarModalP>
-                                    <NavbarModalInput type="number" name="number"/>
-                                </div>
-                                <AddFactDiv>
-                                    <NavbarModalP>Факт. добыча</NavbarModalP>
-                                    <NavbarModalInput type="number" name="number"/>
-                                </AddFactDiv>
-                            </CurrentMonthDiv>
-                            <NavbarModalH2>С начала года</NavbarModalH2>
-                            <CurrentMonthDiv>
-                                <div>
-                                    <NavbarModalP>План добычи</NavbarModalP>
-                                    <NavbarModalInput type="number" name="number"/>
-                                </div>
-                                <AddFactDiv>
-                                    <NavbarModalP>Факт. добыча</NavbarModalP>
-                                    <NavbarModalInput type="number" name="number"/>
-                                </AddFactDiv>
-                            </CurrentMonthDiv>
-                            <NavbarModalH2>За аналог.период <br/>прошлого года</NavbarModalH2>
+                            <form onSubmit={handlerAnalysisPut}>
+                                <NavbarModalH2>За текущий месяц</NavbarModalH2>
                                 <CurrentMonthDiv>
-                                    <NavbarModalInput type="number" name="number"/>
+                                    <div>
+                                        <NavbarModalP>План добычи</NavbarModalP>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.planThisMonth : ""}
+                                            onChange={handlerAnalysisPlan}/>
+                                    </div>
+                                    <AddFactDiv>
+                                        <NavbarModalP>Факт. добыча</NavbarModalP>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.thisMonthExpend : ""}
+                                            disabled
+                                            onChange={handlerAnalysisFact}/>
+                                    </AddFactDiv>
                                 </CurrentMonthDiv>
-                            <div>
-                                <NavbarModalP>Дата ввода данных</NavbarModalP>
-                                <DataP>2021-06-17 14:49:22</DataP>
-                            </div>
-                            <ButtonDiv>
-                                <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
-                                <ButtonNavbarCancel onClick={() => setShowModal(prev => !prev)}>Назад</ButtonNavbarCancel>
-                            </ButtonDiv>
+                                <NavbarModalH2>С начала года</NavbarModalH2>
+                                <CurrentMonthDiv>
+                                    <div>
+                                        <NavbarModalP>План добычи</NavbarModalP>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.planThisYear : ""}
+                                            onChange={handlerAnalysisPlanYear}/>
+                                    </div>
+                                    <AddFactDiv>
+                                        <NavbarModalP>Факт. добыча</NavbarModalP>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.expend : ""}
+                                            disabled
+                                            onChange={handlerAnalysisFactYear}/>
+                                    </AddFactDiv>
+                                </CurrentMonthDiv>
+                                <NavbarModalH2>За аналог.период <br/>прошлого года</NavbarModalH2>
+                                    <CurrentMonthDiv>
+                                        <NavbarModalInput
+                                            type="number"
+                                            name="number"
+                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.lastYearExpend : ""}
+                                            disabled
+                                            onChange={handlerAnalysisLastYear}/>
+                                    </CurrentMonthDiv>
+                                <div>
+                                    <NavbarModalP>Дата ввода данных</NavbarModalP>
+                                    <DataP>
+                                        {analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.createdAt.slice(0, 10) : ""} {analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.createdAt.slice(11, 19) : ""}
+                                    </DataP>
+                                </div>
+                                <ButtonDiv>
+                                    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarCancel onClick={() => setShowModal(prev => !prev)}>Назад</ButtonNavbarCancel>
+                                </ButtonDiv>
                             </form>
                         </AddGasNavbarModalDiv>
                     </motion.div>
