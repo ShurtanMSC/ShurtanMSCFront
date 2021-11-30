@@ -23,8 +23,7 @@ const modal = {
 }
 
 const AddGasNavbarModal = ({showModal, setShowModal}) => {
-    const {analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisFact, handlerAnalysisPlanYear, handlerAnalysisFactYear,
-            handlerAnalysisLastYear} = useContext(AppContext);
+    const {analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisPlanYear,} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -76,8 +75,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                             type="number"
                                             name="number"
                                             defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.thisMonthExpend : ""}
-                                            disabled
-                                            onChange={handlerAnalysisFact}/>
+                                            disabled/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
                                 <NavbarModalH2>С начала года</NavbarModalH2>
@@ -96,8 +94,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                             type="number"
                                             name="number"
                                             defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.expend : ""}
-                                            disabled
-                                            onChange={handlerAnalysisFactYear}/>
+                                            disabled/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
                                 <NavbarModalH2>За аналог.период <br/>прошлого года</NavbarModalH2>
@@ -106,8 +103,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                             type="number"
                                             name="number"
                                             defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.lastYearExpend : ""}
-                                            disabled
-                                            onChange={handlerAnalysisLastYear}/>
+                                            disabled/>
                                     </CurrentMonthDiv>
                                 <div>
                                     <NavbarModalP>Дата ввода данных</NavbarModalP>

@@ -685,26 +685,13 @@ const AppProvider = ({children}) => {
     }
     let analysisGet = [analysisGetModal];
     /** Put Edit Analysis Add Modal **/
-    const [analysisPut, setAnalysisPut] = useState([]);
     const [analysisPlanMonth, setAnalysisPlanMonth] = useState('');
-    const [analysisFactMonth, setAnalysisFactMonth] = useState('');
     const [analysisPlanYear, setAnalysisPlanYear] = useState('');
-    const [analysisFactYear, setAnalysisFactYear] = useState('');
-    const [analysisLastYear, setAnalysisLastYear] = useState('');
     const handlerAnalysisPlan = e => {
         setAnalysisPlanMonth(e.target.value);
     }
-    const handlerAnalysisFact = e => {
-        setAnalysisFactMonth(e.target.value);
-    }
     const handlerAnalysisPlanYear = e => {
         setAnalysisPlanYear(e.target.value);
-    }
-    const handlerAnalysisFactYear = e => {
-        setAnalysisFactYear(e.target.value);
-    }
-    const handlerAnalysisLastYear = e => {
-        setAnalysisLastYear(e.target.value);
     }
     const handlerAnalysisPut = e => {
         e.preventDefault();
