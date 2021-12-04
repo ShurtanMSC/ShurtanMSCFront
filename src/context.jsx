@@ -278,7 +278,7 @@ const AppProvider = ({children}) => {
             setRefresh(dateTime);
             takeAllWells();
             getUppgDatabase();
-        }, 30000);
+        }, 10000);
         // setInterval(() => {
         //     getUppgDatabase();
         //     // setRefresh(dateTime);
