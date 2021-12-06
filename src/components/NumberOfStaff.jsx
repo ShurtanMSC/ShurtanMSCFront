@@ -15,7 +15,7 @@ const NumberOfStaff = () => {
     const openModal = () => {
         setShowNumberOfStaffModal(prev => !prev)
     };
-    console.log(nameAllMining);
+    // console.log(nameAllMining);
 
     return (
         <>

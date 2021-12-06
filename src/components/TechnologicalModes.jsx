@@ -10,7 +10,6 @@ import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const TechnologicalModes = () => {
     const {nameAllMining} = useContext(AppContext);
-
     const [showTechnologicalModesModal, setShowTechnologicalModesModal] = useState(false);
 
     const openModal = () => {
@@ -24,7 +23,11 @@ const TechnologicalModes = () => {
             <Tr>
                 <Th rowSpan="3" style={{position:'sticky', top:'0'}}>Месторождение</Th>
                 <Th colSpan="4" style={{position:'sticky', top:'0'}} >Технологические режимы эксплуатации месторождений
-                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                     getRoleNameFromJWT() !== 'OPERATOR' &&
+                     getRoleNameFromJWT() !== 'ENERGETIC' &&
+                     getRoleNameFromJWT() !== 'METROLOGIST' &&
+                     getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
                         top:'3px',
@@ -47,10 +50,10 @@ const TechnologicalModes = () => {
             {nameAllMining.map((mining, key) =>
                 <Tr key={key}>
                     <TdFirst>{mining.name}</TdFirst>
-                    <Td> <CountUp end={15} duration={5}/> </Td>
-                    <Td> <CountUp end={20} duration={5}/> </Td>
-                    <Td> <CountUp end={40} duration={5}/> </Td>
-                    <Td> <CountUp end={12} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.id === 1 ? 15 : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.id === 1 ? 20 : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.id === 1 ? 40 : ""} duration={5}/> </Td>
+                    <Td> <CountUp end={mining.id === 1 ? 12 : ""} duration={5}/> </Td>
                 </Tr>
             )}
             </tbody>

@@ -709,43 +709,23 @@ const AppProvider = ({children}) => {
             yesterdayExpend: analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.yesterdayExpend : "",
         }
         axios.put(BASE_URL + "/api/mining_system/edit/action", dataAnalysisPut, configHeader)
-            .then(res => {console.log(res); takeAnalysisGetModal();})
+            .then(res => {console.log(res); takeAnalysisGetModal(); takeAnalysisReport(); takeAnalysis();})
             .catch(err => {console.log(err)})
         setShowModal(prev => !prev);
     }
     const [showModal, setShowModal] = useState(false);
 
     const value={
-        handlerChange, handlerName, handlerPassword, userName, userPassword, name,
-        numberWell, handlerNumberWell,
-        uppg, handlerUppg,
-        point, handlerPoint, getPoint,
-        horizon, handlerHorizon,
-        comDate, handlerComDate,
-        drillDate, handlerDrillDate,
-        category, handlerCategory,
-        state, handlerState,
-        intervalWell, handlerInterval,
-        altitude, handlerAltitude,
-        depth, handlerDepth,
-        coordX, hadlerCoordX,
-        coordY, hadlerCoordY,
-        getUppg, handlerSubmit,
-        well, handlerWellOperation,
-        selectWell,
-        showRegistrationWell, setShowRegistrationWell, openRegistrationWell,
-        showWellOperation, setShowWellOperation, openWellOperation,
-        pressureApi, setPressureApi,
-        uppgDatabase, setUppgDatabase,
-        uppgOper, handlerUppgOperation,
-        pointOper, handlerPointOperation,
-        numberWellOper, handlerWellNumberOperation,
-        horizonOper, handlerHorizonOperation,
-        changeDate, handlerChangeDate,
+        handlerChange, handlerName, handlerPassword, userName, userPassword, name, numberWell, handlerNumberWell, uppg, handlerUppg,
+        point, handlerPoint, getPoint, horizon, handlerHorizon, comDate, handlerComDate, drillDate, handlerDrillDate,
+        category, handlerCategory, state, handlerState, intervalWell, handlerInterval, altitude, handlerAltitude, depth, handlerDepth,
+        coordX, hadlerCoordX, coordY, hadlerCoordY, getUppg, handlerSubmit, well, handlerWellOperation, selectWell,
+        showRegistrationWell, setShowRegistrationWell, openRegistrationWell, showWellOperation, setShowWellOperation, openWellOperation,
+        pressureApi, setPressureApi, uppgDatabase, setUppgDatabase, uppgOper, handlerUppgOperation, pointOper, handlerPointOperation,
+        numberWellOper, handlerWellNumberOperation, horizonOper, handlerHorizonOperation, changeDate, handlerChangeDate,
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp, findStatus, findColor,
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
-        totalInConservation, totalInLiquidation, AllTotal, nameAllMining,
-        showConsumedElectricity, setShowConsumedElectricity, getElectric,
+        totalInConservation, totalInLiquidation, AllTotal, nameAllMining, showConsumedElectricity, setShowConsumedElectricity, getElectric,
         handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
         handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,

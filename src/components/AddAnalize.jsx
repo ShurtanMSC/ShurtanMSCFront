@@ -81,8 +81,8 @@ const AddAnalize = () => {
                     <Td> <CountUp end={add.plan_g} duration={6}/> </Td>
                     <Td> <CountUp end={add.fakt_g} duration={6}/> </Td>
                     <Td> <CountUp end={add.proshlom_god} duration={7}/> </Td>
-                    <td className={((add.fakt_m*100)/add.plan_m) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_g*100)/add.plan_g} duration={2}/> </td>
-                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_g)-(add.plan_g)} duration={3}/> </td>
+                    <td className={((add.fakt_g*100)/add.plan_g) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_g*100)/add.plan_g} duration={2}/> </td>
+                    <td className={(add.fakt_g)-(add.plan_g) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_g)-(add.plan_g)} duration={3}/> </td>
                 </Tr>
             )}
             </tbody>

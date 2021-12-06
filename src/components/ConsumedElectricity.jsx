@@ -55,7 +55,7 @@ const ConsumedElectricity = () => {
                 <TdTotalCount> <CountUp end={totalElectric} duration={5}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={totalElectric*24} duration={5}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={totalElectric*24*30} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={totalElectric*24*30*365} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={totalElectric*24*365} duration={5}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableConsumedElectricity>
