@@ -19,27 +19,27 @@ const Mining = () => {
             <tbody>
                 <Tr>
                     <TdFirst>Часовая</TdFirst>
-                    <Td>{totalAllUppg}</Td>
-                    <Td>{totalAllUppgCon}</Td>
-                    <Td>{totalAllUppgWater}</Td>
+                    <Td>{Math.round(totalAllUppg*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. сутки</TdFirst>
-                    <Td>{totalAllUppg*24}</Td>
-                    <Td>{totalAllUppgCon*24}</Td>
-                    <Td>{totalAllUppgWater}</Td>
+                    <Td>{Math.round(totalAllUppg*10/1000)/10*24}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. месяц</TdFirst>
-                    <Td>{totalAllUppg*24*30}</Td>
-                    <Td>{totalAllUppgCon*24*30}</Td>
-                    <Td>{totalAllUppgWater}</Td>
+                    <Td>{Math.round(totalAllUppg*10/1000)/10*24*30}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24*30}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>С начала эксплуатации</TdFirst>
-                    <Td>{totalAllUppg*24*365}</Td>
-                    <Td>{totalAllUppgCon*24*365}</Td>
-                    <Td>{totalAllUppgWater}</Td>
+                    <Td>{Math.round(totalAllUppg*10/1000)/10*24*365}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24*365}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
                 </Tr>
             </tbody>
         </TableMining>

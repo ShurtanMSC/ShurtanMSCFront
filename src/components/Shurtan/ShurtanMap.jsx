@@ -12,7 +12,9 @@ import CollectionPointModal from './Wells/CollectionPointModal'
 import Loading from '../Loading';
 
 const  ShurtanMap = () => {
-    const {openWell, takeAllWells, findStatus, findColor, selectedWell, pressureApi, allUppg} = useContext(AppContext)
+    const {openWell, takeAllWells, findStatus, findColor, selectedWell, pressureApi,
+        // allUppg
+    } = useContext(AppContext)
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 

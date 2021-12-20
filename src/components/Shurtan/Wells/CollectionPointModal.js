@@ -69,8 +69,8 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                         <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.pressure*10)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtanFirst>Расход, м³/ч:</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expend*10)/10 : ""}</TdModalShurtan>
+                                        <TdModalShurtanFirst>Расход, тыс м³/ч:</TdModalShurtanFirst>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round(el.objectActionDto.expend*10/1000)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>

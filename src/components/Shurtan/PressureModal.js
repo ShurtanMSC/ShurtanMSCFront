@@ -123,7 +123,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                     <Tr>
                                         <Th style={{padding:'1rem'}}>Наименование</Th>
                                         <ThUp>Рсп</ThUp>
-                                        <ThUp>Расход, м³/ч</ThUp>
+                                        <ThUp>Расход, тыс м³/ч</ThUp>
                                         <ThUp>Темрература</ThUp>
                                     </Tr>
                                     </thead>
@@ -141,7 +141,7 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                         <TdUp> <InputModal
                                             type="text"
                                             name="name"
-                                            value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expend)*10)/10  : ""}
+                                            value={sp.objectActionDto !== null ? Math.round((sp.objectActionDto.expend)*10/1000)/10  : ""}
                                             disabled/>
                                         </TdUp>
                                         <TdUp> <InputModal

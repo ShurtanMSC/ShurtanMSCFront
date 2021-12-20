@@ -94,6 +94,12 @@ a:focus{
     width: 5%;
     height: 11%;
 }
+.textShurtan{
+    transform: rotate(-32deg);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Montserrat;
+}
 
 /* ShurtanMap */
 .backdrop{

@@ -2,7 +2,9 @@ import React, { useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AddGasNavbarModalDiv, NavbarModalH2, NavbarModalP, NavbarModalInput,
     CurrentMonthDiv, AddFactDiv, DataP, ButtonNavbarCancel,
-    ButtonNavbarSave, ButtonDiv, DateInputDiv, DateInputNavbar, GeneralDiv } from '../../../styled'
+    ButtonNavbarSave, ButtonDiv,
+    // DateInputDiv, DateInputNavbar, GeneralDiv
+} from '../../../styled'
 
 const backdrop = {
     visible: { opacity: 1 },

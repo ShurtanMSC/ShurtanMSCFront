@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-import {AppContext} from "../../context";
+import React from 'react';
 import {
     ContainerReportHeader,
     FormReportHeader,
@@ -24,7 +23,6 @@ const ReportHeader = ({handlerPrint, handlerShowTexReport,
                           showAnalysis, showElectricity,
                           showStaff, handlerStartDate,
                           handlerEndDate, startDate, endDate}) => {
-    const {dateTime} = useContext(AppContext);
     return(
         <ContainerReportHeader>
             <FormReportHeader onSubmit={handlerShowTexReport}>
@@ -55,10 +53,10 @@ const ReportHeader = ({handlerPrint, handlerShowTexReport,
                     <InputReportDate type="date" onChange={handlerEndDate} required/>
                 </InputDateDiv>
                 <ButtonReportApply>Применить</ButtonReportApply>
-                <ButtonReportDownload href={showTexReport ? (BASE_URL + "/api/report/test/" + "Tex - " + startDate +' '+ endDate) :
-                                            showElectricity ? (BASE_URL + "/api/report/electricity/excel/" + "Electricity - " + startDate +' '+endDate) :
-                                            showStaff ? (BASE_URL + "/api/report/staff/excel/" + "Staff - " + startDate+' '+endDate) :
-                                            showAnalysis ? (BASE_URL + "/api/report/production/excel/" + "Analysis - " + startDate+' ' +endDate) : "#"}
+                <ButtonReportDownload href={showTexReport ? (BASE_URL + "/api/report/test/" + startDate +' '+ endDate) :
+                                            showElectricity ? (BASE_URL + "/api/report/electricity/excel/" + startDate +' '+endDate) :
+                                            showStaff ? (BASE_URL + "/api/report/staff/excel/" + startDate+' '+endDate) :
+                                            showAnalysis ? (BASE_URL + "/api/report/production/excel/" + startDate+' ' +endDate) : "#"}
                                       >Экспорт Excel</ButtonReportDownload>
             </FormReportHeader>
             <PrintDiv>

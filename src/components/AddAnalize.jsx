@@ -61,7 +61,7 @@ const AddAnalize = () => {
                 <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м3</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м3</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >За аналог. период прошлого года</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >За аналог. период прошлого года тыс.м3</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >% выполнение </Th>
                 <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
             </Tr>
@@ -74,30 +74,30 @@ const AddAnalize = () => {
             {analysis.map((add, key) =>
                 <Tr key={key}>
                     <TdFirst>{add.name}</TdFirst>
-                    <Td> <CountUp end={add.plan_m} duration={5}/> </Td>
-                    <Td> <CountUp end={add.fakt_m} duration={4}/> </Td>
+                    <Td> <CountUp end={Math.round(add.plan_m*10/1000)/10} duration={5}/> </Td>
+                    <Td> <CountUp end={Math.round(add.fakt_m*10/1000)/10} duration={4}/> </Td>
                     <td className={((add.fakt_m*100)/add.plan_m) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_m*100)/(add.plan_m)} duration={2}/> </td>
-                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_m)-(add.plan_m)} duration={3}/> </td>
-                    <Td> <CountUp end={add.plan_g} duration={6}/> </Td>
-                    <Td> <CountUp end={add.fakt_g} duration={6}/> </Td>
-                    <Td> <CountUp end={add.proshlom_god} duration={7}/> </Td>
+                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_m)-(add.plan_m))*10/1000)/10} duration={3}/> </td>
+                    <Td> <CountUp end={Math.round(add.plan_g*10/1000)/10} duration={6}/> </Td>
+                    <Td> <CountUp end={Math.round(add.fakt_g*10/1000)/10} duration={6}/> </Td>
+                    <Td> <CountUp end={Math.round(add.proshlom_god*10/1000)/10} duration={7}/> </Td>
                     <td className={((add.fakt_g*100)/add.plan_g) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_g*100)/add.plan_g} duration={2}/> </td>
-                    <td className={(add.fakt_g)-(add.plan_g) >= 0 ? "green" : "red"}> <CountUp end={(add.fakt_g)-(add.plan_g)} duration={3}/> </td>
+                    <td className={(add.fakt_g)-(add.plan_g) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_g)-(add.plan_g))*10/1000)/10} duration={3}/> </td>
                 </Tr>
             )}
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> <CountUp end={planMonth} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={factMonth} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(planMonth*10/1000)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(factMonth*10/1000)/10} duration={5}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={(factMonth*100)/planMonth} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={factMonth-planMonth} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={planYear} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={factYear} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={lastYear} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round((factMonth-planMonth)*10/1000)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(planYear*10/1000)/10} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(factYear*10/1000)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(lastYear*10/1000)/10} duration={3}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={(factYear*100)/planYear} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={factYear-planYear} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round((factYear-planYear)*10/1000)/10} duration={3}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableAddAnalize>
@@ -118,10 +118,10 @@ const TableAddAnalize = styled(Table)`
         width:996px;
     }
 `
-const TdREd = styled(Td)`
-    color:red;
-    box-shadow: 0 0 1.5px #aaa;
-`
+// const TdREd = styled(Td)`
+//     color:red;
+//     box-shadow: 0 0 1.5px #aaa;
+// `
 const BtnMore = styled.button`
     position:absolute;
     top:70px;

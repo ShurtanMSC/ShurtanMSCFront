@@ -1,6 +1,8 @@
     import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
-import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
+import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer,
+    // SaveBtnModal,
+    CloseBtnModal } from '../styled'
 
 const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, analysis}) => {
     const modalRef = useRef();
@@ -51,18 +53,18 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, analysis}
                             <Th>Факт добыча тыс.м3</Th>
                             <Th>План добычи тыс.м3</Th>
                             <Th>Факт добыча тыс.м3</Th>
-                            <Th>За аналог. период прошлого года</Th>
+                            <Th>За аналог. период прошлого года тыс.м3</Th>
                         </Tr>
                     </thead>
                     <tbody>
                     {analysis.map((add, key) =>
                         <Tr key={key}>
                             <TdFirst>{add.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" value={add.plan_m} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={add.fakt_m} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={add.plan_g} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={add.fakt_g} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={add.proshlom_god} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_m*10/1000)/10} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_m*10/1000)/10} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_g*10/1000)/10} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_g*10/1000)/10} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.proshlom_god*10/1000)/10} required/> </Td>
                         </Tr>
                     )}
                     </tbody>

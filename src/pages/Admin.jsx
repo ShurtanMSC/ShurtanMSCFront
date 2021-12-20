@@ -22,7 +22,7 @@ const Admin = () => {
                             <Button>Войти в систему </Button>
                         </Form>
                     </div>
-                    <P_Admin_Footer>© Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()}</P_Admin_Footer>
+                    <PAdminFooter>© Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()}</PAdminFooter>
                 </Login>
             </ContainerAdmin>
         </ContainerFluidFooter>
@@ -56,7 +56,7 @@ const Login = styled.div`
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
 `
-const P_Admin_Footer = styled.p`
+const PAdminFooter = styled.p`
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;

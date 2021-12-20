@@ -7,7 +7,6 @@ import ReportHeader from "../components/ReportComponents/ReportHeader";
 import ReportBody from "../components/ReportComponents/ReportBody";
 import {useReactToPrint} from 'react-to-print';
 import Footer from '../components/Footer';
-import {BASE_URL} from "../utills/constant";
 
 const Report = () => {
     const {startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate, handlerEndDate,} = useContext(AppContext);

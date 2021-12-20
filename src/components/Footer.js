@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Footer = () => {
     return(
         <ContainerFluidFooter>
-            <P_Footer> © Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()} </P_Footer>
+            <PFooter> © Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()} </PFooter>
         </ContainerFluidFooter>
     )
 }
@@ -13,7 +13,7 @@ const ContainerFluidFooter = styled(ContainerFluid)`
   background: #222D44;
   min-height: 3.7vh;
 `
-const P_Footer = styled.p`
+const PFooter = styled.p`
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;

@@ -257,7 +257,7 @@ const AppProvider = ({children}) => {
     }
     let today = new Date();
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    // let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date;
     useEffect(()=>{
         // Get apiUppg
@@ -452,8 +452,12 @@ const AppProvider = ({children}) => {
     }
     /** Dobicha Gas Total **/
     let totalAddGas = 0;
+    let totalAddGasTodayExpend = 0;
+    let totalAddGasYesterdayExpend = 0;
     for (let add = 0; add < addGas.length; add++) {
         totalAddGas = totalAddGas + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.expend : 0);
+        totalAddGasTodayExpend = totalAddGasTodayExpend + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.todayExpend : 0);
+        totalAddGasYesterdayExpend = totalAddGasYesterdayExpend + (addGas[add].objectActionDto !==null ? addGas[add].objectActionDto.yesterdayExpend : 0);
     }
     /** Post Shurtan Electric Api Total **/
     let totalElectric = 0;
@@ -678,7 +682,7 @@ const AppProvider = ({children}) => {
     const takeAnalysisGetModal = () => {
         axios.get(BASE_URL + "/api/mining_system/one/action/" + 1, configHeader)
             .then(res =>{
-                console.log(res.data.object);
+                // console.log(res.data.object);
                 setAnalysisGetModal(res.data.object);
             })
             .catch(err =>{console.log(err)})
@@ -726,7 +730,7 @@ const AppProvider = ({children}) => {
         handlerTemp, handlerPerMax, handlerPerMin, handlerPressure, perMin, perMax, pressure, temp, findStatus, findColor,
         refresh, openWell, takeSpPressure, takeAllWells, statStatus,takeStatus,allUppg, totalInWork, totalInIdle, totalInRepair,
         totalInConservation, totalInLiquidation, AllTotal, nameAllMining, showConsumedElectricity, setShowConsumedElectricity, getElectric,
-        handlerWellSearch, selectedWell, addGas, totalAddGas, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
+        handlerWellSearch, selectedWell, addGas, totalAddGas, totalAddGasTodayExpend, totalAddGasYesterdayExpend, pdfReport, dateTime, gasBalans, shurtanElectric, onSubmitElectricShurtan,
         handlerShurtanElectric, showElectricity, setShowElectricity, totalElectric, totalAllUppg, totalAllUppgCon, totalAllUppgWater,
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
         totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,

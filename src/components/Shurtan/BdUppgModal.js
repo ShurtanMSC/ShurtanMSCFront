@@ -76,7 +76,7 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                     <Th>Накопленный объем с начала месяца т.м<sup>3</sup></Th>
                                     <Th>Накопленный объем за предыдущий месяц т.м<sup>3</sup></Th>
                                     <Th>Перепад давления кПа</Th>
-                                    <Th>Давление МПа</Th>
+                                    <Th>Давление кгс/см<sup>3</sup></Th>
                                     <Th>Температура <sup>o</sup>C</Th>
                                     <Th>Расход т.м<sup>3</sup>/ч</Th>
                                 </Tr>
@@ -107,7 +107,7 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                     <Th>Накопленный объем с начала месяца т.м<sup>3</sup></Th>
                                     <Th>Накопленный объем за предыдущий месяц т.м<sup>3</sup></Th>
                                     <Th>Перепад давления кПа</Th>
-                                    <Th>Давление МПа</Th>
+                                    <Th>Давление кгс/см<sup>3</sup></Th>
                                     <Th>Температура <sup>o</sup>C</Th>
                                     <Th>Расход т.м<sup>3</sup>/ч</Th>
                                 </Tr>

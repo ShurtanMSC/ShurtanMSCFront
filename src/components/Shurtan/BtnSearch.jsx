@@ -131,11 +131,11 @@ const BtnSearch = () => {
                         </Tr>
                         <Tr>
                             <TdFirstChange>Давление Pу, кгс/см²</TdFirstChange>
-                            <TdChange>{selectedWell ? selectedWell.objectActionDto.pressure : ""}</TdChange>
+                            <TdChange>{selectedWell ? Math.round(selectedWell.objectActionDto.pressure*10)/10 : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Температура T, °C</TdFirstChange>
-                            <TdChange>{selectedWell ? selectedWell.objectActionDto.temperature : ""}</TdChange>
+                            <TdChange>{selectedWell ? Math.round(selectedWell.objectActionDto.temperature*10)/10 : ""}</TdChange>
                         </Tr>
                     </tbody>
 
@@ -200,21 +200,21 @@ const BtnSearch = () => {
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м3</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24*30}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24*365}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По воде, тыс. т</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.onWater : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.onWater*10/1000)/10 : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Входное  давление, кгс\см2</TdFirst>
