@@ -12,9 +12,7 @@ import CollectionPointModal from './Wells/CollectionPointModal'
 import Loading from '../Loading';
 
 const  ShurtanMap = () => {
-    const {openWell, takeAllWells, findStatus, findColor, selectedWell, pressureApi,
-        // allUppg
-    } = useContext(AppContext)
+    const {openWell, takeAllWells, findStatus, findColor, selectedWell, pressureApi, allUppg} = useContext(AppContext)
     const [showModal, setShowModal] = useState(false);
     const [showCollectionPointModal, setShowCollectionPointModal] = useState(false);
 
@@ -840,44 +838,44 @@ const  ShurtanMap = () => {
                             <rect x="989.5" y="424.5" width="110" height="65" rx="9.5" fill="white" stroke="#FF914B"/>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" >
-                                    <tspan x="996.5" y="466.5">P вх={/*{Math.round(allUppg[1].objectActionDto.incomePressure*10)/10} */} кгс/см²</tspan>
+                                    <tspan x="996.5" y="466.5">P вх={Math.round(allUppg[1].objectActionDto.incomePressure*10)/10} кгс/см²</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="996.5" y="480.5">Pвых={/*{Math.round(allUppg[1].objectActionDto.exitPressure*10)/10} */} кгс/см²</tspan>
+                                    <tspan x="996.5" y="480.5">Pвых={Math.round(allUppg[1].objectActionDto.exitPressure*10)/10} кгс/см²</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" >
-                                    <tspan x="996.5" y="438.5">Q={/*{Math.round(allUppg[1].objectActionDto.expend*10)/10/1000} */} млн.м³/сутка</tspan>
+                                    <tspan x="996.5" y="438.5">Q={Math.round(allUppg[1].objectActionDto.expend*10)/10/1000} млн.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" >
-                                    <tspan x="996.5" y="452.5">Т={/*{Math.round(allUppg[1].objectActionDto.exitTemperature*10)/10} */} °C</tspan>
+                                    <tspan x="996.5" y="452.5">Т={Math.round(allUppg[1].objectActionDto.exitTemperature*10)/10} °C</tspan>
                                 </text>
                             </g>
                             {/*УППГ-1*/}
                             <rect x="416.5" y="837.5" width="110" height="65" rx="9.5" fill="white" stroke="#FF914B"/>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="423.5" y="879.5">Pвх={/*{Math.round(allUppg[0].objectActionDto.incomePressure*10)/10} */} кгс/см²</tspan>
+                                    <tspan x="423.5" y="879.5">Pвх={Math.round(allUppg[0].objectActionDto.incomePressure*10)/10} кгс/см²</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="423.5" y="893.5">Pвых={/*{Math.round(allUppg[0].objectActionDto.exitPressure*10)/10} */} кгс/см²</tspan>
+                                    <tspan x="423.5" y="893.5">Pвых={Math.round(allUppg[0].objectActionDto.exitPressure*10)/10} кгс/см²</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="423.5" y="851.5">Q={/*{Math.round(allUppg[0].objectActionDto.expend*10)/10/1000} */} млн.м³/сутка</tspan>
+                                    <tspan x="423.5" y="851.5">Q={Math.round(allUppg[0].objectActionDto.expend*10)/10/1000} млн.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="423.5" y="865.5">Т={/*{Math.round(allUppg[0].objectActionDto.exitTemperature*10)/10} */} °C</tspan>
+                                    <tspan x="423.5" y="865.5">Т={Math.round(allUppg[0].objectActionDto.exitTemperature*10)/10} °C</tspan>
                                 </text>
                             </g>
                             {/*ДКС-Батеман*/}

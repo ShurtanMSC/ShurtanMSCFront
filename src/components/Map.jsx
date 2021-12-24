@@ -431,7 +431,7 @@ const Map = () => {
                 </g>
                 <g>
                     <text fill="black" xmlSpace="preserve" className="textShurtan">
-                        <tspan x="214" y="221.153">М-р Шуртан</tspan>
+                        <tspan x="125" y="221.153">Месторождение Шуртан</tspan>
                     </text>
                 </g>
                 <g opacity="0.5" filter="url(#filter51_f)">
