@@ -848,7 +848,7 @@ const  ShurtanMap = () => {
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle" >
-                                    <tspan x="996.5" y="438.5">Q={Math.round(allUppg[1].objectActionDto.expend*10)/10/1000} млн.м³/сутка</tspan>
+                                    <tspan x="996.5" y="438.5">Q={Math.round(allUppg[1].objectActionDto.expend*10)/10} тыс.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
@@ -870,7 +870,7 @@ const  ShurtanMap = () => {
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="423.5" y="851.5">Q={Math.round(allUppg[0].objectActionDto.expend*10)/10/1000} млн.м³/сутка</tspan>
+                                    <tspan x="423.5" y="851.5">Q={Math.round(allUppg[0].objectActionDto.expend*10)/10} тыс.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
