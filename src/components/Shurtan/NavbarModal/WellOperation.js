@@ -176,7 +176,7 @@ const WellOperation = () => {
                                     <DataP>2021-06-17 14:49:22</DataP>
                                 </div>
                                 <ButtonDiv>
-                                    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarSave disabled>Сохранить</ButtonNavbarSave>
                                     <ButtonNavbarCancel onClick={() => setShowWellOperation(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDiv>
                             </form>

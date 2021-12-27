@@ -77,25 +77,25 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*30}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*30 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*365}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*365 : "")}
                                         disabled />
                                     </Td>
                                 </Tr>
@@ -104,25 +104,25 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*30}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*30 : "")}
                                         disabled />
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*365}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*365 : "")}
                                         disabled />
                                     </Td>
                                 </Tr>
@@ -131,25 +131,25 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")/10000}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10/1000 : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24/10000}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24/1000 : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*30/10000}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*30/1000 : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.expend : "")*24*365/10000}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*365/1000 : "")}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -158,25 +158,25 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10/1000 : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24/1000 : "")}
                                         isabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*30}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24*30/1000 : "")}
                                         disabled/>
                                     </Td>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={(selectedUppg ? selectedUppg.objectActionDto.condensate : "")*24*365}
+                                        defaultValue={(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24*365/1000 : "")}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -186,7 +186,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                         <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={selectedUppg ? selectedUppg.objectActionDto.onWater : ""}
+                                        defaultValue={selectedUppg ? Math.round(selectedUppg.objectActionDto.onWater*10)/10/1000 : ""}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -196,7 +196,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                         <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={selectedUppg ? selectedUppg.objectActionDto.incomePressure : ""}
+                                        defaultValue={selectedUppg ? Math.round(selectedUppg.objectActionDto.incomePressure*10)/10 : ""}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -206,7 +206,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                         <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={selectedUppg ? selectedUppg.objectActionDto.exitPressure : ""}
+                                        defaultValue={selectedUppg ? Math.round(selectedUppg.objectActionDto.exitPressure*10)/10 : ""}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -216,7 +216,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                         <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={selectedUppg ? selectedUppg.objectActionDto.incomeTemperature : ""}
+                                        defaultValue={selectedUppg ? Math.round(selectedUppg.objectActionDto.incomeTemperature*10)/10 : ""}
                                         disabled/>
                                     </Td>
                                 </Tr>
@@ -226,7 +226,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                         <InputModal
                                         type="text"
                                         name="name"
-                                        defaultValue={selectedUppg ? selectedUppg.objectActionDto.exitTemperature : ""}
+                                        defaultValue={selectedUppg ? Math.round(selectedUppg.objectActionDto.exitTemperature*10)/10 : ""}
                                         disabled/>
                                     </Td>
                                 </Tr>

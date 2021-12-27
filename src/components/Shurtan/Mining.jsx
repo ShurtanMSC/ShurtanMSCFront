@@ -19,27 +19,27 @@ const Mining = () => {
             <tbody>
                 <Tr>
                     <TdFirst>Часовая</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10/1000)/10}</Td>
-                    <Td>{Math.round(totalAllUppgCon*10/1000)/10}</Td>
-                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppg*10)/10/1000}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10)/10/1000}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. сутки</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10/1000)/10*24}</Td>
-                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24}</Td>
-                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppg*10)/10*24/1000}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10)/10*24/1000}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. месяц</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10/1000)/10*24*30}</Td>
-                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24*30}</Td>
-                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppg*10)/10*24*30/1000}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10)/10*24*30/1000}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>С начала эксплуатации</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10/1000)/10*24*365}</Td>
-                    <Td>{Math.round(totalAllUppgCon*10/1000)/10*24*365}</Td>
-                    <Td>{Math.round(totalAllUppgWater*10/1000)/10}</Td>
+                    <Td>{Math.round(totalAllUppg*10)/10*24*365/1000}</Td>
+                    <Td>{Math.round(totalAllUppgCon*10)/10*24*365/1000}</Td>
+                    <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
             </tbody>
         </TableMining>

@@ -74,7 +74,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                         <NavbarModalInput
                                             type="number"
                                             name="number"
-                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.thisMonthExpend : ""}
+                                            defaultValue={analysisGet[0].objectActionDto ? Math.round(analysisGet[0].objectActionDto.thisMonthExpend*10)/10 : ""}
                                             disabled/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
@@ -93,7 +93,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                         <NavbarModalInput
                                             type="number"
                                             name="number"
-                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.expend : ""}
+                                            defaultValue={analysisGet[0].objectActionDto ? Math.round(analysisGet[0].objectActionDto.expend*10)/10 : ""}
                                             disabled/>
                                     </AddFactDiv>
                                 </CurrentMonthDiv>
@@ -102,7 +102,7 @@ const AddGasNavbarModal = ({showModal, setShowModal}) => {
                                         <NavbarModalInput
                                             type="number"
                                             name="number"
-                                            defaultValue={analysisGet[0].objectActionDto ? analysisGet[0].objectActionDto.lastYearExpend : ""}
+                                            defaultValue={analysisGet[0].objectActionDto ? Math.round(analysisGet[0].objectActionDto.lastYearExpend*10)/10 : ""}
                                             disabled/>
                                     </CurrentMonthDiv>
                                 <div>

@@ -119,7 +119,7 @@ const BtnSearch = () => {
                         </Tr>
                         <Tr>
                             <TdFirstChange>Интервал перфарации</TdFirstChange>
-                            <TdChange>{selectedWell ? selectedWell.objectActionDto.perforation_min + "-" + selectedWell.objectActionDto.perforation_max : ""}</TdChange>
+                            <TdChange>{selectedWell ? Math.round(selectedWell.objectActionDto.perforation_min*10)/10 + "-" + Math.round(selectedWell.objectActionDto.perforation_max*10)/10 : ""}</TdChange>
                         </Tr>
                         <Tr>
                             <TdFirstChange>Состояние скважины</TdFirstChange>
@@ -153,10 +153,10 @@ const BtnSearch = () => {
                     <tbody>
                     <Tr>
                         <TdFirst>Расход, тыс.м³/час</TdFirst>
-                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*10)/10}</Td>
-                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*10)/10}</Td>
-                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*30*10)/10}</Td>
-                        <Td>{Math.round((selectedWell ? selectedWell.objectActionDto.expend : "")*24*30*365*10)/10}</Td>
+                        <Td>{(selectedWell ? Math.round(selectedWell.objectActionDto.expend*10)/10 : "")}</Td>
+                        <Td>{(selectedWell ? Math.round(selectedWell.objectActionDto.expend*24*10)/10 : "")}</Td>
+                        <Td>{(selectedWell ? Math.round(selectedWell.objectActionDto.expend*24*30*10)/10 : "")}</Td>
+                        <Td>{(selectedWell ? Math.round(selectedWell.objectActionDto.expend*24*365*10)/10 : "")}</Td>
                     </Tr>
                     </tbody>
                 </Table>
@@ -170,11 +170,18 @@ const BtnSearch = () => {
                 <thead>
                 <Tr>
                     <Th style={{position:'relative'}}>
-                        {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{position:'absolute',
-                            top:'10px',
-                            left:'10px',
-                            cursor:'pointer'}}
-                            icon={faEdit}
+                        {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                         getRoleNameFromJWT() !== 'OPERATOR' &&
+                         getRoleNameFromJWT() !== 'ENERGETIC' &&
+                         getRoleNameFromJWT() !== 'METROLOGIST' &&
+                         getRoleNameFromJWT() !== 'GEOLOGIST' ?
+                             <FontAwesomeIcon style={{
+                                                    position:'absolute',
+                                                    top:'10px',
+                                                    left:'10px',
+                                                    cursor:'pointer'
+                                                    }}
+                                                    icon={faEdit}
                             onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> : ""}
                         Наименование</Th>
                     <Th>Часовая</Th>
@@ -186,51 +193,51 @@ const BtnSearch = () => {
                 <tbody>
                 <Tr>
                     <TdFirst>Проектная производительность <br/> м3/год</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.designedPerformance : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*30 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*365 : "")}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Фактическая производителность <br/> м3/год</TdFirst>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? selectedUppg.objectActionDto.actualPerformance : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*30 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*365 : "")}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м3</TdFirst>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10/1000)/10 : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*30/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*365/1000 : "")}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24*30}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10/1000)/10 : "")*24*365}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24*30/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.condensate*10)/10*24*365/1000 : "")}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По воде, тыс. т</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.onWater*10/1000)/10 : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.onWater*10)/10/1000 : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Входное  давление, кгс\см2</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.incomePressure : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.incomePressure*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Выходное  давление, кгс\см2</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.exitPressure : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.exitPressure*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Входная температура, *С</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.incomeTemperature : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.incomeTemperature*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>Выходная температура, *С</TdFirst>
-                    <Td colSpan="4">{selectedUppg ? selectedUppg.objectActionDto.exitTemperature : ""}</Td>
+                    <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.exitTemperature*10)/10 : ""}</Td>
                 </Tr>
                 </tbody>
             </Table>

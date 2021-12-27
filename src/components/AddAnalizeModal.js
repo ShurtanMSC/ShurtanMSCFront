@@ -60,11 +60,11 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, analysis}
                     {analysis.map((add, key) =>
                         <Tr key={key}>
                             <TdFirst>{add.name}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_m*10/1000)/10} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_m*10/1000)/10} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_g*10/1000)/10} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_g*10/1000)/10} required/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={Math.round(add.proshlom_god*10/1000)/10} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_m*10)/10/1000} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_m*10)/10/1000} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.plan_g*10)/10/1000} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.fakt_g*10)/10/1000} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={Math.round(add.proshlom_god*10)/10/1000} required/> </Td>
                         </Tr>
                     )}
                     </tbody>

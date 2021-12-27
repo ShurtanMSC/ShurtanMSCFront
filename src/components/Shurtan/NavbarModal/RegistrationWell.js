@@ -170,7 +170,7 @@ const RegistrationWell = () => {
                                     </AddFactDiv>
                                 </CurrentMonthDivChange>
                                 <ButtonDivChange>
-                                    <ButtonNavbarSave>Сохранить</ButtonNavbarSave>
+                                    <ButtonNavbarSave disabled>Сохранить</ButtonNavbarSave>
                                     <ButtonNavbarCancel onClick={() => setShowRegistrationWell(prev => !prev)}>Назад</ButtonNavbarCancel>
                                 </ButtonDivChange>
                             </form>

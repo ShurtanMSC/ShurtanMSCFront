@@ -54,9 +54,9 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas}) => {
                     {addGas.map((mining, key) =>
                         <Tr key={key}>
                             <TdFirst>{mining.objectDto !== null ? mining.objectDto.name : ""}</TdFirst>
-                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? mining.objectActionDto.expend : "0"} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? mining.objectActionDto.expend*24 : "0"} disabled/> </Td>
-                            <Td> <InputModal type="number"  name="name" value="0" disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.expend*10)/10/1000 : 0} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.todayExpend*10)/10/1000 : 0} disabled/> </Td>
+                            <Td> <InputModal type="number"  name="name" value={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.yesterdayExpend*10)/10/1000 : 0} disabled/> </Td>
                         </Tr>
                     )}
                     </tbody>
