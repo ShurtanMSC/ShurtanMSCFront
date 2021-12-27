@@ -826,7 +826,7 @@ const  ShurtanMap = () => {
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="540.5" y="601.5">Q= млн.м³/сутка</tspan>
+                                    <tspan x="540.5" y="601.5">Q= тыс.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
@@ -892,7 +892,7 @@ const  ShurtanMap = () => {
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="665.5" y="776.5">Q= млн.м³/сутка</tspan>
+                                    <tspan x="665.5" y="776.5">Q= тыс.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
@@ -914,7 +914,7 @@ const  ShurtanMap = () => {
                             </g>
                             <g>
                                 <text fill="black" xmlSpace="preserve" className="mapTitle">
-                                    <tspan x="728.5" y="866.762">Q= млн.м³/сутка</tspan>
+                                    <tspan x="728.5" y="866.762">Q= тыс.м³/сутка</tspan>
                                 </text>
                             </g>
                             <g>
