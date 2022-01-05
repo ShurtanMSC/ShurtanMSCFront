@@ -43,9 +43,9 @@ const Navbar = () => {
     const history = useHistory();
 
     const findDay = (month) => {
-        if(!month){
-            throw new Error("Month id not defined")
-        }
+        // if(!month){
+        //     throw new Error("Month id not defined")
+        // }
         switch(month){
             case 0: return "Январь"
             case 1: return "Февраль"
