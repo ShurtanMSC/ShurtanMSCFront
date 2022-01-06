@@ -70,7 +70,7 @@ const TableGrafic = () => {
                                 onClick={openModal}
                                 style={{cursor:'pointer'}}
                                 icon={faEdit} /> : ""}
-                            <P> Отбор газа млн.м³ </P> </SelectDiv>
+                            <P> Отбор газа тыс.м³ </P> </SelectDiv>
                         <YearDiv>
                             <YearBox>
                                 <YellowDiv></YellowDiv>

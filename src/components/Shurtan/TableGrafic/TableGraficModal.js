@@ -75,16 +75,14 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,setData
                         amount:document.getElementById("l"+i).value,
                         mining_system_id:1,
                         month:findMonth(i),
-                        year:2020
+                        year:new Date().getFullYear()-1,
                     })
                     postData.push({
                         amount:document.getElementById("t"+i).value,
                         mining_system_id:1,
                         month:findMonth(i),
-                        year:2021
+                        year:new Date().getFullYear(),
                     })
-
-
             }
             if (postData.length===24){
                 document.getElementById('save').disabled=true;
@@ -139,8 +137,8 @@ const TableGraficModal = ({showTableGraficModal, setShowTableGraficModal,setData
                                 <thead>
                                 <Tr>
                                     <Th style={{padding:'1rem', width:'35%'}}>Месяц</Th>
-                                    <Th>2020</Th>
-                                    <Th>2021</Th>
+                                    <Th>{new Date().getFullYear()-1}</Th>
+                                    <Th>{new Date().getFullYear()}</Th>
                                 </Tr>
                                 </thead>
                                 <tbody>
