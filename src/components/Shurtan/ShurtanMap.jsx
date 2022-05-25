@@ -32,7 +32,7 @@ const  ShurtanMap = () => {
 
     const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
 
-    if ( openWell && openWell.length > 0 ) {
+    if ( pressureApi && pressureApi.length > 0 && allUppg && allUppg.length > 0 && openWell && openWell.length > 0 ) {
         return (
             <>
                 <Modal showModal={showModal}
