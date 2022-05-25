@@ -30,7 +30,7 @@ const  ShurtanMap = () => {
         setShowCollectionPointModal(prev => !prev);
     }
 
-    const filtered = pressureApi.filter(el => el.objectDto.name === idPoint )
+    const filtered = pressureApi.filter(el => el.objectDto.name === idPoint );
 
     if ( pressureApi && pressureApi.length > 0 && allUppg && allUppg.length > 0 && openWell && openWell.length > 0 ) {
         return (
