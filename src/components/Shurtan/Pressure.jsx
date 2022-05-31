@@ -18,14 +18,26 @@ const   Pressure = () => {
     }
 
     let totalExpend = 0;
-    let totalPressure = 0;
     let totalTemperature = 0;
+    let counter = 0;
+    const newPressure = [];
     for( let i = 0; i < pressureApi.length; i++) {
-        totalExpend = totalExpend + pressureApi[i].objectActionDto.expend;
-        totalPressure = (totalPressure + pressureApi[i].objectActionDto.pressure);
+        if(pressureApi[i].objectActionDto.expend > 0) {
+            totalExpend = totalExpend + pressureApi[i].objectActionDto.expend;
+            counter+=1;
+        }
+        if(pressureApi[i].objectActionDto.pressure > 0) {
+            newPressure.push(pressureApi[i].objectActionDto.pressure)
+        }
         totalTemperature = totalTemperature + pressureApi[i].objectActionDto.temperature;
     }
-    // console.log(totalPressure)
+
+    totalExpend = totalExpend/counter;
+    const totalPre = newPressure.reduce((a, c) => {
+        return a + c
+    },0)/newPressure.length;
+    // console.log(newPressure)
+
 
     return (
         <PressureContainer>
@@ -57,7 +69,7 @@ const   Pressure = () => {
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount>{Math.round(totalPressure*10)/10}</TdTotalCount>
+                <TdTotalCount>{Math.round(totalPre*10)/10}</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
                 <TdTotalCount>{Math.round((totalExpend/1000)*10)/10}</TdTotalCount>
