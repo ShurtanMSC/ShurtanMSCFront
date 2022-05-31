@@ -17,6 +17,16 @@ const   Pressure = () => {
         setTurnIcon(!turnIcon);
     }
 
+    let totalExpend = 0;
+    let totalPressure = 0;
+    let totalTemperature = 0;
+    for( let i = 0; i < pressureApi.length; i++) {
+        totalExpend = totalExpend + pressureApi[i].objectActionDto.expend;
+        totalPressure = (totalPressure + pressureApi[i].objectActionDto.pressure);
+        totalTemperature = totalTemperature + pressureApi[i].objectActionDto.temperature;
+    }
+    // console.log(totalPressure)
+
     return (
         <PressureContainer>
             <TablePresure showPressureTable={showPressureTable}>
@@ -41,17 +51,17 @@ const   Pressure = () => {
                 <Th style={{position:'sticky', top:'22px', padding:'5px 10px'}}>РПЛ</Th>
             </Tr>
             </thead>
-            {pressureApi.map((el) =>
+            {pressureApi && pressureApi.map((el) =>
                     <PressureTable el={el} key={el.objectDto.name} />
             )}
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> </TdTotalCount>
-                <TdTotalCount> </TdTotalCount>
-                <TdTotalCount> </TdTotalCount>
-                <TdTotalCount> </TdTotalCount>
-                <TdTotalCount> </TdTotalCount>
+                <TdTotalCount>{Math.round(totalPressure*10)/10}</TdTotalCount>
+                <TdTotalCount>-</TdTotalCount>
+                <TdTotalCount>-</TdTotalCount>
+                <TdTotalCount>{Math.round((totalExpend/1000)*10)/10}</TdTotalCount>
+                <TdTotalCount>{Math.round(totalTemperature*10)/10}</TdTotalCount>
                 <TdTotalCount>{totalInWork}</TdTotalCount>
                 <TdTotalCount>{totalInIdle}</TdTotalCount>
                 <TdTotalCount>{totalInRepair}</TdTotalCount>
