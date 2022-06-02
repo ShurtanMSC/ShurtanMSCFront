@@ -66,13 +66,17 @@ const Report = () => {
                     handlerStartDate={handlerStartDate}
                     handlerEndDate={handlerEndDate}
                     startDate={startDate}
-                    endDate={endDate}/>
+                    endDate={endDate}
+                />
                 <ReportBody
                     componentRef={componentRef}
                     showTexReport={showTexReport}
                     showAnalysis={showAnalysis}
                     showElectricity={showElectricity}
-                    showStaff={showStaff}/>
+                    showStaff={showStaff}
+                    startDate={startDate}
+                    endDate={endDate}
+                />
             </ContainerFluidReport>
             <Footer/>
         </Window>

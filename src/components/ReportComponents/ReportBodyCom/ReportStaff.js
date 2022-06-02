@@ -14,7 +14,7 @@ import {
 } from "../../../styled";
 import styled from "styled-components";
 
-const ReportStaff = () => {
+const ReportStaff = ({startDate, endDate}) => {
     const {personalReport} = useContext(AppContext);
         return(
             <ReportAnalysisContainer>
@@ -26,17 +26,17 @@ const ReportStaff = () => {
                                 геолога  по технологии <br/>
                                 "Шуртанского" НГДУ <br/>
                                 ___________ Б.Х.Очилов <br/>
-                                "______" _____________ 2021 г.
+                                "______" _____________ 20__ г.
                             </TitleP>
                             <TitleP>"Утверждаю" <br/>
                                 Главный геолог <br/>
                                 "Шуртанского" НГДУ <br/>
                                 ___________ З.Б.Нематов <br/>
-                                "_______" _____________ 2021 г.
+                                "_______" _____________ 20__ г.
                             </TitleP>
                         </TitleReport>
                         <div style={{margin:'2%'}}>
-                            <TitleP>Количество персонала по месторождению Шуртан на март месяц 2021 года
+                            <TitleP>Количество персонала по месторождению Шуртан по {startDate} с {endDate}
                             </TitleP>
                         </div>
                     </TitleReportDiv>

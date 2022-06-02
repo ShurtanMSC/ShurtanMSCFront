@@ -10,7 +10,7 @@ import {Table, Tr, Td, Th,
         TdTotalCount} from '../../../styled';
 import styled from 'styled-components';
 
-const ReportTex = () => {
+const ReportTex = ({startDate, endDate}) => {
     const {pdfReport} = useContext(AppContext);
     return(
         <>
@@ -21,18 +21,18 @@ const ReportTex = () => {
                         геолога  по технологии <br/>
                         "Шуртанского" НГДУ <br/>
                         ___________ Б.Х.Очилов <br/>
-                        "______" _____________ 2021 г.
+                        "______" _____________ 20__ г.
                     </TitleP>
                     <TitleP>"Утверждаю" <br/>
                         Главный геолог <br/>
                         "Шуртанского" НГДУ <br/>
                         ___________ З.Б.Нематов <br/>
-                        "_______" _____________ 2021 г.
+                        "_______" _____________ 20__ г.
                     </TitleP>
                 </TitleReport>
                 <div>
                     <TitleP>Технологический режим работы <br/>
-                        эксплуатации газовых скважин по месторождению Шуртан на март месяц 2021 года
+                        эксплуатации газовых скважин по месторождению Шуртан по {startDate} с {endDate}
                     </TitleP>
                 </div>
             </TitleReportDiv>

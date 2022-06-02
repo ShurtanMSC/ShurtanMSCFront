@@ -5,16 +5,32 @@ import ReportAnalysis from "./ReportBodyCom/ReportAnalysis";
 import ReportElectricity from "./ReportBodyCom/ReportElectricity";
 import ReportStaff from "./ReportBodyCom/ReportStaff";
 
-const ReportBody = ({componentRef, showTexReport, showAnalysis, showElectricity, showStaff}) => {
+const ReportBody = ({componentRef, showTexReport, showAnalysis, showElectricity, showStaff, startDate, endDate}) => {
 
     return(
         <ContainerReportBody>
 
                 <div style={{width:"100%"}} ref={componentRef}>
-                    {showTexReport ? <ReportTex/> :
-                        showAnalysis ? <ReportAnalysis/> :
-                            showElectricity ? <ReportElectricity/> :
-                                showStaff ? <ReportStaff/> :
+                    {showTexReport ?
+                        <ReportTex
+                            startDate={startDate}
+                            endDate={endDate}
+                        /> :
+                        showAnalysis ?
+                            <ReportAnalysis
+                                startDate={startDate}
+                                endDate={endDate}
+                            /> :
+                            showElectricity ?
+                                <ReportElectricity
+                                    startDate={startDate}
+                                    endDate={endDate}
+                                /> :
+                                showStaff ?
+                                    <ReportStaff
+                                        startDate={startDate}
+                                        endDate={endDate}
+                                    /> :
                                     <TitleH1>ВЫБЕРИТЕ ОТЧЕТ</TitleH1>}
                 </div>
 
