@@ -187,7 +187,7 @@ a:focus{
     }
 }
 .mapSp{
-    transform: rotate(-40deg);
+    transform: rotate(320deg);
     font-family:'Montserrat';
     font-size: 12px;
     /*font-style:italic;*/
