@@ -19,23 +19,25 @@ const   Pressure = () => {
 
     let totalExpend = 0;
     let totalTemperature = 0;
+    let totalPre = 0;
     let counter = 0;
-    const newPressure = [];
+    let counterT = 0;
     for( let i = 0; i < pressureApi.length; i++) {
-        if(pressureApi[i].objectActionDto.expend > 0) {
-            totalExpend = totalExpend + pressureApi[i].objectActionDto.expend;
+        totalExpend = totalExpend + pressureApi[i].objectActionDto.expend;
+
+        if(pressureApi[i].objectActionDto.pressure > 0) {
+            totalPre += pressureApi[i].objectActionDto.pressure;
             counter+=1;
         }
-        if(pressureApi[i].objectActionDto.pressure > 0) {
-            newPressure.push(pressureApi[i].objectActionDto.pressure)
+        if(pressureApi[i].objectActionDto.temperature > 0) {
+            totalTemperature += pressureApi[i].objectActionDto.temperature;
+            counterT++;
         }
-        totalTemperature = totalTemperature + pressureApi[i].objectActionDto.temperature;
     }
 
-    totalExpend = totalExpend/counter;
-    const totalPre = newPressure.reduce((a, c) => {
-        return a + c
-    },0)/newPressure.length;
+    totalPre = totalPre/counter;
+    totalTemperature = totalTemperature/counterT;
+
     // console.log(newPressure)
 
 
@@ -72,7 +74,7 @@ const   Pressure = () => {
                 <TdTotalCount>{Math.round(totalPre*10)/10}</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
-                <TdTotalCount>{Math.round((totalExpend/1000)*10)/10}</TdTotalCount>
+                <TdTotalCount>{Math.round((totalExpend/24/1000)*10)/10}</TdTotalCount>
                 <TdTotalCount>{Math.round(totalTemperature*10)/10}</TdTotalCount>
                 <TdTotalCount>{totalInWork}</TdTotalCount>
                 <TdTotalCount>{totalInIdle}</TdTotalCount>
