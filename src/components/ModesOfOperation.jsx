@@ -21,14 +21,20 @@ const ModesOfOperation = () => {
             <Tr>
                 <Th rowSpan="3">Наименование обьектов, агрегатов и марка ГТД</Th>
                 <Th colSpan="14" style={{position:'relative', zIndex:"1"}} >Режимы Эксплуатаций ДКС
-                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
-                        position:'absolute',
-                        right:'5px',
-                        top:'3px',
-                        cursor:'pointer',
-                        zIndex:"1"}}
-                        icon={faEdit}
-                        onClick={openModal} /> : ""}
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                        getRoleNameFromJWT() !== 'OPERATOR' &&
+                        getRoleNameFromJWT() !== 'ENERGETIC' &&
+                        getRoleNameFromJWT() !== 'METROLOGIST' &&
+                        getRoleNameFromJWT() !== 'GEOLOGIST' ?
+                            <FontAwesomeIcon style={{
+                                                    position:'absolute',
+                                                    right:'5px',
+                                                    top:'3px',
+                                                    cursor:'pointer',
+                                                    zIndex:"1"
+                                                }}
+                            icon={faEdit}
+                            onClick={openModal} /> : ""}
                 </Th>
             </Tr>
             <Tr>
@@ -49,10 +55,10 @@ const ModesOfOperation = () => {
                 <Th>Т вых.</Th>
                 <Th>Т выхл.</Th>
                 <Th>Об/мин</Th>
-                <Th>Q.тыс.м3/сут</Th>
-                <Th>Q.тыс.м3/сут по факту</Th>
-                <Th>Q.тыс.м3/сут по проекту</Th>
-                <Th>Q.тыс.м3/сут</Th>
+                <Th>Q.тыс.м<sup>3</sup>/сут</Th>
+                <Th>Q.тыс.м<sup>3</sup>/сут по факту</Th>
+                <Th>Q.тыс.м<sup>3</sup>/сут по проекту</Th>
+                <Th>Q.тыс.м<sup>3</sup>/сут</Th>
                 <Th>мото/час</Th>
                 <Th>мото/час</Th>
             </Tr>

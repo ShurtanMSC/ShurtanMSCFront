@@ -192,21 +192,21 @@ const BtnSearch = () => {
                 </thead>
                 <tbody>
                 <Tr>
-                    <TdFirst>Проектная производительность <br/> м3/год</TdFirst>
+                    <TdFirst>Проектная производительность <br/> м<sup>3</sup>/год</TdFirst>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*30 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10*24*365 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>Фактическая производителность <br/> м3/год</TdFirst>
+                    <TdFirst>Фактическая производителность <br/> м<sup>3</sup>/год</TdFirst>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*30 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance*10)/10*24*365 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>По газу, тыс м3</TdFirst>
+                    <TdFirst>По газу, тыс м<sup>3</sup></TdFirst>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10/1000 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24/1000 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*30/1000 : "")}</Td>
@@ -224,11 +224,11 @@ const BtnSearch = () => {
                     <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.onWater*10)/10/1000 : ""}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>Входное  давление, кгс\см2</TdFirst>
+                    <TdFirst>Входное  давление, кгс\см<sup>2</sup></TdFirst>
                     <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.incomePressure*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>Выходное  давление, кгс\см2</TdFirst>
+                    <TdFirst>Выходное  давление, кгс\см<sup>2</sup></TdFirst>
                     <Td colSpan="4">{selectedUppg ? Math.round(selectedUppg.objectActionDto.exitPressure*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>

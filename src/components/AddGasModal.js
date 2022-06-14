@@ -39,7 +39,7 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas}) => {
             <animated.div style={{animation}}>
             <ModalContainer showAddGassModal={showAddGassModal}>
                 <H2Div>
-                    <H2>Добыча газа, тыс.м3</H2>
+                    <H2>Добыча газа, тыс.м<sup>3</sup></H2>
                 </H2Div>
                 <Table>
                     <thead>

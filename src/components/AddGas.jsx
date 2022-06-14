@@ -23,7 +23,7 @@ const AddGas = () => {
                 <thead>
                 <Tr>
                     <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Наименование</Th>
-                    <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, тыс.м3
+                    <Th colSpan="3" style={{position:'sticky', top:'0'}}>Добыча газа, тыс.м<sup>3</sup>
                         {getRoleNameFromJWT() !== 'EMPLOYEE' &&
                         getRoleNameFromJWT() !== 'OPERATOR' &&
                         getRoleNameFromJWT() !== 'ENERGETIC' &&

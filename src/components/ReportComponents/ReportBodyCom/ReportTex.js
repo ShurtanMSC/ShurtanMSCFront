@@ -53,12 +53,12 @@ const ReportTex = ({startDate, endDate}) => {
                     <ThReport rowSpan="2">C</ThReport>
                     <ThReport colSpan="2">Подвески <br/> НКТ</ThReport>
                     <ThReport rowSpan="2">Dшт, <br/> мм</ThReport>
-                    <ThReport colSpan="6">Давление, кгс/см2</ThReport>
+                    <ThReport colSpan="6">Давление, кгс/см<sup>2</sup></ThReport>
                     <ThReport colSpan="2">Дебит</ThReport>
                     <ThReport rowSpan="2">Устьевая <br/> скорость, <br/> мс</ThReport>
                     <ThReport rowSpan="2">Забойная <br/> скорость <br/> м/с </ThReport>
                     <ThReport rowSpan="2">Dшт, <br/> мм</ThReport>
-                    <ThReport colSpan="6">Давление, кгс/см2</ThReport>
+                    <ThReport colSpan="6">Давление, кгс/см<sup>2</sup></ThReport>
                     <ThReport colSpan="2">Дебит</ThReport>
                     <ThReport rowSpan="2">Устьевая <br/> скорость, <br/> мс</ThReport>
                     <ThReport rowSpan="2">Забойная <br/> скорость <br/> м/с </ThReport>
@@ -74,7 +74,7 @@ const ReportTex = ({startDate, endDate}) => {
                     <ThReport>Рзаб</ThReport>
                     <ThReport>Рпл</ThReport>
                     <ThReport>ΔР</ThReport>
-                    <ThReport>газа <br/>тыс.м3/сут</ThReport>
+                    <ThReport>газа <br/>тыс.м<sup>3</sup>/сут</ThReport>
                     <ThReport>конден, <br/>т/сут.</ThReport>
                     <ThReport>Ртр</ThReport>
                     <ThReport>Рзтр</ThReport>
@@ -82,7 +82,7 @@ const ReportTex = ({startDate, endDate}) => {
                     <ThReport>Рзаб</ThReport>
                     <ThReport>Рпл</ThReport>
                     <ThReport>ΔР</ThReport>
-                    <ThReport>газа <br/>тыс.м3/сут</ThReport>
+                    <ThReport>газа <br/>тыс.м<sup>3</sup>/сут</ThReport>
                     <ThReport>конден, <br/>т/сут.</ThReport>
                 </Tr>
                 <Tr>

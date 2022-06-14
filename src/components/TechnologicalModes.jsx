@@ -37,7 +37,7 @@ const TechnologicalModes = () => {
                 </Th>
             </Tr>
             <Tr>
-                <Th colSpan="4" style={{position:'sticky', top:'38px'}}>Часовой режим, кгс/см2</Th>
+                <Th colSpan="4" style={{position:'sticky', top:'38px'}}>Часовой режим, кгс/см<sup>2</sup></Th>
             </Tr>
             <Tr>
                 <Th style={{position:'sticky', top:'60px'}}>Текущее пластовое давление</Th>

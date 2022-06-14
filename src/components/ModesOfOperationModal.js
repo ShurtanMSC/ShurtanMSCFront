@@ -65,7 +65,7 @@ const ModesOfOperationModal = ({showModesOperationModal, setShowModesOperationMo
                     <thead>
                         <Tr>
                             <Th rowSpan="2" style={{padding:'1rem'}}>Наименование объектов, агрегатов и марка ГТД</Th>
-                            <Th colSpan="3">Давление газа, кгс/см2</Th>
+                            <Th colSpan="3">Давление газа, кгс/см<sup>2</sup></Th>
                             <Th colSpan="3">Температура газа, С</Th>
                             <Th>Обороты СТ</Th>
                             <Th>Обороты газа ГПА</Th>
@@ -82,10 +82,10 @@ const ModesOfOperationModal = ({showModesOperationModal, setShowModesOperationMo
                             <Th>Т вых</Th>
                             <Th>Т выхл</Th>
                             <Th>Об/мин</Th>
-                            <Th>Q.тыс. м³/сут</Th>
-                            <Th>Q.тыс. м3/сут по факту</Th>
-                            <Th>Q.тыс. м3/сут по проекту</Th>
-                            <Th>Q.тыс. м3/сут</Th>
+                            <Th>Q.тыс. м<sup>3</sup>/сут</Th>
+                            <Th>Q.тыс. м<sup>3</sup>/сут по факту</Th>
+                            <Th>Q.тыс. м<sup>3</sup>/сут по проекту</Th>
+                            <Th>Q.тыс. м<sup>3</sup>/сут</Th>
                             <Th>мото/час</Th>
                             <Th>мото/час</Th>
                         </Tr>

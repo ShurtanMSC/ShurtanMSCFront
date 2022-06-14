@@ -49,11 +49,11 @@ const AddAnalizeModal = ({showAddAnalizeModal, setShowAddAnalizeModal, analysis}
                             <Th colSpan="3">С начала года</Th>
                         </Tr>
                         <Tr>
-                            <Th>План добычи тыс.м3</Th>
-                            <Th>Факт добыча тыс.м3</Th>
-                            <Th>План добычи тыс.м3</Th>
-                            <Th>Факт добыча тыс.м3</Th>
-                            <Th>За аналог. период прошлого года тыс.м3</Th>
+                            <Th>План добычи тыс.м<sup>3</sup></Th>
+                            <Th>Факт добыча тыс.м<sup>3</sup></Th>
+                            <Th>План добычи тыс.м<sup>3</sup></Th>
+                            <Th>Факт добыча тыс.м<sup>3</sup></Th>
+                            <Th>За аналог. период прошлого года тыс.м<sup>3</sup></Th>
                         </Tr>
                     </thead>
                     <tbody>

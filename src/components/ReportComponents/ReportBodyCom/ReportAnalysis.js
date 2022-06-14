@@ -46,12 +46,12 @@ const ReportAnalysis = ({startDate, endDate}) => {
                         <ThReport colSpan="5">С начала года</ThReport>
                     </Tr>
                     <Tr>
-                        <ThReport rowSpan="2">План добычи тыс.м3</ThReport>
-                        <ThReport rowSpan="2">Факт. добыча тыс.м3</ThReport>
+                        <ThReport rowSpan="2">План добычи тыс.м<sup>3</sup></ThReport>
+                        <ThReport rowSpan="2">Факт. добыча тыс.м<sup>3</sup></ThReport>
                         <ThReport rowSpan="2">% выполнения</ThReport>
                         <ThReport>Отставание</ThReport>
-                        <ThReport rowSpan="2">План добычи тыс.м3</ThReport>
-                        <ThReport rowSpan="2">Факт. добыча тыс.м3</ThReport>
+                        <ThReport rowSpan="2">План добычи тыс.м<sup>3</sup></ThReport>
+                        <ThReport rowSpan="2">Факт. добыча тыс.м<sup>3</sup></ThReport>
                         <ThReport rowSpan="2">За аналог. период прошлого года</ThReport>
                         <ThReport rowSpan="2">% выполнение</ThReport>
                         <ThReport>Отставание</ThReport>

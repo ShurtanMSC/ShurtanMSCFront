@@ -73,7 +73,7 @@ const BtnSearchModal = ({showBtnSearch, setShowBtnSearch, uppgId, selectedUppg})
                                 </thead>
                                 <tbody>
                                 <Tr>
-                                    <TdFirstChange>Проектная производительность, м³/год</TdFirstChange>
+                                    <TdFirstChange>Проектная производительность, м<sup>3</sup>/год</TdFirstChange>
                                     <Td> <InputModal
                                         type="text"
                                         name="name"

@@ -39,15 +39,23 @@ const AddAnalize = () => {
                         />
                     </BtnMore>
                 </Th>
-                <Th colSpan="10" style={{position:'sticky', 
-                                        top:'0'}} >
-                    Анализ добычи
-                    {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'ENERGETIC' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{position:'absolute',
-                        right:'5px',
-                        top:'3px',
-                        cursor:'pointer'}}
-                        icon={faEdit}
-                        onClick={openModal}/> : ""}
+                <Th colSpan="10"
+                    style={{
+                        position:'sticky',
+                        top:'0'
+                    }}
+                >Анализ добычи
+                    {getRoleNameFromJWT() !== 'EMPLOYEE' &&
+                        getRoleNameFromJWT() !== 'OPERATOR' &&
+                        getRoleNameFromJWT() !== 'ENERGETIC' &&
+                        getRoleNameFromJWT() !== 'METROLOGIST' &&
+                        getRoleNameFromJWT() !== 'GEOLOGIST' ?
+                            <FontAwesomeIcon style={{position:'absolute',
+                                                        right:'5px',
+                                                        top:'3px',
+                                                        cursor:'pointer'}}
+                                                        icon={faEdit}
+                                                        onClick={openModal}/> : ""}
                 </Th>
             </Tr>
             <Tr>
@@ -55,13 +63,13 @@ const AddAnalize = () => {
                 <Th colSpan="5" style={{position:'sticky', top:'22px'}} >С начала года </Th>
             </Tr>
             <Tr>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м3</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м3 </Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м<sup>3</sup></Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м<sup>3</sup> </Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >% выполнения</Th>
                 <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м3</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м3</Th>
-                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >За аналог. период прошлого года тыс.м3</Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >План добычи тыс.м<sup>3</sup></Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >Факт. добыча тыс.м<sup>3</sup></Th>
+                <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >За аналог. период прошлого года тыс.м<sup>3</sup></Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'44px'}} >% выполнение </Th>
                 <Th style={{position:'sticky', top:'44px'}} >Отставание</Th>
             </Tr>

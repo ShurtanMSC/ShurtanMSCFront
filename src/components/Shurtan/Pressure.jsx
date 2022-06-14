@@ -47,7 +47,7 @@ const   Pressure = () => {
             <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Наименование</Th>
-                <Th colSpan="3" style={{position:'sticky', top:'0'}}>Давление, кгс/см2</Th>
+                <Th colSpan="3" style={{position:'sticky', top:'0'}}>Давление, кгс/см<sup>2</sup></Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Расход, тыс м³/ч</Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'0', padding:'0 5px'}}>Темрера- <br/>тура </Th>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>В работе</Th>
