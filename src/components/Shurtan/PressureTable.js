@@ -85,7 +85,7 @@ const PressureTable = ({el}) => {
             <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
             <Td>-</Td>
             <Td>-</Td>
-            <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.expend/1000/24)*10)/10 : ""}</Td>
+            <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.expend/1000)*10)/10 : ""}</Td>
             <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.temperature)*10)/10 : ""}</Td>
             <Td>{counterWellStatus()[0]}</Td>
             <Td>{counterWellStatus()[1]}</Td>
@@ -100,7 +100,7 @@ const PressureTable = ({el}) => {
                 <Td>{el.objectActionDto !== null ? Math.round((el.objectActionDto.pressure)*10)/10 : ""}</Td>
                 <Td>{Math.round(well.objectActionDto.pressure*10)/10}</Td>
                 <Td>{Math.round(well.objectActionDto.rpl*10)/10}</Td>
-                <Td>{Math.round((well.objectActionDto.expend/24)*10)/10}</Td>
+                <Td>{Math.round((well.objectActionDto.expend)*10)/10}</Td>
                 <Td>{Math.round(well.objectActionDto.temperature*10)/10}</Td>
                 <TdGreen>{well.objectActionDto.status !== "IN_WORK" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdGreen>
                 <TdYellow>{well.objectActionDto.status !== "IN_IDLE" ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faCheck}/>}</TdYellow>

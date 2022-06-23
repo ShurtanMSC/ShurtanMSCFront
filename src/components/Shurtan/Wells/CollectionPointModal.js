@@ -70,7 +70,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Расход, тыс м³/ч:</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round((el.objectActionDto.expend/24/1000)*10)/10 : ""}</TdModalShurtan>
+                                        <TdModalShurtan>{el.objectActionDto !== null ? Math.round((el.objectActionDto.expend/1000)*10)/10 : ""}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C:</TdModalShurtanFirst>

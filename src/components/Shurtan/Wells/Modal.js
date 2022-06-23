@@ -83,7 +83,7 @@ const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Расход, м³/ч</TdModalShurtanFirst>
-                                        <TdModalShurtan>{Math.round((el.objectActionDto.expend/24)*10)/10}</TdModalShurtan>
+                                        <TdModalShurtan>{Math.round((el.objectActionDto.expend)*10)/10}</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Темрература, °C</TdModalShurtanFirst>

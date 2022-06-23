@@ -74,7 +74,7 @@ const   Pressure = () => {
                 <TdTotalCount>{Math.round(totalPre*10)/10}</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
                 <TdTotalCount>-</TdTotalCount>
-                <TdTotalCount>{Math.round((totalExpend/24/1000)*10)/10}</TdTotalCount>
+                <TdTotalCount>{Math.round((totalExpend/1000)*10)/10}</TdTotalCount>
                 <TdTotalCount>{Math.round(totalTemperature*10)/10}</TdTotalCount>
                 <TdTotalCount>{totalInWork}</TdTotalCount>
                 <TdTotalCount>{totalInIdle}</TdTotalCount>
