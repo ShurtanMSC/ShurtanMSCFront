@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
-import { Table, Tr, Th, TdFirst, Td } from '../styled'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import ModesOfOperationModal from './ModesOfOperationModal'
+import React, {useState, useContext} from 'react';
+import {AppContext} from "../context";
+import { Table, Tr, Th, TdFirst, Td } from '../styled';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import ModesOfOperationModal from './ModesOfOperationModal';
 import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const ModesOfOperation = () => {
+    const {date} = useContext(AppContext);
     const [showModesOperationModal, setShowModesOperationModal] = useState(false);
 
     const openModal = () => {
@@ -114,7 +116,7 @@ const ModesOfOperation = () => {
             </Tr>
             </tbody>    
         </TableModeOfOperation>
-        <ModesOfOperationModal showModesOperationModal={showModesOperationModal} setShowModesOperationModal={setShowModesOperationModal}/>
+        <ModesOfOperationModal showModesOperationModal={showModesOperationModal} setShowModesOperationModal={setShowModesOperationModal} date={date}/>
         </>
     )
 }

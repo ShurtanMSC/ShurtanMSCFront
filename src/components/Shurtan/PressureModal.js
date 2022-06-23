@@ -31,7 +31,7 @@ const modalSP = {
 
 const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPressureModal,getWellActions, takeWell}) => {
 
-    const {setPressureApi, takeSpPressure, takeAllWells, takeStatus} = useContext(AppContext);
+    const {setPressureApi, takeSpPressure, takeAllWells, takeStatus, dateTime, date} = useContext(AppContext);
     const modalRef = useRef();
 
     const closeModal = e => {
@@ -202,14 +202,17 @@ const PressureModal = ({showPressureModal, setShowPressureModal, id, sp, wellPre
                                                     <option value="IN_LIQUIDATION">в ликвидации</option>
                                                 </SelectModal>
                                             </Td>
-                                            <Td> <InputModal type="text"  name="name" value={el.objectActionDto.createdAt.slice(0, 10)} disabled/> </Td>
+                                            <Td> <InputModal type="text"  name="name" value={
+                                                // el.objectActionDto.createdAt.slice(0, 10)
+                                                date
+                                            } disabled/> </Td>
                                         </Tr>
                                     )}
                                     </tbody>
                                 </Table>
                                 <SaveDiv>
                                     <div>
-                                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                                        <PModal>Дата изменения: <SpanModal>{dateTime}</SpanModal> </PModal>
                                     </div>
                                     <div>
                                         <SaveBtnModal>Сохранит</SaveBtnModal>

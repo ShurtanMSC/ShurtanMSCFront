@@ -9,7 +9,7 @@ import CountUp from 'react-countup'
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const NumberOfStaff = () => {
-    const {nameAllMining, personal, totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent,} = useContext(AppContext);
+    const {nameAllMining, personal, totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, date} = useContext(AppContext);
     const [showNumberOfStaffModal, setShowNumberOfStaffModal] = useState(false);
 
     const openModal = () => {
@@ -65,7 +65,7 @@ const NumberOfStaff = () => {
         <NumberOfStaffModal showNumberOfStaffModal={showNumberOfStaffModal}
                             setShowNumberOfStaffModal={setShowNumberOfStaffModal}
                             nameAllMining={nameAllMining}
-                            personal={personal}/>
+                            personal={personal} date={date}/>
         </>
     )
 }

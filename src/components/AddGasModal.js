@@ -4,7 +4,7 @@ import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, Spa
     // SaveBtnModal,
     CloseBtnModal } from '../styled'
 
-const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas}) => {
+const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas, date}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -63,7 +63,7 @@ const AddGasModal = ({showAddGassModal, setShowAddGassModal, addGas}) => {
                 </Table>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        <PModal>Дата изменения: <SpanModal> {date} </SpanModal> </PModal>
                     </div>
                     <div>
                         {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}

@@ -21,7 +21,7 @@ import {
 } from '../styled'
 import styled from 'styled-components'
 
-const GasBalanceModal = ({showGasBalanceModal, setShowGasBalanceModal}) => {
+const GasBalanceModal = ({showGasBalanceModal, setShowGasBalanceModal, date}) => {
     const {gasBalans} = useContext(AppContext);
     const modalRef = useRef();
 
@@ -235,7 +235,7 @@ const GasBalanceModal = ({showGasBalanceModal, setShowGasBalanceModal}) => {
                 </SlideCard>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        <PModal>Дата изменения: <SpanModal> {date   } </SpanModal> </PModal>
                     </div>
                     <div>
                         <SaveBtnModal>Сохранит</SaveBtnModal>

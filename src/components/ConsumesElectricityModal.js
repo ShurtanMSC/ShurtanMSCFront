@@ -6,7 +6,7 @@ import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, Spa
     CloseBtnModal } from '../styled'
 
 const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElectricity, nameAllMining, getElectric}) => {
-    const {handlerElectric, onSubmitElectric} = useContext(AppContext);
+    const {handlerElectric, onSubmitElectric, date} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -69,7 +69,7 @@ const ConsumesElectricityModal = ({showConsumedElectricity, setShowConsumedElect
                 </Table>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        <PModal>Дата изменения: <SpanModal> {date} </SpanModal> </PModal>
                     </div>
                     <div>
                         {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}

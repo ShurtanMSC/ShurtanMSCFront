@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useCallback} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, SpanModal, ModalContainerFluid, ModalContainer, SaveBtnModal, CloseBtnModal } from '../styled'
 
-const CurrentOperatingCostsModal = ({showCurrentOperatingCosts, setShowCurrentOperatingCosts}) => {
+const CurrentOperatingCostsModal = ({showCurrentOperatingCosts, setShowCurrentOperatingCosts, date}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -113,7 +113,7 @@ const CurrentOperatingCostsModal = ({showCurrentOperatingCosts, setShowCurrentOp
                 </Table>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        <PModal>Дата изменения: <SpanModal> {date} </SpanModal> </PModal>
                     </div>
                     <div>
                         <SaveBtnModal>Сохранит</SaveBtnModal>

@@ -22,7 +22,7 @@ const modal = {
 }
 
 const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
-    const {openWell} = useContext(AppContext);
+    const {openWell, dateTime, date} = useContext(AppContext);
     const filtered = openWell.filter(el => el.objectDto.number === id);
 
     const modalRef = useRef();
@@ -71,7 +71,10 @@ const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Изменение состояния</TdModalShurtanFirst>
-                                        <TdModalShurtan>{el.objectActionDto.createdAt.slice(0, 10)}</TdModalShurtan>
+                                        <TdModalShurtan>{
+                                            // el.objectActionDto.createdAt.slice(0, 10)
+                                            date
+                                        }</TdModalShurtan>
                                     </tr>
                                     <tr>
                                         <TdModalShurtanFirst>Ру, кгс/см²</TdModalShurtanFirst>
@@ -97,7 +100,10 @@ const Modal = ({showModal, setShowModal, id, findColor, findStatus}) => {
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtan colSpan="2">{el.objectActionDto.createdAt.slice(0, 10)} {el.objectActionDto.createdAt.slice(11, 19)}</TdModalShurtan>
+                                        <TdModalShurtan colSpan="2">{
+                                            // el.objectActionDto.createdAt.slice(0, 10)} {el.objectActionDto.createdAt.slice(11, 19)
+                                          dateTime
+                                        }</TdModalShurtan>
                                     </tr>
                                     </tbody>
                                 )}

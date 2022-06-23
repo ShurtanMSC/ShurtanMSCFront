@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const TechnologicalModes = () => {
-    const {nameAllMining} = useContext(AppContext);
+    const {nameAllMining, date} = useContext(AppContext);
     const [showTechnologicalModesModal, setShowTechnologicalModesModal] = useState(false);
 
     const openModal = () => {
@@ -68,7 +68,7 @@ const TechnologicalModes = () => {
             </tfoot>
         </TableTechnologicalModel>
         <TechnologicalModesModal showTechnologicalModesModal={showTechnologicalModesModal}
-                                 setShowTechnologicalModesModal={setShowTechnologicalModesModal} nameAllMining={nameAllMining}/>
+                                 setShowTechnologicalModesModal={setShowTechnologicalModesModal} nameAllMining={nameAllMining} date={date}/>
         </>
     )
 }

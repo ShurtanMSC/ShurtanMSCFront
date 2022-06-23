@@ -7,7 +7,7 @@ import GasBalanceModal from './GasBalanceModal';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const GasBalance = () => {
-    const {totalInWork, totalInIdle, totalInRepair, AllTotal} = useContext(AppContext);
+    const {totalInWork, totalInIdle, totalInRepair, AllTotal, date} = useContext(AppContext);
     const [showCurrentOperatingCosts, setShowCurrentOperatingCosts] = useState(false);
     const [showGasBalanceModal, setShowGasBalanceModal] = useState(false);
 
@@ -77,8 +77,8 @@ const GasBalance = () => {
                 <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Баланс газа</Button>
             </BtnDiv>
         </ContainerFluidGasBAlanced>
-        <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts}/>
-        <GasBalanceModal showGasBalanceModal={showGasBalanceModal} setShowGasBalanceModal={setShowGasBalanceModal}/>
+        <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts} date={date}/>
+        <GasBalanceModal showGasBalanceModal={showGasBalanceModal} setShowGasBalanceModal={setShowGasBalanceModal} date={date}/>
 
         </>
     )

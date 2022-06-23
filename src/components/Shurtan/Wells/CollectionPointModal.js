@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useCallback, useContext} from 'react';
-import {AppContext} from '../../../context'
-import { motion, AnimatePresence } from 'framer-motion'
+import {AppContext} from '../../../context';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TableModalShurtan, TdModalShurtanFirst, ModalDivShurtan, TdModalShurtan, TdModalShurtanData, ButtonModalShurtan } from '../../../styled';
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ const modal = {
 }
 
 const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointModal, idPoint, filtered}) => {
-    const {refresh} = useContext(AppContext);
+    const {refresh, dateTime} = useContext(AppContext);
 
     const modalRef = useRef();
 
@@ -85,7 +85,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                         <TdModalShurtanData colSpan="2">Дата Обновления</TdModalShurtanData>
                                     </tr>
                                     <tr>
-                                        <TdModalShurtan colSpan="2">{refresh}</TdModalShurtan>
+                                        <TdModalShurtan colSpan="2">{dateTime}</TdModalShurtan>
                                     </tr>
                                     </tbody>
                                 )}

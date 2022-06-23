@@ -4,7 +4,7 @@ import { Table, Tr, Th, TdFirst, Td, InputModal, H2Div, H2, SaveDiv, PModal, Spa
     // SaveBtnModal,
     CloseBtnModal } from '../styled'
 
-const NumberOfStaffModal = ({showNumberOfStaffModal, setShowNumberOfStaffModal, nameAllMining, personal}) => {
+const NumberOfStaffModal = ({showNumberOfStaffModal, setShowNumberOfStaffModal, nameAllMining, personal, date}) => {
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -77,7 +77,7 @@ const NumberOfStaffModal = ({showNumberOfStaffModal, setShowNumberOfStaffModal, 
                 </Table>
                 <SaveDiv>
                     <div>
-                        <PModal>Дата изменения: <SpanModal> 03.08.2021 </SpanModal> <SpanModal> 13:45:48 </SpanModal> </PModal>
+                        <PModal>Дата изменения: <SpanModal> {date} </SpanModal> </PModal>
                     </div>
                     <div>
                         {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}

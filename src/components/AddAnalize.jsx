@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const AddAnalize = () => {
-    const {analysis, planMonth, factMonth, planYear, factYear, lastYear,} = useContext(AppContext);
+    const {analysis, planMonth, factMonth, planYear, factYear, lastYear, date} = useContext(AppContext);
 
     const [openTable, setOpenTable] = useState(false);
     const [turnIcon, setTurnIcon] = useState(false);
@@ -110,7 +110,7 @@ const AddAnalize = () => {
             </tfoot>
         </TableAddAnalize>
         <AddAnalizeModal showAddAnalizeModal={showAddAnalizeModal} setShowAddAnalizeModal={setShowAddAnalizeModal}
-                         analysis={analysis}/>
+                         analysis={analysis} date={date}/>
         </>
     )
 }

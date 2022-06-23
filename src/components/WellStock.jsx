@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const WellStock = () => {
-    const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation} = useContext(AppContext);
+    const {statStatus, totalInWork, totalInIdle, totalInRepair, totalInConservation, totalInLiquidation, date} = useContext(AppContext);
     const [showWellStockModal, setShowWellStockModal] = useState(false);
 
     const openModal = () => {
@@ -63,7 +63,7 @@ const WellStock = () => {
             </Tr>
             </tfoot>
         </TableWellStock>
-        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus} />
+        <WellStockModal showWellStockModal={showWellStockModal} setShowWellStockModal={setShowWellStockModal} statStatus={statStatus} date={date}/>
         </>
     )
 }

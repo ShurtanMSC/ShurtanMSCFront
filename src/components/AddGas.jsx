@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const AddGas = () => {
-    const {addGas, totalAddGas, totalAddGasTodayExpend, totalAddGasYesterdayExpend} = useContext(AppContext);
+    const {addGas, totalAddGas, totalAddGasTodayExpend, totalAddGasYesterdayExpend, date} = useContext(AppContext);
 
     const [showAddGassModal, setShowAddGassModal] = useState(false);
 
@@ -62,7 +62,7 @@ const AddGas = () => {
                 </Tr>
                 </tfoot>
             </TableAddGas>
-            <AddGasModal showAddGassModal={showAddGassModal} setShowAddGassModal={setShowAddGassModal} addGas={addGas}/>
+            <AddGasModal showAddGassModal={showAddGassModal} setShowAddGassModal={setShowAddGassModal} addGas={addGas} date={date}/>
         </>
     )
 }

@@ -208,7 +208,6 @@ const AppProvider = ({children}) => {
             .then(res => {
                 // console.log(res)
                 // console.log(res.data)
-
                 setUppgDatabase(res.data);
             })
             .catch(err => {
@@ -256,9 +255,36 @@ const AppProvider = ({children}) => {
             .catch(error=>{ console.log(error)})
     }
     let today = new Date();
-    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    // let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date;
+    let month;
+    if(today.getMonth() === 0){
+        month = '01';
+    }else if(today.getMonth() === 1){
+        month = '02';
+    }else if(today.getMonth() === 2){
+        month = '03';
+    }else if(today.getMonth() === 3){
+        month = "04";
+    }else if(today.getMonth() === 4){
+        month = "05";
+    }else if(today.getMonth() === 5){
+        month = "06";
+    }else if(today.getMonth() === 6){
+        month = "07";
+    }else if(today.getMonth() === 7){
+        month = "08";
+    }else if(today.getMonth() === 8){
+        month = "09"
+    }else if(today.getMonth() === 9){
+        month = "10";
+    }else if(today.getMonth() === 10){
+        month = "11"
+    }else if(today.getMonth() === 11){
+        month = "12"
+    }
+    let date = today.getFullYear()+'-'+month+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
+
     useEffect(()=>{
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
@@ -735,7 +761,7 @@ const AppProvider = ({children}) => {
         handlerPersonal, handlerAtWork, handlerOnVacation, handlerOnSick, handlerOnContent, showPersonnel, setShowPersonnel, personal,
         totalAtWork, totalOnVacation, totalOnSick, totalWithoutContent, startDate, endDate, selectReport, setSelectReport, handlerSelectReport, handlerStartDate,
         handlerEndDate, personalReport, electracityReport, analysis, planMonth, factMonth, planYear, factYear, lastYear, analysisReport,
-        analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisPlanYear, showModal, setShowModal,
+        analysisGet, handlerAnalysisPut, handlerAnalysisPlan, handlerAnalysisPlanYear, showModal, setShowModal, date,
     }
     return (
         <AppContext.Provider value={value}>
