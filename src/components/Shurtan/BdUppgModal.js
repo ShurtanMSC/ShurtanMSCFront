@@ -131,7 +131,7 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                     <PModal>Дата изменения: <SpanModal> {dateTime} </SpanModal> </PModal>
                                 </div>
                                 <div>
-                                    {/*<SaveBtnModal>Сохранит</SaveBtnModal>*/}
+                                    {/*<SaveBtnModal>Сохранит.</SaveBtnModal>*/}
                                     <CloseBtnModal
                                         onClick={()=> setShowBdUppgModal(prev => !prev)}>Закрыт
                                     </CloseBtnModal>
