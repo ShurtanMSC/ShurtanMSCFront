@@ -59,4 +59,5 @@ const ContainerFluidMainPage = styled(ContainerFluid)`
         align-items: center;
     }
 `
+
 export default MainPage
