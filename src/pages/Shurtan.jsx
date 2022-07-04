@@ -1,14 +1,15 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import { ContainerFluid, ShurtanBoxOne, ShurtanBoxTwo, ShurtanBoxThree, Window } from '../styled'
-import styled from 'styled-components'
-import ShurtanMap from '../components/Shurtan/ShurtanMap'
-import Pressure from '../components/Shurtan/Pressure'
-import BtnSearch from '../components/Shurtan/BtnSearch'
-import Grafic from '../components/Shurtan/Grafic'
-import Mining from '../components/Shurtan/Mining'
+import React from 'react';
+import Navbar from '../components/Navbar';
+import { ContainerFluid, ShurtanBoxOne, ShurtanBoxTwo, ShurtanBoxThree, Window } from '../styled';
+import styled from 'styled-components';
+import ShurtanMap from '../components/Shurtan/ShurtanMap';
+import Pressure from '../components/Shurtan/Pressure';
+import BtnSearch from '../components/Shurtan/BtnSearch';
+import Grafic from '../components/Shurtan/Grafic';
+import Mining from '../components/Shurtan/Mining';
 import TableGrafic from '../components/Shurtan/TableGrafic/TableGrafic';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import SignalDoors from "../components/Shurtan/SignalDoors/SignalDoors";
 
 const Shurtan = () => {
     return (
@@ -29,6 +30,7 @@ const Shurtan = () => {
                 </ShurtanBoxThree>
             </ContainerFluidShurtan>
             <Footer/>
+            <SignalDoors/>
         </Window>
     )
 }

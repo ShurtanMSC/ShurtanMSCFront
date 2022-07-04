@@ -62,7 +62,7 @@ export const Button = styled.button`
     cursor: pointer;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 16px;
     line-height: 22px;
     color: #FFFFFF;
@@ -78,7 +78,7 @@ export const Button = styled.button`
 export const H1 = styled.h1`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     color: #363636;
     cursor: pointer;
@@ -97,7 +97,7 @@ export const H1 = styled.h1`
 export const P = styled.p`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 12px;
     display: flex;
     align-items: center;
@@ -144,7 +144,7 @@ export const DateP = styled.p`
 export const OclockP = styled.p`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
     text-align: end;
     color: #363636;
@@ -182,7 +182,7 @@ export const H2Navigation = styled.button`
       border-radius: 10px;
       font-family: Montserrat;
       font-style: normal;
-      font-weight: 800;
+      font-weight: 500;
       text-align: center;
       font-size: 18px;
       color: #363636;
@@ -512,7 +512,7 @@ export const Th = styled.th`
     background: #C3E7FA;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 12px;
     text-align: center;
     color: #363636;
@@ -544,7 +544,7 @@ export const TdTotal = styled.td`
     background: #FFE5D3;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 1000;
+    font-weight: 700;
     font-size: 14px;
     text-align:center;
     color: #363636;
@@ -556,7 +556,7 @@ export const TdTotalCount = styled.td`
     background: #FFE5D3;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     text-align: center;
     color: #363636;
@@ -772,7 +772,7 @@ export const BtnSerach = styled.button`
     cursor: pointer;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 12px;
     padding: 3px 5%;
     text-align: center;
@@ -788,7 +788,7 @@ export const Select = styled.select`
     border-radius: 5px;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 12px;
     padding: 2px 6px;
     text-align: center;
@@ -818,7 +818,7 @@ export const ShurtanMapImg = styled.img`
 export const H1shurtan = styled.h1`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 24px;
     color: #363636;
 `
@@ -835,7 +835,7 @@ export const Status = styled.div`
 export const H4 = styled.h4`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -852,7 +852,7 @@ export const CircleImg = styled.img`
 export const Pcircle = styled.p`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -862,7 +862,7 @@ export const Pcircle = styled.p`
 export const H2 = styled.h2`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     text-align: center;
     color: #363636;
@@ -1001,7 +1001,7 @@ export const FormReportHeader = styled.form`
 export const LabelReportHeader = styled.label`
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   text-align: center;
   color: #363636;
@@ -1037,7 +1037,7 @@ export const LabelReportHeaderDate = styled.label`
   span{
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
@@ -1070,7 +1070,7 @@ export const ButtonReportApply = styled.button`
   border-radius: 10px;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
@@ -1089,7 +1089,7 @@ export const ButtonReportDownload = styled.a`
   border-radius: 10px;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
   color: #FFFFFF;
   border: none;

@@ -68,7 +68,7 @@ const GasBalance = () => {
                     </CardGasBalanced>
                     <CardGasBalanced>
                         <P>Средний <br/> Дебит:</P>
-                        <PNumber> <CountUp end={5000} duration={5}/> <Span>тыс.м³</Span></PNumber>
+                        <PNumber> <CountUp end={50} duration={5}/> <Span>тыс.м³</Span></PNumber>
                     </CardGasBalanced>
                 </Card>
             </ContainerGasBalanced>
@@ -116,14 +116,14 @@ const CardGasBalanced = styled.div`
 const P = styled.p`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 1000;
+    font-weight: 600;
     font-size: 10px;
     color: #363636;
 `
 const PNumber = styled.p`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     color: #363636;
 `
@@ -146,8 +146,8 @@ const BoxGasBalanced = styled.div`
 const PGasBalanced = styled.div`
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 1000;
-    font-size: 8px;
+    font-weight: 600;
+    font-size: 10px;
     color: #363636;
     margin-bottom: 5px;
     text-align: center;
@@ -263,7 +263,7 @@ const Button = styled.button`
     border-radius: 5px;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 1000;
+    font-weight: 700;
     font-size: 10px;
     text-align: center;
     color: #363636;

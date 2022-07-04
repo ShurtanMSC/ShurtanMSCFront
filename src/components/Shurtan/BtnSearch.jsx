@@ -207,10 +207,10 @@ const BtnSearch = () => {
                 </Tr>
                 <Tr>
                     <TdFirst>По газу, тыс м<sup>3</sup></TdFirst>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10/1000 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24/1000 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*30/1000 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend*10)/10*24*365/1000 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend/1000*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.todayExpend/1000*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.thisMonthExpend/1000*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance/1000*10)/10 : "")}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>По конденсату, тыс.т</TdFirst>

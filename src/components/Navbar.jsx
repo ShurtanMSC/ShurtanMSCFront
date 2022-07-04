@@ -289,7 +289,7 @@ const Menu = styled.div`
     h1{
       font-family: Montserrat;
       font-style: normal;
-      font-weight: bold;
+      font-weight: 500;
       font-size: 24px;
       padding:1rem 0;
       margin-top: 1rem;
@@ -334,7 +334,7 @@ const LinkNav = styled.h2`
     p{
         font-family: Montserrat;
         font-style: normal;
-        font-weight: 1000;
+        font-weight: 500;
         font-size: 16px;
         display: flex;
         align-items: center;
@@ -347,7 +347,7 @@ const LinkNav = styled.h2`
 const A = styled.a`
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 12px;
   display: flex;
   align-items: center;
