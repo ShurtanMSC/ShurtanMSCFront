@@ -116,11 +116,11 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 <Tr>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ?
                                       // (Math.round(uppgDatabase[1].nakoplenniy_obyom*100)/100)
-                                      (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*new Date().getMonth()*100)/100)+(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100)
+                                      (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*new Date().getMonth()*100)/100)+(Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach*100)/100)
                                       : 0}
                                     </Td>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100) : 0}</Td>
-                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100) : 0}</Td>
+                                    <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach*100)/100) : 0}</Td>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_vchera*100)/100):0}</Td>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_s_nachalo_sutok*100)/100) : 0}</Td>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].rasxod*100)/100) :  0 }</Td>
