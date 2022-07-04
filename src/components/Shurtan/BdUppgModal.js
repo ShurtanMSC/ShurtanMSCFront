@@ -23,7 +23,7 @@ const modalSP = {
         transition: { delay: 0.5 }
     }
 }
-
+console.log(new Date().getMonth())
 const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
     const modalRef = useRef();
     const {uppgDatabase, dateTime} = useContext(AppContext);
@@ -116,7 +116,7 @@ const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
                                 <Tr>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ?
                                       // (Math.round(uppgDatabase[1].nakoplenniy_obyom*100)/100)
-                                      (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100)*(new Date().getMonth()+1)+(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100)
+                                      (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100)*(new Date().getMonth())+(Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100)
                                       : 0}
                                     </Td>
                                     <Td>{uppgDatabase&&uppgDatabase[1] ? (Math.round(uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*100)/100) : 0}</Td>
