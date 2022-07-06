@@ -195,7 +195,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/collection_point/all/action/mining_system/' + 1, configHeader)
             .then(res => {
                 setPressureApi(res.data.object);
-                console.log(res.data.object);
+                //console.log(res.data.object);
             })
             .catch(err => {
                 console.log(err)
@@ -207,7 +207,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/fake/all', configHeader)
             .then(res => {
                 // console.log(res)
-                // console.log(res.data)
+                console.log(res.data)
                 setUppgDatabase(res.data);
             })
             .catch(err => {
@@ -316,7 +316,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/uppg/all/actions/mining_system/' + 1, configHeader)
             .then(res => {
                 setAllUppg(res.data.object);
-                console.log(res.data.object)
+                //console.log(res.data.object)
             })
             .catch(err => {console.log(err)})
         /** Call Name All Mining **/

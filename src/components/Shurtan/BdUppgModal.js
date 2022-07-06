@@ -23,7 +23,7 @@ const modalSP = {
         transition: { delay: 0.5 }
     }
 }
-console.log(new Date().getMonth())
+
 const BtnSearchModal = ({showBdUppgModal, setShowBdUppgModal}) => {
     const modalRef = useRef();
     const {uppgDatabase, dateTime} = useContext(AppContext);

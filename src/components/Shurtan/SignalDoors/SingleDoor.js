@@ -29,8 +29,8 @@ const SingleDoor = ({signal}) => {
           <ReactAudioPlayer
             src={Open}
             controls
-            autoPlay
-            loop
+            // autoPlay
+            // loop
             style={{width:'0'}}
           />
         </ContainerSignal>

@@ -4,7 +4,7 @@ import { Table, Tr, Th, Td, TdFirst } from '../../styled'
 import styled from 'styled-components'
 
 const Mining = () => {
-    const {totalAllUppg, totalAllUppgCon, totalAllUppgWater} = useContext(AppContext);
+    const {totalAllUppg, totalAllUppgCon, totalAllUppgWater, uppgDatabase} = useContext(AppContext);
 
     return (
         <TableMining>
@@ -19,25 +19,27 @@ const Mining = () => {
             <tbody>
                 <Tr>
                     <TdFirst>Часовая</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10)/10/1000}</Td>
+                    <Td>{ Math.round( ( (uppgDatabase&&uppgDatabase[0] ? uppgDatabase[0].rasxod : 0) + (uppgDatabase&&uppgDatabase[1] ? uppgDatabase[1].rasxod : 0) )/1000*100)/100}</Td>
                     <Td>{Math.round(totalAllUppgCon*10)/10/1000}</Td>
                     <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. сутки</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10)/10*24/1000}</Td>
+                    <Td>{ Math.round( ( (uppgDatabase&&uppgDatabase[0] ? uppgDatabase[0].nakoplenniy_obyom_s_nachalo_sutok : 0) + (uppgDatabase&&uppgDatabase[1] ? uppgDatabase[1].nakoplenniy_obyom_s_nachalo_sutok : 0) )/1000*100)/100}</Td>
                     <Td>{Math.round(totalAllUppgCon*10)/10*24/1000}</Td>
                     <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>За тек. месяц</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10)/10*24*30/1000}</Td>
+                    <Td>{ Math.round( ( (uppgDatabase&&uppgDatabase[0] ? uppgDatabase[0].nakoplenniy_obyom_s_nachalo_mesyach : 0) + (uppgDatabase&&uppgDatabase[1] ? uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach : 0))/1000*100 )/100 }</Td>
                     <Td>{Math.round(totalAllUppgCon*10)/10*24*30/1000}</Td>
                     <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>
                 <Tr>
                     <TdFirst>С начала эксплуатации</TdFirst>
-                    <Td>{Math.round(totalAllUppg*10)/10*24*365/1000}</Td>
+                    <Td>{ Math.round( ( ( uppgDatabase&&uppgDatabase[0] ? uppgDatabase[0].nakoplenniy_obyom : 0 ) + ( uppgDatabase&&uppgDatabase[1] ?
+                                      ( ( ( uppgDatabase[1].nakoplenniy_obyom_za_pered_mesyach*(new Date().getMonth()))+uppgDatabase[1].nakoplenniy_obyom_s_nachalo_mesyach ) ) 
+                                      : 0 ) )/1000*100 )/100 }</Td>
                     <Td>{Math.round(totalAllUppgCon*10)/10*24*365/1000}</Td>
                     <Td>{Math.round(totalAllUppgWater*10)/10/1000}</Td>
                 </Tr>

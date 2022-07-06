@@ -1,0 +1,1 @@
+npm start --prefix C:\NeftGaz\clone\ShurtanMSCFront
