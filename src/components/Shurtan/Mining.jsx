@@ -11,7 +11,7 @@ const Mining = () => {
             <thead>
                 <Tr>
                     <Th>Добыча</Th>
-                    <Th>Газ, тыс.м<sup>3</sup></Th>
+                    <Th style={{width:"30%"}}>Газ, тыс.м<sup>3</sup></Th>
                     <Th>Конденсат, тыс.т</Th>
                     <Th>Вода, тыс.т</Th>
                 </Tr>
@@ -48,6 +48,6 @@ const Mining = () => {
     )
 }
 const TableMining = styled(Table)`
-    width:410px;
+    width:100%;
 `
 export default Mining
