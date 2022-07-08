@@ -207,7 +207,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/fake/all', configHeader)
             .then(res => {
                 // console.log(res)
-                console.log(res.data)
+                //console.log(res.data)
                 setUppgDatabase(res.data);
             })
             .catch(err => {
@@ -250,7 +250,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/auth/me', configHeader)
             .then(res=>{
                 setName(res.data.object.fio);
-                // console.log(res);
+                console.log(res);
             })
             .catch(error=>{ console.log(error)})
     }
