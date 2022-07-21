@@ -21,7 +21,7 @@ const ConsumedElectricity = () => {
             <thead>
             <Tr>
                 <Th rowSpan="2" style={{position:'sticky', top:'0'}}>Месторождение</Th>
-                <Th colSpan="4" style={{position:'sticky', top:'0'}}>Потребляемая электроэнергия, кв/ч
+                <Th colSpan="4" style={{position:'sticky', top:'0'}}>Потребляемая электроэнергия, кВт⋅ч
                     {getRoleNameFromJWT() !== 'EMPLOYEE' && getRoleNameFromJWT() !== 'OPERATOR' && getRoleNameFromJWT() !== 'METROLOGIST' && getRoleNameFromJWT() !== 'GEOLOGIST' ? <FontAwesomeIcon style={{
                         position:'absolute',
                         right:'5px',
