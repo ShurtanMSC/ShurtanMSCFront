@@ -34,8 +34,10 @@ export const Input = styled.input`
     padding: 0.75rem 1.5rem;
     margin-bottom: 20px;
     outline:none;
-    border:none;
-    &::placeholder{
+    border:1px solid #fff;
+    box-shadow: 0 0 2px 2px #fff;
+    transition: all .2s;
+  &::placeholder{
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
