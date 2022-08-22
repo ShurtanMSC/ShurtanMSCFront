@@ -22,7 +22,7 @@ const Admin = () => {
                             <Button>Войти в систему </Button>
                         </Form>
                     </div>
-                    <PAdminFooter>© Все права защищены АО "O'ZLITINEFTGAZ" & Napa Automotive {new Date().getFullYear()}</PAdminFooter>
+                    <PAdminFooter>© Все права защищены <a href="https://liting.uz/" target="_blank">АО "O'ZLITINEFTGAZ"</a> {new Date().getFullYear()}г.</PAdminFooter>
                 </Login>
             </ContainerAdmin>
         </ContainerFluidFooter>
@@ -64,6 +64,16 @@ const PAdminFooter = styled.p`
   color: #000;
   position: absolute;
   bottom: 5px;
+  a {
+    color: inherit;
+    box-shadow: none;
+    font-weight: inherit;
+    transition: .3s ease-in-out;
+    &:hover {
+        color: #00A0DC;
+    }
+  }
+  
 `
 const DivImg = styled.div`
     width: 250px;

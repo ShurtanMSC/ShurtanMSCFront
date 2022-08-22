@@ -166,10 +166,10 @@ const BtnSearch = () => {
                             uppgId={uppgId}
                             selectedUppg={selectedUppg}
             />
-            <Table>
+            <Table style={{height:'360px'}}>
                 <thead>
                 <Tr>
-                    <Th style={{position:'relative'}}>
+                    <Th style={{position:'sticky', top:'0'}}>
                         {getRoleNameFromJWT() !== 'EMPLOYEE' &&
                          getRoleNameFromJWT() !== 'OPERATOR' &&
                          getRoleNameFromJWT() !== 'ENERGETIC' &&
@@ -177,50 +177,50 @@ const BtnSearch = () => {
                          getRoleNameFromJWT() !== 'GEOLOGIST' ?
                              <FontAwesomeIcon style={{
                                                     position:'absolute',
-                                                    top:'10px',
+                                                    top:'15px',
                                                     left:'10px',
                                                     cursor:'pointer'
                                                     }}
                                                     icon={faEdit}
                             onClick={() => openBtnSearchModal(selectedUppg ? selectedUppg.objectActionDto.uppgId : "")}/> : ""}
-                        Наименование</Th>
-                    <Th>Часовая</Th>
-                    <Th>За тек. сутки</Th>
-                    <Th>За тек. месяц</Th>
-                    <Th>С нач. года</Th>
+                        Наимено-<br/>вание</Th>
+                    <Th style={{position:'sticky', top:'0'}}>Часовая</Th>
+                    <Th style={{position:'sticky', top:'0'}}>За тек. сутки</Th>
+                    <Th style={{position:'sticky', top:'0'}}>За тек. месяц</Th>
+                    <Th style={{position:'sticky', top:'0'}}>С нач. года</Th>
                 </Tr>
                 </thead>
                 <tbody>
                 <Tr>
-                    <TdFirst>Проектная производительность <br/> м<sup>3</sup>/год</TdFirst>
-                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24)*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24*30)*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24*365)*10)/10 : "")}</Td>
+                    <TdFirst>Проектная <br/> производи-<br/>тельность <br/>тыс м<sup>3</sup>/год</TdFirst>
+                    <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.designedPerformance*10/1000)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24/1000)*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24*30/1000)*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.designedPerformance*24*365/1000)*10)/10 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>Фактическая производителность <br/> м<sup>3</sup>/год</TdFirst>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance)*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24)*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24*30)*10)/10 : "")}</Td>
-                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24*365)*10)/10 : "")}</Td>
+                    <TdFirst>Фактическая <br/> производи-<br/>телность тыс м<sup>3</sup>/год</TdFirst>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance/1000)*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24/1000)*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24*30/1000)*10)/10 : "")}</Td>
+                    <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.actualPerformance*24*365/1000)*10)/10 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>По газу, тыс м<sup>3</sup></TdFirst>
+                    <TdFirst>По газу, <br/> тыс м<sup>3</sup></TdFirst>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.expend/1000*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.todayExpend/1000*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.thisMonthExpend/1000*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round(selectedUppg.objectActionDto.actualPerformance/1000*10)/10 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>По конденсату, тыс.т</TdFirst>
+                    <TdFirst>По конден-<br/>сату, тыс.т</TdFirst>
                     <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.condensate/1000)*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.condensate*24/1000)*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.condensate*24*30/1000)*10)/10 : "")}</Td>
                     <Td>{(selectedUppg ? Math.round((selectedUppg.objectActionDto.condensate*24*365/1000)*10)/10 : "")}</Td>
                 </Tr>
                 <Tr>
-                    <TdFirst>По воде, тыс. т</TdFirst>
+                    <TdFirst>По воде, <br/> тыс. т</TdFirst>
                     <Td colSpan="4">{selectedUppg ? Math.round((selectedUppg.objectActionDto.onWater/1000)*10)/10 : ""}</Td>
                 </Tr>
                 <Tr>
@@ -246,7 +246,7 @@ const BtnSearch = () => {
     )
 }
 const SearchDiv = styled.div`
-  width: 400px;
+  width: 420px;
   position: relative;
 `
 const SearcherSK = styled.div`

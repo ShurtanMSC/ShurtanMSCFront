@@ -88,12 +88,12 @@ const   Pressure = () => {
     )
 }
 const PressureContainer = styled.div`
-    width: 400px;
+    width: 410px;
     height:565px;  
     position:relative;
 `
 const TablePresure = styled(Table)`
-    width:${({showPressureTable}) => (showPressureTable ? "800px" : "400px")};
+    width:${({showPressureTable}) => (showPressureTable ? "800px" : "410px")};
     height:590px;
     transition:0.2s;
     background: #fff;
