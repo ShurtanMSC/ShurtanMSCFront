@@ -1,6 +1,6 @@
 // export const BASE_URL='https://shurtanback.herokuapp.com'
 // export const BASE_URL='http://localhost:8080'
-export const BASE_URL='http://192.168.125.150:9090' // this is url for shurtan
+export const BASE_URL='http://192.168.125.150:9090' // this url for shurtan
 // export const BASE_URL='http://185.170.214.207:8088'
 // export const BASE_URL='http://10.10.100.226:8888'
 // export const BASE_URL='http://10.10.77.4:9090'

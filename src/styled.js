@@ -502,8 +502,9 @@ export const Table = styled.table`
     border: 0px solid #F4B790;
     overflow-y: scroll;
     display: block;
+    scrollbar-width: none;
     &::-webkit-scrollbar{
-    width: 0;
+    display:none;
 }
 `
 export const Tr = styled.tr`
@@ -760,8 +761,9 @@ export const DivDataModal = styled.div`
 
 // BtnSearch
 export const BtnDiv = styled.div`
+    width: 420px;
     margin:5px 0;
-    padding:0 5px;
+    padding:0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -776,7 +778,8 @@ export const BtnSerach = styled.button`
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
-    padding: 3px 5%;
+    padding: 3px 5px;
+    line-height: 1.4;
     text-align: center;
     color: #363636;
     &:first-child{
@@ -792,10 +795,11 @@ export const Select = styled.select`
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
-    padding: 2px 6px;
+    padding: 3px;
     text-align: center;
     color: #363636;
     outline: none;
+    line-height: 1.6;
 `
 
 // ShurtanMap
@@ -973,7 +977,7 @@ export const SelectModal = styled.select`
 `
 // LOADING...
 export const Loader = styled.div`
-  width: 1100px;
+  width: 1060px;
   height: 100%;
   display:flex;
   justify-content: center;

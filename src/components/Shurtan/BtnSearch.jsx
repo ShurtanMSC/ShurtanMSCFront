@@ -6,12 +6,14 @@ import { BtnDiv, BtnSerach, Select, Table, Tr, Th, TdFirst, Td, LabelNavTitle } 
 import styled from 'styled-components'
 import BtnSearchModal from "./BtnSearchModal";
 import BdUppgModal from './BdUppgModal';
+import BalanceGasModal from './BalanceGasModal';
 import {getRoleNameFromJWT} from "../../utills/UsefullFunctions";
 
 const BtnSearch = () => {
     const [ showBtnSearch, setShowBtnSearch] = useState(false);
     const [ showBdUppgModal, setShowBdUppgModal] = useState(false);
     const [ openUppg, setOpenUppg ] = useState(false);
+    const [ showBalanceGasModal, setShowBalanceGasModal ] = useState(false);
 
     const [ selectedUppg, setSelectedUppg ] = useState();
     const [ uppgId, setUppgId ] = useState('');
@@ -53,6 +55,10 @@ const BtnSearch = () => {
     const openBdUppgModal = () => {
         setShowBdUppgModal(prev => !prev)
     }
+
+    const openBalanceGasModal = () => {
+        setShowBalanceGasModal(prev => !prev);
+    }
     // const sorted = [];
     // if(openWell){
     //     for (let s = 0; s < openWell.length; s++){
@@ -82,12 +88,16 @@ const BtnSearch = () => {
                         <option key={key} value={uppg.objectDto.id}>{uppg.objectDto.name}</option>
                     )}
                 </Select>
-                <BtnSerach onClick={()=> setOpenUppg(!openUppg)}>
-                    <FontAwesomeIcon icon={faSearch} /> Поиск скважины
-                </BtnSerach>
-                <BdUppgModal showBdUppgModal={showBdUppgModal}
-                                setShowBdUppgModal={setShowBdUppgModal}/>
-                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}> БД УППГ </BtnSerach>
+                <BtnSerach onClick={()=> setOpenUppg(!openUppg)}> <FontAwesomeIcon icon={faSearch}/>Поиск скважины</BtnSerach>
+                <BdUppgModal showBdUppgModal={showBdUppgModal} setShowBdUppgModal={setShowBdUppgModal}/>
+                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || 
+                                                                getRoleNameFromJWT() === 'OPERATOR' || 
+                                                                getRoleNameFromJWT() === 'ENERGETIC' || 
+                                                                getRoleNameFromJWT() === 'METROLOGIST' || 
+                                                                getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}
+                > БД УППГ </BtnSerach>
+                <BtnSerach onClick={openBalanceGasModal}>Баланс газа</BtnSerach>
+                <BalanceGasModal showBalanceGasModal={showBalanceGasModal} setShowBalanceGasModal={setShowBalanceGasModal}/>
             </BtnDiv>
             <SearcherSK openUppg={openUppg}>
                 <Form>
@@ -251,7 +261,7 @@ const SearchDiv = styled.div`
 `
 const SearcherSK = styled.div`
   width:100%;
-  height:${({openUppg}) => (openUppg ? "90%" : "0")};
+  height:${({openUppg}) => (openUppg ? "91.5%" : "0")};
   position:absolute;
   top:35px;
   z-index: 2;

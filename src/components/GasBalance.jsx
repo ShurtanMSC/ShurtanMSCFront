@@ -4,12 +4,14 @@ import styled from 'styled-components'
 import CountUp from 'react-countup'
 import CurrentOperatingCostsModal from './CurrentOperatingCostsModal'
 import GasBalanceModal from './GasBalanceModal';
+import BalanceModal from './BalanceModal';
 import {getRoleNameFromJWT} from "../utills/UsefullFunctions";
 
 const GasBalance = () => {
     const {totalInWork, totalInIdle, totalInRepair, AllTotal, date} = useContext(AppContext);
     const [showCurrentOperatingCosts, setShowCurrentOperatingCosts] = useState(false);
     const [showGasBalanceModal, setShowGasBalanceModal] = useState(false);
+    const [showBalance, setShowBalance] = useState(false);
 
     const openModal = () => {
         setShowCurrentOperatingCosts(prev => !prev);
@@ -17,6 +19,10 @@ const GasBalance = () => {
 
     const showModal = () => {
         setShowGasBalanceModal(prev => !prev);
+    }
+
+    const showBalanceModal = () => {
+        setShowBalance(prev => !prev);
     }
     let totalInWorkPercent = (totalInWork*100)/AllTotal;
     let totalInIdlePercent = (totalInIdle*100)/AllTotal;
@@ -73,13 +79,14 @@ const GasBalance = () => {
                 </Card>
             </ContainerGasBalanced>
             <BtnDiv>
-                <Button onClick={openModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Текущие эксплуатационные затраты</Button>
-                <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Баланс газа</Button>
+                <Button onClick={openModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Текущие эксплуатационные <br/>затраты</Button>
+                <Button onClick={showModal} disabled={getRoleNameFromJWT() === "EMPLOYEE" || getRoleNameFromJWT() === 'OPERATOR' || getRoleNameFromJWT() === 'ENERGETIC' || getRoleNameFromJWT() === 'METROLOGIST' || getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}>Состав газа</Button>
+                <Button onClick={showBalanceModal}>Баланс газа</Button>
             </BtnDiv>
         </ContainerFluidGasBAlanced>
         <CurrentOperatingCostsModal showCurrentOperatingCosts={showCurrentOperatingCosts} setShowCurrentOperatingCosts={setShowCurrentOperatingCosts} date={date}/>
         <GasBalanceModal showGasBalanceModal={showGasBalanceModal} setShowGasBalanceModal={setShowGasBalanceModal} date={date}/>
-
+        <BalanceModal showBalance={showBalance} setShowBalance={setShowBalance}/>
         </>
     )
 }
@@ -254,6 +261,7 @@ const BtnDiv = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex: stretch;
     padding: 2px;
 `
 const Button = styled.button`
@@ -267,9 +275,9 @@ const Button = styled.button`
     font-size: 10px;
     text-align: center;
     color: #363636;
-    width:48%;
-    height:30px;
-    padding: 2px;
+    // width:100%;
+    height:35px;
+    padding: 3px 6px;
     cursor: pointer;
     outline: none;
     transition: 0.5s ease-in;
@@ -281,6 +289,10 @@ const Button = styled.button`
         box-shadow: 0 0 2px 2px rgba(255, 144, 75, 0.5);
         background: #FF914B;
         color: #fafafa;
+    }
+    &:not(:first-child){
+        width: 26%;
+        margin-left: 2px;
     }
 `
 

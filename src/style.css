@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+html {
+    scrollbar-width: none;
+}
 body{
     background-color: #fff;
 }
@@ -20,7 +23,7 @@ a:focus{
     box-shadow: 0 0 2px 2px #3392db6c;
 }
 ::-webkit-scrollbar{
-    width: 0;
+    display: none;
 }
 
 /* Map */

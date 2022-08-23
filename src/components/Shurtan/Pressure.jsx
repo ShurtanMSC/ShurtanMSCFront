@@ -89,17 +89,20 @@ const   Pressure = () => {
 }
 const PressureContainer = styled.div`
     width: 410px;
-    height:565px;  
+    height:550px;  
     position:relative;
 `
 const TablePresure = styled(Table)`
     width:${({showPressureTable}) => (showPressureTable ? "800px" : "410px")};
-    height:590px;
+    height:550px;
     transition:0.2s;
     background: #fff;
     position: absolute;
     top: 0;
     left: 0;
+    &::-webkit-scrollbar{
+        display:none;
+    }
 `
 const FontAwesomeIconPresure = styled(FontAwesomeIcon)`
     cursor: pointer;
