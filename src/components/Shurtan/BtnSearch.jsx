@@ -20,6 +20,16 @@ const BtnSearch = () => {
 
         /** Sborniy punklar (Collection points) kontekstdan **/
     const {openWell, pressureApi, allUppg, findStatus, findColor, handlerWellSearch, selectedWell} = useContext(AppContext);
+    
+    let numberOfWell = [];
+
+    for (let i = 0; i < openWell.length; i++) {
+        numberOfWell.push(openWell[i]);
+    };
+    
+    numberOfWell.sort(function(a, b) {
+        return a.objectDto.number - b.objectDto.number
+    })
 
     /** Skvajina turgan spni nomini topish, skvajinadagi sp (collectionPointId) id **/
     const cpNameFinder=(id)=> {
@@ -82,7 +92,7 @@ const BtnSearch = () => {
     return (
         <SearchDiv>
             <BtnDiv>
-                <Select name="text" id="text" onChange={handlerAllUppg}>
+                <Select name="text" id="text" onChange={handlerAllUppg} onClick={()=> setOpenUppg(false)}>
                     <option value="">--Выберите--</option>
                     {allUppg.map((uppg, key) =>
                         <option key={key} value={uppg.objectDto.id}>{uppg.objectDto.name}</option>
@@ -104,7 +114,7 @@ const BtnSearch = () => {
                     <LabelChange htmlFor="searcher">Введите номер скважины:</LabelChange>
                     <SelectChange  htmlFor='searcher' id="searcher" onChange={handlerWellSearch}>
                         <option value=""> --Поиск скважины-- </option>
-                        {openWell.map(wells =>
+                        {numberOfWell && numberOfWell.map(wells =>
                             <option key={wells.objectDto.number} value={wells.objectDto.id}>{wells.objectDto.number}</option>
                         )}
                     </SelectChange>

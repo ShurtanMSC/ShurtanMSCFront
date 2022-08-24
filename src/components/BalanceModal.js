@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useCallback, useContext} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ModalDivShurtan, H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, CloseBtnModal, InputModal, TdFirst, CurrentMonthDiv } from '../styled';
+import { ModalDivShurtan, H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, CloseBtnModal, InputModal, TdFirst } from '../styled';
 import { AppContext } from '../context';
 import styled from 'styled-components';
 
@@ -130,7 +130,7 @@ const BalanceModal = ({showBalance, setShowBalance}) => {
                             <SaveDiv>
                                 <div>
                                     <PModal>Дата изменения:
-                                        <SpanModal>{dateTime}</SpanModal>
+                                        <SpanModal> {dateTime}</SpanModal>
                                         <SpanModal>  </SpanModal>
                                     </PModal>
                                 </div>
@@ -148,11 +148,5 @@ const BalanceModal = ({showBalance, setShowBalance}) => {
         </AnimatePresence>
     )
 }
-
-const TdFirstChange = styled(TdFirst)`
-  text-align:start;
-  padding-left: 5px;
-  width: 270px;
-`
 
 export default BalanceModal

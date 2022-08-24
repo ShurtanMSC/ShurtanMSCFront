@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useCallback, useContext} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ModalDivShurtan, H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, CloseBtnModal, InputModal, CurrentMonthDiv } from '../../styled';
+import { ModalDivShurtan, H2, H2Div, Table, Tr, Th, Td, SaveDiv, PModal, SpanModal, CloseBtnModal, InputModal } from '../../styled';
 import { AppContext } from '../../context';
 
 const backdrop = {
