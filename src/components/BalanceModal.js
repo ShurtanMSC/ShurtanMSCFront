@@ -42,17 +42,29 @@ const BalanceModal = ({showBalance, setShowBalance}) => {
         return() => document.addEventListener( 'keydown', keyPress);
     }, [keyPress]);
 
-    let B3 = 0;
-    for ( let i = 0; i < uppgDatabase.length; i++ ) {
-        if( uppgDatabase ) {
-            B3 = uppgDatabase[i].nakoplenniy_obyom_s_nachalo_sutok++;
-        } 
-    }
-    let C3 = ( B3*(0.619*0.5)/100 );
-    let D3 = ( (B3 - C3) * ((9.457*0.5)/100) );
-    let E3 = ( B3 - C3 - D3 );
-    let F3 = ( E3*((9.457*0.53) + (0.619*0.5))/100 );
-    let G3 = ( E3 - F3 );
+    let dobicha = uppgDatabase&&uppgDatabase[0] ? uppgDatabase[0].nakoplenniy_obyom_za_vchera : '';
+    let snipPriPodgotovki = dobicha*(0.619*0.5)/100;
+    let dobichaGaza = snipPriPodgotovki + dobicha;
+    let snipPriKomprimirovani = (dobichaGaza - snipPriPodgotovki)*( (9.457*0.5)/100 );
+    let obyomGazaPostavlyaemiy = dobichaGaza - snipPriPodgotovki - snipPriKomprimirovani;
+    let snipPriPrerabotke = obyomGazaPostavlyaemiy*( (9.457*0.53) + (0.619*0.5) )/100;
+    let obyomTovarnogoGaza = obyomGazaPostavlyaemiy - snipPriPrerabotke;
+
+    let dobicha2 = uppgDatabase&&uppgDatabase[1] ? uppgDatabase[1].nakoplenniy_obyom_za_vchera : '';
+    let snipPriPodgotovki2 = dobicha2*(0.619*0.5)/100;
+    let dobichaGaza2 = snipPriPodgotovki2 + dobicha2;
+    let snipPriKomprimirovani2 = (dobichaGaza2 - snipPriPodgotovki2)*( (9.457*0.5)/100 );
+    let obyomGazaPostavlyaemiy2 = dobichaGaza2 - snipPriPodgotovki2 - snipPriKomprimirovani2;
+    let snipPriPrerabotke2 = obyomGazaPostavlyaemiy2*( (9.457*0.53) + (0.619*0.5) )/100;
+    let obyomTovarnogoGaza2 = obyomGazaPostavlyaemiy2 - snipPriPrerabotke2;
+    
+    let itogDobicha = dobicha + dobicha2;
+    let itogSnipPriPodgotovki = snipPriPodgotovki + snipPriPodgotovki2;
+    let itogDobichaGaza = dobichaGaza + dobichaGaza2;
+    let itogSnipPriKomprimirovani = snipPriKomprimirovani + snipPriKomprimirovani2;
+    let itogObyomGazaPostavlyaemiy = obyomGazaPostavlyaemiy + obyomGazaPostavlyaemiy2;
+    let itogSnipPriPrerabotke = snipPriPrerabotke + snipPriPrerabotke2;
+    let itogObyomTovarnogoGaza = obyomTovarnogoGaza + obyomTovarnogoGaza2;
 
     return (
         <AnimatePresence>
@@ -75,8 +87,9 @@ const BalanceModal = ({showBalance, setShowBalance}) => {
                                 <thead>
                                 <Tr>
                                     <Th style={{padding:'1rem'}}>Наименование</Th>
-                                    <Th style={{padding:'1rem'}}>Добыча газа, тыс.м<sup>3</sup>/сут</Th>
+                                    <Th>Добыча газа, тыс.м<sup>3</sup>/сут</Th>
                                     <Th>СНиП при подготовке, тыс.м<sup>3</sup>/сут</Th>
+                                    <Th>Объем газа на выходе УППГ, тыс.м<sup>3</sup>/сут</Th>
                                     <Th>СНиП при компримировании, тыс.м<sup>3</sup>/сут</Th>
                                     <Th>Объем газа поставляемый на ГС Шуртан, тыс.м<sup>3</sup>/сут</Th>
                                     <Th>СНиП при переработке, тыс.м<sup>3</sup>/сут</Th>
@@ -90,37 +103,43 @@ const BalanceModal = ({showBalance, setShowBalance}) => {
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(B3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogDobichaGaza*100)/100 : ''}
                                             disabled />
                                         </Td>
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(C3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogSnipPriPodgotovki*100)/100 : ''}
                                             disabled />
                                         </Td>
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(D3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogDobicha*100)/100 : ''}
                                             disabled />
                                         </Td>
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(E3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogSnipPriKomprimirovani*100)/100 : ''}
                                             disabled />
                                         </Td>
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(F3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogObyomGazaPostavlyaemiy*100)/100 : ''}
                                             disabled />
                                         </Td>
                                         <Td> <InputModal
                                             type="text"
                                             name="name"
-                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(G3*100)/100 : ''}
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogSnipPriPrerabotke*100)/100 : ''}
+                                            disabled />
+                                        </Td>
+                                        <Td> <InputModal
+                                            type="text"
+                                            name="name"
+                                            defaultValue={nameOfMining.name === 'Шуртан' ? Math.round(itogObyomTovarnogoGaza*100)/100 : ''}
                                             disabled />
                                         </Td>
                                     </Tr>

@@ -63,7 +63,7 @@ const BalanceGasModal = ({showBalanceGasModal, setShowBalanceGasModal}) => {
     let itogSnipPriKomprimirovani = snipPriKomprimirovani + snipPriKomprimirovani2;
     let itogObyomGazaPostavlyaemiy = obyomGazaPostavlyaemiy + obyomGazaPostavlyaemiy2;
     let itogSnipPriPrerabotke = snipPriPrerabotke + snipPriPrerabotke2;
-    let itogObyomTovarnogoGaza2 = obyomTovarnogoGaza2 + obyomTovarnogoGaza2;
+    let itogObyomTovarnogoGaza = obyomTovarnogoGaza + obyomTovarnogoGaza2;
 
     return (
         <AnimatePresence>
@@ -196,7 +196,7 @@ const BalanceGasModal = ({showBalanceGasModal, setShowBalanceGasModal}) => {
                                         <TdTotalCount>{itogSnipPriKomprimirovani}</TdTotalCount>
                                         <TdTotalCount>{itogObyomGazaPostavlyaemiy}</TdTotalCount>
                                         <TdTotalCount>{itogSnipPriPrerabotke}</TdTotalCount>
-                                        <TdTotalCount>{itogObyomTovarnogoGaza2}</TdTotalCount>
+                                        <TdTotalCount>{itogObyomTovarnogoGaza}</TdTotalCount>
                                     </Tr>
                                 </tfoot>
                             </Table>
