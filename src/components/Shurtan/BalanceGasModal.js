@@ -190,13 +190,13 @@ const BalanceGasModal = ({showBalanceGasModal, setShowBalanceGasModal}) => {
                                 <tfoot>
                                     <Tr>
                                         <TdTotal>Итого</TdTotal>
-                                        <TdTotalCount>{itogDobichaGaza}</TdTotalCount>
-                                        <TdTotalCount>{itogSnipPriPodgotovki}</TdTotalCount>
-                                        <TdTotalCount>{itogDobicha}</TdTotalCount>
-                                        <TdTotalCount>{itogSnipPriKomprimirovani}</TdTotalCount>
-                                        <TdTotalCount>{itogObyomGazaPostavlyaemiy}</TdTotalCount>
-                                        <TdTotalCount>{itogSnipPriPrerabotke}</TdTotalCount>
-                                        <TdTotalCount>{itogObyomTovarnogoGaza}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogDobichaGaza*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogSnipPriPodgotovki*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogDobicha*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogSnipPriKomprimirovani*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogObyomGazaPostavlyaemiy*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogSnipPriPrerabotke*100)/100}</TdTotalCount>
+                                        <TdTotalCount>{Math.round(itogObyomTovarnogoGaza*100)/100}</TdTotalCount>
                                     </Tr>
                                 </tfoot>
                             </Table>
