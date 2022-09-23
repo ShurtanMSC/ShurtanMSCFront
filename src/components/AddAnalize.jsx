@@ -82,30 +82,30 @@ const AddAnalize = () => {
             {analysis.map((add, key) =>
                 <Tr key={key}>
                     <TdFirst>{add.name}</TdFirst>
-                    <Td> <CountUp end={Math.round(add.plan_m*10)/10/1000} duration={5}/> </Td>
-                    <Td> <CountUp end={Math.round(add.fakt_m*10)/10/1000} duration={4}/> </Td>
+                    <Td> <CountUp end={Math.round(add.plan_m/1000*10)/10} duration={5}/> </Td>
+                    <Td> <CountUp end={Math.round(add.fakt_m/1000*10)/10} duration={4}/> </Td>
                     <td className={((add.fakt_m*100)/add.plan_m) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_m*100)/(add.plan_m)} duration={2}/> </td>
-                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_m)-(add.plan_m))*10)/10/1000} duration={3}/> </td>
-                    <Td> <CountUp end={Math.round(add.plan_g*10)/10/1000} duration={6}/> </Td>
-                    <Td> <CountUp end={Math.round(add.fakt_g*10)/10/1000} duration={6}/> </Td>
-                    <Td> <CountUp end={Math.round(add.proshlom_god*10)/10/1000} duration={7}/> </Td>
+                    <td className={(add.fakt_m)-(add.plan_m) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_m)-(add.plan_m))/1000*10)/10} duration={3}/> </td>
+                    <Td> <CountUp end={Math.round(add.plan_g/1000*10)/10} duration={6}/> </Td>
+                    <Td> <CountUp end={Math.round(add.fakt_g/1000*10)/10} duration={6}/> </Td>
+                    <Td> <CountUp end={Math.round(add.proshlom_god/1000*10)/10} duration={7}/> </Td>
                     <td className={((add.fakt_g*100)/add.plan_g) >= 100 ? "green" : "red"}> <CountUp end={(add.fakt_g*100)/add.plan_g} duration={2}/> </td>
-                    <td className={(add.fakt_g)-(add.plan_g) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_g)-(add.plan_g))*10)/10/1000} duration={3}/> </td>
+                    <td className={(add.fakt_g)-(add.plan_g) >= 0 ? "green" : "red"}> <CountUp end={Math.round(((add.fakt_g)-(add.plan_g))/1000*10)/10} duration={3}/> </td>
                 </Tr>
             )}
             </tbody>
             <tfoot>
             <Tr>
                 <TdTotal>Итого</TdTotal>
-                <TdTotalCount> <CountUp end={Math.round(planMonth*10)/10/1000} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round(factMonth*10)/10/1000} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(planMonth/1000*10)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(factMonth/1000*10)/10} duration={5}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={(factMonth*100)/planMonth} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round((factMonth-planMonth)*10)/10/1000} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round(planYear*10)/10/1000} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round(factYear*10)/10/1000} duration={3}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round(lastYear*10)/10/1000} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round((factMonth-planMonth)/1000*10)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(planYear/1000*10)/10} duration={5}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(factYear/1000*10)/10} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round(lastYear/1000*10)/10} duration={3}/> </TdTotalCount>
                 <TdTotalCount> <CountUp end={(factYear*100)/planYear} duration={5}/> </TdTotalCount>
-                <TdTotalCount> <CountUp end={Math.round((factYear-planYear)*10)/10/1000} duration={3}/> </TdTotalCount>
+                <TdTotalCount> <CountUp end={Math.round((factYear-planYear)/1000*10)/10} duration={3}/> </TdTotalCount>
             </Tr>
             </tfoot>
         </TableAddAnalize>
