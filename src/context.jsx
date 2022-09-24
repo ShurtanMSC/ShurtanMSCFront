@@ -3,7 +3,7 @@ import axios from "axios";
 import {BASE_URL, TOKEN} from "./utills/constant";
 import {configHeader} from './utills/congifHeader'
 import {useHistory} from "react-router-dom";
-import {getRoleNameFromJWT} from "./utills/UsefullFunctions";
+import {getFioFromJWT, getRoleNameFromJWT} from "./utills/UsefullFunctions";
 
 const AppContext = createContext();
 
@@ -24,8 +24,9 @@ const AppProvider = ({children}) => {
                 localStorage.setItem(TOKEN,res.data.token);
                 console.log(localStorage.getItem(TOKEN));
                 console.log(getRoleNameFromJWT());
+                setName(getFioFromJWT())
+                // takeFio();
                 history.push("/mainPage");
-                takeFio();
         }
         ).catch(error=>{
             console.log(error)
@@ -300,10 +301,15 @@ const AppProvider = ({children}) => {
         takeSpPressure();
         setRefresh(dateTime);
         setInterval(() => {
-            takeSpPressure();
-            setRefresh(dateTime);
-            takeAllWells();
-            getUppgDatabase();
+            if (localStorage.getItem(TOKEN)){
+                console.log("NEGAAA NULL")
+                console.log(configHeader)
+                takeSpPressure();
+                setRefresh(dateTime);
+                takeAllWells();
+                getUppgDatabase();
+            }
+
         }, 10000);
         // setInterval(() => {
         //     getUppgDatabase();
@@ -330,14 +336,17 @@ const AppProvider = ({children}) => {
         takeElectric();
         /** Dobicha Gaza **/
         setInterval(() => {
-            axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
-                .then(res => {
-                    setAddGas(res.data.object);
-                    // console.log(res.data.object)
-                })
-                .catch(err => {console.log(err)});
-            // setRefresh(dateTime);
-            // takeAllWells();
+            if (localStorage.getItem(TOKEN)){
+                axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
+                    .then(res => {
+                        setAddGas(res.data.object);
+                        // console.log(res.data.object)
+                    })
+                    .catch(err => {console.log(err)});
+                // setRefresh(dateTime);
+                // takeAllWells();
+            }
+
         }, 2000);
 
         /** Call Pdf Report Api **/
@@ -355,7 +364,8 @@ const AppProvider = ({children}) => {
             })
             .catch(err => {console.log(err)})
         /** Call Me Api (user) **/
-        takeFio();
+        setName(getFioFromJWT())
+        // takeFio();
         /** Get PersonalManagement Api **/
         takePersonal();
         /** Get PersonalManagementReport Api **/

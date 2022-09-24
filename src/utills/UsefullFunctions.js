@@ -9,3 +9,12 @@ export const getRoleNameFromJWT=()=>{
         return ''
     }
 }
+
+export const getFioFromJWT=()=>{
+    if (localStorage.getItem(TOKEN)){
+        const parsedToken = jwtDecode(localStorage.getItem(TOKEN))
+        return parsedToken.fio
+    }else {
+        return ''
+    }
+}
