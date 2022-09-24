@@ -47,9 +47,9 @@ const AddGas = () => {
                 {addGas.map((mining, key) =>
                     <Tr key={key}>
                         <TdFirst>{mining.objectDto !== null ? mining.objectDto.name : ""}</TdFirst>
-                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.expend/10000*10)/10 : 0} duration={0.7}/> </Td>
-                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.todayExpend/10000*10)/10 : 0} duration={1}/> </Td>
-                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.yesterdayExpend/10000*10)/10 : 0} duration={1}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.expend/1000*10)/10 : 0} duration={0.7}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.todayExpend/1000*10)/10 : 0} duration={1}/> </Td>
+                        <Td> <CountUp end={mining.objectActionDto !==null ? Math.round(mining.objectActionDto.yesterdayExpend/1000*10)/10 : 0} duration={1}/> </Td>
                     </Tr>
                 )}
                 </tbody>
