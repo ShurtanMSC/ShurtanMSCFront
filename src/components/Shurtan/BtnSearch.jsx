@@ -100,11 +100,12 @@ const BtnSearch = () => {
                 </Select>
                 <BtnSerach onClick={()=> setOpenUppg(!openUppg)}> <FontAwesomeIcon icon={faSearch}/>Поиск скважины</BtnSerach>
                 <BdUppgModal showBdUppgModal={showBdUppgModal} setShowBdUppgModal={setShowBdUppgModal}/>
-                <BtnSerach onClick={openBdUppgModal} disabled={getRoleNameFromJWT() === 'EMPLOYEE' || 
-                                                                getRoleNameFromJWT() === 'OPERATOR' || 
-                                                                getRoleNameFromJWT() === 'ENERGETIC' || 
-                                                                getRoleNameFromJWT() === 'METROLOGIST' || 
-                                                                getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}
+                <BtnSerach onClick={openBdUppgModal} 
+                            // disabled={getRoleNameFromJWT() === 'EMPLOYEE' || 
+                            //             getRoleNameFromJWT() === 'OPERATOR' || 
+                            //             getRoleNameFromJWT() === 'ENERGETIC' || 
+                            //             getRoleNameFromJWT() === 'METROLOGIST' || 
+                            //             getRoleNameFromJWT() === 'GEOLOGIST' ? true : false}
                 > БД УППГ </BtnSerach>
                 <BtnSerach onClick={openBalanceGasModal}>Баланс газа</BtnSerach>
                 <BalanceGasModal showBalanceGasModal={showBalanceGasModal} setShowBalanceGasModal={setShowBalanceGasModal}/>

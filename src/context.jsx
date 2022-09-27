@@ -22,8 +22,8 @@ const AppProvider = ({children}) => {
             }, configHeader
         ).then(res => {
                 localStorage.setItem(TOKEN,res.data.token);
-                console.log(localStorage.getItem(TOKEN));
-                console.log(getRoleNameFromJWT());
+                // console.log(localStorage.getItem(TOKEN));
+                // console.log(getRoleNameFromJWT());
                 setName(getFioFromJWT())
                 // takeFio();
                 history.push("/mainPage");
@@ -222,7 +222,7 @@ const AppProvider = ({children}) => {
         axios.get(BASE_URL + '/api/well/all/action/mining_system/'+1, configHeader)
             .then(res => {
                 setOpenWell(res.data.object);
-                console.log(res.data.object);
+                // console.log(res.data.object);
             })
             .catch(err => {console.log(err)})
     }
@@ -302,8 +302,8 @@ const AppProvider = ({children}) => {
         setRefresh(dateTime);
         setInterval(() => {
             if (localStorage.getItem(TOKEN)){
-                console.log("NEGAAA NULL")
-                console.log(configHeader)
+                // console.log("NEGAAA NULL")
+                // console.log(configHeader)
                 takeSpPressure();
                 setRefresh(dateTime);
                 takeAllWells();

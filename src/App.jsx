@@ -14,8 +14,8 @@ const App = () => {
     function f() {
         axios.get(BASE_URL+"/api/auth/me",configHeader)
             .then(function (res) {
-                console.log("RRRRRRR")
-                console.log(res)
+                // console.log("RRRRRRR")
+                // console.log(res)
             })
             .catch(function (err) {
                 localStorage.removeItem(TOKEN)
