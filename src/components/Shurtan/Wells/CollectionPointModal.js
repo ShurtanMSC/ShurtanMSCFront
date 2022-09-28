@@ -78,7 +78,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     {el.objectActionDto !== null && el.objectActionDto.pressure === 0 && el.objectActionDto.temperature === 0 ?
                                     <tr>
-                                        <TdModalShurtanRed colSpan="2">НЕТ СИГНАЛА</TdModalShurtanRed>
+                                        <TdModalShurtanRed colSpan="2">НЕТ СИГНАЛА <br/> с {el.objectActionDto.createdAt.slice(0, 10)} {el.objectActionDto.createdAt.slice(11, 19)}</TdModalShurtanRed>
                                     </tr>
                                     : ""}
                                     <tr>

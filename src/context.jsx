@@ -3,7 +3,7 @@ import axios from "axios";
 import {BASE_URL, TOKEN} from "./utills/constant";
 import {configHeader} from './utills/congifHeader'
 import {useHistory} from "react-router-dom";
-import {getFioFromJWT, getRoleNameFromJWT} from "./utills/UsefullFunctions";
+import {getFioFromJWT} from "./utills/UsefullFunctions";
 
 const AppContext = createContext();
 
@@ -255,6 +255,7 @@ const AppProvider = ({children}) => {
             })
             .catch(error=>{ console.log(error)})
     }
+    
     let today = new Date();
     let month;
     if(today.getMonth() === 0){
