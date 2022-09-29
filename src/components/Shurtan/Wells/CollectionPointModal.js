@@ -43,6 +43,11 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
         return() => document.removeEventListener('keydown', keyPress);
     }, [keyPress]);
 
+    let s = filtered.map(el=> el.objectActionDto.createdAt);
+    // console.log(new Date(s));
+    let time = new Date(s).getHours() + ":" + new Date(s).getMinutes() + ":" + new Date(s).getSeconds();
+    // console.log(time); 
+    
     return (
         <AnimatePresence>
             { showCollectionPointModal && (
@@ -78,7 +83,7 @@ const CollectionPointModal = ({showCollectionPointModal, setShowCollectionPointM
                                     </tr>
                                     {el.objectActionDto !== null && el.objectActionDto.pressure === 0 && el.objectActionDto.temperature === 0 ?
                                     <tr>
-                                        <TdModalShurtanRed colSpan="2">НЕТ СИГНАЛА <br/> с {el.objectActionDto.createdAt.slice(0, 10)} {el.objectActionDto.createdAt.slice(11, 19)}</TdModalShurtanRed>
+                                        <TdModalShurtanRed colSpan="2">НЕТ СИГНАЛА <br/> с {el.objectActionDto.createdAt.slice(0, 10)} {time}</TdModalShurtanRed>
                                     </tr>
                                     : ""}
                                     <tr>
