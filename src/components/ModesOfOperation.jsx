@@ -68,51 +68,51 @@ const ModesOfOperation = () => {
             <tbody>
             <Tr>
                 <TdFirst>ДКС-2 КМПО</TdFirst>
+                <Td> <CountUp end={7.7} duration={5}/> </Td>
+                <Td> <CountUp end={7.4} duration={5}/> </Td>
                 <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={20.2} duration={5}/> </Td>
+                <Td> <CountUp end={32} duration={5}/> </Td>
+                <Td> <CountUp end={95} duration={5}/> </Td>
+                <Td> <CountUp end={553} duration={5}/> </Td>
+                <Td> <CountUp end={5285} duration={5}/> </Td>
+                <Td> <CountUp end={24698} duration={5}/> </Td>
+                <Td> <CountUp end={25802} duration={5}/> </Td>
+                <Td> <CountUp end={635} duration={5}/> </Td>
+                <Td> <CountUp end={68993} duration={5}/> </Td>
+                <Td> <CountUp end={11704} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>ДКС-2 Батеман</TdFirst>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={16.8} duration={5}/> </Td>
+                <Td> <CountUp end={16.3} duration={5}/> </Td>
+                <Td> <CountUp end={53.1} duration={5}/> </Td>
+                <Td> <CountUp end={34} duration={5}/> </Td>
+                <Td> <CountUp end={111} duration={5}/> </Td>
+                <Td> <CountUp end={735} duration={5}/> </Td>
+                <Td> <CountUp end={5500} duration={5}/> </Td>
+                <Td> <CountUp end={6175} duration={5}/> </Td>
+                <Td> <CountUp end={24698} duration={5}/> </Td>
+                <Td> <CountUp end={40800} duration={5}/> </Td>
+                <Td> <CountUp end={470} duration={5}/> </Td>
+                <Td> <CountUp end={103435} duration={5}/> </Td>
+                <Td> <CountUp end={36631} duration={5}/> </Td>
             </Tr>
             <Tr>
                 <TdFirst>ДКС-Сев.Нишан</TdFirst>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
-                <Td> <CountUp end={8.6} duration={5}/> </Td>
+                <Td> <CountUp end={9.5} duration={5}/> </Td>
+                <Td> <CountUp end={9.3} duration={5}/> </Td>
+                <Td> <CountUp end={52.7} duration={5}/> </Td>
+                <Td> <CountUp end={14} duration={5}/> </Td>
+                <Td> <CountUp end={42} duration={5}/> </Td>
+                <Td> <CountUp end={446} duration={5}/> </Td>
+                <Td> <CountUp end={4500} duration={5}/> </Td>
+                <Td> <CountUp end={1339} duration={5}/> </Td>
+                <Td> <CountUp end={2677} duration={5}/> </Td>
+                <Td> <CountUp end={6061} duration={5}/> </Td>
+                <Td> <CountUp end={237} duration={5}/> </Td>
+                <Td> <CountUp end={36796} duration={5}/> </Td>
+                <Td> <CountUp end={3295} duration={5}/> </Td>
             </Tr>
             </tbody>    
         </TableModeOfOperation>

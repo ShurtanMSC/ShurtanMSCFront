@@ -93,51 +93,51 @@ const ModesOfOperationModal = ({showModesOperationModal, setShowModesOperationMo
                     <tbody>
                         <Tr>
                             <TdFirst>ДКС-2 КМПО</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={7.7} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={7.4} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={8.6} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={20.2} required/>  </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={32} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={95} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={553} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={5285} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={24698} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={25802} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={635} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={68993} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={11704} required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>ДКС-2 Батеман</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={16.8} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={16.3} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={53.1} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={34} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={111} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={735} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={5500} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={6175} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={24698} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={40800} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={470} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={103435} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={36631} required/> </Td>
                         </Tr>
                         <Tr>
                             <TdFirst>ДКС-Сев.Нишан</TdFirst>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
-                            <Td> <InputModal type="number"  name="name" required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={9.5} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={9.3} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={52.7} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={14} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={42} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={446} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={4500} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={1339} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={2677} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={6061} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={237} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={36796} required/> </Td>
+                            <Td> <InputModal type="number"  name="name" defaultValue={3295} required/> </Td>
                         </Tr>
                     </tbody>
                 </Table>
