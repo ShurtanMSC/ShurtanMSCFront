@@ -1,9 +1,11 @@
 import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
-import {BASE_URL, TOKEN} from "./utills/constant";
+import {BASE_URL, BASE_URL_WEBSOCKET, TOKEN} from "./utills/constant";
 import {configHeader} from './utills/congifHeader'
 import {useHistory} from "react-router-dom";
 import {getFioFromJWT} from "./utills/UsefullFunctions";
+import {over} from 'stompjs';
+import SockJS from 'sockjs-client';
 
 const AppContext = createContext();
 
@@ -102,10 +104,65 @@ const AppProvider = ({children}) => {
     const [showElectricity, setShowElectricity] = useState(false);
     /** Call Me Api (user) **/
     const [name, setName] = useState([]);
-    /** Start & End Data & Select Report **/
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    /** Start & End Data & Select Report **/
     const [selectReport, setSelectReport] = useState('');
+    /**Web socket**/
+    const [sock, setSock] = useState(new SockJS(BASE_URL_WEBSOCKET));
+    const [stompClient, setStompClient] = useState(over(sock));
+
+
+
+    //FOR WEBSOCKET
+    const connect = () => {
+        // let Sock = new SockJS('http://192.168.0.100:8888/our-websocket');
+        // setSock(new SockJS(BASE_URL_WEBSOCKET));
+        // setStompClient(over(sock));
+        stompClient.debug = null
+        setStompClient(stompClient);
+        stompClient.connect({}, onConnected, onError);
+    }
+
+    const onError = (err) => {
+        console.log(err);
+    }
+    const onConnected = () => {
+        if (stompClient.connected) {
+            stompClient.subscribe('/topic/collection-point-action', function (message) {
+                // console.log("SUBSSSSSSSSSSSSSSSSSSSSS")
+                setPressureApi(JSON.parse(message.body))
+                // console.log(message.body)
+                // console.log(message)
+                // console.log("WITHOUT JSON")
+                // console.log(message.body)
+                // let data=JSON.parse(message.body);
+                // console.log("JSON")
+                // console.log(data)
+                // console.log(data[0])
+                setRefresh(dateTime)
+            });
+
+            stompClient.subscribe('/topic/well-point-action', function (message) {
+                setOpenWell(JSON.parse(message.body))
+                // console.log(message.body)
+            });
+
+
+            stompClient.subscribe('/topic/uppg-action', function (message) {
+                setUppgDatabase(JSON.parse(message.body))
+                // console.log(message.body)
+
+            });
+            stompClient.subscribe('/topic/mining-system-action', function (message) {
+                setAddGas(JSON.parse(message.body))
+                // console.log(message.body)
+            });
+        }
+
+    }
+
+
 
     // REGISTRATION_WELL
     const handlerNumberWell = e => {
@@ -255,7 +312,7 @@ const AppProvider = ({children}) => {
             })
             .catch(error=>{ console.log(error)})
     }
-    
+
     let today = new Date();
     let month;
     if(today.getMonth() === 0){
@@ -288,6 +345,22 @@ const AppProvider = ({children}) => {
     let dateTime = date+' '+time;
 
     useEffect(()=>{
+        if (!localStorage.getItem(TOKEN)){
+            // axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
+            //     .then(res => {
+            //         // setAddGas(res.data.object);
+            //         // console.log(res.data.object)
+            //     })
+            //     .catch(err => {console.log(err)});
+            // // setRefresh(dateTime);
+            // // takeAllWells();
+            if (stompClient.connected) stompClient.disconnect()
+            // setStompClient(null)
+        }else {
+            if (!stompClient.connected){
+                connect()
+            }
+        }
         // Get apiUppg
         axios.get(BASE_URL + '/api/uppg/all/mining_system/' + 1, configHeader)
             .then(res => {
@@ -301,17 +374,17 @@ const AppProvider = ({children}) => {
 
         takeSpPressure();
         setRefresh(dateTime);
-        setInterval(() => {
-            if (localStorage.getItem(TOKEN)){
-                // console.log("NEGAAA NULL")
-                // console.log(configHeader)
-                takeSpPressure();
-                setRefresh(dateTime);
-                takeAllWells();
-                getUppgDatabase();
-            }
-
-        }, 10000);
+        // setInterval(() => {
+        //     if (localStorage.getItem(TOKEN)){
+        //         // console.log("NEGAAA NULL")
+        //         // console.log(configHeader)
+        //         // takeSpPressure();
+        //         setRefresh(dateTime);
+        //         // takeAllWells();
+        //         // getUppgDatabase();
+        //     }
+        //
+        // }, 10000);
         // setInterval(() => {
         //     getUppgDatabase();
         //     // setRefresh(dateTime);
@@ -336,19 +409,30 @@ const AppProvider = ({children}) => {
         /** Get Electric All Last **/
         takeElectric();
         /** Dobicha Gaza **/
-        setInterval(() => {
-            if (localStorage.getItem(TOKEN)){
-                axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
-                    .then(res => {
-                        setAddGas(res.data.object);
-                        // console.log(res.data.object)
-                    })
-                    .catch(err => {console.log(err)});
-                // setRefresh(dateTime);
-                // takeAllWells();
-            }
-
-        }, 2000);
+        // setInterval(() => {
+        //     // if (!localStorage.getItem(TOKEN)){
+        //     //     // axios.get(BASE_URL + '/api/mining_system/all/actions', configHeader)
+        //     //     //     .then(res => {
+        //     //     //         // setAddGas(res.data.object);
+        //     //     //         // console.log(res.data.object)
+        //     //     //     })
+        //     //     //     .catch(err => {console.log(err)});
+        //     //     // // setRefresh(dateTime);
+        //     //     // // takeAllWells();
+        //     //     if (stompClient.connected) {
+        //     //         stompClient.disconnect()
+        //     //     }
+        //     // }else {
+        //     //     console.log(stompClient)
+        //     //     console.log(sock)
+        //     //     connect()
+        //     //     console.log(stompClient.connected)
+        //     //     if (stompClient.connected===false){
+        //     //         connect()
+        //     //     }
+        //     // }
+        //
+        // }, 2000);
 
         /** Call Pdf Report Api **/
         axios.get(BASE_URL + '/api/report/interval?mining_system_id='+ 1 +'&start=' + '2222-12-22' + '&end=' + '2222-12-22' , configHeader)
@@ -379,6 +463,9 @@ const AppProvider = ({children}) => {
         takeAnalysisReport();
         /** Get Analysis Add Modal **/
         takeAnalysisGetModal();
+        return () => {
+            setState(null);
+        };
     }, []);
 
     // WELL_OPERATION

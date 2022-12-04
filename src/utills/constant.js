@@ -1,6 +1,6 @@
 // export const BASE_URL='https://shurtanback.herokuapp.com'
-// export const BASE_URL='http://localhost:8888'
-export const BASE_URL='http://192.168.125.150:9090' // this url for shurtan
+export const BASE_URL='http://localhost:8888'
+// export const BASE_URL='http://192.168.125.150:9090' // this url for shurtan
 // export const BASE_URL='http://185.170.214.207:8088'
 // export const BASE_URL='http://10.10.100.226:8888'
 // export const BASE_URL='http://10.10.77.2:8888'
@@ -12,6 +12,7 @@ export const BASE_URL_MINING = BASE_URL + '/api/collection_point/'
 export const BASE_URL_GASCOMPOSITION = BASE_URL + '/api/gas_composition/'
 export const BASE_URL_FORECAST_GAS = BASE_URL + '/api/forecast/gas/all/mining_system/'
 export const BASE_URL_FORECAST_CONDENSATE = BASE_URL + '/api/forecast/condensate/all/mining_system/'
+export const BASE_URL_WEBSOCKET = BASE_URL + '/websocket'
 export const TOKEN='ShurtanMSC JWT Token'
 export const ME='ME'
 export const ROLE='USER ROLE'
