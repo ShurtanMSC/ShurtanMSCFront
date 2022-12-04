@@ -707,7 +707,7 @@ const AppProvider = ({children}) => {
     /** Get Analysis Add Report **/
     const [analysisReport, setAnalysisReport] = useState([]);
     const takeAnalysisReport = () => {
-        axios.get(BASE_URL + '/api/report/production/interval' + startDate + endDate, configHeader)
+        axios.get(BASE_URL + '/api/report/production/interval?start=' + startDate +"&end="+ endDate, configHeader)
             .then(res => {
                 // console.log(res.data.object);
                 setAnalysisReport(res.data.object)
