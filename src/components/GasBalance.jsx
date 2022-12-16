@@ -39,7 +39,7 @@ const GasBalance = () => {
                             <CircleOne cx="30" cy="30" r="30" totalInWorkPercent={totalInWorkPercent} ></CircleOne>
                         </Svg>
                         <Number>
-                            <h4> <CountUp end={totalInWorkPercent} duration={5}/> <span>%</span></h4>
+                            <h4> <CountUp end={totalInWorkPercent} duration={5}/><span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -51,7 +51,7 @@ const GasBalance = () => {
                             <CircleTwo cx="30" cy="30" r="30" totalInIdlePercent={totalInIdlePercent}></CircleTwo>
                         </Svg>
                         <Number>
-                            <h4> <CountUp end={totalInIdlePercent} duration={5}/> <span>%</span></h4>
+                            <h4> <CountUp end={totalInIdlePercent} duration={5}/><span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -63,7 +63,7 @@ const GasBalance = () => {
                             <CircleThree cx="30" cy="30" r="30" totalInRepairPercent={totalInRepairPercent}></CircleThree>
                         </Svg>
                         <Number>
-                            <h4> <CountUp end={totalInRepairPercent} duration={5}/> <span>%</span></h4>
+                            <h4> <CountUp end={totalInRepairPercent} duration={5}/><span>%</span></h4>
                         </Number>
                     </Percent>
                 </BoxGasBalanced>
@@ -250,11 +250,12 @@ const Number = styled.div`
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: #363636;
     position: absolute;
-    top:25px;
-    left:18px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 `
 const BtnDiv = styled.div`
     height:45px;
